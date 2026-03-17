@@ -1,0 +1,24 @@
+{{#block content}}
+<section class="section">
+  <h1 style="color: {{ certProvider.brandColor }}">{{ certProvider.name }}</h1>
+  <p class="lead">{{ certExams.length }} certification exams available. Select an exam to begin practicing with scenario-based questions and progressive hints.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--2col">
+    {{#each certExams}}
+    <a href="{{ quizHref }}?exam={{ slug }}" class="card cert-exam-card">
+      <div class="cert-exam-card__header">
+        <span class="cert-exam-card__code">{{ code }}</span>
+        <span class="cert-exam-card__difficulty cert-exam-card__difficulty--{{ difficulty }}">{{ difficulty }}</span>
+      </div>
+      <h3 class="cert-exam-card__title">{{ title }}</h3>
+      <p class="cert-exam-card__description">{{ description }}</p>
+      <div class="cert-exam-card__meta">
+        <span>{{ questionCount }} questions</span>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+</section>
+{{/block}}

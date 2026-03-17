@@ -7,6 +7,7 @@ import { initPageState } from './page-state.js';
 import { initAssessment } from './self-assessment.js';
 import { initQuiz } from './quiz-engine.js';
 import { initStudyGuide } from './study-guide.js';
+import { initCertQuiz } from './cert-app.js';
 
 /**
  * Initialize all browser enhancements.
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAssessment();
   initQuiz();
   initStudyGuide();
+  initCertQuiz();
 });

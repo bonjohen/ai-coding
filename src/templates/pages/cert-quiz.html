@@ -1,0 +1,95 @@
+{{#block content}}
+<script type="application/json" id="cert-manifest">{{{ certManifestJson }}}</script>
+
+<div id="cert-main" class="cert-quiz" data-cert-base="{{ certDataBase }}" data-back-href="{{ certBackHref }}">
+
+  <!-- Quiz Header -->
+  <div class="cert-quiz-header">
+    <div class="cert-quiz-header__left">
+      <a href="{{ certBackHref }}" class="cert-back-link" id="cert-back-link">&larr; Back to Certifications</a>
+      <span class="cert-exam-badge" id="cert-exam-code"></span>
+      <span class="cert-exam-title-text" id="cert-exam-title"></span>
+    </div>
+    <div class="cert-quiz-header__center" id="cert-navigation" hidden>
+      <button class="btn btn--sm" id="cert-prev-question" disabled>&larr; Prev</button>
+      <span class="cert-question-counter">
+        <span id="cert-current-num">1</span> / <span id="cert-total-num">50</span>
+      </span>
+      <button class="btn btn--sm" id="cert-next-question">Next &rarr;</button>
+    </div>
+    <div class="cert-quiz-header__right">
+      <div class="cert-stat-group">
+        <span class="cert-stat-item"><span id="cert-percent-complete">0%</span> Complete</span>
+        <span class="cert-stat-item"><span id="cert-percent-success">0%</span> Success</span>
+        <span class="cert-stat-item">Score: <span id="cert-score">0</span>/<span id="cert-attempted">0</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Layout: Main + Hints Sidebar -->
+  <div class="cert-quiz-layout">
+    <div class="cert-quiz-main">
+
+      <!-- Loading -->
+      <div id="cert-loading" class="cert-loading">
+        <div class="cert-spinner"></div>
+        <p>Loading exam...</p>
+      </div>
+
+      <!-- Error -->
+      <div id="cert-error" hidden class="cert-error-message">
+        <h2>Error</h2>
+        <p id="cert-error-text"></p>
+        <a href="{{ certBackHref }}" id="cert-error-back-link" class="btn btn--primary">&larr; Back to Certifications</a>
+      </div>
+
+      <!-- Question Card -->
+      <article class="cert-question-card" id="cert-question-card" hidden>
+        <header class="cert-question-card__header">
+          <span class="cert-question-number">Question <span id="cert-q-num">1</span></span>
+          <h2 class="cert-question-card__title" id="cert-question-title"></h2>
+          <span class="cert-category-badge" id="cert-question-category"></span>
+        </header>
+
+        <section class="cert-scenario" id="cert-scenario-section" hidden>
+          <h3 class="cert-scenario__label">Scenario</h3>
+          <div class="cert-scenario__text" id="cert-scenario-text"></div>
+        </section>
+
+        <p class="cert-question-text" id="cert-question-content"></p>
+
+        <fieldset class="cert-choices" id="cert-choices-fieldset">
+          <legend class="sr-only">Answer choices</legend>
+        </fieldset>
+
+        <button class="btn btn--primary cert-submit-btn" id="cert-submit-answer" disabled>Submit Answer</button>
+
+        <section class="cert-feedback" id="cert-feedback-section" hidden>
+          <div id="cert-feedback-result"></div>
+        </section>
+      </article>
+
+    </div>
+
+    <!-- Hints Panel -->
+    <aside class="cert-hints-panel" id="cert-hints-section" hidden>
+      <h3 class="cert-hints-panel__title">Study Hints</h3>
+      <div class="cert-hint-buttons">
+        <button class="btn btn--sm cert-hint-btn" id="cert-hint-btn-1" disabled>Brief Hint</button>
+        <button class="btn btn--sm cert-hint-btn" id="cert-hint-btn-2" disabled>Full Explanation</button>
+        <button class="btn btn--sm cert-hint-btn" id="cert-hint-btn-3" disabled>Deep Knowledge</button>
+      </div>
+      <div class="cert-hints-content" id="cert-hints-content"></div>
+    </aside>
+  </div>
+
+</div>
+
+<noscript>
+  <div class="noscript-fallback">
+    <h2>JavaScript Required</h2>
+    <p>The certification quiz requires JavaScript to load exam data and track progress. Please enable JavaScript or use a browser that supports it.</p>
+    <p><a href="{{ certBackHref }}">Back to Certifications</a></p>
+  </div>
+</noscript>
+{{/block}}

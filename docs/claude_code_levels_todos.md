@@ -490,20 +490,20 @@ Goal: JSON manifest for certification content, TypeScript types, data loading, v
 Goal: Port certification JS to TypeScript, integrate into build.
 
 ### C2.1 Port JS to TypeScript
-- [ ] Create `src/scripts/cert-app.ts`, `cert-quiz-engine.ts`, `cert-xml-parser.ts`, `cert-progress-tracker.ts`
+- [x] Create `src/scripts/cert-app.ts`, `cert-quiz-engine.ts`, `cert-xml-parser.ts`, `cert-progress-tracker.ts`
 
 ### C2.2 Path & back-link abstraction
-- [ ] Remove hardcoded paths; read from data attributes set at build time
-- [ ] Provider mapping from embedded JSON manifest instead of hardcoded prefixes
+- [x] Remove hardcoded paths; read from data attributes (`data-cert-base`, `data-back-href`) set at build time
+- [x] Provider mapping from embedded JSON manifest instead of hardcoded prefixes (with fallback)
 
 ### C2.3 DOM ID namespacing
-- [ ] Prefix all certification DOM IDs with `cert-`
+- [x] Prefix all certification DOM IDs with `cert-`
 
 ### C2.4 CSS variable scoping
-- [ ] Scope certification CSS under `.cert-quiz` parent
+- [ ] Scope certification CSS under `.cert-quiz` parent (deferred to Phase C4)
 
 ### C2.5 Build integration
-- [ ] Add `initCertQuiz()` to main.ts, conditionally init on cert pages
+- [x] Add `initCertQuiz()` to main.ts, conditionally init on `#cert-main` element
 
 ---
 
@@ -512,14 +512,15 @@ Goal: Port certification JS to TypeScript, integrate into build.
 Goal: Build-generated pages for certification landing, provider, and quiz shell.
 
 ### C3.1 New templates
-- [ ] `cert-landing.html` — hub with 3 provider cards
-- [ ] `cert-provider.html` — exam cards for one provider
-- [ ] `cert-quiz.html` — quiz shell with embedded manifest
-- [ ] `cert-exam-card.html`, `cert-provider-card.html` partials
+- [x] `cert-landing.html` — hub with 3 provider cards and all exams grouped by provider
+- [x] `cert-provider.html` — exam cards for one provider
+- [x] `cert-quiz.html` — quiz shell with embedded manifest, data attributes, noscript fallback
+- [x] `cert-exam-card.html`, `cert-provider-card.html` partials
 
 ### C3.2 Page generation
-- [ ] Add certification pages to collectPageDefs() in render-pages.ts (5 pages)
-- [ ] Update navigation.json with Certifications nav item
+- [x] Add certification pages to collectPageDefs() in render-pages.ts (5 pages: landing, 3 providers, quiz)
+- [x] Update navigation.json with Certifications nav item
+- [x] Build produces 33 pages, all serve HTTP 200
 
 ---
 
@@ -527,9 +528,11 @@ Goal: Build-generated pages for certification landing, provider, and quiz shell.
 
 Goal: Restyle certification UI for dark editorial theme.
 
-- [ ] Create `src/styles/certification.css`
-- [ ] Dark-adapted question cards, choices, hints, feedback, scenario sections
-- [ ] Provider brand accent colors via data-provider attribute
+- [x] Create `src/styles/certification.css`
+- [x] Dark-adapted question cards, choices, hints, feedback, scenario sections
+- [x] Provider brand accent colors via `--cert-brand` CSS custom property
+- [x] Responsive breakpoints (1100px sidebar collapse, 768px header stack, 480px compact)
+- [x] Wire certification.css into head.html partial
 
 ---
 

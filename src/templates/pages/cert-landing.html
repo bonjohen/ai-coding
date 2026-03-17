@@ -1,0 +1,45 @@
+{{#block content}}
+<section class="section">
+  <h1>Cloud Certification Practice</h1>
+  <p class="lead">Scenario-based quiz practice for {{ totalExams }} exams across Azure, AWS, and Google Cloud. Each exam features 50 questions with progressive hints and progress tracking.</p>
+</section>
+
+<section class="section">
+  <h2>Choose a Provider</h2>
+  <div class="grid grid--3col">
+    {{#each certProviders}}
+    <a href="{{ certBasePath }}{{ slug }}/" class="card cert-provider-card" style="--cert-brand: {{ brandColor }}">
+      <div class="cert-provider-card__header">
+        <h3 class="cert-provider-card__name">{{ name }}</h3>
+        <span class="cert-provider-card__count">{{ examCount }} exams</span>
+      </div>
+      <p class="cert-provider-card__cta">View exams &rarr;</p>
+    </a>
+    {{/each}}
+  </div>
+</section>
+
+<section class="section">
+  <h2>All Exams by Provider</h2>
+  {{#each examsByProvider}}
+  <div class="cert-provider-group">
+    <h3 class="cert-provider-group__title" style="color: {{ provider.brandColor }}">{{ provider.name }}</h3>
+    <div class="grid grid--2col">
+      {{#each exams}}
+      <a href="{{ certBasePath }}quiz/?exam={{ slug }}" class="card cert-exam-card">
+        <div class="cert-exam-card__header">
+          <span class="cert-exam-card__code">{{ code }}</span>
+          <span class="cert-exam-card__difficulty cert-exam-card__difficulty--{{ difficulty }}">{{ difficulty }}</span>
+        </div>
+        <h3 class="cert-exam-card__title">{{ title }}</h3>
+        <p class="cert-exam-card__description">{{ description }}</p>
+        <div class="cert-exam-card__meta">
+          <span>{{ questionCount }} questions</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+  {{/each}}
+</section>
+{{/block}}

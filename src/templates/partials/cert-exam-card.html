@@ -1,0 +1,11 @@
+<a href="{{ quizHref }}?exam={{ slug }}" class="card cert-exam-card">
+  <div class="cert-exam-card__header">
+    <span class="cert-exam-card__code">{{ code }}</span>
+    <span class="cert-exam-card__difficulty cert-exam-card__difficulty--{{ difficulty }}">{{ difficulty }}</span>
+  </div>
+  <h3 class="cert-exam-card__title">{{ title }}</h3>
+  <p class="cert-exam-card__description">{{ description }}</p>
+  <div class="cert-exam-card__meta">
+    <span>{{ questionCount }} questions</span>
+  </div>
+</a>

@@ -21,7 +21,8 @@
         { "id": "ccc-assess", "label": "Assess", "href": "/ai-coding/claude-code-competence/assess/", "title": "Self-Assessment", "order": 13 },
         { "id": "ccc-quiz", "label": "Quiz", "href": "/ai-coding/claude-code-competence/quiz/", "title": "Practice Quiz", "order": 14 },
         { "id": "ccc-projects", "label": "Projects", "href": "/ai-coding/claude-code-competence/projects/", "title": "Example Projects", "order": 15 },
-        { "id": "ccc-study", "label": "Study Guide", "href": "/ai-coding/claude-code-competence/study-guide/", "title": "Study Guide", "order": 16 }
+        { "id": "ccc-study", "label": "Study Guide", "href": "/ai-coding/claude-code-competence/study-guide/", "title": "Study Guide", "order": 16 },
+        { "id": "ccc-certifications", "label": "Certifications", "href": "/ai-coding/claude-code-competence/certifications/", "title": "Cloud Certification Practice", "order": 17 }
       ]
     }
   ]

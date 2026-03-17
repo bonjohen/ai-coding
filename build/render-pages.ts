@@ -440,6 +440,87 @@ function collectPageDefs(data: AllData): PageDef[] {
       }
     }
 
+    // Certification pages
+    if (family.certifications) {
+      const cert = family.certifications;
+      const certBase = `${familyBase}/certifications`;
+
+      // Group exams by provider
+      const examsByProvider = cert.providers.map(p => ({
+        provider: p,
+        exams: cert.exams.filter(e => e.providerId === p.id),
+      }));
+
+      // Certification landing page
+      pages.push({
+        outputPath: `${certBase}/index.html`,
+        layout: 'article',
+        page: 'cert-landing',
+        context: {
+          ...familyCtx,
+          certProviders: cert.providers,
+          examsByProvider,
+          totalExams: cert.exams.length,
+          certBasePath: `/${certBase}/`,
+          pageTitle: `Cloud Certifications — ${family.family.shortTitle}`,
+          pageDescription: 'Scenario-based quiz practice for Azure, AWS, and Google Cloud certification exams.',
+          canonicalUrl: `${data.site.site.siteUrl}/${certBase}/`,
+          breadcrumbs: [
+            { label: 'Home', href: `/${basePath}/` },
+            { label: family.family.shortTitle, href: `/${familyBase}/` },
+            { label: 'Certifications', href: '' },
+          ],
+        },
+      });
+
+      // Per-provider pages
+      for (const { provider, exams } of examsByProvider) {
+        pages.push({
+          outputPath: `${certBase}/${provider.slug}/index.html`,
+          layout: 'article',
+          page: 'cert-provider',
+          context: {
+            ...familyCtx,
+            certProvider: provider,
+            certExams: exams,
+            certBasePath: `/${certBase}/`,
+            quizHref: `/${certBase}/quiz/`,
+            pageTitle: `${provider.name} Certifications — ${family.family.shortTitle}`,
+            pageDescription: `Practice ${exams.length} ${provider.name} certification exams with scenario-based questions.`,
+            canonicalUrl: `${data.site.site.siteUrl}/${certBase}/${provider.slug}/`,
+            breadcrumbs: [
+              { label: 'Home', href: `/${basePath}/` },
+              { label: family.family.shortTitle, href: `/${familyBase}/` },
+              { label: 'Certifications', href: `/${certBase}/` },
+              { label: provider.name, href: '' },
+            ],
+          },
+        });
+      }
+
+      // Quiz page (single page, receives ?exam= param)
+      pages.push({
+        outputPath: `${certBase}/quiz/index.html`,
+        layout: 'article',
+        page: 'cert-quiz',
+        context: {
+          ...familyCtx,
+          certManifestJson: JSON.stringify({ providers: cert.providers, exams: cert.exams }),
+          certDataBase: `${data.site.site.siteBasePath}${family.family.slug}/certification-data/`,
+          certBackHref: `/${certBase}/`,
+          pageTitle: `Certification Quiz — ${family.family.shortTitle}`,
+          pageDescription: 'Interactive certification exam practice with progressive hints and progress tracking.',
+          canonicalUrl: `${data.site.site.siteUrl}/${certBase}/quiz/`,
+          breadcrumbs: [
+            { label: 'Home', href: `/${basePath}/` },
+            { label: family.family.shortTitle, href: `/${familyBase}/` },
+            { label: 'Certifications', href: `/${certBase}/` },
+            { label: 'Quiz', href: '' },
+          ],
+        },
+      });
+    }
+
     // Study guide page
     const studyDimensions = family.dimensions.dimensions
       .sort((a, b) => a.order - b.order)
