@@ -10,6 +10,8 @@ import type { SourcesConfig } from '../src/scripts/types/source.js';
 import type { GlossaryConfig } from '../src/scripts/types/glossary.js';
 import type { ExercisesConfig } from '../src/scripts/types/exercise.js';
 import type { RoadmapConfig } from '../src/scripts/types/roadmap.js';
+import type { QuizQuestionsConfig } from '../src/scripts/types/quiz.js';
+import type { ExampleProjectsConfig } from '../src/scripts/types/example-project.js';
 
 export interface SiteData {
   site: SiteConfig;
@@ -29,6 +31,8 @@ export interface FamilyData {
   exercises: ExercisesConfig;
   glossary: GlossaryConfig;
   roadmap: RoadmapConfig;
+  quizQuestions?: QuizQuestionsConfig;
+  exampleProjects?: ExampleProjectsConfig;
 }
 
 export interface AllData {
@@ -70,6 +74,12 @@ export function loadFamilyData(familyDir: string): FamilyData {
     exercises: loadJson<ExercisesConfig>(join(familyDir, 'exercises.json')),
     glossary: loadJson<GlossaryConfig>(join(familyDir, 'glossary.json')),
     roadmap: loadJson<RoadmapConfig>(join(familyDir, 'roadmap.json')),
+    ...(existsSync(join(familyDir, 'quiz-questions.json')) ? {
+      quizQuestions: loadJson<QuizQuestionsConfig>(join(familyDir, 'quiz-questions.json')),
+    } : {}),
+    ...(existsSync(join(familyDir, 'example-projects.json')) ? {
+      exampleProjects: loadJson<ExampleProjectsConfig>(join(familyDir, 'example-projects.json')),
+    } : {}),
   };
 }
 

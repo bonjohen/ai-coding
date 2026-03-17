@@ -1,0 +1,572 @@
+{
+  "familyId": "claude-code-competence",
+  "projects": [
+    {
+      "id": "proj-1-string-util",
+      "levelId": "level-1",
+      "title": "Writing a String Utility Function",
+      "summary": "Use Claude Code to generate a string utility function, then review and accept the output.",
+      "scenario": "You need a slugify function that converts arbitrary strings into URL-safe slugs. You want Claude Code to write it for you, and you need to review the result before accepting it into your codebase.",
+      "sections": [
+        {
+          "id": "launch-and-prompt",
+          "title": "Launch Claude Code and Write Your Prompt",
+          "content": [
+            "Open your terminal in the project directory and launch Claude Code. You will write a simple prompt asking for a slugify utility function.",
+            "At this level, the goal is to get comfortable expressing what you need in natural language. You do not need a perfect prompt — just a clear one."
+          ],
+          "codeSnippet": "claude\n\n> Write a TypeScript function called slugify in src/utils/string.ts that converts\n> a string into a URL-safe slug. It should lowercase the input, replace spaces\n> with hyphens, remove non-alphanumeric characters (except hyphens), and\n> collapse multiple hyphens into one.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "review-the-diff",
+          "title": "Review the Generated Diff",
+          "content": [
+            "Claude Code will present a diff showing the new file it wants to create. Read the diff line by line before accepting. Look for: does the function handle empty strings? Does it trim leading and trailing hyphens? Does the logic match what you asked for?",
+            "This is the most important habit to build at Level 1. Never accept a diff without reading it. Even if the code looks right at a glance, read every line."
+          ],
+          "codeSnippet": "// Claude Code will show something like:\n// src/utils/string.ts\n// + export function slugify(input: string): string {\n// +   return input\n// +     .toLowerCase()\n// +     .trim()\n// +     .replace(/[^a-z0-9\\s-]/g, '')\n// +     .replace(/[\\s]+/g, '-')\n// +     .replace(/-+/g, '-')\n// +     .replace(/^-|-$/g, '');\n// + }",
+          "codeLanguage": "typescript"
+        },
+        {
+          "id": "test-the-output",
+          "title": "Test the Function Manually",
+          "content": [
+            "After accepting the diff, verify the function works by running it. You can ask Claude Code to help you test it, or run a quick check yourself.",
+            "At Level 1, even a manual test counts. The point is to verify rather than blindly trust."
+          ],
+          "codeSnippet": "npx ts-node -e \"\nimport { slugify } from './src/utils/string';\nconsole.log(slugify('Hello World!'));        // hello-world\nconsole.log(slugify('  Multiple   Spaces ')); // multiple-spaces\nconsole.log(slugify('Special @#$ chars'));    // special-chars\nconsole.log(slugify(''));                     // (empty string)\n\"",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s1-simple-prompt", "s1-accept-output"],
+      "demonstratedConcepts": ["c1-basic-prompting", "c1-tool-output"],
+      "estimatedTime": "10 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-1-bug-fix",
+      "levelId": "level-1",
+      "title": "Finding and Fixing a Bug",
+      "summary": "Use Claude Code to identify and fix a bug in an existing function, then verify the fix works.",
+      "scenario": "Your date formatting function is returning the wrong month. January shows as '0' and December shows as '11'. You want Claude Code to find the bug and fix it.",
+      "sections": [
+        {
+          "id": "describe-the-bug",
+          "title": "Describe the Bug to Claude Code",
+          "content": [
+            "Launch Claude Code and describe the bug you are seeing. Include the file path and the symptoms. You do not need to know the root cause — that is what Claude Code will help with.",
+            "A good bug report prompt includes: what file, what happens, and what should happen instead."
+          ],
+          "codeSnippet": "claude\n\n> There's a bug in src/utils/date.ts in the formatDate function.\n> When I pass in a date for January 15, 2025, it returns \"0/15/2025\"\n> instead of \"1/15/2025\". December dates show month 11 instead of 12.\n> Can you find and fix the bug?",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "understand-the-fix",
+          "title": "Read Claude Code's Explanation",
+          "content": [
+            "Claude Code will explain that JavaScript's getMonth() returns 0-indexed values (0 for January, 11 for December). The fix is to add 1 to the month value.",
+            "Pay attention to the explanation, not just the code. Understanding why the bug exists helps you catch similar issues in the future."
+          ],
+          "codeSnippet": "// Before (buggy):\nfunction formatDate(date: Date): string {\n  const month = date.getMonth();\n  const day = date.getDate();\n  const year = date.getFullYear();\n  return `${month}/${day}/${year}`;\n}\n\n// After (fixed):\nfunction formatDate(date: Date): string {\n  const month = date.getMonth() + 1;\n  const day = date.getDate();\n  const year = date.getFullYear();\n  return `${month}/${day}/${year}`;\n}",
+          "codeLanguage": "typescript"
+        },
+        {
+          "id": "verify-the-fix",
+          "title": "Verify the Fix",
+          "content": [
+            "Accept the diff and run your existing tests, or test manually. Confirm that January now shows as 1 and December as 12.",
+            "If you do not have tests, this is a good time to ask Claude Code to write a quick test for you. But at Level 1, even running the function manually and checking the output is a valid verification step."
+          ],
+          "codeSnippet": "npx ts-node -e \"\nimport { formatDate } from './src/utils/date';\nconsole.log(formatDate(new Date('2025-01-15'))); // 1/15/2025\nconsole.log(formatDate(new Date('2025-12-25'))); // 12/25/2025\nconsole.log(formatDate(new Date('2025-06-01'))); // 6/1/2025\n\"",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "recover-from-errors",
+          "title": "What If the Fix Does Not Work?",
+          "content": [
+            "Sometimes Claude Code's first attempt does not fully solve the problem. If the fix does not work, do not give up. Describe what is still wrong and ask Claude Code to try again.",
+            "Error recovery at Level 1 is about persistence and communication. Tell Claude Code what you expected, what you got instead, and ask for another approach."
+          ],
+          "codeSnippet": "> The fix partially worked but now dates with single-digit months\n> aren't zero-padded. January 5 shows as \"1/5/2025\" but I need\n> \"01/05/2025\". Can you update the function to zero-pad both\n> month and day?",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s1-simple-prompt", "s1-accept-output", "s1-error-recovery"],
+      "demonstratedConcepts": ["c1-basic-prompting", "c1-tool-output", "c1-model-awareness"],
+      "estimatedTime": "15 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-2-multi-file-feature",
+      "levelId": "level-2",
+      "title": "Implementing a Feature Across Multiple Files",
+      "summary": "Decompose a feature request into focused prompts and implement it across model, service, and API layers.",
+      "scenario": "You need to add a 'tags' feature to a blog application. Posts should support multiple tags, tags should be searchable, and the API needs new endpoints. This touches the database model, service layer, and route handlers.",
+      "sections": [
+        {
+          "id": "plan-decomposition",
+          "title": "Plan the Task Decomposition",
+          "content": [
+            "Before writing any prompts, plan the sequence of changes. A feature that spans multiple files should be broken into steps that each leave the codebase in a working state.",
+            "For this feature, the natural order is: (1) add the data model, (2) update the service layer, (3) add API routes, (4) write tests for each layer. Each step is one focused prompt."
+          ],
+          "codeSnippet": null,
+          "codeLanguage": null
+        },
+        {
+          "id": "step-1-model",
+          "title": "Step 1: Add the Tag Model",
+          "content": [
+            "Start with the data layer. Provide Claude Code with context about the existing model structure and ask it to add the Tag model and the relationship to Post.",
+            "Notice how the prompt references specific files and existing patterns. This is what separates Level 2 from Level 1 — you are setting context, not just asking for code."
+          ],
+          "codeSnippet": "> Look at the existing Post model in src/models/post.ts and the\n> database schema in prisma/schema.prisma. Add a Tag model with\n> fields: id (auto-increment), name (unique string, max 50 chars),\n> and slug (unique string). Create a many-to-many relationship\n> between Post and Tag. Follow the same naming conventions used\n> by the existing models. Generate a Prisma migration.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "step-2-service",
+          "title": "Step 2: Update the Service Layer",
+          "content": [
+            "After verifying the model changes compile and the migration runs, move to the service layer. Reference the patterns established in the existing service files.",
+            "Run tests after this step before moving on. Each step should leave the codebase in a passing state."
+          ],
+          "codeSnippet": "> Now look at src/services/post.service.ts for the existing service\n> patterns. Create src/services/tag.service.ts with these operations:\n> - createTag(name: string): creates a tag, auto-generates slug\n> - getTagBySlug(slug: string): returns tag or null\n> - addTagsToPost(postId: number, tagIds: number[]): links tags to post\n> - getPostsByTag(tagSlug: string, page: number, limit: number): paginated\n>\n> Follow the same error handling pattern used in post.service.ts.\n> Use the Prisma client singleton from src/lib/prisma.ts.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "step-3-routes",
+          "title": "Step 3: Add API Routes",
+          "content": [
+            "With the service layer in place and tested, add the API routes. Specify constraints about authentication and validation."
+          ],
+          "codeSnippet": "> Look at src/routes/post.routes.ts for the existing route patterns.\n> Create src/routes/tag.routes.ts with:\n> - GET /tags — list all tags (public)\n> - GET /tags/:slug/posts — get posts by tag, paginated (public)\n> - POST /posts/:id/tags — add tags to a post (requires auth)\n> - DELETE /posts/:id/tags/:tagId — remove tag from post (requires auth)\n>\n> Use the same validation middleware pattern from post.routes.ts.\n> Auth routes should use the requireAuth middleware from src/middleware/auth.ts.\n> Register the new routes in src/routes/index.ts.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "step-4-verify",
+          "title": "Step 4: Run Tests and Verify",
+          "content": [
+            "After each step, you should have been running tests. Now do a final end-to-end verification. Ask Claude Code to write integration tests if they do not already exist.",
+            "The verification loop is what makes Level 2 reliable. You never move to the next step until the current step is verified."
+          ],
+          "codeSnippet": "> Write integration tests for the tag feature in\n> tests/integration/tags.test.ts. Test:\n> - Creating a tag\n> - Adding tags to a post\n> - Fetching posts by tag with pagination\n> - Auth is required for write operations\n> - Duplicate tag names are rejected\n>\n> Follow the test patterns in tests/integration/posts.test.ts.\n> Use the same test database setup and teardown helpers.",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s2-context-prompt", "s2-decompose", "s2-verify"],
+      "demonstratedConcepts": ["c2-context-setting", "c2-task-decomposition", "c2-verification-loops"],
+      "estimatedTime": "45 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-2-refactoring",
+      "levelId": "level-2",
+      "title": "Refactoring a Module with Constraints",
+      "summary": "Guide Claude Code through a refactoring that preserves the public API while improving internal structure and adding tests.",
+      "scenario": "Your authentication module has grown into a 500-line monolith. You need to refactor it into smaller, focused files while keeping the exact same public API so that no consuming code needs to change.",
+      "sections": [
+        {
+          "id": "set-constraints",
+          "title": "Establish the Constraints",
+          "content": [
+            "The most important part of a constrained refactoring is making the constraints explicit. Tell Claude Code exactly what must not change, what must be preserved, and what the goals are.",
+            "This is constraint specification — a core Level 2 skill. Vague instructions like 'refactor this' will produce unpredictable results."
+          ],
+          "codeSnippet": "> I need to refactor src/auth/index.ts (currently ~500 lines) into\n> smaller modules. Here are the hard constraints:\n>\n> 1. The public API exported from src/auth/index.ts MUST NOT change.\n>    Any file importing from 'src/auth' must work without modification.\n> 2. All existing tests in tests/auth.test.ts must continue to pass.\n> 3. No new dependencies may be added.\n>\n> Goals:\n> - Split into: token.ts (JWT logic), password.ts (hashing/comparison),\n>   session.ts (session management), middleware.ts (Express middleware)\n> - Each sub-module should have a single responsibility\n> - Re-export everything from index.ts to preserve the public API\n>\n> First, show me the plan before making any changes.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "review-plan",
+          "title": "Review the Refactoring Plan",
+          "content": [
+            "Claude Code should present a plan before writing code. Review it to make sure the proposed file structure makes sense and the re-export strategy will preserve the public API.",
+            "If anything in the plan concerns you, now is the time to correct it. It is much cheaper to fix a plan than to fix code."
+          ],
+          "codeSnippet": null,
+          "codeLanguage": null
+        },
+        {
+          "id": "execute-incrementally",
+          "title": "Execute the Refactoring Incrementally",
+          "content": [
+            "Ask Claude Code to do the refactoring one file at a time. After each file is extracted, run the test suite. This is iterative refinement in practice — each step is verified before moving on.",
+            "If a test breaks after extracting a module, do not move on. Diagnose the issue with Claude Code and fix it first."
+          ],
+          "codeSnippet": "> Let's start with extracting the JWT logic. Move the token generation\n> and verification functions into src/auth/token.ts. Update index.ts\n> to import and re-export from token.ts. Do not change any function\n> signatures.\n\n# After Claude Code makes the changes:\nnpm test -- tests/auth.test.ts\n\n# If tests pass, continue to the next extraction:\n> Good, tests pass. Now extract the password hashing logic into\n> src/auth/password.ts. Same rules: preserve function signatures,\n> re-export from index.ts.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "add-unit-tests",
+          "title": "Add Unit Tests for New Modules",
+          "content": [
+            "Once the refactoring is complete and all existing tests pass, ask Claude Code to add unit tests for each new sub-module. The existing tests are integration-level; now each module deserves its own focused tests."
+          ],
+          "codeSnippet": "> All existing tests pass after the refactoring. Now add unit tests:\n> - tests/auth/token.test.ts — test JWT generation, verification,\n>   expiration, and invalid token handling\n> - tests/auth/password.test.ts — test hashing, comparison, and\n>   edge cases (empty string, very long input)\n>\n> Follow the test style in the existing tests/auth.test.ts.\n> Each test file should be self-contained with its own setup.",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s2-context-prompt", "s2-verify", "s2-error-diagnosis"],
+      "demonstratedConcepts": ["c2-constraint-specification", "c2-iterative-refinement", "c2-verification-loops"],
+      "estimatedTime": "40 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-3-project-setup",
+      "levelId": "level-3",
+      "title": "Setting Up CLAUDE.md, Hooks, and MCP for a New Project",
+      "summary": "Configure a complete Claude Code environment with layered context files, automated hooks, and an MCP server integration.",
+      "scenario": "You are starting a new TypeScript microservice and want to configure the project so that Claude Code is effective from the first session. This means setting up CLAUDE.md with project conventions, hooks for quality enforcement, and an MCP server for database access.",
+      "sections": [
+        {
+          "id": "root-claude-md",
+          "title": "Design the Root CLAUDE.md",
+          "content": [
+            "The root CLAUDE.md is the most important configuration file. It tells Claude Code about the project's architecture, conventions, build commands, and rules. Keep it focused — include what Claude Code needs to know, not everything about the project.",
+            "A good CLAUDE.md answers three questions: How do I build and test this project? What conventions should I follow? What should I never do?"
+          ],
+          "codeSnippet": "# CLAUDE.md\n\n## Project Overview\nOrder processing microservice. TypeScript, Express, Prisma ORM, PostgreSQL.\n\n## Build & Test Commands\n- `npm run build` — compile TypeScript\n- `npm test` — run all tests (Jest)\n- `npm test -- tests/unit/FILE.test.ts` — run a single test file\n- `npm run lint` — ESLint + Prettier check\n- `npm run db:migrate` — run Prisma migrations\n\n## Code Conventions\n- Use named exports, never default exports\n- All service functions return `Result<T, AppError>` (see src/lib/result.ts)\n- Database access only through Prisma — never raw SQL\n- Error messages must be user-facing safe (no stack traces, no internal IDs)\n\n## Architecture\n- src/routes/ — Express route handlers (thin, delegate to services)\n- src/services/ — Business logic (no direct HTTP concerns)\n- src/models/ — Prisma schema and generated types\n- src/lib/ — Shared utilities\n\n## Rules\n- NEVER modify prisma/migrations/ manually\n- NEVER commit .env files\n- Always run `npm test` before considering a task complete",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "directory-claude-md",
+          "title": "Add Directory-Level CLAUDE.md Files",
+          "content": [
+            "For larger projects, add CLAUDE.md files in key directories to provide scoped context. These supplement the root file with directory-specific conventions.",
+            "Directory-level files should be short and focused. They answer: what is in this directory, and what rules apply here specifically?"
+          ],
+          "codeSnippet": "# src/services/CLAUDE.md\n\n## Service Layer Conventions\n- Every service file exports a class with static methods\n- Methods accept plain objects, not Express Request objects\n- All methods must validate input using zod schemas from src/schemas/\n- Return Result<T, AppError> — never throw exceptions\n- Log operations using the logger from src/lib/logger.ts\n\n## Testing\n- Unit tests mock the Prisma client using tests/helpers/mock-prisma.ts\n- Each service file has a corresponding test in tests/unit/services/",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "hook-config",
+          "title": "Configure Hooks for Quality Enforcement",
+          "content": [
+            "Hooks run automatically during Claude Code's workflow to catch issues before they are committed. Configure hooks in the project settings to enforce your quality standards.",
+            "The key insight at Level 3 is that hooks shift enforcement from your attention to automation. You do not have to remember to run the linter — the hook does it for you."
+          ],
+          "codeSnippet": "// .claude/settings.json\n{\n  \"hooks\": {\n    \"preCommit\": [\n      {\n        \"command\": \"npm run lint\",\n        \"description\": \"Run ESLint and Prettier checks\"\n      },\n      {\n        \"command\": \"npm test -- --bail\",\n        \"description\": \"Run test suite, stop on first failure\"\n      }\n    ],\n    \"postFileEdit\": [\n      {\n        \"command\": \"npx tsc --noEmit --pretty\",\n        \"description\": \"Type-check after file edits\"\n      }\n    ]\n  },\n  \"permissions\": {\n    \"allow\": [\n      \"Bash(npm run *)\",\n      \"Bash(npx prisma *)\",\n      \"Bash(npx tsc *)\",\n      \"Read(*)\",\n      \"Write(src/**)\",\n      \"Write(tests/**)\"\n    ],\n    \"deny\": [\n      \"Write(.env*)\",\n      \"Write(prisma/migrations/**)\",\n      \"Bash(rm -rf *)\",\n      \"Bash(git push *)\"\n    ]\n  }\n}",
+          "codeLanguage": "json"
+        },
+        {
+          "id": "mcp-setup",
+          "title": "Set Up an MCP Server for Database Access",
+          "content": [
+            "MCP (Model Context Protocol) servers give Claude Code access to external tools and data sources. For this project, set up a PostgreSQL MCP server so Claude Code can query the development database to understand the current state of data.",
+            "This is powerful but requires care. The MCP server should connect to the development database only, never production."
+          ],
+          "codeSnippet": "// .claude/mcp.json\n{\n  \"servers\": {\n    \"postgres-dev\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"@anthropic/mcp-server-postgres\",\n        \"--connection-string\",\n        \"postgresql://dev:dev@localhost:5432/orders_dev\"\n      ],\n      \"description\": \"Development database access for querying schema and sample data\"\n    }\n  }\n}",
+          "codeLanguage": "json"
+        },
+        {
+          "id": "verify-setup",
+          "title": "Verify the Complete Setup",
+          "content": [
+            "Launch a new Claude Code session and verify that everything works together. The CLAUDE.md should be picked up automatically, hooks should run on edits, and the MCP server should be available.",
+            "Ask Claude Code to describe the project to confirm it has read the CLAUDE.md. Then make a small change to trigger the hooks and verify they fire."
+          ],
+          "codeSnippet": "claude\n\n> Describe this project's architecture and conventions based on\n> the CLAUDE.md files.\n\n# Claude Code should accurately describe the project from CLAUDE.md\n\n> Now create a simple health check endpoint in src/routes/health.ts\n> that returns { status: 'ok', timestamp: Date.now() }. Register it\n> in src/routes/index.ts.\n\n# The hooks should run automatically: type-check on file edit,\n# lint + test on commit attempt",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s3-claude-md-design", "s3-hook-config", "s3-mcp-setup"],
+      "demonstratedConcepts": ["c3-claude-md", "c3-hooks", "c3-mcp"],
+      "estimatedTime": "30 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-3-team-onboarding",
+      "levelId": "level-3",
+      "title": "Configuring an Environment for Team Onboarding",
+      "summary": "Set up a project environment so a new team member can be productive with Claude Code immediately without verbal instructions.",
+      "scenario": "A new engineer is joining your team next week. They have used Claude Code before but know nothing about your project. You want them to be able to clone the repo, launch Claude Code, and start contributing on day one without anyone walking them through the setup.",
+      "sections": [
+        {
+          "id": "onboarding-claude-md",
+          "title": "Write an Onboarding-Focused CLAUDE.md",
+          "content": [
+            "Your CLAUDE.md needs to serve double duty: it guides Claude Code, and it guides the human reading it. A new team member should be able to read the CLAUDE.md and understand how to work in this project.",
+            "Include setup instructions, common workflows, and gotchas. Think of it as a living README that also happens to configure Claude Code."
+          ],
+          "codeSnippet": "# CLAUDE.md\n\n## Getting Started (New Team Members)\n1. Copy `.env.example` to `.env` and fill in values from 1Password vault \"Engineering\"\n2. Run `docker compose up -d` to start PostgreSQL and Redis\n3. Run `npm install && npm run db:migrate && npm run db:seed`\n4. Run `npm test` to verify everything works\n\n## Common Workflows\n- **Add a new API endpoint**: Create route in src/routes/, service in src/services/, test in tests/\n- **Add a database migration**: Edit prisma/schema.prisma, run `npx prisma migrate dev --name description`\n- **Debug a failing test**: Run `npm test -- --verbose tests/path/to/test.ts`\n\n## Architecture\n- Monorepo: packages/api (Express), packages/shared (types + utils), packages/worker (background jobs)\n- All cross-package imports go through packages/shared\n- API follows REST conventions; see src/routes/users.ts as the canonical example\n\n## Conventions\n- Branch naming: feature/TICKET-description, fix/TICKET-description\n- Commit messages: conventional commits (feat:, fix:, chore:, etc.)\n- All PRs require tests. No exceptions.\n- Use zod for request validation, never manual type checks\n\n## Things That Will Bite You\n- The test database is wiped between test files but NOT between tests in the same file. Use beforeEach for cleanup.\n- Redis must be running for the session tests. If sessions tests fail, check `docker compose ps`.\n- The worker package has its own tsconfig. Don't reference api types from worker directly.",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "permissions-for-safety",
+          "title": "Configure Permissions for Safe Exploration",
+          "content": [
+            "A new team member will be exploring the codebase. Configure permissions so Claude Code can read anything but is restricted in what it writes and executes. This protects against accidental damage while still being productive.",
+            "Think of permissions as training wheels — they prevent costly mistakes while the new person learns the project."
+          ],
+          "codeSnippet": "// .claude/settings.json\n{\n  \"permissions\": {\n    \"allow\": [\n      \"Read(*)\",\n      \"Bash(npm run *)\",\n      \"Bash(npm test *)\",\n      \"Bash(npx prisma *)\",\n      \"Bash(docker compose ps)\",\n      \"Bash(docker compose logs *)\",\n      \"Write(src/**)\",\n      \"Write(tests/**)\",\n      \"Write(packages/*/src/**)\"\n    ],\n    \"deny\": [\n      \"Write(.env*)\",\n      \"Write(docker-compose.yml)\",\n      \"Write(prisma/migrations/**)\",\n      \"Bash(docker compose down *)\",\n      \"Bash(npm publish *)\",\n      \"Bash(git push --force *)\",\n      \"Bash(rm -rf *)\"\n    ]\n  }\n}",
+          "codeLanguage": "json"
+        },
+        {
+          "id": "layered-context",
+          "title": "Set Up Layered Context for Each Package",
+          "content": [
+            "In a monorepo, each package has its own conventions. Create CLAUDE.md files in each package directory so Claude Code gets the right context regardless of where the team member is working."
+          ],
+          "codeSnippet": "# packages/api/CLAUDE.md\n\n## API Package\nExpress REST API. Entry point: src/index.ts.\n\n## Route Handler Pattern\nRoute handlers should:\n1. Validate input with zod schema\n2. Call service method\n3. Return result with appropriate HTTP status\n4. Never contain business logic directly\n\nSee src/routes/users.ts as the reference implementation.\n\n---\n\n# packages/worker/CLAUDE.md\n\n## Worker Package\nBullMQ background job processors. Each job type has its own file in src/jobs/.\n\n## Job Pattern\n- Export a processor function and a queue configuration\n- Jobs must be idempotent (safe to retry)\n- Always log job start, completion, and failure\n- Use packages/shared for any types shared with the API",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "test-the-onboarding",
+          "title": "Test the Onboarding Experience",
+          "content": [
+            "Before the new team member arrives, test the onboarding yourself. Clone the repo into a fresh directory, launch Claude Code, and try to complete a typical task using only the CLAUDE.md files for guidance.",
+            "If you find yourself needing to explain something verbally, that information should go into a CLAUDE.md file."
+          ],
+          "codeSnippet": "# Clone into a fresh directory to simulate the new member's experience\ngit clone git@github.com:your-org/your-repo.git /tmp/fresh-clone\ncd /tmp/fresh-clone\n\n# Launch Claude Code and try a typical onboarding task\nclaude\n\n> I'm new to this project. Help me get set up and then implement\n> a simple feature: add a GET /api/health endpoint that returns\n> the current time and database connection status.",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s3-claude-md-design", "s3-permission-tuning", "s3-team-onboarding"],
+      "demonstratedConcepts": ["c3-claude-md", "c3-permissions", "c3-layered-context"],
+      "estimatedTime": "35 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-4-parallel-agents",
+      "levelId": "level-4",
+      "title": "Running Multiple Claude Code Agents on Parallel Worktrees",
+      "summary": "Orchestrate multiple Claude Code instances working on independent tasks using git worktrees for isolation.",
+      "scenario": "You have a sprint with four independent tasks: a new API endpoint, a database migration, a test suite expansion, and a documentation update. Instead of doing them sequentially, you want to run four Claude Code agents in parallel, each on its own worktree, and merge the results.",
+      "sections": [
+        {
+          "id": "design-task-graph",
+          "title": "Design the Task Dependency Graph",
+          "content": [
+            "Before launching agents, analyze the tasks for dependencies. Tasks that are truly independent can run in parallel. Tasks with dependencies must be sequenced.",
+            "In this case: the API endpoint and docs are independent, the test suite expansion depends on no new code, and the migration is independent. All four can run in parallel."
+          ],
+          "codeSnippet": "# Task dependency analysis:\n# Task A: New /api/reports endpoint     — independent\n# Task B: Add indexes to orders table   — independent\n# Task C: Expand test coverage for auth  — independent (tests existing code)\n# Task D: Update API documentation       — independent\n#\n# Result: All four tasks can run in parallel.\n# Merge order: B (migration) first, then A, C, D in any order.",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "create-worktrees",
+          "title": "Create Git Worktrees for Isolation",
+          "content": [
+            "Each agent needs its own copy of the repository to avoid file conflicts. Git worktrees are lightweight — they share the .git directory but have independent working directories.",
+            "Create a worktree for each task on its own branch."
+          ],
+          "codeSnippet": "# Create worktrees for each parallel task\ngit worktree add ../project-agent-a -b feature/reports-endpoint\ngit worktree add ../project-agent-b -b feature/order-indexes\ngit worktree add ../project-agent-c -b feature/auth-test-coverage\ngit worktree add ../project-agent-d -b feature/api-docs-update\n\n# Verify worktrees\ngit worktree list",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "launch-agents",
+          "title": "Launch Agents in Headless Mode",
+          "content": [
+            "Launch each agent in non-interactive (headless) mode with a clear prompt. The -p flag sends a prompt and exits when done. Each agent runs in its own worktree directory.",
+            "Use detailed prompts since there is no opportunity for interactive follow-up in headless mode. Include all context and constraints upfront."
+          ],
+          "codeSnippet": "# Launch all four agents in parallel using headless mode\n# Agent A: New API endpoint\ncd ../project-agent-a && claude -p \"Create a new GET /api/reports endpoint \\\nin src/routes/reports.ts that returns order statistics: total orders, \\\nrevenue by month, and top products. Use the existing service patterns \\\nfrom src/services/orders.service.ts. Add tests in \\\ntests/integration/reports.test.ts. Run npm test before finishing.\" &\n\n# Agent B: Database migration\ncd ../project-agent-b && claude -p \"Add database indexes to improve query \\\nperformance on the orders table. Add indexes on: customer_id, created_at, \\\nstatus, and a composite index on (customer_id, created_at). Create a \\\nPrisma migration. Run the migration against the dev database and verify \\\nwith npm test.\" &\n\n# Agent C: Test coverage expansion\ncd ../project-agent-c && claude -p \"Expand test coverage for the auth \\\nmodule. Current coverage is at 60%. Add tests for: token refresh edge \\\ncases, session expiration, concurrent login handling, and password reset \\\nflow. Target 90% coverage. Check coverage with npm test -- --coverage.\" &\n\n# Agent D: Documentation update\ncd ../project-agent-d && claude -p \"Update the API documentation in \\\ndocs/api.md to include all endpoints in src/routes/. For each endpoint, \\\ndocument: method, path, request body schema, response schema, auth \\\nrequirements, and example curl command. Follow the existing format in \\\nthe file.\" &\n\n# Wait for all agents to complete\nwait\necho \"All agents finished.\"",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "review-and-merge",
+          "title": "Review Results and Merge",
+          "content": [
+            "After all agents finish, review each branch's changes before merging. Check for quality, correctness, and any unexpected modifications.",
+            "Merge in dependency order: migration first (since other code might depend on schema), then the rest."
+          ],
+          "codeSnippet": "# Review each branch\ncd ../project-agent-b && git diff main...HEAD --stat\ncd ../project-agent-a && git diff main...HEAD --stat\ncd ../project-agent-c && git diff main...HEAD --stat\ncd ../project-agent-d && git diff main...HEAD --stat\n\n# Merge in order (migration first)\ncd /path/to/main/repo\ngit merge feature/order-indexes --no-ff -m \"feat: add order table indexes\"\ngit merge feature/reports-endpoint --no-ff -m \"feat: add reports API endpoint\"\ngit merge feature/auth-test-coverage --no-ff -m \"test: expand auth test coverage\"\ngit merge feature/api-docs-update --no-ff -m \"docs: update API documentation\"\n\n# Run full test suite after all merges\nnpm test\n\n# Clean up worktrees\ngit worktree remove ../project-agent-a\ngit worktree remove ../project-agent-b\ngit worktree remove ../project-agent-c\ngit worktree remove ../project-agent-d",
+          "codeLanguage": "bash"
+        },
+        {
+          "id": "handle-conflicts",
+          "title": "Handle Merge Conflicts",
+          "content": [
+            "When parallel agents modify related files, merge conflicts are expected. Use Claude Code to help resolve them intelligently.",
+            "The key insight is that conflict resolution is itself a task you can delegate to Claude Code, as long as you verify the result."
+          ],
+          "codeSnippet": "# If a merge conflict occurs:\ngit merge feature/reports-endpoint --no-ff\n# CONFLICT in src/routes/index.ts\n\n# Use Claude Code to resolve the conflict\nclaude -p \"There is a merge conflict in src/routes/index.ts from merging \\\nthe reports-endpoint branch. Resolve the conflict by keeping both the \\\nexisting routes and the new reports routes. Both sets of routes should be \\\nregistered. Show me the resolved file.\"",
+          "codeLanguage": "bash"
+        }
+      ],
+      "demonstratedSkills": ["s4-orchestrate", "s4-task-graph", "s4-error-handling"],
+      "demonstratedConcepts": ["c4-multi-agent", "c4-worktree-isolation", "c4-headless-mode"],
+      "estimatedTime": "60 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-4-ci-integration",
+      "levelId": "level-4",
+      "title": "Adding Claude Code to a CI/CD Pipeline for Automated PR Review",
+      "summary": "Integrate Claude Code into a GitHub Actions workflow to automatically review pull requests and post feedback.",
+      "scenario": "Your team merges 15-20 PRs per week. Manual code review is a bottleneck. You want Claude Code to automatically review every PR, check for common issues, and post comments — not to replace human review, but to catch the easy things so reviewers can focus on design and architecture.",
+      "sections": [
+        {
+          "id": "design-workflow",
+          "title": "Design the Review Workflow",
+          "content": [
+            "The CI workflow should: (1) trigger on PR open and update, (2) run Claude Code in headless mode to review the diff, (3) post review comments back to the PR, and (4) set a status check that does not block merge but provides visibility.",
+            "This is a quality monitoring system. It augments human review rather than replacing it."
+          ],
+          "codeSnippet": null,
+          "codeLanguage": null
+        },
+        {
+          "id": "github-action",
+          "title": "Create the GitHub Actions Workflow",
+          "content": [
+            "The workflow uses Claude Code in headless mode with a structured prompt that asks for specific review criteria. The output is captured and posted as a PR comment.",
+            "Store the API key as a GitHub secret. Never hardcode credentials in workflow files."
+          ],
+          "codeSnippet": "# .github/workflows/claude-review.yml\nname: Claude Code PR Review\n\non:\n  pull_request:\n    types: [opened, synchronize]\n\npermissions:\n  contents: read\n  pull-requests: write\n\njobs:\n  review:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n        with:\n          fetch-depth: 0\n\n      - name: Install Claude Code\n        run: npm install -g @anthropic-ai/claude-code\n\n      - name: Get PR diff\n        run: git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr-diff.txt\n\n      - name: Run Claude Code Review\n        env:\n          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}\n        run: |\n          claude -p \"Review the following code diff for a pull request. \\\n          Check for: (1) bugs or logic errors, (2) security issues, \\\n          (3) missing error handling, (4) test coverage gaps, \\\n          (5) naming and convention violations per CLAUDE.md. \\\n          Format your response as a markdown review with sections for \\\n          each category. Only mention issues you actually found — do not \\\n          list categories with no issues. Be specific: reference file \\\n          names and line numbers. Here is the diff:\" \\\n          --file /tmp/pr-diff.txt > /tmp/review-output.md\n\n      - name: Post Review Comment\n        uses: actions/github-script@v7\n        with:\n          script: |\n            const fs = require('fs');\n            const review = fs.readFileSync('/tmp/review-output.md', 'utf8');\n            await github.rest.issues.createComment({\n              owner: context.repo.owner,\n              repo: context.repo.repo,\n              issue_number: context.issue.number,\n              body: `## Claude Code Review\\n\\n${review}\\n\\n---\\n*Automated review by Claude Code. This does not replace human review.*`\n            });",
+          "codeLanguage": "yaml"
+        },
+        {
+          "id": "cost-controls",
+          "title": "Add Cost Controls and Rate Limiting",
+          "content": [
+            "Automated pipelines can run up costs quickly. Add controls to limit token usage per review and skip reviews on trivial changes.",
+            "Set a maximum output token limit and filter out PRs that only change documentation or configuration."
+          ],
+          "codeSnippet": "# Add to the workflow, before the review step:\n      - name: Check if review needed\n        id: check\n        run: |\n          # Skip review for docs-only or config-only changes\n          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)\n          CODE_FILES=$(echo \"$CHANGED_FILES\" | grep -E '\\.(ts|js|tsx|jsx|py|go|rs)$' || true)\n          if [ -z \"$CODE_FILES\" ]; then\n            echo \"skip=true\" >> $GITHUB_OUTPUT\n            echo \"No code files changed, skipping review.\"\n          else\n            echo \"skip=false\" >> $GITHUB_OUTPUT\n            # Limit diff size to control token usage\n            DIFF_LINES=$(wc -l < /tmp/pr-diff.txt)\n            if [ \"$DIFF_LINES\" -gt 2000 ]; then\n              echo \"large_diff=true\" >> $GITHUB_OUTPUT\n            else\n              echo \"large_diff=false\" >> $GITHUB_OUTPUT\n            fi\n          fi\n\n      - name: Run Claude Code Review\n        if: steps.check.outputs.skip != 'true'\n        env:\n          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}\n        run: |\n          MAX_TOKENS=4096\n          if [ \"${{ steps.check.outputs.large_diff }}\" = \"true\" ]; then\n            echo \"Large diff detected. Reviewing summary only.\"\n            PROMPT=\"Summarize the key changes and flag any obvious issues.\"\n          else\n            PROMPT=\"Full review as specified in the review prompt.\"\n          fi\n          claude -p \"$PROMPT\" --max-tokens $MAX_TOKENS \\\n            --file /tmp/pr-diff.txt > /tmp/review-output.md",
+          "codeLanguage": "yaml"
+        },
+        {
+          "id": "monitor-quality",
+          "title": "Monitor Review Quality Over Time",
+          "content": [
+            "Track whether the automated reviews are actually useful. Log review outputs and periodically check: are the comments actionable? Are there too many false positives? Is the team ignoring the automated reviews?",
+            "If the team starts ignoring automated reviews, the system is adding noise, not value. Adjust the prompt to be more precise or raise the threshold for what gets flagged."
+          ],
+          "codeSnippet": "# Add a simple tracking step to the workflow\n      - name: Log Review Metrics\n        if: steps.check.outputs.skip != 'true'\n        run: |\n          # Count issues found by category\n          BUGS=$(grep -c '## Bugs' /tmp/review-output.md || echo 0)\n          SECURITY=$(grep -c '## Security' /tmp/review-output.md || echo 0)\n          echo \"review_date=$(date -u +%Y-%m-%d)\" >> review-metrics.log\n          echo \"pr_number=${{ github.event.pull_request.number }}\" >> review-metrics.log\n          echo \"diff_lines=$(wc -l < /tmp/pr-diff.txt)\" >> review-metrics.log\n          echo \"issues_found=$(grep -c '^-' /tmp/review-output.md || echo 0)\" >> review-metrics.log",
+          "codeLanguage": "yaml"
+        }
+      ],
+      "demonstratedSkills": ["s4-ci-cd", "s4-cost-management", "s4-error-handling"],
+      "demonstratedConcepts": ["c4-ci-integration", "c4-headless-mode", "c4-quality-monitoring"],
+      "estimatedTime": "50 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-5-governance-framework",
+      "levelId": "level-5",
+      "title": "Designing an AI Coding Governance Policy",
+      "summary": "Create a comprehensive governance framework for AI-generated code covering review processes, audit trails, risk tiers, and safety boundaries.",
+      "scenario": "Your engineering organization of 50 developers is adopting Claude Code across all teams. Leadership needs a governance framework that ensures AI-generated code meets quality and security standards without slowing down development. You need to design the policy, tooling, and processes.",
+      "sections": [
+        {
+          "id": "risk-tiering",
+          "title": "Define Risk Tiers for AI-Generated Code",
+          "content": [
+            "Not all code carries the same risk. Internal tooling has different stakes than payment processing. Define tiers that determine how much oversight AI-generated code requires.",
+            "The tiers should map to concrete review requirements. Higher-risk code gets more human review; lower-risk code can rely more heavily on automated checks."
+          ],
+          "codeSnippet": "# ai-governance/risk-tiers.md\n\n## Risk Tier Definitions\n\n### Tier 1 — Low Risk\n**Scope**: Internal tools, documentation, test code, prototypes\n**AI Review Policy**: Automated checks sufficient. Human review optional.\n**Examples**: Admin dashboards, dev scripts, test utilities, markdown docs\n**Required Checks**: Linting, type-checking, automated test pass\n\n### Tier 2 — Medium Risk\n**Scope**: Non-critical application features, internal APIs, batch jobs\n**AI Review Policy**: Automated checks + one human reviewer\n**Examples**: Reporting features, notification systems, data exports\n**Required Checks**: All Tier 1 + security scan + one human approval\n\n### Tier 3 — High Risk\n**Scope**: User-facing features, authentication, data handling, external APIs\n**AI Review Policy**: Automated checks + two human reviewers (one must be senior)\n**Examples**: Auth flows, payment integration, PII handling, public APIs\n**Required Checks**: All Tier 2 + senior review + security team sign-off\n\n### Tier 4 — Critical\n**Scope**: Infrastructure, deployment, security controls, compliance code\n**AI Review Policy**: AI assistance allowed for drafting, but final code must be\nhuman-written or line-by-line human-verified with sign-off\n**Examples**: CI/CD pipelines, IAM policies, encryption, audit logging\n**Required Checks**: All Tier 3 + compliance review + documented justification",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "audit-trail",
+          "title": "Design the Audit Trail System",
+          "content": [
+            "Every piece of AI-generated code should be traceable. Design an audit system that records what was generated, by which model, with what prompt, and who reviewed it.",
+            "The audit trail serves two purposes: accountability (who approved this code?) and learning (what prompts produce good results?)."
+          ],
+          "codeSnippet": "// ai-governance/audit-schema.ts\n\n// Every AI-assisted commit is tagged with metadata\ninterface AICodeAuditRecord {\n  // Identification\n  commitHash: string;\n  pullRequestId: number;\n  timestamp: string;\n\n  // AI Generation Details\n  model: string;             // e.g., \"claude-opus-4-6\"\n  toolVersion: string;       // e.g., \"claude-code@1.2.3\"\n  promptSummary: string;     // Summary of the prompt (not full prompt to avoid IP issues)\n  filesModified: string[];   // List of files touched by AI\n  linesGenerated: number;    // Lines of code generated by AI\n  linesModified: number;     // Lines of existing code modified by AI\n\n  // Review Details\n  riskTier: 1 | 2 | 3 | 4;\n  reviewers: string[];       // GitHub usernames of human reviewers\n  automatedChecks: {\n    name: string;            // e.g., \"eslint\", \"type-check\", \"security-scan\"\n    passed: boolean;\n    details?: string;\n  }[];\n\n  // Approval\n  approved: boolean;\n  approvedBy: string;\n  approvalNotes?: string;\n}",
+          "codeLanguage": "typescript"
+        },
+        {
+          "id": "safety-boundaries",
+          "title": "Define Safety Boundaries for Autonomous Agents",
+          "content": [
+            "When Claude Code runs in CI/CD or in autonomous workflows, it needs hard boundaries. Define what agents are allowed to do and what requires human escalation.",
+            "Safety boundaries should be enforced technically (through permissions and hooks), not just through policy documents that people might not read."
+          ],
+          "codeSnippet": "# ai-governance/safety-boundaries.md\n\n## Autonomous Agent Boundaries\n\n### Allowed Without Human Approval\n- Read any file in the repository\n- Run test suites and linting\n- Generate code in feature branches\n- Post review comments on pull requests\n- Create draft pull requests\n\n### Requires Human Approval Before Execution\n- Merge any pull request\n- Modify CI/CD pipeline configuration\n- Change dependency versions\n- Modify environment variables or secrets references\n- Delete files or branches\n- Access production systems or data\n\n### Never Allowed (Hard Block)\n- Push directly to main/production branches\n- Access or modify production databases\n- Modify security controls or IAM policies\n- Publish packages to registries\n- Create or modify cloud infrastructure\n- Access secrets or credentials directly\n\n## Escalation Protocol\n1. Agent encounters a blocked operation\n2. Agent creates a GitHub issue tagged `ai-escalation`\n3. On-call engineer reviews within 4 hours\n4. Engineer either approves (with audit note) or rejects with guidance",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "metrics-dashboard",
+          "title": "Design Metrics for Monitoring AI Coding Adoption",
+          "content": [
+            "You cannot govern what you cannot measure. Define metrics that track both the productivity benefits and the risks of AI coding adoption.",
+            "The metrics should answer: Is AI coding making us faster? Is it maintaining quality? Are we catching issues before they reach production?"
+          ],
+          "codeSnippet": "// ai-governance/metrics.ts\n\n// Productivity Metrics\ninterface ProductivityMetrics {\n  prThroughput: number;           // PRs merged per developer per week\n  timeToMerge: number;            // Average hours from PR open to merge\n  aiAssistedPRRatio: number;      // % of PRs with AI-generated code\n  linesGeneratedPerWeek: number;  // Total AI-generated lines across org\n}\n\n// Quality Metrics\ninterface QualityMetrics {\n  aiCodeDefectRate: number;       // Bugs per 1000 lines of AI code\n  humanCodeDefectRate: number;    // Bugs per 1000 lines of human code\n  reviewRejectionRate: number;    // % of AI PRs requiring revision\n  automatedCheckFailRate: number; // % of AI commits failing CI\n}\n\n// Safety Metrics\ninterface SafetyMetrics {\n  escalationCount: number;        // AI escalations per week\n  boundaryViolationAttempts: number; // Blocked operations per week\n  auditCompleteness: number;      // % of AI commits with full audit records\n  meanTimeToEscalationResponse: number; // Hours from escalation to response\n}\n\n// Cost Metrics\ninterface CostMetrics {\n  tokenUsagePerWeek: number;      // Total tokens consumed\n  costPerPR: number;              // Average API cost per PR review\n  costPerDeveloper: number;       // Monthly cost per developer\n  roiEstimate: number;            // Estimated time saved * developer cost\n}",
+          "codeLanguage": "typescript"
+        },
+        {
+          "id": "rollout-policy",
+          "title": "Create the Rollout and Exception Policy",
+          "content": [
+            "Governance only works if it has a clear rollout plan and a process for exceptions. Teams that find the policy too restrictive need a path to request adjustments, not a reason to circumvent the system.",
+            "Build in a feedback loop: review the governance framework quarterly and adjust based on metrics and team feedback."
+          ],
+          "codeSnippet": "# ai-governance/rollout.md\n\n## Rollout Plan\n\n### Phase 1 (Weeks 1-4): Pilot\n- 2 volunteer teams adopt the framework\n- All AI code is Tier 3 review (extra scrutiny during pilot)\n- Weekly feedback sessions with pilot teams\n- Metrics collection begins\n\n### Phase 2 (Weeks 5-8): Controlled Expansion\n- Expand to 5 teams based on pilot learnings\n- Risk tiering goes into effect (not all code needs Tier 3)\n- Automated audit trail tooling deployed\n- First metrics review\n\n### Phase 3 (Weeks 9-12): General Availability\n- All teams can adopt\n- Self-service onboarding with team-specific CLAUDE.md templates\n- Full metrics dashboard available\n- Quarterly governance review established\n\n## Exception Process\n1. Team submits exception request via GitHub issue template\n2. Request includes: what rule, why exception, proposed alternative safeguard\n3. Security team reviews within 1 week\n4. Approved exceptions are time-boxed (max 90 days) and logged\n5. Permanent policy changes go through quarterly review",
+          "codeLanguage": "markdown"
+        }
+      ],
+      "demonstratedSkills": ["s5-governance-design", "s5-safety-design", "s5-metrics-design"],
+      "demonstratedConcepts": ["c5-governance", "c5-safety-boundaries", "c5-risk-assessment"],
+      "estimatedTime": "90 minutes",
+      "prerequisites": []
+    },
+    {
+      "id": "proj-5-adoption-plan",
+      "levelId": "level-5",
+      "title": "Creating a Phased Adoption Plan for an Engineering Organization",
+      "summary": "Design a complete adoption strategy for introducing Claude Code to a 100-person engineering organization, covering training, tooling, governance, and measurement.",
+      "scenario": "You are the engineering director at a mid-size company with 100 engineers across 12 teams. The CTO has approved adopting Claude Code organization-wide. You need to create a phased plan that gets teams productive while managing risk, including a training curriculum, tooling standards, and success metrics.",
+      "sections": [
+        {
+          "id": "capability-assessment",
+          "title": "Assess Current Team Capabilities",
+          "content": [
+            "Before rolling out any tool, understand where your teams stand today. Survey engineers on their current AI coding experience and map them to the competence levels. This determines your training investment.",
+            "The assessment is not a test — it is a planning tool. Teams with more experience can move faster; teams with less experience need more support."
+          ],
+          "codeSnippet": "# adoption-plan/assessment-template.md\n\n## AI Coding Competence Self-Assessment\n\nFor each statement, rate your current comfort level: 1 (never done) to 5 (do regularly)\n\n### Basic Usage (Maps to Level 1)\n- [ ] I can install and launch Claude Code from the command line\n- [ ] I can write a prompt that produces useful code output\n- [ ] I review generated diffs before accepting them\n- [ ] I can recover when Claude Code produces an error or unhelpful output\n\n### Structured Collaboration (Maps to Level 2)\n- [ ] I provide file paths and context in my prompts\n- [ ] I break complex tasks into multiple focused prompts\n- [ ] I run tests after each AI-generated change\n- [ ] I specify constraints (what the code must/must not do) in prompts\n\n### Environment Configuration (Maps to Level 3)\n- [ ] I have configured CLAUDE.md files for my projects\n- [ ] I use hooks to enforce quality standards automatically\n- [ ] I have set up MCP servers for external tool access\n- [ ] I have configured permissions for safe AI operation\n\n### Workflow Automation (Maps to Level 4)\n- [ ] I have run multiple Claude Code agents in parallel\n- [ ] I have integrated Claude Code into CI/CD pipelines\n- [ ] I can design error handling for automated AI workflows\n- [ ] I monitor the quality of automated AI output",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "training-curriculum",
+          "title": "Design the Training Curriculum",
+          "content": [
+            "Structure training around the competence levels. Every engineer starts at Level 1 regardless of self-assessed skill — the training validates and reinforces fundamentals before advancing.",
+            "Each level has a hands-on workshop, self-study materials, and a practical assessment. Engineers must complete the assessment to advance. This is not bureaucracy — it is quality control."
+          ],
+          "codeSnippet": "# adoption-plan/training-curriculum.md\n\n## Level 1: Operator (Week 1)\n- **Workshop** (2 hours): Install, basic prompting, diff review, error recovery\n- **Self-study**: Complete 3 guided exercises from the exercise bank\n- **Assessment**: Generate a utility function, fix a bug, explain what Claude Code did\n- **Graduation requirement**: Pass assessment with mentor sign-off\n\n## Level 2: Structured Collaborator (Weeks 2-3)\n- **Workshop** (3 hours): Context-setting, task decomposition, verification loops\n- **Self-study**: Implement a multi-file feature using decomposed prompts\n- **Assessment**: Refactor a module with constraints, all tests must pass\n- **Graduation requirement**: Ship a real PR using structured collaboration\n\n## Level 3: Environment Builder (Weeks 4-6)\n- **Workshop** (3 hours): CLAUDE.md design, hooks, MCP, permissions\n- **Self-study**: Configure a project environment from scratch\n- **Assessment**: New team member can be productive using only your config\n- **Graduation requirement**: Team project has complete Claude Code environment\n\n## Level 4: Workflow Engineer (Weeks 7-10, select engineers)\n- **Workshop** (4 hours): Multi-agent orchestration, CI/CD integration\n- **Self-study**: Design and implement an automated workflow\n- **Assessment**: Automated pipeline runs without manual intervention\n- **Graduation requirement**: Production workflow running for 2 weeks\n\n## Level 5: Agentic Systems Expert (Ongoing, tech leads only)\n- **Seminar series** (6 sessions): Governance, safety, strategy, metrics\n- **Capstone**: Design team-level governance framework\n- **Ongoing**: Quarterly reviews and framework updates",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "tooling-standards",
+          "title": "Establish Tooling Standards",
+          "content": [
+            "Standardize how Claude Code is configured across the organization. Create templates for CLAUDE.md, settings files, and CI workflows that teams can adopt and customize.",
+            "Standardization reduces support burden. When every team configures Claude Code differently, every problem is unique. When they start from a common template, solutions are reusable."
+          ],
+          "codeSnippet": "# adoption-plan/tooling-standards/claude-md-template.md\n\n# CLAUDE.md (Organization Template)\n# Teams should customize this for their specific project.\n\n## Project Overview\n<!-- Replace with your project description -->\n[Project name]. [Tech stack]. [Primary purpose].\n\n## Build & Test Commands\n<!-- Replace with your actual commands -->\n- `npm run build` — compile\n- `npm test` — run all tests\n- `npm run lint` — check code style\n\n## Code Conventions\n<!-- Add your team's conventions. At minimum include: -->\n- Import style (named vs default)\n- Error handling pattern\n- Naming conventions\n- File organization rules\n\n## Architecture\n<!-- Describe your project structure. Include: -->\n- Directory layout and purpose of each top-level directory\n- Key patterns (service layer, repository pattern, etc.)\n- Where new code should go for common tasks\n\n## Rules\n<!-- Non-negotiable rules. These are guardrails, not suggestions. -->\n- NEVER [your critical safety rules]\n- Always [your critical quality rules]\n\n## Team-Specific\n<!-- Add anything unique to your team's workflow -->",
+          "codeLanguage": "markdown"
+        },
+        {
+          "id": "success-metrics",
+          "title": "Define Success Metrics and Reporting",
+          "content": [
+            "Define what success looks like at each phase. Metrics should cover adoption rate, productivity impact, quality maintenance, and cost. Report monthly to leadership.",
+            "Be honest about what metrics can and cannot tell you. Lines of code generated is a vanity metric. Defect rate of AI code versus human code is a real signal."
+          ],
+          "codeSnippet": "// adoption-plan/success-metrics.ts\n\ninterface AdoptionMetrics {\n  // Phase 1 Success (Month 1-2): Adoption\n  phase1: {\n    engineersOnboarded: number;     // Target: 100% through Level 1\n    engineersAtLevel2: number;      // Target: 60% by end of month 2\n    projectsWithClaudeMd: number;   // Target: 80% of active repos\n    weeklyActiveUsers: number;      // Target: 70% of engineers\n  };\n\n  // Phase 2 Success (Month 3-4): Productivity\n  phase2: {\n    prThroughputChange: number;     // Target: +20% PRs per developer\n    timeToMergeChange: number;      // Target: -15% time to merge\n    developerSatisfaction: number;  // Target: 4.0/5.0 on survey\n    engineersAtLevel3: number;      // Target: 30% by end of month 4\n  };\n\n  // Phase 3 Success (Month 5-6): Quality & Scale\n  phase3: {\n    aiCodeDefectRate: number;       // Target: <= human code defect rate\n    automatedWorkflowCount: number; // Target: 5+ automated workflows\n    costPerDeveloperMonth: number;  // Target: < $200/developer/month\n    governanceCompliance: number;   // Target: 95% of AI PRs have audit trail\n  };\n\n  // Ongoing: Health Checks\n  ongoing: {\n    toolAbandonment: number;        // Alert if > 10% stop using in a month\n    escalationVolume: number;       // Alert if > 5 per week\n    securityIncidents: number;      // Target: 0 AI-related security incidents\n  };\n}",
+          "codeLanguage": "typescript"
+        },
+        {
+          "id": "risk-mitigation",
+          "title": "Risk Mitigation and Rollback Strategy",
+          "content": [
+            "Every adoption plan needs a rollback strategy. If AI coding is not working — if quality drops, costs spike, or teams are unhappy — you need a clear path to scale back without disruption.",
+            "The rollback strategy is not an admission of failure. It is responsible planning that makes leadership more comfortable approving the initiative."
+          ],
+          "codeSnippet": "# adoption-plan/risk-mitigation.md\n\n## Identified Risks and Mitigations\n\n| Risk | Likelihood | Impact | Mitigation |\n|------|-----------|--------|------------|\n| Code quality decrease | Medium | High | Automated quality gates, mandatory tests, defect tracking |\n| Cost overruns | Medium | Medium | Token budgets per team, weekly cost reports, auto-alerts at 80% |\n| Security vulnerability in AI code | Low | Critical | Security scans in CI, Tier 3+ review for sensitive code |\n| Developer over-reliance | Medium | Medium | Competence assessments, rotation of AI-free sprints |\n| Tool vendor lock-in | Low | Medium | Abstract AI interfaces, maintain manual workflow capability |\n\n## Rollback Triggers\n- AI code defect rate exceeds 2x human code defect rate for 2 consecutive weeks\n- Monthly cost exceeds budget by more than 50%\n- Any security incident directly caused by AI-generated code\n- Developer satisfaction drops below 3.0/5.0\n\n## Rollback Procedure\n1. **Partial rollback**: Restrict AI to Tier 1 (low-risk) code only\n2. **Team-level rollback**: Specific team pauses AI usage, investigates\n3. **Full rollback**: All automated AI workflows paused, manual review only\n4. **Post-mortem**: Root cause analysis within 1 week, remediation plan\n\nAll rollback decisions require sign-off from Engineering Director.\nAll rollbacks are temporary — the goal is to fix and resume, not to abandon.",
+          "codeLanguage": "markdown"
+        }
+      ],
+      "demonstratedSkills": ["s5-training-design", "s5-capability-eval", "s5-metrics-design"],
+      "demonstratedConcepts": ["c5-strategy", "c5-human-ai-teaming", "c5-risk-assessment"],
+      "estimatedTime": "120 minutes",
+      "prerequisites": []
+    }
+  ]
+}

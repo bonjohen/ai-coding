@@ -183,6 +183,52 @@ function validateFamily(familyId: string, family: FamilyData, errors: Validation
       }
     }
   }
+
+  // Validate quiz questions (optional file)
+  if (family.quizQuestions) {
+    const questionIds = family.quizQuestions.questions.map(q => q.id);
+    checkDuplicates(errors, `${familyId}/quiz-questions.json`, 'questions', questionIds);
+
+    for (const q of family.quizQuestions.questions) {
+      const prefix = `${familyId}/quiz-questions.json[${q.id}]`;
+      if (!dimensionIds.has(q.dimensionId)) {
+        errors.push({ file: prefix, field: 'dimensionId', message: `Dimension ID "${q.dimensionId}" not found` });
+      }
+      if (!levelIds.has(q.levelId)) {
+        errors.push({ file: prefix, field: 'levelId', message: `Level ID "${q.levelId}" not found` });
+      }
+      if (!q.text || typeof q.text !== 'string') {
+        errors.push({ file: prefix, field: 'text', message: 'Question text is required' });
+      }
+      if (!Array.isArray(q.choices) || q.choices.length < 2) {
+        errors.push({ file: prefix, field: 'choices', message: 'At least 2 choices required' });
+      }
+    }
+  }
+
+  // Validate example projects (optional file)
+  if (family.exampleProjects) {
+    const projectIds = family.exampleProjects.projects.map(p => p.id);
+    checkDuplicates(errors, `${familyId}/example-projects.json`, 'projects', projectIds);
+
+    for (const p of family.exampleProjects.projects) {
+      const prefix = `${familyId}/example-projects.json[${p.id}]`;
+      if (!levelIds.has(p.levelId)) {
+        errors.push({ file: prefix, field: 'levelId', message: `Level ID "${p.levelId}" not found` });
+      }
+      if (!p.title || typeof p.title !== 'string') {
+        errors.push({ file: prefix, field: 'title', message: 'Project title is required' });
+      }
+      if (!Array.isArray(p.sections) || p.sections.length === 0) {
+        errors.push({ file: prefix, field: 'sections', message: 'At least one section required' });
+      }
+      for (const prereq of p.prerequisites) {
+        if (!projectIds.includes(prereq)) {
+          errors.push({ file: prefix, field: 'prerequisites', message: `Prerequisite project "${prereq}" not found` });
+        }
+      }
+    }
+  }
 }
 
 function checkDuplicates(errors: ValidationError[], file: string, entityType: string, ids: string[]): void {

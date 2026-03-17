@@ -6,8 +6,25 @@
     <p class="hero__summary">{{ level.summary }}</p>
   </header>
 
+  <nav class="section-toc" aria-label="On this page">
+    <h2 class="section-toc__title">On this page</h2>
+    <ul>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      <li><a href="#core-skills">Core Skills</a></li>
+      <li><a href="#observable-behaviors">Observable Behaviors</a></li>
+      <li><a href="#failure-modes">Failure Modes</a></li>
+      <li><a href="#graduation-criteria">Graduation Criteria</a></li>
+      <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
+      <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#learning-emphasis">Learning Emphasis</a></li>
+      <li><a href="#related-dimensions">Related Dimensions</a></li>
+      <li><a href="#citations">Citations</a></li>
+    </ul>
+  </nav>
+
   {{#if level.definition}}
-  <section class="section">
+  <section class="section" id="definition">
     <h2>Definition</h2>
     {{#each level.definition}}
     <p>{{ this }}</p>
@@ -16,7 +33,7 @@
   {{/if}}
 
   {{#if level.coreConcepts}}
-  <section class="section">
+  <section class="section" id="core-concepts">
     <h2>Core Concepts</h2>
     {{#each level.coreConcepts}}
     <div class="mb-lg">
@@ -28,7 +45,7 @@
   {{/if}}
 
   {{#if level.coreSkills}}
-  <section class="section">
+  <section class="section" id="core-skills">
     <h2>Core Skills</h2>
     {{#each level.coreSkills}}
     <div class="mb-lg">
@@ -43,7 +60,7 @@
   {{/if}}
 
   {{#if level.observableBehaviors}}
-  <section class="section">
+  <section class="section" id="observable-behaviors">
     <h2>Observable Behaviors</h2>
     <ul>
       {{#each level.observableBehaviors}}
@@ -54,7 +71,7 @@
   {{/if}}
 
   {{#if level.failureModes}}
-  <section class="section">
+  <section class="section" id="failure-modes">
     <h2>Typical Failure Modes</h2>
     <ul>
       {{#each level.failureModes}}
@@ -65,7 +82,7 @@
   {{/if}}
 
   {{#if level.graduationCriteria}}
-  <section class="section">
+  <section class="section" id="graduation-criteria">
     <h2>Graduation Criteria</h2>
     <ul>
       {{#each level.graduationCriteria}}
@@ -81,7 +98,7 @@
   {{/if}}
 
   {{#if level.evaluationTasks}}
-  <section class="section">
+  <section class="section" id="evaluation-tasks">
     <h2>Evaluation Tasks</h2>
     {{#each level.evaluationTasks}}
     <div class="card mb-md">
@@ -100,8 +117,21 @@
   </section>
   {{/if}}
 
+  {{#if levelExercises}}
+  <section class="section" id="exercises">
+    <h2>Exercises</h2>
+    {{#each levelExercises}}
+    <div class="card mb-md">
+      <h3 class="card__title">{{ title }}</h3>
+      <p>{{ summary }}</p>
+      <span class="badge mt-sm">{{ estimatedDifficulty }}</span>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
   {{#if level.learningEmphasis}}
-  <section class="section">
+  <section class="section" id="learning-emphasis">
     <h2>Learning Emphasis</h2>
     {{#each level.learningEmphasis}}
     <p>{{ this }}</p>
@@ -109,8 +139,42 @@
   </section>
   {{/if}}
 
+  {{#if levelDimensions}}
+  <section class="section" id="related-dimensions">
+    <h2>Related Dimensions</h2>
+    <ul>
+      {{#each levelDimensions}}
+      <li>
+        <a href="{{ basePath }}{{ family.slug }}/dimensions/">{{ name }}</a>
+        <span class="text-sm text-muted"> — {{ summary }}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if levelCitations}}
+  <section class="section" id="citations">
+    <h2>Citations</h2>
+    <div class="citation-list">
+      <ul>
+        {{#each levelCitations}}
+        <li>
+          {{#if url}}
+          <a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a>
+          {{else}}
+          {{ title }}
+          {{/if}}
+          <span class="text-sm text-muted"> — {{ author }}, {{ publisher }}</span>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+  {{/if}}
+
   {{#if level.personalNote}}
-  <section class="section">
+  <section class="section" id="personal-note">
     <h2>Personal Note</h2>
     {{#each level.personalNote}}
     <p>{{ this }}</p>

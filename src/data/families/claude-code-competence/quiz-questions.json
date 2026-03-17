@@ -1,0 +1,940 @@
+{
+  "familyId": "claude-code-competence",
+  "questions": [
+    {
+      "id": "q-sr-cu-01",
+      "text": "How well can you explain how context window limits affect multi-file tasks in Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't know what a context window is" },
+        { "value": 2, "label": "Sometimes — I have a rough idea but can't explain it clearly" },
+        { "value": 3, "label": "Usually — I can explain token limits and their practical effects" },
+        { "value": 4, "label": "Always — I can predict and plan around context window constraints" }
+      ],
+      "dimensionId": "dim-conceptual-understanding",
+      "levelId": "level-1",
+      "tags": ["context-window", "mental-model"],
+      "studyLinks": [
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Understanding context window limits is foundational. Practitioners who cannot explain this concept will struggle to manage long sessions or multi-file tasks effectively."
+    },
+    {
+      "id": "q-sr-cu-02",
+      "text": "How well do you understand the difference between Claude Code's tool use (running bash commands, editing files) and direct text generation?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't distinguish between them" },
+        { "value": 2, "label": "Sometimes — I notice when tools are used but don't fully understand why" },
+        { "value": 3, "label": "Usually — I understand which actions use tools and which are generated text" },
+        { "value": 4, "label": "Always — I can predict when tool use will occur and leverage it deliberately" }
+      ],
+      "dimensionId": "dim-conceptual-understanding",
+      "levelId": "level-1",
+      "tags": ["tool-use", "generation", "mental-model"],
+      "studyLinks": [
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Distinguishing tool use from generation helps practitioners understand what Claude Code is actually doing, which is critical for diagnosing unexpected behavior."
+    },
+    {
+      "id": "q-sr-cu-03",
+      "text": "Can you describe what happens when Claude Code executes a bash command — including how it decides to run the command, what permissions apply, and how the output is processed?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I have no idea what happens behind the scenes" },
+        { "value": 2, "label": "Sometimes — I know it runs commands but not the details" },
+        { "value": 3, "label": "Usually — I understand the permission model and output flow" },
+        { "value": 4, "label": "Always — I can explain the full lifecycle including permission checks, execution, and output parsing" }
+      ],
+      "dimensionId": "dim-conceptual-understanding",
+      "levelId": "level-2",
+      "tags": ["bash", "permissions", "execution-model"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Understanding the command execution lifecycle helps practitioners predict behavior, configure permissions appropriately, and debug issues when commands fail."
+    },
+    {
+      "id": "q-sr-tf-01",
+      "text": "How often do you provide context about the codebase (file paths, conventions, architecture) before asking Claude Code to make changes?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I jump straight to the request" },
+        { "value": 2, "label": "Sometimes — when I remember or the task seems complex" },
+        { "value": 3, "label": "Usually — I set context for most non-trivial tasks" },
+        { "value": 4, "label": "Always — I systematically provide context before every change request" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["context-setting", "prompting"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Context-setting is the single most important factor in prompt quality. Without it, Claude Code operates with incomplete information and produces less accurate results."
+    },
+    {
+      "id": "q-sr-tf-02",
+      "text": "How effectively can you decompose a large feature into a sequence of well-scoped prompts for Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I use a single prompt for everything" },
+        { "value": 2, "label": "Sometimes — I split into a couple of prompts but struggle with ordering" },
+        { "value": 3, "label": "Usually — I plan 3-5 sequential prompts with clear dependencies" },
+        { "value": 4, "label": "Always — I design prompt sequences with explicit inputs, outputs, and verification points" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["decomposition", "prompting", "planning"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Competence Matrix", "href": "/ai-coding/claude-code-competence/matrix/" }
+      ],
+      "explanation": "Task decomposition determines whether complex work succeeds or fails. Single-prompt approaches for multi-step tasks consistently produce poor results."
+    },
+    {
+      "id": "q-sr-tf-03",
+      "text": "How often do you specify constraints and edge cases upfront when asking Claude Code to generate code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I let Claude Code figure out the constraints" },
+        { "value": 2, "label": "Sometimes — I mention obvious constraints" },
+        { "value": 3, "label": "Usually — I list key constraints, edge cases, and error handling expectations" },
+        { "value": 4, "label": "Always — I specify constraints, edge cases, performance bounds, and style conventions" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["constraints", "edge-cases", "specification"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Upfront constraint specification reduces iteration cycles. Code that misses edge cases often looks correct in the happy path but fails in production."
+    },
+    {
+      "id": "q-sr-vd-01",
+      "text": "How consistently do you review every diff generated by Claude Code before accepting it?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I accept most output without reading it" },
+        { "value": 2, "label": "Sometimes — I skim the diff for obvious issues" },
+        { "value": 3, "label": "Usually — I read each diff line-by-line before accepting" },
+        { "value": 4, "label": "Always — I review every line, check logic, and verify edge case handling" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-1",
+      "tags": ["diff-review", "code-review"],
+      "studyLinks": [
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Diff review is the primary quality gate for AI-generated code. Skipping it leads to subtle bugs accumulating in the codebase."
+    },
+    {
+      "id": "q-sr-vd-02",
+      "text": "How often do you run tests after each significant change made by Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I assume the code works" },
+        { "value": 2, "label": "Sometimes — I run tests at the end of a session" },
+        { "value": 3, "label": "Usually — I run tests after major changes" },
+        { "value": 4, "label": "Always — I run the test suite after every significant change" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["testing", "verification"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Running tests after each change catches regressions immediately. Waiting until the end of a session makes it harder to identify which change introduced a bug."
+    },
+    {
+      "id": "q-sr-vd-03",
+      "text": "How often do you verify that AI-generated code handles edge cases correctly rather than only testing the happy path?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — if the main case works, I move on" },
+        { "value": 2, "label": "Sometimes — I check obvious edge cases" },
+        { "value": 3, "label": "Usually — I test boundary conditions and error paths" },
+        { "value": 4, "label": "Always — I systematically verify edge cases, error handling, and boundary conditions" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["edge-cases", "testing", "quality"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "AI-generated code frequently handles the happy path well but misses edge cases. Systematic edge case verification is what separates reliable from fragile code."
+    },
+    {
+      "id": "q-sr-cm-01",
+      "text": "How effectively do you use CLAUDE.md files to persist project-level context across sessions?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't use CLAUDE.md" },
+        { "value": 2, "label": "Sometimes — I have a basic CLAUDE.md but rarely update it" },
+        { "value": 3, "label": "Usually — I maintain CLAUDE.md with build commands, conventions, and architecture notes" },
+        { "value": 4, "label": "Always — I maintain layered CLAUDE.md files (root, directory-level) as living documents" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-3",
+      "tags": ["claude-md", "persistent-context"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "CLAUDE.md is the primary mechanism for persistent context. Without it, practitioners repeat the same context-setting work at the start of every session."
+    },
+    {
+      "id": "q-sr-cm-02",
+      "text": "How well do you manage context window limits across long sessions with Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't think about context limits" },
+        { "value": 2, "label": "Sometimes — I notice when responses degrade but don't know why" },
+        { "value": 3, "label": "Usually — I recognize context saturation and start fresh sessions when needed" },
+        { "value": 4, "label": "Always — I proactively manage context by scoping sessions, using compact mode, and planning for fresh starts" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-2",
+      "tags": ["context-window", "session-management"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Long sessions degrade output quality as the context window fills. Recognizing when to start fresh vs. continue is a key skill that separates competent users from beginners."
+    },
+    {
+      "id": "q-sr-cm-03",
+      "text": "How consistently do you know when to start a fresh conversation versus continuing an existing one?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I always continue in the same session" },
+        { "value": 2, "label": "Sometimes — I start fresh when things feel broken" },
+        { "value": 3, "label": "Usually — I start fresh when context has drifted or the task scope changes" },
+        { "value": 4, "label": "Always — I deliberately scope sessions and start fresh based on task boundaries" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-2",
+      "tags": ["session-management", "context-window"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Session management directly affects output quality. Continuing a confused session compounds errors, while starting fresh with good context produces better results."
+    },
+    {
+      "id": "q-sr-ed-01",
+      "text": "Have you configured CLAUDE.md files, hooks, and permission settings for the projects you work on with Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I use Claude Code with default settings" },
+        { "value": 2, "label": "Sometimes — I have a basic CLAUDE.md in one or two projects" },
+        { "value": 3, "label": "Usually — my projects have CLAUDE.md, hooks, and tuned permissions" },
+        { "value": 4, "label": "Always — I design complete environments with layered config, hooks, MCP servers, and permission tuning" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["environment", "configuration", "claude-md"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Environment design is what makes Claude Code effective by default. Without it, every session starts from scratch and every team member reinvents the same configuration."
+    },
+    {
+      "id": "q-sr-ed-02",
+      "text": "How often do you use hooks to enforce pre-commit checks, linting, or formatting alongside Claude Code?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't use hooks" },
+        { "value": 2, "label": "Sometimes — I have basic hooks but they aren't integrated with Claude Code" },
+        { "value": 3, "label": "Usually — I have hooks that catch common issues in AI-generated code" },
+        { "value": 4, "label": "Always — my hooks enforce standards, format code, and run tests automatically" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["hooks", "automation", "quality"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Hooks provide automated guardrails that catch issues regardless of who generated the code. They are especially valuable for AI-generated code which may not follow project conventions."
+    },
+    {
+      "id": "q-sr-ed-03",
+      "text": "Have you set up MCP servers to give Claude Code access to external tools, databases, or APIs?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't know what MCP servers are" },
+        { "value": 2, "label": "Sometimes — I understand MCP conceptually but haven't set one up" },
+        { "value": 3, "label": "Usually — I have MCP servers configured for key external integrations" },
+        { "value": 4, "label": "Always — I design and maintain MCP server configurations with proper security boundaries" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["mcp", "integration", "external-tools"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "MCP servers extend Claude Code's capabilities beyond the local filesystem. Setting them up with proper security is a key Environment Builder skill."
+    },
+    {
+      "id": "q-sr-ws-01",
+      "text": "How effectively can you run multiple Claude Code agents on parallel tasks?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I only use one instance at a time" },
+        { "value": 2, "label": "Sometimes — I've tried running two instances but had conflicts" },
+        { "value": 3, "label": "Usually — I run parallel agents with worktree isolation on independent tasks" },
+        { "value": 4, "label": "Always — I design task graphs, isolate agents, and merge results systematically" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["multi-agent", "parallel", "orchestration"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Multi-agent parallelism is where AI coding delivers order-of-magnitude gains. Without proper isolation and coordination, parallel agents create merge conflicts and inconsistent output."
+    },
+    {
+      "id": "q-sr-ws-02",
+      "text": "Have you integrated Claude Code into CI/CD pipelines for automated code generation, review, or testing?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I only use Claude Code interactively" },
+        { "value": 2, "label": "Sometimes — I've experimented with non-interactive mode" },
+        { "value": 3, "label": "Usually — I have Claude Code steps in CI for specific tasks" },
+        { "value": 4, "label": "Always — Claude Code is integrated into CI/CD with error handling, monitoring, and quality gates" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["ci-cd", "automation", "pipeline"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "CI/CD integration moves Claude Code from a manual tool to automated infrastructure. This requires non-interactive mode, error handling, and quality monitoring."
+    },
+    {
+      "id": "q-sr-ws-03",
+      "text": "Do you use headless or non-interactive mode for automated and scripted workflows?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I always use Claude Code interactively" },
+        { "value": 2, "label": "Sometimes — I've read about non-interactive mode but haven't used it" },
+        { "value": 3, "label": "Usually — I use non-interactive mode for batch tasks and scripted workflows" },
+        { "value": 4, "label": "Always — I design automated workflows around headless mode with monitoring and error recovery" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["headless", "non-interactive", "automation"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Non-interactive mode is the foundation for all automated Claude Code workflows. Understanding its flags and limitations is essential for scaling beyond interactive use."
+    },
+    {
+      "id": "q-sr-sg-01",
+      "text": "How consistently do you review AI-generated code for security vulnerabilities before accepting it?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I don't specifically check for security issues" },
+        { "value": 2, "label": "Sometimes — I check for obvious issues like hardcoded credentials" },
+        { "value": 3, "label": "Usually — I review for common vulnerability patterns (injection, auth, data exposure)" },
+        { "value": 4, "label": "Always — I systematically review for security issues and use automated scanning tools" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-3",
+      "tags": ["security", "code-review", "vulnerabilities"],
+      "studyLinks": [
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "AI-generated code can introduce security vulnerabilities that are syntactically correct but insecure. Security review must be explicit, not assumed."
+    },
+    {
+      "id": "q-sr-sg-02",
+      "text": "Is there an audit trail for AI-generated changes in your projects — can you trace which code was AI-generated and what prompts produced it?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — I have no way to distinguish AI-generated code" },
+        { "value": 2, "label": "Sometimes — I use commit messages to note AI involvement" },
+        { "value": 3, "label": "Usually — I have a consistent labeling practice for AI-generated commits" },
+        { "value": 4, "label": "Always — there is a complete audit trail linking prompts, outputs, and reviews" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-5",
+      "tags": ["audit-trail", "compliance", "traceability"],
+      "studyLinks": [
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" }
+      ],
+      "explanation": "As AI coding scales, audit trails become essential for compliance, debugging, and understanding how code was produced. Organizations need traceability."
+    },
+    {
+      "id": "q-sr-sg-03",
+      "text": "Do you have clear policies for what AI agents can and cannot do autonomously in your projects?",
+      "type": "self-rate",
+      "choices": [
+        { "value": 1, "label": "Never — there are no policies" },
+        { "value": 2, "label": "Sometimes — I have informal rules but nothing documented" },
+        { "value": 3, "label": "Usually — I have documented permission boundaries and escalation rules" },
+        { "value": 4, "label": "Always — there is an organizational policy framework covering permissions, boundaries, and escalation" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-5",
+      "tags": ["policy", "governance", "boundaries"],
+      "studyLinks": [
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Explicit policies prevent unauthorized actions by AI agents. Without them, the boundary between helpful automation and dangerous autonomy is unclear."
+    },
+    {
+      "id": "q-sc-01",
+      "text": "You ask Claude Code to implement a new API endpoint, and the generated code compiles and returns correct data for your test case. What should you do next?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Accept the code — it works" },
+        { "value": 2, "label": "Read through the diff quickly to check for obvious issues" },
+        { "value": 3, "label": "Review the diff line-by-line, run the test suite, and check edge cases" },
+        { "value": 4, "label": "Review the diff, run tests, check edge cases, verify error handling, and review for security vulnerabilities" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["verification", "code-review", "testing"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "A single passing test case is insufficient verification. API endpoints need review for security, error handling, edge cases, and compliance with project conventions."
+    },
+    {
+      "id": "q-sc-02",
+      "text": "You're implementing a feature that requires changes to the database schema, API layer, and frontend. How do you approach this with Claude Code?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Write one prompt describing the entire feature and let Claude Code handle everything" },
+        { "value": 2, "label": "Write separate prompts for each layer but don't specify dependencies between them" },
+        { "value": 3, "label": "Decompose into sequential prompts (schema first, then API, then frontend) with verification after each step" },
+        { "value": 4, "label": "Plan a prompt sequence with explicit inputs/outputs per step, verify each step, and provide the previous step's results as context for the next" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["decomposition", "multi-layer", "planning"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Competence Matrix", "href": "/ai-coding/claude-code-competence/matrix/" }
+      ],
+      "explanation": "Multi-layer features require ordered decomposition. Each layer depends on the previous one, so verification between steps prevents cascading errors."
+    },
+    {
+      "id": "q-sc-03",
+      "text": "Your Claude Code session has been running for 45 minutes. Responses are becoming less relevant and occasionally reference files that don't exist. What do you do?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Keep going and rephrase your prompts more clearly" },
+        { "value": 2, "label": "Use /clear to reset the conversation and continue" },
+        { "value": 3, "label": "Start a fresh session and re-provide the essential context for your current task" },
+        { "value": 4, "label": "Start a fresh session, scope it narrowly to your remaining task, and provide focused context from CLAUDE.md" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-2",
+      "tags": ["context-window", "session-management", "hallucination"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" }
+      ],
+      "explanation": "Hallucinating file names is a strong signal of context window saturation. Starting fresh with focused context produces better results than fighting a degraded session."
+    },
+    {
+      "id": "q-sc-04",
+      "text": "A new team member joins your project and needs to use Claude Code. Your project has no CLAUDE.md or environment configuration. What's the most impactful thing you can do?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Tell them to read the project README and figure out Claude Code on their own" },
+        { "value": 2, "label": "Send them a list of useful prompts for the project" },
+        { "value": 3, "label": "Create a CLAUDE.md with build commands, conventions, and architecture overview" },
+        { "value": 4, "label": "Set up a complete environment: layered CLAUDE.md files, hooks, permission config, and MCP servers — so they're productive on day one" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["onboarding", "claude-md", "team"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" }
+      ],
+      "explanation": "Environment design multiplies productivity across the team. A well-configured project makes every team member effective with Claude Code immediately."
+    },
+    {
+      "id": "q-sc-05",
+      "text": "You need to refactor 20 modules to use a new logging library. How do you approach this with Claude Code?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Ask Claude Code to refactor all 20 modules in a single prompt" },
+        { "value": 2, "label": "Refactor each module one at a time in the same session" },
+        { "value": 3, "label": "Refactor a few modules manually to establish the pattern, then use Claude Code for the rest in batches" },
+        { "value": 4, "label": "Define the pattern in CLAUDE.md, run parallel agents on isolated worktrees — each handling a batch of modules — then merge and verify" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["multi-agent", "refactoring", "parallel", "worktree"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "Large-scale refactoring is a prime candidate for multi-agent parallel execution. Worktree isolation prevents conflicts, and a clear pattern definition ensures consistency."
+    },
+    {
+      "id": "q-sc-06",
+      "text": "Claude Code generates a function that works correctly but uses a deprecated API method. What should you do?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Accept it — it works and deprecated doesn't mean removed" },
+        { "value": 2, "label": "Accept it and create a ticket to update later" },
+        { "value": 3, "label": "Ask Claude Code to rewrite using the current API, specifying the correct method" },
+        { "value": 4, "label": "Ask Claude Code to rewrite using the current API, then update CLAUDE.md to note the deprecated methods to avoid" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-3",
+      "tags": ["deprecated-api", "quality", "claude-md"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Fixing the issue and updating CLAUDE.md prevents the same problem from recurring. This is the Environment Builder mindset: solve once, benefit forever."
+    },
+    {
+      "id": "q-sc-07",
+      "text": "You're designing a CI pipeline that uses Claude Code to automatically generate test cases for new pull requests. What's the most important consideration?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Making sure the pipeline runs fast" },
+        { "value": 2, "label": "Ensuring the generated tests actually compile and run" },
+        { "value": 3, "label": "Adding verification that generated tests are meaningful (not just passing trivially) and handling pipeline failures gracefully" },
+        { "value": 4, "label": "Verification of test quality, failure handling, cost monitoring, security review of generated code, and human review gates before merge" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["ci-cd", "test-generation", "quality-monitoring"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "Automated code generation in CI requires multiple layers of verification. Without quality monitoring, trivially passing tests provide false confidence."
+    },
+    {
+      "id": "q-sc-08",
+      "text": "Your automated Claude Code workflow has been running in CI for two weeks. You notice that the quality of generated code reviews has gradually declined. What's likely happening?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "The model is getting worse — time to switch tools" },
+        { "value": 2, "label": "The prompts are probably outdated and need refreshing" },
+        { "value": 3, "label": "The codebase has evolved and the context provided to the agent no longer reflects current patterns and conventions" },
+        { "value": 4, "label": "This is quality drift — the environment config, CLAUDE.md, and prompt templates need updating to match codebase evolution, and you need ongoing monitoring metrics" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-4",
+      "tags": ["quality-drift", "monitoring", "maintenance"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" },
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" }
+      ],
+      "explanation": "Quality drift in automated workflows is caused by context becoming stale as the codebase evolves. Monitoring metrics and regular config updates are essential for sustained quality."
+    },
+    {
+      "id": "q-sc-09",
+      "text": "You're asked to design an AI coding governance framework for a team of 15 engineers. What's your starting point?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Ban AI coding tools until you can evaluate them fully" },
+        { "value": 2, "label": "Let everyone use Claude Code freely and address issues as they come up" },
+        { "value": 3, "label": "Define review requirements for AI-generated code and set up basic permission boundaries" },
+        { "value": 4, "label": "Design a phased framework covering permissions, review processes, audit trails, escalation paths, training, and metrics — starting with low-risk use cases" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-5",
+      "tags": ["governance", "policy", "organizational"],
+      "studyLinks": [
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Governance frameworks must balance safety with productivity. Starting with low-risk use cases and expanding gradually is more effective than either blanket bans or unrestricted access."
+    },
+    {
+      "id": "q-sc-10",
+      "text": "Claude Code produces a diff that adds 200 lines of code. You're in a hurry. What's the minimum responsible action?",
+      "type": "scenario",
+      "choices": [
+        { "value": 1, "label": "Accept it — you can review later" },
+        { "value": 2, "label": "Skim the diff for obvious problems and accept" },
+        { "value": 3, "label": "Read every line of the diff and run the test suite before accepting" },
+        { "value": 4, "label": "Read every line, run tests, check for security issues, and if truly time-pressed, commit to a review branch rather than merging directly" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["diff-review", "time-pressure", "quality"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Time pressure is the most common reason verification is skipped. Using a review branch preserves urgency while maintaining quality gates."
+    },
+    {
+      "id": "q-kn-01",
+      "text": "What is a 'context window' in the context of Claude Code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "The terminal window where Claude Code runs" },
+        { "value": 2, "label": "The maximum number of files Claude Code can open at once" },
+        { "value": 3, "label": "The maximum amount of text (measured in tokens) the model can process in a single interaction" },
+        { "value": 4, "label": "The maximum amount of text the model can process, including all conversation history, file contents, tool outputs, and system instructions" }
+      ],
+      "dimensionId": "dim-conceptual-understanding",
+      "levelId": "level-1",
+      "tags": ["context-window", "tokens", "fundamentals"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" }
+      ],
+      "explanation": "The context window includes everything in the conversation — not just your prompt but also system instructions, file contents, and tool outputs. Understanding this is fundamental to managing long sessions."
+    },
+    {
+      "id": "q-kn-02",
+      "text": "What is CLAUDE.md?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "The documentation for Claude Code itself" },
+        { "value": 2, "label": "A log file that records Claude Code interactions" },
+        { "value": 3, "label": "A markdown file that provides instructions to Claude Code when placed in a project directory" },
+        { "value": 4, "label": "A layered configuration system where project-root and directory-level CLAUDE.md files provide persistent context, conventions, build commands, and behavioral instructions across all sessions" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-3",
+      "tags": ["claude-md", "configuration", "persistent-context"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" }
+      ],
+      "explanation": "CLAUDE.md is a persistent configuration mechanism that can be layered (root-level, directory-level) to provide context at different scopes. It is the primary tool for environment design."
+    },
+    {
+      "id": "q-kn-03",
+      "text": "What is MCP (Model Context Protocol)?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "A proprietary API for connecting to Anthropic's servers" },
+        { "value": 2, "label": "A protocol for encrypting Claude Code communications" },
+        { "value": 3, "label": "An open protocol for connecting AI models to external tools and data sources" },
+        { "value": 4, "label": "An open protocol with standardized server interfaces that lets Claude Code connect to databases, APIs, file systems, and other external tools — extensible and configurable per project" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["mcp", "protocol", "integration"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" }
+      ],
+      "explanation": "MCP is the standard way to extend Claude Code's capabilities. Understanding it as an open, extensible protocol (not a proprietary API) is important for designing integrations."
+    },
+    {
+      "id": "q-kn-04",
+      "text": "What is a 'verification loop' in AI-assisted development?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "The process of verifying your Anthropic account credentials" },
+        { "value": 2, "label": "Running a linter after generating code" },
+        { "value": 3, "label": "A practice of reviewing and testing AI-generated output before accepting it" },
+        { "value": 4, "label": "A systematic cycle of reviewing diffs, running tests, checking edge cases, and validating behavior before accepting — repeated after every significant change" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["verification-loop", "testing", "quality"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "A verification loop is not just running tests — it is a systematic practice that includes diff review, test execution, edge case checking, and behavioral validation after each change."
+    },
+    {
+      "id": "q-kn-05",
+      "text": "What is 'non-interactive mode' (also called 'headless mode') in Claude Code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "Running Claude Code with the screen turned off" },
+        { "value": 2, "label": "Using Claude Code without typing — voice commands only" },
+        { "value": 3, "label": "Running Claude Code without human interaction, using flags like --print, for scripted workflows" },
+        { "value": 4, "label": "Running Claude Code without a terminal UI, using flags like --print or piped input, enabling CI/CD integration, batch processing, and automated workflows with programmatic control" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["headless", "non-interactive", "automation"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "Non-interactive mode is the foundation for all automated Claude Code usage. Understanding the available flags and input methods is essential for CI/CD integration."
+    },
+    {
+      "id": "q-kn-06",
+      "text": "What is a 'hook' in the context of Claude Code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "A way to connect Claude Code to the internet" },
+        { "value": 2, "label": "A git pre-commit hook only" },
+        { "value": 3, "label": "A user-configured shell command that runs in response to Claude Code events" },
+        { "value": 4, "label": "A user-configured shell command triggered by specific Claude Code events (tool calls, notifications) that can enforce standards, run checks, and automate quality gates" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["hooks", "automation", "events"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" }
+      ],
+      "explanation": "Hooks in Claude Code are broader than git hooks — they respond to Claude Code-specific events like tool calls. This makes them powerful for enforcing standards during AI-assisted development."
+    },
+    {
+      "id": "q-kn-07",
+      "text": "What is 'worktree isolation' and why is it important for multi-agent workflows?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "It means each developer has their own git branch" },
+        { "value": 2, "label": "It means running Claude Code in a Docker container" },
+        { "value": 3, "label": "Using git worktrees so each agent has its own copy of the repository to avoid conflicts" },
+        { "value": 4, "label": "Using git worktrees to give each parallel agent an isolated checkout of the repository, preventing merge conflicts, enabling independent file edits, and allowing clean merges after parallel completion" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["worktree", "isolation", "multi-agent", "git"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "Worktree isolation is a critical technique for multi-agent workflows. Without it, parallel agents editing the same files cause merge conflicts and corrupted state."
+    },
+    {
+      "id": "q-kn-08",
+      "text": "What is 'governance' in the context of AI-generated code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "Government regulations about AI" },
+        { "value": 2, "label": "A code review process" },
+        { "value": 3, "label": "Policies and processes that ensure AI-generated code meets quality and compliance standards" },
+        { "value": 4, "label": "An organizational framework of policies, review processes, audit trails, permission boundaries, and controls ensuring AI-generated code meets quality, security, and compliance standards at scale" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-5",
+      "tags": ["governance", "compliance", "organizational"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" }
+      ],
+      "explanation": "Governance goes far beyond code review. It encompasses the full organizational framework for ensuring AI-generated code is safe, compliant, and auditable."
+    },
+    {
+      "id": "q-kn-09",
+      "text": "What is 'task decomposition' in the context of prompting Claude Code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "Deleting completed tasks from a to-do list" },
+        { "value": 2, "label": "Splitting a large prompt into shorter sentences" },
+        { "value": 3, "label": "Breaking a complex task into smaller, sequential prompts that Claude Code can handle individually" },
+        { "value": 4, "label": "Breaking complex work into well-scoped, ordered prompts with explicit inputs, outputs, dependencies, and verification checkpoints between each step" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["decomposition", "prompting", "planning"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Task decomposition is not just splitting text — it requires understanding dependencies, defining verification points, and scoping each step so Claude Code has sufficient context."
+    },
+    {
+      "id": "q-kn-10",
+      "text": "What is a 'subagent' in Claude Code?",
+      "type": "knowledge",
+      "choices": [
+        { "value": 1, "label": "A junior developer using Claude Code" },
+        { "value": 2, "label": "A Claude Code plugin" },
+        { "value": 3, "label": "A Claude Code instance spawned by another agent to handle a subtask" },
+        { "value": 4, "label": "A Claude Code instance spawned by another agent to handle a subtask, operating with its own context window, task scope, and tool permissions" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["subagent", "multi-agent", "orchestration"],
+      "studyLinks": [
+        { "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/" },
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "Subagents enable hierarchical task decomposition where a parent agent coordinates multiple child agents. Each subagent has its own context window, preventing context overload."
+    },
+    {
+      "id": "q-bh-01",
+      "text": "When starting a new Claude Code session, how often do you provide project context before making your first request?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Rarely — I jump straight to my task" },
+        { "value": 2, "label": "Occasionally — when I remember or the task is complex" },
+        { "value": 3, "label": "Frequently — I reference CLAUDE.md and key files before starting" },
+        { "value": 4, "label": "Consistently — I ensure context is set (via CLAUDE.md or explicit prompts) before every session" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-1",
+      "tags": ["context-setting", "session-start", "prompting"],
+      "studyLinks": [
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" },
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Starting sessions without context is the most common Operator-level behavior. It leads to generic output that doesn't match project conventions."
+    },
+    {
+      "id": "q-bh-02",
+      "text": "When Claude Code generates code that doesn't work, how do you typically respond?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Repeat the same prompt, hoping for a different result" },
+        { "value": 2, "label": "Rephrase the prompt slightly and try again" },
+        { "value": 3, "label": "Analyze the error, provide the error message as context, and ask for a targeted fix" },
+        { "value": 4, "label": "Diagnose the root cause, provide error context and analysis, specify what specifically needs to change, and verify the fix" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["error-recovery", "iteration", "debugging"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Repeating the same prompt is the classic Operator failure mode. Effective error recovery requires providing diagnostic context and specifying the expected behavior."
+    },
+    {
+      "id": "q-bh-03",
+      "text": "How do you handle the situation when you realize the code Claude Code generated has been silently introducing a subtle pattern violation across multiple files?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Fix each file manually as I notice issues" },
+        { "value": 2, "label": "Ask Claude Code to fix the files I've noticed and hope for the best" },
+        { "value": 3, "label": "Identify the pattern violation, fix affected files, and add the convention to my prompts going forward" },
+        { "value": 4, "label": "Fix affected files, document the convention in CLAUDE.md so it persists, and add a hook or linting rule to catch future violations automatically" }
+      ],
+      "dimensionId": "dim-environment-design",
+      "levelId": "level-3",
+      "tags": ["pattern-violation", "conventions", "claude-md", "hooks"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" }
+      ],
+      "explanation": "The Environment Builder response is to fix the issue AND prevent recurrence by updating CLAUDE.md and adding automated checks. This is the 'solve once' mindset."
+    },
+    {
+      "id": "q-bh-04",
+      "text": "When Claude Code suggests a change you don't fully understand, what do you typically do?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Accept it if it passes basic checks" },
+        { "value": 2, "label": "Reject it and try a different approach" },
+        { "value": 3, "label": "Ask Claude Code to explain the change and its reasoning before deciding" },
+        { "value": 4, "label": "Ask for explanation, verify the reasoning independently, check edge cases, and only accept when you fully understand the implications" }
+      ],
+      "dimensionId": "dim-verification-discipline",
+      "levelId": "level-2",
+      "tags": ["understanding", "review", "explanation"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Operator Level", "href": "/ai-coding/claude-code-competence/levels/operator/" }
+      ],
+      "explanation": "Accepting code you don't understand is a major risk. Even if it works now, you cannot maintain or debug code you didn't verify understanding of."
+    },
+    {
+      "id": "q-bh-05",
+      "text": "How do you approach using Claude Code for tasks in an unfamiliar codebase?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Dive in and ask Claude Code to make changes directly" },
+        { "value": 2, "label": "Ask Claude Code to explain the codebase structure first, then make changes" },
+        { "value": 3, "label": "Explore the codebase yourself, set context about architecture and conventions, then make focused requests" },
+        { "value": 4, "label": "Explore the codebase, read existing CLAUDE.md or create one, set context about architecture, and use small exploratory prompts before making changes" }
+      ],
+      "dimensionId": "dim-context-management",
+      "levelId": "level-2",
+      "tags": ["unfamiliar-codebase", "exploration", "context-setting"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" }
+      ],
+      "explanation": "Working in unfamiliar codebases requires extra context-setting. Diving in without understanding the architecture leads to changes that violate existing patterns."
+    },
+    {
+      "id": "q-bh-06",
+      "text": "When working on a multi-file change, how do you ensure Claude Code maintains consistency across files?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "I don't — I handle each file independently" },
+        { "value": 2, "label": "I mention all affected files in my prompt" },
+        { "value": 3, "label": "I provide the interface/contract first, then implement each file referencing the shared contract" },
+        { "value": 4, "label": "I define the contract in context, implement sequentially with verification, and cross-reference outputs to ensure consistency across all files" }
+      ],
+      "dimensionId": "dim-task-framing",
+      "levelId": "level-2",
+      "tags": ["multi-file", "consistency", "contracts"],
+      "studyLinks": [
+        { "label": "Structured Collaborator Level", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+        { "label": "Competence Matrix", "href": "/ai-coding/claude-code-competence/matrix/" }
+      ],
+      "explanation": "Multi-file consistency requires explicit contract definition and sequential verification. Without this, files drift apart and integration fails."
+    },
+    {
+      "id": "q-bh-07",
+      "text": "How do you handle permission prompts in Claude Code — the tool asking for approval before executing commands or editing files?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "I always click 'allow all' to avoid interruptions" },
+        { "value": 2, "label": "I approve most things without reading carefully" },
+        { "value": 3, "label": "I read each permission prompt and approve or deny based on the specific action" },
+        { "value": 4, "label": "I've configured permission allowlists for safe operations and review only non-allowlisted actions — balancing safety with productivity" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-3",
+      "tags": ["permissions", "safety", "configuration"],
+      "studyLinks": [
+        { "label": "Environment Builder Level", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+        { "label": "Dimensions Overview", "href": "/ai-coding/claude-code-competence/dimensions/" }
+      ],
+      "explanation": "Permission management is a balance. Clicking 'allow all' bypasses safety guardrails, while reviewing every prompt is slow. Allowlists for safe operations are the mature approach."
+    },
+    {
+      "id": "q-bh-08",
+      "text": "When an automated Claude Code workflow fails in CI, how do you investigate?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Re-run the pipeline and hope it works" },
+        { "value": 2, "label": "Check the error log and adjust the prompt" },
+        { "value": 3, "label": "Review the full agent output, identify the failure point, and fix the prompt or environment configuration" },
+        { "value": 4, "label": "Review agent output, check if the failure is prompt-related or environment-related, fix the root cause, add monitoring for this failure pattern, and update retry logic if needed" }
+      ],
+      "dimensionId": "dim-workflow-scaling",
+      "levelId": "level-4",
+      "tags": ["ci-cd", "debugging", "error-handling"],
+      "studyLinks": [
+        { "label": "Workflow Engineer Level", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" }
+      ],
+      "explanation": "CI failures in automated workflows require systematic debugging. Distinguishing prompt issues from environment issues is key, and adding monitoring prevents recurrence."
+    },
+    {
+      "id": "q-bh-09",
+      "text": "How do you approach mentoring a colleague who is new to Claude Code?",
+      "type": "behavior",
+      "choices": [
+        { "value": 1, "label": "Share a few useful prompts and let them figure it out" },
+        { "value": 2, "label": "Show them the basics and recommend they read the documentation" },
+        { "value": 3, "label": "Set up the project environment for them and teach verification discipline and task decomposition" },
+        { "value": 4, "label": "Assess their current level, provide a structured learning path from Operator through their target level, configure the environment, and pair on real tasks with feedback" }
+      ],
+      "dimensionId": "dim-safety-governance",
+      "levelId": "level-5",
+      "tags": ["mentoring", "training", "onboarding"],
+      "studyLinks": [
+        { "label": "Agentic Systems Expert Level", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" },
+        { "label": "Competence Matrix", "href": "/ai-coding/claude-code-competence/matrix/" }
+      ],
+      "explanation": "Effective mentoring follows the competence framework. Assessing current level and providing structured progression is far more effective than ad-hoc tips."
+    }
+  ]
+}

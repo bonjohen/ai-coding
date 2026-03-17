@@ -140,6 +140,20 @@ function collectPageDefs(data: AllData): PageDef[] {
     for (const level of family.levels.levels) {
       const prevLevel = family.levels.levels.find(l => l.id === level.previousLevelId);
       const nextLevel = family.levels.levels.find(l => l.id === level.nextLevelId);
+
+      // Resolve related dimensions to full objects for display
+      const levelDimensions = level.relatedDimensionIds
+        .map(dimId => family.dimensions.dimensions.find(d => d.id === dimId))
+        .filter(Boolean);
+
+      // Resolve citation IDs to full source objects
+      const levelCitations = level.citationIds
+        .map(srcId => family.sources.sources.find(s => s.id === srcId))
+        .filter(Boolean);
+
+      // Filter exercises for this level
+      const levelExercises = family.exercises.exercises.filter(e => e.levelId === level.id);
+
       pages.push({
         outputPath: `${familyBase}/levels/${level.slug}/index.html`,
         layout: 'article',
@@ -149,6 +163,9 @@ function collectPageDefs(data: AllData): PageDef[] {
           level,
           prevLevel: prevLevel || null,
           nextLevel: nextLevel || null,
+          levelDimensions,
+          levelCitations,
+          levelExercises,
           pageTitle: `Level ${level.levelNumber}: ${level.title} — ${family.family.shortTitle}`,
           pageDescription: level.summary,
           canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/levels/${level.slug}/`,
@@ -162,13 +179,21 @@ function collectPageDefs(data: AllData): PageDef[] {
       });
     }
 
-    // Sources
+    // Sources — pre-group sources by sourceGroup for template rendering
+    const groupedSources = family.sources.sourceGroups
+      .sort((a, b) => a.order - b.order)
+      .map(group => ({
+        ...group,
+        sources: family.sources.sources.filter(s => s.groupId === group.id),
+      }));
+
     pages.push({
       outputPath: `${familyBase}/sources/index.html`,
       layout: 'source-list',
       page: 'sources',
       context: {
         ...familyCtx,
+        groupedSources,
         pageTitle: `Sources — ${family.family.shortTitle}`,
         pageDescription: 'Source inventory for the competence framework.',
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/sources/`,

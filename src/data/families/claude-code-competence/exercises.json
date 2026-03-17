@@ -8,15 +8,60 @@
       "summary": "Write your first prompt to Claude Code and review the output.",
       "instructions": [
         "Open Claude Code in a project directory.",
-        "Ask Claude Code to create a simple utility function.",
-        "Review the generated diff carefully before accepting."
+        "Ask Claude Code to create a simple utility function (e.g., a function that formats a date string).",
+        "Review the generated diff carefully before accepting.",
+        "Ask Claude Code to explain what the function does."
       ],
       "successCriteria": [
         "Function works as expected.",
         "You can explain what the function does.",
         "You reviewed the diff before accepting."
       ],
-      "estimatedDifficulty": "beginner"
+      "estimatedDifficulty": "beginner",
+      "tags": ["prompting", "diff-review"],
+      "relatedQuestionIds": ["q-sr-tf-01", "q-bh-l1-01"]
+    },
+    {
+      "id": "ex-1-bug-hunt",
+      "levelId": "level-1",
+      "title": "Bug Hunt",
+      "summary": "Use Claude Code to find and fix a bug, then verify the fix.",
+      "instructions": [
+        "Find a file in your project with a known bug or write one intentionally.",
+        "Ask Claude Code to identify and fix the issue.",
+        "Read the diff line by line — does the fix make sense?",
+        "Run the code to confirm the bug is resolved.",
+        "Ask Claude Code: 'Explain what you changed and why.'"
+      ],
+      "successCriteria": [
+        "Bug is correctly identified and fixed.",
+        "You understood the fix before accepting the diff.",
+        "You verified the fix by running the code."
+      ],
+      "estimatedDifficulty": "beginner",
+      "tags": ["debugging", "verification"],
+      "relatedQuestionIds": ["q-sr-vd-01", "q-bh-l1-02"]
+    },
+    {
+      "id": "ex-1-prompt-comparison",
+      "levelId": "level-1",
+      "title": "Prompt Comparison",
+      "summary": "Write the same request three different ways and compare results.",
+      "instructions": [
+        "Choose a simple coding task (e.g., write a validation function).",
+        "Write a vague prompt: 'Write a validation function.'",
+        "Write a better prompt with some context: 'Write a function that validates email addresses.'",
+        "Write a detailed prompt: 'Write a TypeScript function validateEmail(input: string): boolean that checks for @ sign, valid domain, and returns false for empty strings. Add JSDoc.'",
+        "Compare the three outputs. Which required the fewest follow-ups?"
+      ],
+      "successCriteria": [
+        "You wrote three prompts of increasing specificity.",
+        "You can articulate why the detailed prompt produced better output.",
+        "You identified at least one thing the vague prompt got wrong."
+      ],
+      "estimatedDifficulty": "beginner",
+      "tags": ["prompting", "context"],
+      "relatedQuestionIds": ["q-sr-tf-01", "q-kn-l1-01"]
     },
     {
       "id": "ex-2-decomposed-task",
@@ -25,15 +70,64 @@
       "summary": "Implement a feature using multiple structured prompts.",
       "instructions": [
         "Plan a feature that requires changes to at least 3 files.",
+        "Before prompting, write down: which files need changes, in what order, and what each change should do.",
         "Write a sequence of focused prompts, each targeting one aspect.",
-        "Run tests after each prompt and iterate on failures."
+        "Run tests after each prompt and iterate on failures.",
+        "At the end, verify the feature works end-to-end."
       ],
       "successCriteria": [
         "Feature works end-to-end.",
         "Each prompt was well-scoped with context.",
-        "Tests pass after each step."
+        "Tests pass after each step.",
+        "You planned the decomposition before starting."
       ],
-      "estimatedDifficulty": "intermediate"
+      "estimatedDifficulty": "intermediate",
+      "tags": ["decomposition", "multi-file", "testing"],
+      "relatedQuestionIds": ["q-sr-tf-02", "q-sc-l2-01"]
+    },
+    {
+      "id": "ex-2-error-recovery",
+      "levelId": "level-2",
+      "title": "Error Recovery Session",
+      "summary": "Practice diagnosing and recovering from a failed Claude Code interaction.",
+      "instructions": [
+        "Intentionally give Claude Code an ambiguous prompt that produces incorrect output.",
+        "Instead of retrying with the same prompt, analyze what went wrong.",
+        "Paste the error or incorrect output back with your analysis.",
+        "Write a corrective prompt that addresses the specific issue.",
+        "Verify the corrected output is correct."
+      ],
+      "successCriteria": [
+        "You diagnosed why the first attempt failed.",
+        "Your corrective prompt was specific about what went wrong.",
+        "The second attempt produced correct output.",
+        "You did not just retry the same prompt."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["error-handling", "iterative-refinement"],
+      "relatedQuestionIds": ["q-sr-tf-03", "q-bh-l2-01"]
+    },
+    {
+      "id": "ex-2-constraint-prompting",
+      "levelId": "level-2",
+      "title": "Constraint-Driven Refactoring",
+      "summary": "Refactor code by providing explicit constraints to Claude Code.",
+      "instructions": [
+        "Choose an existing module in your project that could use improvement.",
+        "Write a prompt specifying constraints: 'Refactor X. Constraints: preserve the public API, improve internal structure, add error handling for null inputs, keep function names in camelCase.'",
+        "Review the diff: did Claude Code respect all constraints?",
+        "Run existing tests to verify the public API is unchanged.",
+        "Write one new test for the improved error handling."
+      ],
+      "successCriteria": [
+        "All constraints were respected.",
+        "Public API is unchanged.",
+        "Existing tests still pass.",
+        "New test covers the improvement."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["constraints", "refactoring", "testing"],
+      "relatedQuestionIds": ["q-sc-l2-02", "q-sr-vd-02"]
     },
     {
       "id": "ex-3-env-config",
@@ -41,16 +135,181 @@
       "title": "Project Environment Setup",
       "summary": "Configure a complete Claude Code environment for a project.",
       "instructions": [
-        "Create a CLAUDE.md with build commands, conventions, and architecture notes.",
-        "Configure at least one hook for automated checking.",
-        "Set up an MCP server for external tool access."
+        "Create a CLAUDE.md with: build commands, architecture overview, coding conventions, and testing approach.",
+        "Configure at least one hook in .claude/settings.json (e.g., lint on file edit).",
+        "Set up an MCP server for external tool access (database, filesystem, or API docs).",
+        "Configure permissions to allow common commands without prompting.",
+        "Test: start a fresh Claude Code session and verify it reads your CLAUDE.md."
       ],
       "successCriteria": [
-        "CLAUDE.md improves Claude Code's output quality.",
-        "Hook catches at least one real issue.",
-        "MCP server connects successfully."
+        "CLAUDE.md provides useful guidance that improves output quality.",
+        "Hook catches at least one real issue automatically.",
+        "MCP server connects and provides useful context.",
+        "Permission config reduces unnecessary approval prompts."
       ],
-      "estimatedDifficulty": "intermediate"
+      "estimatedDifficulty": "intermediate",
+      "tags": ["CLAUDE.md", "hooks", "MCP", "permissions"],
+      "relatedQuestionIds": ["q-sr-ed-01", "q-sc-l3-01"]
+    },
+    {
+      "id": "ex-3-layered-context",
+      "levelId": "level-3",
+      "title": "Layered Context Design",
+      "summary": "Design a directory-level CLAUDE.md hierarchy for a monorepo.",
+      "instructions": [
+        "Choose a project with at least 3 distinct areas (e.g., API, frontend, shared libraries).",
+        "Create a root CLAUDE.md with project-wide info (build commands, general conventions).",
+        "Create directory-level CLAUDE.md files for each area with area-specific guidance.",
+        "Test: ask Claude Code to work in each area and verify it picks up the right context.",
+        "Document: which information goes at root vs. directory level and why."
+      ],
+      "successCriteria": [
+        "Root CLAUDE.md covers project-wide concerns only.",
+        "Directory CLAUDE.md files add area-specific guidance without repeating root content.",
+        "Claude Code's output quality improves in each area.",
+        "You can articulate the scoping decision for each piece of context."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["CLAUDE.md", "context-management", "monorepo"],
+      "relatedQuestionIds": ["q-sr-cm-02", "q-kn-l3-01"]
+    },
+    {
+      "id": "ex-3-headless-script",
+      "levelId": "level-3",
+      "title": "Headless Automation Script",
+      "summary": "Write a script that uses Claude Code in non-interactive mode.",
+      "instructions": [
+        "Identify a repetitive task you do across multiple files (e.g., adding JSDoc, updating imports, adding error handling).",
+        "Write a bash script that uses 'claude -p' to process each target file.",
+        "Add error handling: what happens if Claude Code fails on one file?",
+        "Run the script and review the results.",
+        "Iterate: adjust the prompt based on quality issues you find."
+      ],
+      "successCriteria": [
+        "Script runs without manual intervention.",
+        "claude -p is used correctly with a well-structured prompt.",
+        "Error handling prevents one failure from stopping the whole batch.",
+        "Output quality is consistent across files."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["headless", "automation", "scripting"],
+      "relatedQuestionIds": ["q-sc-l3-02", "q-sr-ws-01"]
+    },
+    {
+      "id": "ex-4-parallel-workflow",
+      "levelId": "level-4",
+      "title": "Parallel Agent Workflow",
+      "summary": "Run multiple Claude Code agents on independent tasks simultaneously.",
+      "instructions": [
+        "Identify 2-3 independent modules or features that can be built in parallel.",
+        "Create git worktrees for each task.",
+        "Write a script that launches a Claude Code agent in each worktree.",
+        "Monitor: track which agents complete first and review their output.",
+        "Merge the branches and resolve any integration issues."
+      ],
+      "successCriteria": [
+        "Tasks were correctly decomposed into independent units.",
+        "Agents ran in parallel without conflicting.",
+        "Each agent's output meets quality standards.",
+        "Branches merged without significant conflicts."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["multi-agent", "parallelism", "worktrees"],
+      "relatedQuestionIds": ["q-sc-l4-01", "q-sr-ws-02"]
+    },
+    {
+      "id": "ex-4-ci-review",
+      "levelId": "level-4",
+      "title": "CI/CD Code Review Bot",
+      "summary": "Add Claude Code as an automated reviewer in your CI pipeline.",
+      "instructions": [
+        "Create a GitHub Actions workflow that triggers on pull requests.",
+        "Add a step that runs Claude Code in headless mode on the changed files.",
+        "Have it post review findings as a PR comment.",
+        "Add a cost limit to prevent runaway token usage.",
+        "Test: open a PR with a known issue and verify the bot catches it."
+      ],
+      "successCriteria": [
+        "Workflow triggers automatically on PR creation.",
+        "Claude Code reviews only changed files (not the whole repo).",
+        "Review findings are posted as a readable PR comment.",
+        "Cost limits are in place.",
+        "The bot catches the intentional issue."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["CI/CD", "automation", "GitHub Actions"],
+      "relatedQuestionIds": ["q-sc-l4-02", "q-sr-ws-03"]
+    },
+    {
+      "id": "ex-4-quality-monitoring",
+      "levelId": "level-4",
+      "title": "Agent Output Quality Monitor",
+      "summary": "Design a feedback loop that tracks automated agent output quality.",
+      "instructions": [
+        "Set up logging for all automated Claude Code runs (timestamp, prompt, files changed, token count).",
+        "After each automated run, capture git diff stats and test results.",
+        "Create a simple dashboard or log report showing: runs per day, test pass rate, files modified per run.",
+        "Define quality thresholds: what test pass rate triggers a human review?",
+        "Run the system for a week and review the trends."
+      ],
+      "successCriteria": [
+        "All automated runs are logged with relevant metrics.",
+        "Quality thresholds are defined and documented.",
+        "Dashboard or report is generated automatically.",
+        "You can identify quality drift from the logged data."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["monitoring", "quality", "automation"],
+      "relatedQuestionIds": ["q-sr-sg-02", "q-bh-l4-01"]
+    },
+    {
+      "id": "ex-5-governance-policy",
+      "levelId": "level-5",
+      "title": "Governance Policy Document",
+      "summary": "Draft an AI coding governance policy for your organization.",
+      "instructions": [
+        "Define scope: which teams, which tools, which repositories?",
+        "Define usage tiers: interactive (all engineers), automated (team lead approval), autonomous (VP approval).",
+        "Specify review requirements for each tier.",
+        "Design the audit trail: what gets logged, how long logs are retained, who reviews them.",
+        "Add cost controls: per-engineer budgets, per-pipeline budgets.",
+        "Define prohibited uses and incident response procedures.",
+        "Review with at least one other senior engineer for feedback."
+      ],
+      "successCriteria": [
+        "Policy covers all usage tiers with clear escalation paths.",
+        "Audit trail requirements are specific and implementable.",
+        "Cost controls are realistic for your organization's size.",
+        "Prohibited uses are clearly defined with rationale.",
+        "Another engineer confirms the policy is practical."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["governance", "policy", "organizational"],
+      "relatedQuestionIds": ["q-sc-l5-01", "q-sr-sg-03"]
+    },
+    {
+      "id": "ex-5-adoption-plan",
+      "levelId": "level-5",
+      "title": "Team Adoption Rollout",
+      "summary": "Create a phased rollout plan for introducing AI coding tools to your team.",
+      "instructions": [
+        "Phase 1: Select 2-3 pilot engineers, provide training resources, set up environments.",
+        "Phase 2: Pilot engineers use tools for 2 weeks on non-critical work. Collect metrics: time saved, bugs introduced, satisfaction.",
+        "Phase 3: Expand to full team with onboarding guide. Assign mentors from pilot group.",
+        "Phase 4: Introduce automation (headless mode, CI integration) with proper governance.",
+        "Define success metrics for each phase and rollback criteria.",
+        "Create the onboarding materials for Phase 3."
+      ],
+      "successCriteria": [
+        "Plan has clear phases with defined entry/exit criteria.",
+        "Metrics are specific and measurable.",
+        "Rollback strategy exists for each phase.",
+        "Onboarding materials are concrete (not just 'train the team').",
+        "Timeline is realistic for your organization."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["adoption", "organizational", "training"],
+      "relatedQuestionIds": ["q-sc-l5-02", "q-sr-sg-01"]
     }
   ]
 }

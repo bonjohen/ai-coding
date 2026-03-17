@@ -236,33 +236,33 @@ Goal: Production-ready output, verified and documented.
 Goal: Structured data for quizzes, example projects, and expanded exercises.
 
 ### 6.1 New type definitions
-- [ ] `src/scripts/types/quiz.ts` — QuizQuestion, QuizChoice, StudyLink interfaces
-- [ ] `src/scripts/types/example-project.ts` — ExampleProject, ProjectSection interfaces
+- [x] `src/scripts/types/quiz.ts` — QuizQuestion, QuizChoice, StudyLink interfaces
+- [x] `src/scripts/types/example-project.ts` — ExampleProject, ProjectSection interfaces
 
 ### 6.2 Quiz question bank
-- [ ] `src/data/families/claude-code-competence/quiz-questions.json` — ~50 questions across 4 types:
+- [x] `src/data/families/claude-code-competence/quiz-questions.json` — 50 questions across 4 types:
   - `self-rate` — converted from dimensions.json `assessmentQuestions` (3-4 per dimension, ~21-28)
   - `scenario` — derived from `evaluationTasks` and `graduationCriteria` (~10)
   - `knowledge` — derived from `coreConcepts` and `glossary` (~10)
   - `behavior` — derived from `observableBehaviors` and `failureModes` (~5)
-- [ ] Each question has: id, text, type, choices (1-4 Likert scale), dimensionId, levelId, tags, studyLinks[], explanation
+- [x] Each question has: id, text, type, choices (1-4 Likert scale), dimensionId, levelId, tags, studyLinks[], explanation
 
 ### 6.3 Example projects
-- [ ] `src/data/families/claude-code-competence/example-projects.json` — 2 projects per level (10 total):
+- [x] `src/data/families/claude-code-competence/example-projects.json` — 2 projects per level (10 total):
   - Level 1: String utility walkthrough, Bug fix walkthrough
   - Level 2: Multi-file feature implementation, Guided refactoring session
   - Level 3: Full project environment setup, Team onboarding configuration
   - Level 4: Multi-agent parallel workflow, CI/CD pipeline integration
   - Level 5: Governance framework design, Organizational adoption plan
-- [ ] Each project has: id, levelId, title, summary, scenario, sections[] (with code snippets), demonstratedSkills, estimatedTime, prerequisites
+- [x] Each project has: id, levelId, title, summary, scenario, sections[] (with code snippets), demonstratedSkills, estimatedTime, prerequisites
 
 ### 6.4 Expand exercises
-- [ ] Expand `exercises.json` from 3 to 15 exercises (3 per level)
-- [ ] Add `tags` and `relatedQuestionIds` fields to exercise records
+- [x] Expand `exercises.json` from 3 to 15 exercises (3 per level)
+- [x] Add `tags` and `relatedQuestionIds` fields to exercise records
 
 ### 6.5 Build pipeline updates
-- [ ] Update `build/load-data.ts` — load quiz-questions.json and example-projects.json into FamilyData
-- [ ] Update `build/validate-data.ts` — validate quiz question IDs unique, dimensionId/levelId refs valid, studyLinks point to generated pages
+- [x] Update `build/load-data.ts` — load quiz-questions.json and example-projects.json into FamilyData
+- [x] Update `build/validate-data.ts` — validate quiz question IDs unique, dimensionId/levelId refs valid, studyLinks point to generated pages
 
 **Phase 6 exit criteria:** `npm run validate` passes with all new data files. Question bank has 50+ questions covering all 7 dimensions and all 5 levels. 10 example projects with realistic content.
 
@@ -389,3 +389,70 @@ Goal: Personalized study recommendations and deep cross-links between all conten
 - [ ] Build produces all new pages (assess, quiz, projects gallery, 10 project details, study guide = 14 new pages)
 
 **Phase 10 exit criteria:** Study guide renders personalized recommendations. All educational content is cross-linked. Site builds cleanly with 28+ total pages. Progressive enhancement verified.
+
+---
+
+## Gap Fixes — Critical Issues (from design doc audit)
+
+These items were identified as missing from the original implementation and violate design doc acceptance criteria.
+
+### G.1 Sources page not rendering individual sources (Acceptance Criterion 7)
+- [x] Fix `src/templates/pages/sources.html` — render source-card partial for each source within its group (currently only renders group headers)
+- [x] Verify rendered sources page shows actual source entries grouped by type
+
+### G.2 Level pages missing Related Dimensions section (Acceptance Criterion 6)
+- [x] Add Related Dimensions section to `src/templates/pages/level-detail.html` — render `level.relatedDimensionIds` as links to dimension page
+- [x] Look up dimension names from context for display labels
+
+### G.3 Level pages missing Citations section (Acceptance Criterion 6)
+- [x] Add Citations section to `src/templates/pages/level-detail.html` — use the existing `citation-list.html` partial with `level.citationIds`
+- [x] Resolve citation IDs to source titles/links from sources data
+
+### G.4 Navigation not exposing five levels directly (Design doc requirement)
+- [x] Add individual level navigation items to `src/data/site/navigation.json` under familyNav
+- [x] Levels should appear as sub-items: Operator, Collaborator, Builder, Engineer, Expert
+
+### G.5 Exercises not linked from level pages
+- [x] Add "Exercises" section to `src/templates/pages/level-detail.html`
+- [x] Filter exercises by `levelId` matching the current level
+- [x] Render exercise title, summary, and difficulty
+
+### G.6 Section anchors for deep linking on level pages
+- [x] Add `id` attributes to each section heading on level detail pages (e.g., `id="core-concepts"`, `id="graduation-criteria"`)
+- [x] Add in-page section navigation (table of contents) at top of level pages
+
+---
+
+## Gap Fixes — Medium Priority
+
+### G.7 Remaining Phase 4-5 incomplete items
+- [ ] Test browser print preview on level page, matrix page, and sources page
+- [ ] Test validation fails on deliberately broken input
+- [ ] Verify site works when served from local static server (`npm run dev`)
+
+### G.8 README gaps
+- [ ] Document exercises.json structure and how to add exercises
+- [ ] Document citationIds and relatedDimensionIds usage
+- [ ] List all validation rules from the design doc
+
+### G.9 Accessibility improvements
+- [ ] Add skip-to-content link in base layout
+- [ ] Add ARIA landmarks (`role="navigation"`, `role="main"`, `role="contentinfo"`) where not implicit
+
+---
+
+## Gap Fixes — Optional / Future
+
+### G.10 Design doc optional features not yet planned
+- [ ] Printable summary page (`/ai-coding/claude-code-competence/printable/index.html`)
+- [ ] Dark/light theme toggle (currently dark only)
+- [ ] `npm run watch` for file-change rebuild
+- [ ] Self-assessed level highlighter on level pages
+
+### G.11 Future extension points (from design doc)
+- [ ] Shared taxonomy pages across families
+- [ ] Reusable source library across multiple families
+- [ ] Downloadable printable artifacts (PDF generation)
+- [ ] Search indexing infrastructure
+- [ ] Side-by-side comparison pages across frameworks
+- [ ] JSON-LD / schema.org structured data for educational content
