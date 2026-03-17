@@ -106,6 +106,10 @@ function collectPageDefs(data: AllData): PageDef[] {
       context: {
         ...familyCtx,
         overview: overviewWithImages,
+        hasCertifications: !!family.certifications,
+        certTotalExams: family.certifications?.exams.length || 0,
+        certProviderCount: family.certifications?.providers.length || 0,
+        certHref: `/${familyBase}/certifications/`,
         pageTitle: family.family.title,
         pageDescription: family.family.summary,
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/`,

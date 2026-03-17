@@ -540,9 +540,9 @@ Goal: Restyle certification UI for dark editorial theme.
 
 Goal: Wire certification into existing educational content.
 
-- [ ] Add Certifications card to home page
-- [ ] Add certification section to family landing
-- [ ] Optional: study guide reads cert localStorage progress
+- [x] Add "Practice & Assessment" section to home page with Certifications, Quiz, and Assess cards
+- [x] Add certification callout section to family landing (25 exams, 3 providers)
+- [ ] Optional: study guide reads cert localStorage progress (deferred)
 
 ---
 
