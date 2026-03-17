@@ -1,23 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b7cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="11.15"/>
 
-  <!-- Profile face outline: forehead down to chin, facing right -->
-  <path d="M8 5.5
-           L8 7.5
-           C8 8.5 8.5 9 9 9.2
-           L9.5 9.2
-           C9.8 9.2 10 9.5 10 9.8
-           L10 10.2
-           C10 10.5 9.8 10.8 9.5 10.8
-           L9.2 10.8
-           L10.5 11.5
-           L10.5 12
-           C10.5 12.3 10.2 12.5 10 12.5
-           L9 12.5
-           L8.5 13.5
-           C8 14.5 7.5 15 7 15.5" fill="none"/>
-
-  <!-- Eye -->
-  <circle cx="9.2" cy="8.2" r="0.45" fill="#8b7cf6" stroke="none"/>
+  <!-- User/person icon facing right, offset left -->
+  <circle cx="9.5" cy="9" r="3"/>
+  <path d="M4 19c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6"/>
 
 </svg>
