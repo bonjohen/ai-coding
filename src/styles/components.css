@@ -1230,3 +1230,23 @@
   color: var(--color-text-muted);
   font-family: var(--font-mono);
 }
+
+/* ========================================
+   Study Guide
+   ======================================== */
+.study-empty {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.study-position {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.study-position__name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-style: italic;
+}

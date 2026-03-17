@@ -439,6 +439,33 @@ function collectPageDefs(data: AllData): PageDef[] {
         });
       }
     }
+
+    // Study guide page
+    const studyDimensions = family.dimensions.dimensions
+      .sort((a, b) => a.order - b.order)
+      .map(d => ({ id: d.id, name: d.name, shortName: d.shortName, slug: d.slug }));
+    const studyLevels = family.levels.levels.map(l => ({
+      id: l.id, title: l.title, shortLabel: l.shortLabel, levelNumber: l.levelNumber, slug: l.slug,
+    }));
+
+    pages.push({
+      outputPath: `${familyBase}/study-guide/index.html`,
+      layout: 'article',
+      page: 'study-guide',
+      context: {
+        ...familyCtx,
+        studyDimensionsJson: JSON.stringify(studyDimensions),
+        studyLevelsJson: JSON.stringify(studyLevels),
+        pageTitle: `Study Guide — ${family.family.shortTitle}`,
+        pageDescription: 'Personalized study recommendations based on your assessment and quiz results.',
+        canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/study-guide/`,
+        breadcrumbs: [
+          { label: 'Home', href: `/${basePath}/` },
+          { label: family.family.shortTitle, href: `/${familyBase}/` },
+          { label: 'Study Guide', href: '' },
+        ],
+      },
+    });
   }
 
   return pages;

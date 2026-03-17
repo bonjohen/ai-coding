@@ -6,6 +6,7 @@ import { initFilters } from './filters.js';
 import { initPageState } from './page-state.js';
 import { initAssessment } from './self-assessment.js';
 import { initQuiz } from './quiz-engine.js';
+import { initStudyGuide } from './study-guide.js';
 
 /**
  * Initialize all browser enhancements.
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageState();
   initAssessment();
   initQuiz();
+  initStudyGuide();
 });

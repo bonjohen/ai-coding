@@ -1,0 +1,26 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Study Guide</h1>
+  <p class="hero__summary">Personalized recommendations based on your assessment and quiz results.</p>
+</section>
+
+<div id="study-guide-app">
+  <noscript>
+    <section class="section">
+      <h2>Getting Started</h2>
+      <p>Take the <a href="{{ basePath }}{{ family.slug }}/assess/">Self-Assessment</a> or <a href="{{ basePath }}{{ family.slug }}/quiz/">Practice Quiz</a> first. This page uses your saved results to generate personalized study recommendations.</p>
+      <h3>General Learning Path</h3>
+      <ul>
+        <li><a href="{{ basePath }}{{ family.slug }}/overview/">Framework Overview</a> — understand the five levels</li>
+        <li><a href="{{ basePath }}{{ family.slug }}/dimensions/">Dimensions</a> — the seven evaluation axes</li>
+        <li><a href="{{ basePath }}{{ family.slug }}/matrix/">Matrix</a> — see how dimensions evolve across levels</li>
+        <li><a href="{{ basePath }}{{ family.slug }}/projects/">Example Projects</a> — hands-on walkthroughs</li>
+        <li><a href="{{ basePath }}{{ family.slug }}/roadmap/">Roadmap</a> — staged learning progression</li>
+      </ul>
+    </section>
+  </noscript>
+</div>
+
+<script type="application/json" id="study-dimensions">{{{ studyDimensionsJson }}}</script>
+<script type="application/json" id="study-levels">{{{ studyLevelsJson }}}</script>
+{{/block}}

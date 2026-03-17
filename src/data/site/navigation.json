@@ -20,7 +20,8 @@
         { "id": "ccc-roadmap", "label": "Roadmap", "href": "/ai-coding/claude-code-competence/roadmap/", "title": "Learning Roadmap", "order": 12 },
         { "id": "ccc-assess", "label": "Assess", "href": "/ai-coding/claude-code-competence/assess/", "title": "Self-Assessment", "order": 13 },
         { "id": "ccc-quiz", "label": "Quiz", "href": "/ai-coding/claude-code-competence/quiz/", "title": "Practice Quiz", "order": 14 },
-        { "id": "ccc-projects", "label": "Projects", "href": "/ai-coding/claude-code-competence/projects/", "title": "Example Projects", "order": 15 }
+        { "id": "ccc-projects", "label": "Projects", "href": "/ai-coding/claude-code-competence/projects/", "title": "Example Projects", "order": 15 },
+        { "id": "ccc-study", "label": "Study Guide", "href": "/ai-coding/claude-code-competence/study-guide/", "title": "Study Guide", "order": 16 }
       ]
     }
   ]
