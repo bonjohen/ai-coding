@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b9cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="11.15"/>
+
+  <!-- Document with checklist -->
+  <rect x="7" y="5.5" width="10" height="13" rx="1.2"/>
+  <line x1="10" y1="9" x2="15" y2="9"/>
+  <line x1="10" y1="12" x2="15" y2="12"/>
+  <line x1="10" y1="15" x2="14" y2="15"/>
+  <polyline points="7.8,8.5 8.3,9.2 9,8.2"/>
+  <polyline points="7.8,11.5 8.3,12.2 9,11.2"/>
+  <polyline points="7.8,14.5 8.3,15.2 9,14.2"/>
+
+</svg>

@@ -37,13 +37,13 @@ const levelImageMap: Record<string, string> = {
 
 // Map dimension slugs to image filenames
 const dimImageMap: Record<string, string> = {
-  'conceptual-understanding': 'conceptual_understanding.png',
-  'task-framing': 'task_framing.png',
-  'verification-discipline': 'verification_discipline.png',
-  'context-management': 'context_management.png',
-  'environment-design': 'environmental_design.png',
-  'workflow-scaling': 'workflow_scaling.png',
-  'safety-governance': 'safety_and_governance.png',
+  'conceptual-understanding': 'conceptual_understanding.svg',
+  'task-framing': 'task_framing.svg',
+  'verification-discipline': 'verification_discipline.svg',
+  'context-management': 'context_management.svg',
+  'environment-design': 'environmental_design.svg',
+  'workflow-scaling': 'workflow_scaling.svg',
+  'safety-governance': 'safety_and_governance.svg',
 };
 
 function buildFamilyContext(data: AllData, family: FamilyData): TemplateContext {
