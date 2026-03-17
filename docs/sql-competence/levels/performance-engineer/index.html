@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 4: Performance Engineer — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Designs index strategies, interprets execution plans, optimizes slow queries, and manages concurrency and isolation.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/levels/performance-engineer/">
+<meta property="og:title" content="Level 4: Performance Engineer — SQL Competence">
+<meta property="og:description" content="Designs index strategies, interprets execution plans, optimizes slow queries, and manages concurrency and isolation.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">Levels</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Engineer</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero hero--with-image hero--image-left">
+    
+    <div class="hero__text">
+      <span class="badge badge--level-4">Level 4</span>
+      <h1 class="hero__title">Performance Engineer</h1>
+      <p class="hero__summary">Designs index strategies, interprets execution plans, optimizes slow queries, and manages concurrency and isolation.</p>
+    </div>
+  </header>
+
+  <nav class="section-toc" aria-label="On this page">
+    <h2 class="section-toc__title">On this page</h2>
+    <ul>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      <li><a href="#core-skills">Core Skills</a></li>
+      <li><a href="#observable-behaviors">Observable Behaviors</a></li>
+      <li><a href="#failure-modes">Failure Modes</a></li>
+      <li><a href="#graduation-criteria">Graduation Criteria</a></li>
+      <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
+      <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#practice-questions">Practice Questions</a></li>
+      <li><a href="#learning-emphasis">Learning Emphasis</a></li>
+      <li><a href="#related-dimensions">Related Dimensions</a></li>
+      <li><a href="#citations">Citations</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="section" id="definition">
+    <h2>Definition</h2>
+    
+    <p>The Performance Engineer treats the database as a system to be tuned, not just queried. They understand statistics, cardinality, and join algorithms.</p>
+    
+    <p>They design composite indexes deliberately, recognize implicit type-cast index suppression, and manage concurrency through isolation level selection.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-concepts">
+    <h2>Core Concepts</h2>
+    
+    <div class="mb-lg">
+      <h3>Index Strategy</h3>
+      <p>Designing composite and covering indexes based on query workload analysis.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Query Optimizer</h3>
+      <p>Understanding how the optimizer selects plans based on statistics and cardinality estimates.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Isolation Levels</h3>
+      <p>Deep understanding of READ UNCOMMITTED through SERIALIZABLE and their concurrency implications.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Partitioning</h3>
+      <p>Table partitioning strategies for large datasets: range, list, and hash partitioning.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Concurrency Control</h3>
+      <p>Understanding MVCC, locking, deadlock detection, and lock granularity.</p>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-skills">
+    <h2>Core Skills</h2>
+    
+    <div class="mb-lg">
+      <h3>Index Design</h3>
+      <p>Can design optimal indexes for a given workload.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Analyzes slow query log and creates composite indexes that eliminate table scans.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Plan Optimization</h3>
+      <p>Can rewrite queries to produce better execution plans.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Rewrites a correlated subquery as a join when plan shows nested loops at scale.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Concurrency Management</h3>
+      <p>Selects appropriate isolation levels and locking strategies.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Chooses isolation level based on consistency requirements vs throughput trade-offs.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Partition Design</h3>
+      <p>Can partition large tables with appropriate partition keys.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Designs time-based partitioning for a high-volume event table.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Performance Diagnosis</h3>
+      <p>Can diagnose slow queries systematically.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Uses execution plans, statistics, and slow query logs together.</p>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="observable-behaviors">
+    <h2>Observable Behaviors</h2>
+    <ul>
+      
+      <li>Reviews auto-generated indexes critically and removes unused ones.</li>
+      
+      <li>Rewrites correlated subqueries as joins when the plan shows nested loops at scale.</li>
+      
+      <li>Uses query hints only as a last resort with documented justification.</li>
+      
+      <li>Understands MVCC mechanics and their impact on vacuum and replication lag.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="failure-modes">
+    <h2>Typical Failure Modes</h2>
+    <ul>
+      
+      <li>Over-indexes tables without measuring write impact.</li>
+      
+      <li>Applies query hints as a first resort instead of fixing root causes.</li>
+      
+      <li>Chooses SERIALIZABLE isolation level universally without considering trade-offs.</li>
+      
+      <li>Optimizes queries without understanding the full workload pattern.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="graduation-criteria">
+    <h2>Graduation Criteria</h2>
+    <ul>
+      
+      <li>
+        Designs a multi-tenant or partitioned architecture with horizontal scaling reasoning.
+        
+      </li>
+      
+      <li>
+        Defines an HA/DR strategy with RPO/RTO targets and replication configuration.
+        
+      </li>
+      
+      <li>
+        Authors SQL standards and review guidelines for a development team.
+        
+      </li>
+      
+      <li>
+        Evaluates SQL vs NoSQL trade-offs for a given workload and documents the decision.
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="evaluation-tasks">
+    <h2>Evaluation Tasks</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Diagnose and Fix a Slow Query</h3>
+      <p>Given a slow query execution plan and table statistics, identify the performance bottleneck, propose an optimization strategy, and validate the improvement.</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>Correctly identifies the bottleneck from the execution plan.</li>
+        
+        <li>Proposed index or rewrite addresses the root cause.</li>
+        
+        <li>Validates improvement with before/after plan comparison.</li>
+        
+      </ul>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="exercises">
+    <h2>Exercises</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Design an Index Strategy</h3>
+      <p>Design a complete index strategy for a given query workload.</p>
+      <span class="badge mt-sm">advanced</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Concurrency Experiment</h3>
+      <p>Demonstrate isolation level behavior with concurrent transactions.</p>
+      <span class="badge mt-sm">advanced</span>
+    </div>
+    
+  </section>
+  
+
+  
+
+  
+
+  
+  <section class="section" id="learning-emphasis">
+    <h2>Learning Emphasis</h2>
+    
+    <p>Study your database&#039;s optimizer internals.</p>
+    
+    <p>Practice with real-world slow query examples.</p>
+    
+    <p>Learn MVCC and concurrency mechanics deeply.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-dimensions">
+    <h2>Related Dimensions</h2>
+    <ul>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Performance &amp; Optimization</a>
+        <span class="text-sm text-muted"> — Understanding of index design, execution plans, and query tuning.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Data Integrity &amp; Transactions</a>
+        <span class="text-sm text-muted"> — Command of constraints, ACID properties, and transactional design.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Query Construction</a>
+        <span class="text-sm text-muted"> — Ability to write correct, readable, and efficient SQL.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Tooling &amp; Workflow</a>
+        <span class="text-sm text-muted"> — Use of SQL clients, migrations, version control, and CI/CD.</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="citations">
+    <h2>Citations</h2>
+    <div class="citation-list">
+      <ul>
+        
+        <li>
+          
+          <a href="https://use-the-index-luke.com/" target="_blank" rel="noopener">Use The Index, Luke!</a>
+          
+          <span class="text-sm text-muted"> — Markus Winand, Self-published</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://www.databass.dev/" target="_blank" rel="noopener">Database Internals</a>
+          
+          <span class="text-sm text-muted"> — Alex Petrov, O&#039;Reilly Media</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://www.postgresql.org/docs/current/" target="_blank" rel="noopener">PostgreSQL Documentation</a>
+          
+          <span class="text-sm text-muted"> — PostgreSQL Global Development Group, PostgreSQL</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://www.oreilly.com/library/view/high-performance-mysql/9781492080503/" target="_blank" rel="noopener">High Performance MySQL</a>
+          
+          <span class="text-sm text-muted"> — Silvia Botros, Jeremy Tinley, O&#039;Reilly Media</span>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+
+  
+
+  <nav class="level-nav">
+    
+    <a href="/ai-coding/sql-competence/levels/schema-designer/" class="level-nav__link">
+      &larr; Level 3: Designer
+    </a>
+    
+    
+    <a href="/ai-coding/sql-competence/levels/database-architect/" class="level-nav__link">
+      Level 5: Architect &rarr;
+    </a>
+    
+  </nav>
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

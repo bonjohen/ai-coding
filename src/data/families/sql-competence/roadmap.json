@@ -1,0 +1,76 @@
+{
+  "familyId": "sql-competence",
+  "pageTitle": "SQL Learning Roadmap",
+  "summary": "A structured path through the SQL Competence framework, with recommended activities at each stage.",
+  "learningStages": [
+    {
+      "id": "stage-fundamentals",
+      "title": "Stage 1: SQL Fundamentals",
+      "summary": "Build a solid foundation with single-table queries, basic filtering, and sorting.",
+      "recommendedLevelIds": ["level-1"],
+      "suggestedActivities": [
+        "Complete an interactive SQL tutorial (e.g., SQLBolt, W3Schools SQL).",
+        "Practice 20+ basic queries against a sample database.",
+        "Learn to read SQL error messages and fix syntax errors independently."
+      ]
+    },
+    {
+      "id": "stage-analysis",
+      "title": "Stage 2: Data Analysis with SQL",
+      "summary": "Advance to multi-table queries, aggregations, and analytical patterns.",
+      "recommendedLevelIds": ["level-2"],
+      "suggestedActivities": [
+        "Work through JOIN exercises with 3+ table schemas.",
+        "Learn window functions through progressive examples.",
+        "Practice writing CTEs to organize complex analytical queries."
+      ]
+    },
+    {
+      "id": "stage-design",
+      "title": "Stage 3: Schema Design & Integrity",
+      "summary": "Learn to design schemas, enforce integrity, and manage database changes.",
+      "recommendedLevelIds": ["level-3"],
+      "suggestedActivities": [
+        "Design a schema from a feature specification and write DDL.",
+        "Set up a migration tool and write reversible migration scripts.",
+        "Practice reading execution plans for queries you write."
+      ]
+    },
+    {
+      "id": "stage-optimization",
+      "title": "Stage 4: Performance & Optimization",
+      "summary": "Develop deep skills in query optimization, index design, and concurrency.",
+      "recommendedLevelIds": ["level-4"],
+      "suggestedActivities": [
+        "Analyze slow query logs and propose optimization strategies.",
+        "Design composite indexes for real query workloads.",
+        "Study isolation levels with hands-on concurrency experiments."
+      ]
+    },
+    {
+      "id": "stage-architecture",
+      "title": "Stage 5: Data Architecture & Governance",
+      "summary": "Lead data architecture decisions and establish organizational standards.",
+      "recommendedLevelIds": ["level-5"],
+      "suggestedActivities": [
+        "Design a multi-service data architecture with clear ownership boundaries.",
+        "Author SQL standards and review guidelines for your team.",
+        "Evaluate distributed database options for a real workload."
+      ]
+    }
+  ],
+  "futureExpansions": [
+    {
+      "id": "exp-dialect-tracks",
+      "title": "Dialect-Specific Tracks",
+      "summary": "Specialized learning paths for PostgreSQL, MySQL, SQL Server, and BigQuery.",
+      "status": "planned"
+    },
+    {
+      "id": "exp-data-engineering",
+      "title": "Data Engineering Integration",
+      "summary": "Connecting SQL competence to broader data engineering skills: ETL, data pipelines, and orchestration.",
+      "status": "planned"
+    }
+  ]
+}

@@ -50,6 +50,50 @@
         { "id": "ccc-study", "label": "Study Guide", "href": "/ai-coding/claude-code-competence/study-guide/", "title": "Study Guide", "order": 18 },
         { "id": "ccc-certifications", "label": "Certifications", "href": "/ai-coding/claude-code-competence/certifications/", "title": "Cloud Certification Practice", "order": 19 }
       ]
+    },
+    {
+      "familyId": "sql-competence",
+      "items": [
+        {
+          "id": "sql-overview",
+          "label": "Overview",
+          "href": "/ai-coding/sql-competence/overview/",
+          "title": "Framework Overview",
+          "order": 1,
+          "children": [
+            { "id": "sql-dimensions", "label": "Dimensions", "href": "/ai-coding/sql-competence/dimensions/", "title": "Evaluation Dimensions", "order": 2 },
+            { "id": "sql-matrix", "label": "Competences", "href": "/ai-coding/sql-competence/matrix/", "title": "Competency Matrix", "order": 3 }
+          ]
+        },
+        {
+          "id": "sql-levels",
+          "label": "Levels",
+          "href": "/ai-coding/sql-competence/levels/query-writer/",
+          "title": "Competence Levels",
+          "order": 4,
+          "children": [
+            { "id": "sql-level-1", "label": "L1: Writer", "href": "/ai-coding/sql-competence/levels/query-writer/", "title": "Level 1: Query Writer", "order": 5 },
+            { "id": "sql-level-2", "label": "L2: Analyst", "href": "/ai-coding/sql-competence/levels/data-analyst/", "title": "Level 2: Data Analyst", "order": 6 },
+            { "id": "sql-level-3", "label": "L3: Designer", "href": "/ai-coding/sql-competence/levels/schema-designer/", "title": "Level 3: Schema Designer", "order": 7 },
+            { "id": "sql-level-4", "label": "L4: Engineer", "href": "/ai-coding/sql-competence/levels/performance-engineer/", "title": "Level 4: Performance Engineer", "order": 8 },
+            { "id": "sql-level-5", "label": "L5: Architect", "href": "/ai-coding/sql-competence/levels/database-architect/", "title": "Level 5: Database Architect", "order": 9 },
+            { "id": "sql-roadmap", "label": "Roadmap", "href": "/ai-coding/sql-competence/roadmap/", "title": "Learning Roadmap", "order": 10 }
+          ]
+        },
+        {
+          "id": "sql-reference",
+          "label": "Reference",
+          "href": "/ai-coding/sql-competence/sources/",
+          "title": "Reference Materials",
+          "order": 11,
+          "children": [
+            { "id": "sql-sources", "label": "Sources", "href": "/ai-coding/sql-competence/sources/", "title": "Source Inventory", "order": 12 },
+            { "id": "sql-glossary", "label": "Glossary", "href": "/ai-coding/sql-competence/glossary/", "title": "Glossary", "order": 13 },
+            { "id": "sql-author", "label": "Author's Perspective", "href": "/ai-coding/sql-competence/author-perspective/", "title": "Author Perspective", "order": 14 }
+          ]
+        },
+        { "id": "sql-study", "label": "Study Guide", "href": "/ai-coding/sql-competence/study-guide/", "title": "Study Guide", "order": 15 }
+      ]
     }
   ]
 }

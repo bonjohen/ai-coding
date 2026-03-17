@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 5: Database Architect — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Designs enterprise data architectures, establishes governance and standards, and aligns data strategy across teams.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/levels/database-architect/">
+<meta property="og:title" content="Level 5: Database Architect — SQL Competence">
+<meta property="og:description" content="Designs enterprise data architectures, establishes governance and standards, and aligns data strategy across teams.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">Levels</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Architect</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero hero--with-image hero--image-left">
+    
+    <div class="hero__text">
+      <span class="badge badge--level-5">Level 5</span>
+      <h1 class="hero__title">Database Architect</h1>
+      <p class="hero__summary">Designs enterprise data architectures, establishes governance and standards, and aligns data strategy across teams.</p>
+    </div>
+  </header>
+
+  <nav class="section-toc" aria-label="On this page">
+    <h2 class="section-toc__title">On this page</h2>
+    <ul>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      <li><a href="#core-skills">Core Skills</a></li>
+      <li><a href="#observable-behaviors">Observable Behaviors</a></li>
+      <li><a href="#failure-modes">Failure Modes</a></li>
+      <li><a href="#graduation-criteria">Graduation Criteria</a></li>
+      <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
+      <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#practice-questions">Practice Questions</a></li>
+      <li><a href="#learning-emphasis">Learning Emphasis</a></li>
+      <li><a href="#related-dimensions">Related Dimensions</a></li>
+      <li><a href="#citations">Citations</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="section" id="definition">
+    <h2>Definition</h2>
+    
+    <p>The Database Architect operates at the organizational level. They design for scale, resilience, and team autonomy simultaneously.</p>
+    
+    <p>They define data contracts between services, govern naming conventions and review processes, and make buy-vs-build decisions for data infrastructure.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-concepts">
+    <h2>Core Concepts</h2>
+    
+    <div class="mb-lg">
+      <h3>Distributed SQL</h3>
+      <p>Understanding distributed database architectures, sharding strategies, and consistency trade-offs.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Data Governance</h3>
+      <p>Establishing schema review processes, naming conventions, and approval gates.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Replication &amp; HA</h3>
+      <p>Designing high-availability architectures with replication, failover, and disaster recovery.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Data Contracts</h3>
+      <p>Defining cross-service data contracts that decouple teams while maintaining data integrity.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Capacity Planning</h3>
+      <p>Forecasting storage, throughput, and compute requirements for database infrastructure.</p>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-skills">
+    <h2>Core Skills</h2>
+    
+    <div class="mb-lg">
+      <h3>Architecture Design</h3>
+      <p>Can design data architectures that scale across teams and services.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Produces architecture documents with clear trade-off analysis.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Governance Establishment</h3>
+      <p>Can establish and enforce data governance practices.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Implements schema review processes with clear approval criteria.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>HA/DR Design</h3>
+      <p>Can design high-availability and disaster recovery strategies.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Defines RPO/RTO targets and tests failover procedures.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Cross-Team Alignment</h3>
+      <p>Can align multiple teams on shared data models and contracts.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Leads data model review sessions across service boundaries.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Technology Evaluation</h3>
+      <p>Can evaluate database technologies against requirements.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Produces decision documents comparing SQL and NoSQL options for a given workload.</p>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="observable-behaviors">
+    <h2>Observable Behaviors</h2>
+    <ul>
+      
+      <li>Establishes schema review processes with clear approval gates.</li>
+      
+      <li>Designs data models that are stable under changing access patterns.</li>
+      
+      <li>Treats backward compatibility of schema changes as a first-class constraint.</li>
+      
+      <li>Leads cross-team alignment on shared reference data.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="failure-modes">
+    <h2>Typical Failure Modes</h2>
+    <ul>
+      
+      <li>Designs theoretical architectures disconnected from practical team constraints.</li>
+      
+      <li>Imposes governance overhead that slows teams without proportionate benefit.</li>
+      
+      <li>Chooses distributed systems when a single well-tuned database would suffice.</li>
+      
+      <li>Neglects backward compatibility in schema evolution.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="graduation-criteria">
+    <h2>Graduation Criteria</h2>
+    <ul>
+      
+      <li>
+        This is the terminal level — mastery is demonstrated through sustained organizational impact.
+        
+      </li>
+      
+      <li>
+        Data architectures designed remain stable through multiple product cycles.
+        
+      </li>
+      
+      <li>
+        Teams independently follow governance standards without constant enforcement.
+        
+      </li>
+      
+      <li>
+        Technology decisions are validated by production outcomes over time.
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="evaluation-tasks">
+    <h2>Evaluation Tasks</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Design a Multi-Service Data Architecture</h3>
+      <p>Design the data architecture for a system with 5+ services that share customer and transaction data. Address consistency, ownership, and migration strategy.</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>Clear data ownership boundaries between services.</li>
+        
+        <li>Consistency strategy documented with trade-off analysis.</li>
+        
+        <li>Migration path from current state to target architecture.</li>
+        
+      </ul>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="exercises">
+    <h2>Exercises</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Multi-Service Data Architecture</h3>
+      <p>Design data architecture for a microservices system.</p>
+      <span class="badge mt-sm">advanced</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Establish Data Governance</h3>
+      <p>Create a data governance framework for a development team.</p>
+      <span class="badge mt-sm">advanced</span>
+    </div>
+    
+  </section>
+  
+
+  
+
+  
+
+  
+  <section class="section" id="learning-emphasis">
+    <h2>Learning Emphasis</h2>
+    
+    <p>Study distributed systems theory.</p>
+    
+    <p>Learn from post-mortems of data architecture failures.</p>
+    
+    <p>Practice cross-team communication and governance design.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-dimensions">
+    <h2>Related Dimensions</h2>
+    <ul>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Data Modeling</a>
+        <span class="text-sm text-muted"> — Skill in designing relational schemas and entity relationships.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Performance &amp; Optimization</a>
+        <span class="text-sm text-muted"> — Understanding of index design, execution plans, and query tuning.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Collaboration &amp; Standards</a>
+        <span class="text-sm text-muted"> — Adherence to naming conventions, documentation, and data governance.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Data Integrity &amp; Transactions</a>
+        <span class="text-sm text-muted"> — Command of constraints, ACID properties, and transactional design.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/sql-competence/dimensions/">Tooling &amp; Workflow</a>
+        <span class="text-sm text-muted"> — Use of SQL clients, migrations, version control, and CI/CD.</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="citations">
+    <h2>Citations</h2>
+    <div class="citation-list">
+      <ul>
+        
+        <li>
+          
+          <a href="https://www.databass.dev/" target="_blank" rel="noopener">Database Internals</a>
+          
+          <span class="text-sm text-muted"> — Alex Petrov, O&#039;Reilly Media</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://dataintensive.net/" target="_blank" rel="noopener">Designing Data-Intensive Applications</a>
+          
+          <span class="text-sm text-muted"> — Martin Kleppmann, O&#039;Reilly Media</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://www.iso.org/standard/76583.html" target="_blank" rel="noopener">ISO/IEC 9075 SQL Standard</a>
+          
+          <span class="text-sm text-muted"> — ISO/IEC, ISO</span>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+
+  
+
+  <nav class="level-nav">
+    
+    <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="level-nav__link">
+      &larr; Level 4: Engineer
+    </a>
+    
+    
+  </nav>
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

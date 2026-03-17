@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="A five-level model of SQL proficiency measured across seven cross-cutting dimensions, from basic querying to enterprise data architecture.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/overview/">
+<meta property="og:title" content="Overview — SQL Competence">
+<meta property="og:description" content="A five-level model of SQL proficiency measured across seven cross-cutting dimensions, from basic querying to enterprise data architecture.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Overview</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">SQL Competence Framework</h1>
+  <p class="hero__summary">A five-level model of SQL proficiency measured across seven cross-cutting dimensions, from basic querying to enterprise data architecture.</p>
+</section>
+
+
+<section class="section">
+  
+  <p>This framework defines SQL competence as measurable growth across seven dimensions that each capture a distinct aspect of effective database work.</p>
+  
+  <p>Every practitioner — from someone writing their first SELECT to someone designing enterprise-scale data architectures — operates across all seven dimensions simultaneously.</p>
+  
+</section>
+
+
+
+<section class="section">
+  <h2>The Seven Dimensions</h2>
+  <p class="text-muted mb-lg">Each dimension is independent: a practitioner can be strong in Query Construction but weak in Collaboration &amp; Standards.</p>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#query-construction" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Query Construction</h3>
+      <p class="level-card__summary">Ability to write correct, readable, and efficient SQL.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#data-modeling" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Data Modeling</h3>
+      <p class="level-card__summary">Skill in designing relational schemas and entity relationships.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#analytical-techniques" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Analytical Techniques</h3>
+      <p class="level-card__summary">Proficiency with aggregation, window functions, and analysis patterns.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#performance-optimization" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Performance &amp; Optimization</h3>
+      <p class="level-card__summary">Understanding of index design, execution plans, and query tuning.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#data-integrity" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Data Integrity &amp; Transactions</h3>
+      <p class="level-card__summary">Command of constraints, ACID properties, and transactional design.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#tooling-workflow" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Tooling &amp; Workflow</h3>
+      <p class="level-card__summary">Use of SQL clients, migrations, version control, and CI/CD.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/dimensions/#collaboration-standards" class="level-card level-card--dim level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">Collaboration &amp; Standards</h3>
+      <p class="level-card__summary">Adherence to naming conventions, documentation, and data governance.</p>
+    </div>
+  </a>
+  
+</section>
+
+
+
+<section class="section">
+  <h2>The Five Levels</h2>
+  <p class="text-muted mb-lg">Each level represents a recognizable, observable mode of working with SQL. Movement between levels is a shift in how all seven dimensions are engaged together.</p>
+  
+  <a href="/ai-coding/sql-competence/levels/query-writer/" class="level-card level-card--1 level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Level 1</span>
+      <h3 class="level-card__title">Query Writer</h3>
+      <p class="level-card__summary">Reads data using basic SELECT, WHERE, and ORDER BY.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/levels/data-analyst/" class="level-card level-card--2 level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Level 2</span>
+      <h3 class="level-card__title">Data Analyst</h3>
+      <p class="level-card__summary">Constructs multi-table JOINs, aggregations, and window functions.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/levels/schema-designer/" class="level-card level-card--3 level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Level 3</span>
+      <h3 class="level-card__title">Schema Designer</h3>
+      <p class="level-card__summary">Designs normalized schemas, manages transactions and constraints.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="level-card level-card--4 level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Level 4</span>
+      <h3 class="level-card__title">Performance Engineer</h3>
+      <p class="level-card__summary">Designs index strategies, optimizes queries, manages concurrency.</p>
+    </div>
+  </a>
+  
+  <a href="/ai-coding/sql-competence/levels/database-architect/" class="level-card level-card--5 level-card--with-image">
+    
+    <div class="level-card__content">
+      <span class="level-card__number">Level 5</span>
+      <h3 class="level-card__title">Database Architect</h3>
+      <p class="level-card__summary">Architects enterprise data systems, governance, and organizational strategy.</p>
+    </div>
+  </a>
+  
+</section>
+
+
+
+<section class="section">
+  <h2>How to Use This Framework</h2>
+  
+  <p>Use the Self-Assessment to score yourself across all seven dimensions. Use the Competency Matrix to compare your weakest dimensions against your strongest.</p>
+  
+  <p>Use the level detail pages for graduation criteria and evaluation tasks. Use the Study Guide to generate a prioritized reading list.</p>
+  
+  <div class="flex gap-sm mt-lg flex-wrap">
+    <a href="/ai-coding/sql-competence/matrix/" class="btn btn--sm">Competency Matrix</a>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm btn--outline">Self-Assessment</a>
+    <a href="/ai-coding/sql-competence/study-guide/" class="btn btn--sm btn--outline">Study Guide</a>
+  </div>
+</section>
+
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimensions — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Cross-level evaluation dimensions for the competence framework.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/dimensions/">
+<meta property="og:title" content="Dimensions — SQL Competence">
+<meta property="og:description" content="Cross-level evaluation dimensions for the competence framework.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Dimensions</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">Evaluation Dimensions</h1>
+  <p class="hero__summary">Cross-level dimensions used to evaluate competence across the framework.</p>
+</section>
+
+
+<section id="query-construction" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Query Construction</h2>
+      <p class="dimension-card__definition">The ability to write correct, readable SQL that accurately expresses data retrieval and manipulation intent.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>Query Construction is the foundational skill. All other dimensions build on the ability to express intent precisely in SQL.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Do you use CTEs rather than deeply nested subqueries?</li>
+      
+      <li>Can you write a correct query when NULLs are present in join columns?</li>
+      
+      <li>Do you choose JOIN types deliberately based on the data relationship?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="data-modeling" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Data Modeling</h2>
+      <p class="dimension-card__definition">Skill in designing relational schemas: normalization, entity relationships, constraints, and structural integrity.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>Schema design decisions are expensive to reverse. A poorly modeled schema constrains every query and integration built on top of it.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Can you identify and resolve a second normal form violation?</li>
+      
+      <li>Do you add foreign key constraints as a default practice?</li>
+      
+      <li>Can you explain when denormalization is the right choice?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="analytical-techniques" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Analytical Techniques</h2>
+      <p class="dimension-card__definition">Proficiency with aggregation patterns, window functions, CTEs, pivoting, and advanced data analysis constructs.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>Analytical Techniques determines the range of questions a practitioner can answer directly in SQL without resorting to application code.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Can you write a rolling 7-day average using a window function?</li>
+      
+      <li>Can you compute a retention cohort table in SQL?</li>
+      
+      <li>Do you know when to use FILTER (WHERE ...) vs. a CASE expression inside an aggregate?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="performance-optimization" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Performance &amp; Optimization</h2>
+      <p class="dimension-card__definition">Understanding of index design, execution plan analysis, query tuning, and database statistics.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>Queries that work correctly at 1,000 rows may fail at 10,000,000. Performance separates practitioners who can work on production systems from those who cannot.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Can you read an execution plan and identify why a query performs a sequential scan?</li>
+      
+      <li>Do you understand how cardinality estimates affect join order selection?</li>
+      
+      <li>Can you design a composite index for a specific query&#039;s filter and sort requirements?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="data-integrity" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Data Integrity &amp; Transactions</h2>
+      <p class="dimension-card__definition">Command of constraints, ACID properties, isolation levels, and transactional design.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>A database that produces fast but inconsistent results is worse than a slow one. Data Integrity determines whether a system can be trusted under concurrent load.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Can you explain the difference between READ COMMITTED and REPEATABLE READ with a concrete scenario?</li>
+      
+      <li>Do you understand the locking implications of adding a foreign key constraint on a large table?</li>
+      
+      <li>Can you identify when optimistic locking is preferable to pessimistic locking?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="tooling-workflow" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Tooling &amp; Workflow</h2>
+      <p class="dimension-card__definition">Use of SQL clients, schema migration tools, version control for database changes, automated testing, and CI/CD integration.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>SQL written outside of a version-controlled, reviewable workflow is a liability. Tooling &amp; Workflow makes database changes auditable and safe at team scale.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Do all schema changes go through a migration tool?</li>
+      
+      <li>Are your migrations tested in CI before reaching production?</li>
+      
+      <li>Do you use a SQL linter or formatter as part of your review process?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+<section id="collaboration-standards" class="dimension-card section">
+  <div class="dimension-card__header">
+    
+    <div>
+      <h2 class="dimension-card__name">Collaboration &amp; Standards</h2>
+      <p class="dimension-card__definition">Adherence to naming conventions, schema documentation, peer review of database changes, and cross-team data contracts.</p>
+    </div>
+  </div>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>Schemas outlive the teams that build them. Without consistent standards, database complexity compounds until it becomes a systemic organizational constraint.</p>
+  </div>
+
+  
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      
+      <li>Do you follow a consistent naming convention and apply it to every object?</li>
+      
+      <li>Do schema changes go through peer review before production?</li>
+      
+      <li>Can you describe what a data contract is and when you would use one?</li>
+      
+    </ul>
+    <a href="/ai-coding/sql-competence/assess/" class="btn btn--sm mt-md">Assess this dimension &rarr;</a>
+  </div>
+  
+</section>
+
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

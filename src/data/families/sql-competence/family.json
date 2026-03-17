@@ -1,0 +1,15 @@
+{
+  "familyId": "sql-competence",
+  "slug": "sql-competence",
+  "title": "SQL Competence",
+  "shortTitle": "SQL Competence",
+  "summary": "A five-level maturity framework for SQL proficiency, from basic querying to enterprise data architecture.",
+  "status": "draft",
+  "version": "0.1.0",
+  "publishDate": "2026-03-17",
+  "updatedDate": "2026-03-17",
+  "owner": "John Boen",
+  "landingPath": "/ai-coding/sql-competence/",
+  "rootPath": "/ai-coding/sql-competence/",
+  "themeKey": "sql-competence"
+}

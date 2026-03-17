@@ -1,0 +1,75 @@
+{
+  "familyId": "sql-competence",
+  "rows": [
+    {
+      "dimensionId": "dim-query-construction",
+      "cells": [
+        { "levelId": "level-1", "summary": "Single-table SELECT with basic WHERE and ORDER BY.", "detail": ["Writes SELECT * or explicit columns from one table.", "Uses WHERE with basic operators.", "Cannot yet join tables."] },
+        { "levelId": "level-2", "summary": "Multi-table JOINs, CTEs, and basic aggregation.", "detail": ["Joins multiple tables correctly.", "Uses CTEs for readability.", "Writes GROUP BY with HAVING."] },
+        { "levelId": "level-3", "summary": "Complex analytical queries and DML.", "detail": ["Advanced window functions.", "Writes stored procedures.", "Complex INSERT/UPDATE patterns."] },
+        { "levelId": "level-4", "summary": "Optimizer-aware query patterns.", "detail": ["Rewrites queries for better plans.", "Avoids anti-patterns that prevent index use.", "Uses query hints judiciously."] },
+        { "levelId": "level-5", "summary": "Defines query standards and anti-patterns for the organization.", "detail": ["Establishes query coding standards.", "Reviews query patterns across teams.", "Documents anti-patterns with examples."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-data-modeling",
+      "cells": [
+        { "levelId": "level-1", "summary": "No schema design; works with existing tables.", "detail": ["Understands tables have columns and rows.", "Cannot create tables from requirements.", "No awareness of normalization."] },
+        { "levelId": "level-2", "summary": "Understands existing schemas and relationships.", "detail": ["Reads ER diagrams.", "Understands foreign key relationships.", "Can identify the join path between tables."] },
+        { "levelId": "level-3", "summary": "Designs normalized schemas from requirements.", "detail": ["Applies 1NF through 3NF.", "Designs entity relationships.", "Writes DDL with constraints."] },
+        { "levelId": "level-4", "summary": "Partitioned and performance-optimized schemas.", "detail": ["Denormalizes with reasoning.", "Designs for specific query workloads.", "Partitions large tables."] },
+        { "levelId": "level-5", "summary": "Enterprise canonical data models.", "detail": ["Designs cross-service data models.", "Defines data ownership boundaries.", "Evolves schemas across product cycles."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-analytical-techniques",
+      "cells": [
+        { "levelId": "level-1", "summary": "Basic filtering only.", "detail": ["WHERE clause filtering.", "No aggregation.", "No window functions."] },
+        { "levelId": "level-2", "summary": "GROUP BY and basic window functions.", "detail": ["COUNT, SUM, AVG aggregations.", "ROW_NUMBER, RANK.", "Basic OVER clauses."] },
+        { "levelId": "level-3", "summary": "Advanced window functions and pivoting.", "detail": ["LAG, LEAD, NTILE.", "Pivoting and unpivoting patterns.", "Running totals and moving averages."] },
+        { "levelId": "level-4", "summary": "Performance-aware analytical patterns.", "detail": ["Optimizes analytical queries for large datasets.", "Uses materialized views for heavy aggregations.", "Designs efficient time-series queries."] },
+        { "levelId": "level-5", "summary": "Defines analytical patterns for the organization.", "detail": ["Establishes standard analytical query patterns.", "Designs data warehouse schemas.", "Evaluates analytical database technologies."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-performance-optimization",
+      "cells": [
+        { "levelId": "level-1", "summary": "Unaware of performance considerations.", "detail": ["Does not think about query cost.", "No awareness of indexes.", "No understanding of execution plans."] },
+        { "levelId": "level-2", "summary": "Surface-level index awareness.", "detail": ["Knows indexes exist and speed things up.", "Cannot design an index strategy.", "Does not read execution plans."] },
+        { "levelId": "level-3", "summary": "Reads execution plans and applies basic tuning.", "detail": ["Reads EXPLAIN output.", "Identifies sequential vs index scans.", "Creates single-column indexes."] },
+        { "levelId": "level-4", "summary": "Deep index strategy and concurrency tuning.", "detail": ["Designs composite and covering indexes.", "Tunes statistics and autovacuum.", "Manages lock contention."] },
+        { "levelId": "level-5", "summary": "Capacity planning and architectural trade-offs.", "detail": ["Forecasts performance at scale.", "Designs for horizontal scaling.", "Evaluates hardware and cloud configurations."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-data-integrity",
+      "cells": [
+        { "levelId": "level-1", "summary": "Basic NOT NULL awareness.", "detail": ["Knows some columns cannot be empty.", "No understanding of constraints.", "No transaction awareness."] },
+        { "levelId": "level-2", "summary": "Basic constraints and simple transactions.", "detail": ["Uses NOT NULL and UNIQUE.", "Writes simple BEGIN/COMMIT blocks.", "Basic understanding of foreign keys."] },
+        { "levelId": "level-3", "summary": "All constraint types and isolation levels.", "detail": ["Uses CHECK, FK, and UNIQUE constraints.", "Understands isolation levels.", "Designs transactional workflows."] },
+        { "levelId": "level-4", "summary": "Lock management and concurrency patterns.", "detail": ["Manages deadlocks and lock contention.", "Selects isolation levels per transaction.", "Implements optimistic locking patterns."] },
+        { "levelId": "level-5", "summary": "Distributed consistency and governance.", "detail": ["Designs cross-service consistency strategies.", "Defines data integrity standards.", "Handles eventual consistency trade-offs."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-tooling-workflow",
+      "cells": [
+        { "levelId": "level-1", "summary": "Ad-hoc GUI client usage.", "detail": ["Uses a SQL client GUI.", "Saves queries as local files.", "No version control for SQL."] },
+        { "levelId": "level-2", "summary": "Structured scripts and basic migrations.", "detail": ["Organizes SQL in script files.", "Uses basic migration commands.", "Version controls SQL files."] },
+        { "levelId": "level-3", "summary": "Migration tooling and automated workflow.", "detail": ["Uses Flyway, Liquibase, or similar.", "Migrations are reversible.", "SQL is reviewed before merge."] },
+        { "levelId": "level-4", "summary": "CI/CD integration and automated testing.", "detail": ["Migrations run in CI pipeline.", "Automated regression tests for schemas.", "Uses linters and formatters."] },
+        { "levelId": "level-5", "summary": "Toolchain standards and release governance.", "detail": ["Defines migration tooling standards.", "Designs release processes.", "Manages cross-environment promotion."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-collaboration-standards",
+      "cells": [
+        { "levelId": "level-1", "summary": "No standards; writes solo scripts.", "detail": ["No naming conventions.", "No documentation.", "Works in isolation."] },
+        { "levelId": "level-2", "summary": "Follows team conventions.", "detail": ["Follows established naming patterns.", "Writes basic comments.", "Participates in code review."] },
+        { "levelId": "level-3", "summary": "Contributes to conventions and documentation.", "detail": ["Proposes naming convention improvements.", "Documents schema decisions.", "Reviews others' migrations."] },
+        { "levelId": "level-4", "summary": "Establishes review processes.", "detail": ["Designs schema review workflows.", "Creates documentation templates.", "Mentors junior team members."] },
+        { "levelId": "level-5", "summary": "Owns organization-wide data governance.", "detail": ["Defines cross-team data standards.", "Leads data governance initiatives.", "Manages data contracts between services."] }
+      ]
+    }
+  ]
+}

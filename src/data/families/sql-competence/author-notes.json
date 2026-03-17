@@ -1,0 +1,34 @@
+{
+  "familyId": "sql-competence",
+  "pageTitle": "Author's Perspective on SQL Competence",
+  "intro": [
+    "SQL is one of the most enduring technologies in software. It has survived every paradigm shift, every framework cycle, and every 'databases are dead' prediction. Yet most developers learn it haphazardly — picking up just enough to get results without ever building a coherent mental model.",
+    "This framework exists because SQL competence is not binary. There is a vast distance between writing a working query and designing a database architecture that serves an organization for years."
+  ],
+  "sections": [
+    {
+      "id": "sec-why-dimensions",
+      "title": "Why Seven Dimensions?",
+      "content": [
+        "SQL competence is multidimensional. A practitioner can write beautiful analytical queries but design terrible schemas. They can design perfect schemas but have no concept of performance. They can optimize queries expertly but work in complete isolation without standards.",
+        "The seven dimensions capture these independent axes of skill. The goal is self-awareness: understanding where your strengths and gaps actually are, rather than assuming overall competence from strength in one area."
+      ]
+    },
+    {
+      "id": "sec-level-transitions",
+      "title": "The Hardest Transitions",
+      "content": [
+        "The jump from Level 2 to Level 3 is where most practitioners get stuck. Writing queries is one skill; designing the structures those queries run against is a fundamentally different one. It requires thinking about data at rest, not just data in motion.",
+        "The jump from Level 4 to Level 5 is a different kind of challenge. It requires shifting from technical excellence to organizational influence — from optimizing one database to designing systems that multiple teams can build on independently."
+      ]
+    },
+    {
+      "id": "sec-dialect-agnostic",
+      "title": "On Being Dialect-Agnostic",
+      "content": [
+        "This framework deliberately avoids tying itself to one SQL dialect. The concepts of normalization, execution plans, and isolation levels apply to PostgreSQL, MySQL, SQL Server, and every other relational database.",
+        "That said, mastery at Levels 3-5 requires deep knowledge of at least one database's internals. The framework describes what to learn; your chosen database determines the specifics of how."
+      ]
+    }
+  ]
+}

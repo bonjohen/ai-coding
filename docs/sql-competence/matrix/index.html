@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competency Matrix — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Full competency matrix: dimensions vs. levels.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/matrix/">
+<meta property="og:title" content="Competency Matrix — SQL Competence">
+<meta property="og:description" content="Full competency matrix: dimensions vs. levels.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Matrix</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--wide page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">Competency Matrix</h1>
+  <p class="hero__summary">Full competency matrix mapping dimensions against the five levels.</p>
+</section>
+
+<section class="section">
+  <div class="matrix-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        
+        <th>L1: Writer</th>
+        
+        <th>L2: Analyst</th>
+        
+        <th>L3: Designer</th>
+        
+        <th>L4: Engineer</th>
+        
+        <th>L5: Architect</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr data-dimension="dim-query-construction">
+        <td class="matrix-dimension-header">Query Construction</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Single-table SELECT with basic WHERE and ORDER BY.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Writes SELECT * or explicit columns from one table.</li>
+            
+            <li>Uses WHERE with basic operators.</li>
+            
+            <li>Cannot yet join tables.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Multi-table JOINs, CTEs, and basic aggregation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Joins multiple tables correctly.</li>
+            
+            <li>Uses CTEs for readability.</li>
+            
+            <li>Writes GROUP BY with HAVING.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Complex analytical queries and DML.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Advanced window functions.</li>
+            
+            <li>Writes stored procedures.</li>
+            
+            <li>Complex INSERT/UPDATE patterns.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Optimizer-aware query patterns.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Rewrites queries for better plans.</li>
+            
+            <li>Avoids anti-patterns that prevent index use.</li>
+            
+            <li>Uses query hints judiciously.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Defines query standards and anti-patterns for the organization.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Establishes query coding standards.</li>
+            
+            <li>Reviews query patterns across teams.</li>
+            
+            <li>Documents anti-patterns with examples.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-data-modeling">
+        <td class="matrix-dimension-header">Data Modeling</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">No schema design; works with existing tables.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Understands tables have columns and rows.</li>
+            
+            <li>Cannot create tables from requirements.</li>
+            
+            <li>No awareness of normalization.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Understands existing schemas and relationships.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Reads ER diagrams.</li>
+            
+            <li>Understands foreign key relationships.</li>
+            
+            <li>Can identify the join path between tables.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Designs normalized schemas from requirements.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Applies 1NF through 3NF.</li>
+            
+            <li>Designs entity relationships.</li>
+            
+            <li>Writes DDL with constraints.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Partitioned and performance-optimized schemas.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Denormalizes with reasoning.</li>
+            
+            <li>Designs for specific query workloads.</li>
+            
+            <li>Partitions large tables.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Enterprise canonical data models.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Designs cross-service data models.</li>
+            
+            <li>Defines data ownership boundaries.</li>
+            
+            <li>Evolves schemas across product cycles.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-analytical-techniques">
+        <td class="matrix-dimension-header">Analytical Techniques</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Basic filtering only.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>WHERE clause filtering.</li>
+            
+            <li>No aggregation.</li>
+            
+            <li>No window functions.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">GROUP BY and basic window functions.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>COUNT, SUM, AVG aggregations.</li>
+            
+            <li>ROW_NUMBER, RANK.</li>
+            
+            <li>Basic OVER clauses.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Advanced window functions and pivoting.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>LAG, LEAD, NTILE.</li>
+            
+            <li>Pivoting and unpivoting patterns.</li>
+            
+            <li>Running totals and moving averages.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Performance-aware analytical patterns.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Optimizes analytical queries for large datasets.</li>
+            
+            <li>Uses materialized views for heavy aggregations.</li>
+            
+            <li>Designs efficient time-series queries.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Defines analytical patterns for the organization.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Establishes standard analytical query patterns.</li>
+            
+            <li>Designs data warehouse schemas.</li>
+            
+            <li>Evaluates analytical database technologies.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-performance-optimization">
+        <td class="matrix-dimension-header">Performance &amp; Optimization</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Unaware of performance considerations.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Does not think about query cost.</li>
+            
+            <li>No awareness of indexes.</li>
+            
+            <li>No understanding of execution plans.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Surface-level index awareness.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Knows indexes exist and speed things up.</li>
+            
+            <li>Cannot design an index strategy.</li>
+            
+            <li>Does not read execution plans.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Reads execution plans and applies basic tuning.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Reads EXPLAIN output.</li>
+            
+            <li>Identifies sequential vs index scans.</li>
+            
+            <li>Creates single-column indexes.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Deep index strategy and concurrency tuning.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Designs composite and covering indexes.</li>
+            
+            <li>Tunes statistics and autovacuum.</li>
+            
+            <li>Manages lock contention.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Capacity planning and architectural trade-offs.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Forecasts performance at scale.</li>
+            
+            <li>Designs for horizontal scaling.</li>
+            
+            <li>Evaluates hardware and cloud configurations.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-data-integrity">
+        <td class="matrix-dimension-header">Data Integrity &amp; Transactions</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Basic NOT NULL awareness.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Knows some columns cannot be empty.</li>
+            
+            <li>No understanding of constraints.</li>
+            
+            <li>No transaction awareness.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Basic constraints and simple transactions.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses NOT NULL and UNIQUE.</li>
+            
+            <li>Writes simple BEGIN/COMMIT blocks.</li>
+            
+            <li>Basic understanding of foreign keys.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">All constraint types and isolation levels.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses CHECK, FK, and UNIQUE constraints.</li>
+            
+            <li>Understands isolation levels.</li>
+            
+            <li>Designs transactional workflows.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Lock management and concurrency patterns.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Manages deadlocks and lock contention.</li>
+            
+            <li>Selects isolation levels per transaction.</li>
+            
+            <li>Implements optimistic locking patterns.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Distributed consistency and governance.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Designs cross-service consistency strategies.</li>
+            
+            <li>Defines data integrity standards.</li>
+            
+            <li>Handles eventual consistency trade-offs.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-tooling-workflow">
+        <td class="matrix-dimension-header">Tooling &amp; Workflow</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Ad-hoc GUI client usage.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses a SQL client GUI.</li>
+            
+            <li>Saves queries as local files.</li>
+            
+            <li>No version control for SQL.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Structured scripts and basic migrations.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Organizes SQL in script files.</li>
+            
+            <li>Uses basic migration commands.</li>
+            
+            <li>Version controls SQL files.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Migration tooling and automated workflow.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses Flyway, Liquibase, or similar.</li>
+            
+            <li>Migrations are reversible.</li>
+            
+            <li>SQL is reviewed before merge.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">CI/CD integration and automated testing.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Migrations run in CI pipeline.</li>
+            
+            <li>Automated regression tests for schemas.</li>
+            
+            <li>Uses linters and formatters.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Toolchain standards and release governance.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Defines migration tooling standards.</li>
+            
+            <li>Designs release processes.</li>
+            
+            <li>Manages cross-environment promotion.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-collaboration-standards">
+        <td class="matrix-dimension-header">Collaboration &amp; Standards</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">No standards; writes solo scripts.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>No naming conventions.</li>
+            
+            <li>No documentation.</li>
+            
+            <li>Works in isolation.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Follows team conventions.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Follows established naming patterns.</li>
+            
+            <li>Writes basic comments.</li>
+            
+            <li>Participates in code review.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Contributes to conventions and documentation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Proposes naming convention improvements.</li>
+            
+            <li>Documents schema decisions.</li>
+            
+            <li>Reviews others&#039; migrations.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Establishes review processes.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Designs schema review workflows.</li>
+            
+            <li>Creates documentation templates.</li>
+            
+            <li>Mentors junior team members.</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Owns organization-wide data governance.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Defines cross-team data standards.</li>
+            
+            <li>Leads data governance initiatives.</li>
+            
+            <li>Manages data contracts between services.</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+{
+  "familyId": "sql-competence",
+  "exercises": [
+    {
+      "id": "ex-1-basic-select",
+      "levelId": "level-1",
+      "title": "Write a Filtered SELECT",
+      "summary": "Practice writing basic SELECT queries with WHERE and ORDER BY.",
+      "instructions": [
+        "Using a sample database (e.g., the Northwind or Sakila database), write a query that returns all customers from a specific country, sorted by name.",
+        "Modify the query to return only customers who placed orders in the last 90 days.",
+        "Ensure you select specific columns, not SELECT *."
+      ],
+      "successCriteria": [
+        "Query returns correct results.",
+        "Uses explicit column names.",
+        "WHERE clause correctly filters rows.",
+        "Results are sorted as specified."
+      ],
+      "estimatedDifficulty": "beginner",
+      "tags": ["select", "where", "order-by"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-1-error-recovery",
+      "levelId": "level-1",
+      "title": "Debug a Broken Query",
+      "summary": "Practice reading SQL errors and fixing common syntax mistakes.",
+      "instructions": [
+        "Given a query with 3 deliberate errors (missing comma, misspelled keyword, wrong table name), identify and fix each error.",
+        "Run the corrected query and verify it returns the expected results."
+      ],
+      "successCriteria": [
+        "All three errors identified correctly.",
+        "Corrected query executes without errors.",
+        "Results match the expected output."
+      ],
+      "estimatedDifficulty": "beginner",
+      "tags": ["debugging", "syntax"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-2-multi-join",
+      "levelId": "level-2",
+      "title": "Multi-Table Analytical Query",
+      "summary": "Write a query joining three or more tables with aggregation.",
+      "instructions": [
+        "Write a query that shows total revenue by product category for the last quarter.",
+        "Join orders, order details, products, and categories tables.",
+        "Use a CTE to compute the revenue, then query the CTE for the final result."
+      ],
+      "successCriteria": [
+        "All joins are correct — no accidental row multiplication.",
+        "Aggregation produces accurate totals.",
+        "CTE improves readability over a nested subquery."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["joins", "aggregation", "cte"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-2-window-function",
+      "levelId": "level-2",
+      "title": "Window Function Ranking",
+      "summary": "Practice ROW_NUMBER and RANK for analytical queries.",
+      "instructions": [
+        "Write a query that ranks customers by total spending within each region.",
+        "Show only the top 3 customers per region.",
+        "Decide whether to use ROW_NUMBER or RANK and explain your choice."
+      ],
+      "successCriteria": [
+        "Window function is correctly partitioned by region.",
+        "Top-N filtering works correctly.",
+        "Choice between ROW_NUMBER and RANK is justified."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["window-functions", "ranking"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-3-schema-design",
+      "levelId": "level-3",
+      "title": "Design a Schema from Requirements",
+      "summary": "Design a normalized schema for a booking system.",
+      "instructions": [
+        "Given requirements for a room booking system (users, rooms, bookings, cancellations), design a normalized schema.",
+        "Write the DDL including all constraints (PK, FK, NOT NULL, CHECK, UNIQUE).",
+        "Write both up and down migration scripts."
+      ],
+      "successCriteria": [
+        "Schema is in 3NF or deviations are documented.",
+        "All appropriate constraints are present.",
+        "Migration is reversible."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["schema-design", "normalization", "ddl"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-3-execution-plan",
+      "levelId": "level-3",
+      "title": "Read an Execution Plan",
+      "summary": "Analyze an execution plan and identify optimization opportunities.",
+      "instructions": [
+        "Run EXPLAIN ANALYZE on a slow query.",
+        "Identify which operations consume the most time.",
+        "Propose at least one index that would improve performance.",
+        "Verify your proposal with a new EXPLAIN."
+      ],
+      "successCriteria": [
+        "Correctly identifies the most expensive operation.",
+        "Proposed index is appropriate for the query pattern.",
+        "Before/after plans show measurable improvement."
+      ],
+      "estimatedDifficulty": "intermediate",
+      "tags": ["execution-plans", "indexes", "optimization"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-4-index-strategy",
+      "levelId": "level-4",
+      "title": "Design an Index Strategy",
+      "summary": "Design a complete index strategy for a given query workload.",
+      "instructions": [
+        "Given 5 common queries against a schema, design an index strategy that covers all of them.",
+        "Consider composite index column ordering.",
+        "Document the trade-off between read performance and write overhead.",
+        "Remove any redundant indexes."
+      ],
+      "successCriteria": [
+        "All 5 queries benefit from the index strategy.",
+        "No redundant indexes.",
+        "Write overhead trade-offs are documented."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["indexes", "composite-indexes", "optimization"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-4-concurrency",
+      "levelId": "level-4",
+      "title": "Concurrency Experiment",
+      "summary": "Demonstrate isolation level behavior with concurrent transactions.",
+      "instructions": [
+        "Set up two concurrent database sessions.",
+        "Demonstrate a dirty read, non-repeatable read, and phantom read scenario.",
+        "Show which isolation level prevents each anomaly.",
+        "Document the performance trade-off of stricter isolation."
+      ],
+      "successCriteria": [
+        "All three anomalies demonstrated correctly.",
+        "Isolation level behavior matches documentation.",
+        "Trade-offs are clearly documented."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["isolation-levels", "concurrency", "transactions"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-5-architecture",
+      "levelId": "level-5",
+      "title": "Multi-Service Data Architecture",
+      "summary": "Design data architecture for a microservices system.",
+      "instructions": [
+        "Given a system with 4 services sharing customer and transaction data, design the data architecture.",
+        "Define data ownership boundaries and contracts between services.",
+        "Address consistency strategy (strong vs eventual).",
+        "Plan the migration path from a monolithic database."
+      ],
+      "successCriteria": [
+        "Clear data ownership per service.",
+        "Consistency strategy is documented with trade-offs.",
+        "Migration plan includes intermediate states and rollback."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["architecture", "data-contracts", "distributed-systems"],
+      "relatedQuestionIds": []
+    },
+    {
+      "id": "ex-5-governance",
+      "levelId": "level-5",
+      "title": "Establish Data Governance",
+      "summary": "Create a data governance framework for a development team.",
+      "instructions": [
+        "Write a naming convention document for tables, columns, indexes, and constraints.",
+        "Design a schema change review process with approval gates.",
+        "Create a template for documenting schema decisions.",
+        "Define metrics for measuring adherence."
+      ],
+      "successCriteria": [
+        "Naming conventions cover all object types.",
+        "Review process has clear roles and gates.",
+        "Documentation template is practical and complete.",
+        "Metrics are measurable and actionable."
+      ],
+      "estimatedDifficulty": "advanced",
+      "tags": ["governance", "standards", "documentation"],
+      "relatedQuestionIds": []
+    }
+  ]
+}

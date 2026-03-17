@@ -1,0 +1,110 @@
+{
+  "familyId": "sql-competence",
+  "dimensions": [
+    {
+      "id": "dim-query-construction",
+      "slug": "query-construction",
+      "name": "Query Construction",
+      "shortName": "Querying",
+      "summary": "Ability to write correct, readable, and efficient SQL.",
+      "definition": "The ability to write correct, readable SQL that accurately expresses data retrieval and manipulation intent.",
+      "whyItMatters": "Query Construction is the foundational skill. All other dimensions build on the ability to express intent precisely in SQL.",
+      "assessmentQuestions": [
+        "Do you use CTEs rather than deeply nested subqueries?",
+        "Can you write a correct query when NULLs are present in join columns?",
+        "Do you choose JOIN types deliberately based on the data relationship?"
+      ],
+      "order": 1
+    },
+    {
+      "id": "dim-data-modeling",
+      "slug": "data-modeling",
+      "name": "Data Modeling",
+      "shortName": "Modeling",
+      "summary": "Skill in designing relational schemas and entity relationships.",
+      "definition": "Skill in designing relational schemas: normalization, entity relationships, constraints, and structural integrity.",
+      "whyItMatters": "Schema design decisions are expensive to reverse. A poorly modeled schema constrains every query and integration built on top of it.",
+      "assessmentQuestions": [
+        "Can you identify and resolve a second normal form violation?",
+        "Do you add foreign key constraints as a default practice?",
+        "Can you explain when denormalization is the right choice?"
+      ],
+      "order": 2
+    },
+    {
+      "id": "dim-analytical-techniques",
+      "slug": "analytical-techniques",
+      "name": "Analytical Techniques",
+      "shortName": "Analytics",
+      "summary": "Proficiency with aggregation, window functions, and analysis patterns.",
+      "definition": "Proficiency with aggregation patterns, window functions, CTEs, pivoting, and advanced data analysis constructs.",
+      "whyItMatters": "Analytical Techniques determines the range of questions a practitioner can answer directly in SQL without resorting to application code.",
+      "assessmentQuestions": [
+        "Can you write a rolling 7-day average using a window function?",
+        "Can you compute a retention cohort table in SQL?",
+        "Do you know when to use FILTER (WHERE ...) vs. a CASE expression inside an aggregate?"
+      ],
+      "order": 3
+    },
+    {
+      "id": "dim-performance-optimization",
+      "slug": "performance-optimization",
+      "name": "Performance & Optimization",
+      "shortName": "Performance",
+      "summary": "Understanding of index design, execution plans, and query tuning.",
+      "definition": "Understanding of index design, execution plan analysis, query tuning, and database statistics.",
+      "whyItMatters": "Queries that work correctly at 1,000 rows may fail at 10,000,000. Performance separates practitioners who can work on production systems from those who cannot.",
+      "assessmentQuestions": [
+        "Can you read an execution plan and identify why a query performs a sequential scan?",
+        "Do you understand how cardinality estimates affect join order selection?",
+        "Can you design a composite index for a specific query's filter and sort requirements?"
+      ],
+      "order": 4
+    },
+    {
+      "id": "dim-data-integrity",
+      "slug": "data-integrity",
+      "name": "Data Integrity & Transactions",
+      "shortName": "Integrity",
+      "summary": "Command of constraints, ACID properties, and transactional design.",
+      "definition": "Command of constraints, ACID properties, isolation levels, and transactional design.",
+      "whyItMatters": "A database that produces fast but inconsistent results is worse than a slow one. Data Integrity determines whether a system can be trusted under concurrent load.",
+      "assessmentQuestions": [
+        "Can you explain the difference between READ COMMITTED and REPEATABLE READ with a concrete scenario?",
+        "Do you understand the locking implications of adding a foreign key constraint on a large table?",
+        "Can you identify when optimistic locking is preferable to pessimistic locking?"
+      ],
+      "order": 5
+    },
+    {
+      "id": "dim-tooling-workflow",
+      "slug": "tooling-workflow",
+      "name": "Tooling & Workflow",
+      "shortName": "Workflow",
+      "summary": "Use of SQL clients, migrations, version control, and CI/CD.",
+      "definition": "Use of SQL clients, schema migration tools, version control for database changes, automated testing, and CI/CD integration.",
+      "whyItMatters": "SQL written outside of a version-controlled, reviewable workflow is a liability. Tooling & Workflow makes database changes auditable and safe at team scale.",
+      "assessmentQuestions": [
+        "Do all schema changes go through a migration tool?",
+        "Are your migrations tested in CI before reaching production?",
+        "Do you use a SQL linter or formatter as part of your review process?"
+      ],
+      "order": 6
+    },
+    {
+      "id": "dim-collaboration-standards",
+      "slug": "collaboration-standards",
+      "name": "Collaboration & Standards",
+      "shortName": "Standards",
+      "summary": "Adherence to naming conventions, documentation, and data governance.",
+      "definition": "Adherence to naming conventions, schema documentation, peer review of database changes, and cross-team data contracts.",
+      "whyItMatters": "Schemas outlive the teams that build them. Without consistent standards, database complexity compounds until it becomes a systemic organizational constraint.",
+      "assessmentQuestions": [
+        "Do you follow a consistent naming convention and apply it to every object?",
+        "Do schema changes go through peer review before production?",
+        "Can you describe what a data contract is and when you would use one?"
+      ],
+      "order": 7
+    }
+  ]
+}

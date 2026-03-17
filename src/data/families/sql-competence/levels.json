@@ -1,0 +1,328 @@
+{
+  "familyId": "sql-competence",
+  "levels": [
+    {
+      "id": "level-1",
+      "slug": "query-writer",
+      "levelNumber": 1,
+      "title": "Query Writer",
+      "shortLabel": "Writer",
+      "summary": "Reads data from single tables using basic SELECT, WHERE, and ORDER BY. Treats SQL as a lookup tool.",
+      "definition": [
+        "The Query Writer can retrieve data from a database using a GUI or command-line client. They write single-table queries, apply simple filters, and sort results.",
+        "At this level, SQL is useful but results are unpredictable. The practitioner does not think about NULLs, duplicates, or performance."
+      ],
+      "coreConcepts": [
+        { "id": "c1-select-basics", "name": "SELECT Basics", "definition": "Understanding how to retrieve columns from a single table using SELECT, WHERE, and ORDER BY." },
+        { "id": "c1-data-types", "name": "Data Types", "definition": "Awareness that columns have types (VARCHAR, INTEGER, DATE) and that type mismatches cause errors." },
+        { "id": "c1-null-awareness", "name": "NULL Awareness", "definition": "Basic understanding that NULL means 'unknown' and behaves differently from empty strings or zero." },
+        { "id": "c1-row-filtering", "name": "Row Filtering", "definition": "Using WHERE clauses with comparison operators, LIKE, IN, and BETWEEN." },
+        { "id": "c1-result-sorting", "name": "Result Sorting", "definition": "Using ORDER BY to control the sequence of returned rows." }
+      ],
+      "coreSkills": [
+        { "id": "s1-basic-select", "name": "Basic SELECT", "definition": "Can write a SELECT statement that returns specific columns from a table.", "observableEvidence": "Writes SELECT col1, col2 FROM table rather than SELECT *." },
+        { "id": "s1-where-clause", "name": "WHERE Filtering", "definition": "Can filter rows using WHERE with basic operators.", "observableEvidence": "Applies WHERE conditions to narrow result sets." },
+        { "id": "s1-sorting", "name": "Result Sorting", "definition": "Can sort query results using ORDER BY.", "observableEvidence": "Adds ORDER BY to queries that need deterministic output order." },
+        { "id": "s1-client-usage", "name": "SQL Client Usage", "definition": "Can connect to a database and execute queries using a GUI or CLI client.", "observableEvidence": "Opens a SQL client and runs queries without external help." },
+        { "id": "s1-read-errors", "name": "Error Reading", "definition": "Can read a SQL error message and understand what went wrong.", "observableEvidence": "Fixes syntax errors after reading the error message." }
+      ],
+      "observableBehaviors": [
+        "Opens a SQL client and types SELECT * FROM table to explore data.",
+        "Adds WHERE clauses by trial and error rather than intentional filter design.",
+        "Does not think about NULLs, duplicates, or row counts.",
+        "Cannot explain why a query returns zero rows."
+      ],
+      "failureModes": [
+        "Uses SELECT * in production code.",
+        "Ignores NULL values and gets wrong aggregate results.",
+        "Does not check row counts to validate query correctness.",
+        "Cannot join two tables without help."
+      ],
+      "graduationCriteria": [
+        { "text": "Writes correct multi-table INNER JOINs without assistance." },
+        { "text": "Uses GROUP BY with at least one aggregate function accurately." },
+        { "text": "Can explain the difference between WHERE and HAVING." },
+        { "text": "Writes basic INSERT, UPDATE, and DELETE statements safely." }
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t1-basic-query",
+          "title": "Write a Filtered Query",
+          "description": "Write a query that returns customer names and order dates for orders placed in the last 30 days, sorted by date descending.",
+          "successCriteria": [
+            "Uses explicit column names, not SELECT *.",
+            "WHERE clause correctly filters by date.",
+            "Results sorted by order date descending."
+          ]
+        }
+      ],
+      "learningEmphasis": [
+        "Practice writing queries against real datasets.",
+        "Learn to read and interpret error messages.",
+        "Explore documentation for your SQL client."
+      ],
+      "relatedDimensionIds": ["dim-query-construction", "dim-tooling-workflow"],
+      "citationIds": ["src-sql-standard", "src-postgresql-docs"],
+      "nextLevelId": "level-2"
+    },
+    {
+      "id": "level-2",
+      "slug": "data-analyst",
+      "levelNumber": 2,
+      "title": "Data Analyst",
+      "shortLabel": "Analyst",
+      "summary": "Constructs multi-table JOINs, aggregations, subqueries, and basic window functions for structured data analysis.",
+      "definition": [
+        "The Data Analyst uses SQL as a primary analysis tool. They can answer non-trivial business questions from a relational database.",
+        "They write queries other people can read, handle NULLs and duplicates, use CTEs for organization, and write basic window functions."
+      ],
+      "coreConcepts": [
+        { "id": "c2-join-types", "name": "JOIN Types", "definition": "Understanding INNER, LEFT, RIGHT, and CROSS JOINs and when to use each." },
+        { "id": "c2-aggregation", "name": "Aggregation", "definition": "Using GROUP BY with aggregate functions (COUNT, SUM, AVG, MIN, MAX) and HAVING." },
+        { "id": "c2-subqueries", "name": "Subqueries", "definition": "Writing subqueries in WHERE, FROM, and SELECT clauses." },
+        { "id": "c2-cte-basics", "name": "CTEs", "definition": "Using Common Table Expressions (WITH clauses) to organize complex queries." },
+        { "id": "c2-window-intro", "name": "Window Function Basics", "definition": "Using ROW_NUMBER, RANK, and basic OVER clauses for analytical queries." }
+      ],
+      "coreSkills": [
+        { "id": "s2-multi-join", "name": "Multi-Table JOINs", "definition": "Can join three or more tables correctly.", "observableEvidence": "Writes a query joining orders, customers, and products." },
+        { "id": "s2-aggregation", "name": "Aggregation Queries", "definition": "Can group and aggregate data to answer business questions.", "observableEvidence": "Computes monthly revenue totals with GROUP BY." },
+        { "id": "s2-cte-usage", "name": "CTE Organization", "definition": "Uses CTEs instead of nested subqueries for readability.", "observableEvidence": "Restructures a nested query into CTEs when it exceeds two levels." },
+        { "id": "s2-null-handling", "name": "NULL Handling", "definition": "Handles NULLs deliberately using COALESCE, IS NULL, and NULL-safe comparisons.", "observableEvidence": "Uses COALESCE in aggregations to avoid incorrect results." },
+        { "id": "s2-basic-dml", "name": "DML Operations", "definition": "Can write safe INSERT, UPDATE, and DELETE statements.", "observableEvidence": "Adds WHERE clause to every UPDATE/DELETE and verifies row counts." }
+      ],
+      "observableBehaviors": [
+        "Structures queries with CTEs instead of deeply nested subqueries.",
+        "Chooses between LEFT and INNER JOIN deliberately.",
+        "Checks row counts before and after joins to detect fan-out.",
+        "Formats SQL consistently for readability."
+      ],
+      "failureModes": [
+        "Creates accidental row multiplication from incorrect joins.",
+        "Uses GROUP BY but includes non-aggregated columns incorrectly.",
+        "Writes window functions without understanding PARTITION BY scope.",
+        "Does not validate query results against known data."
+      ],
+      "graduationCriteria": [
+        { "text": "Designs a simple normalized schema (3NF) from requirements." },
+        { "text": "Writes and reasons about transactions with explicit COMMIT/ROLLBACK." },
+        { "text": "Reads a basic query execution plan and identifies a missing index." },
+        { "text": "Writes a stored procedure or function in at least one dialect." }
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t2-analytical-query",
+          "title": "Write an Analytical Report Query",
+          "description": "Write a query that shows the top 5 customers by total spending in each product category, using window functions.",
+          "successCriteria": [
+            "Correctly joins customers, orders, and products.",
+            "Uses window functions to rank within categories.",
+            "Handles ties appropriately."
+          ]
+        }
+      ],
+      "learningEmphasis": [
+        "Practice complex joins on real schemas.",
+        "Learn window function patterns.",
+        "Study NULL semantics thoroughly."
+      ],
+      "relatedDimensionIds": ["dim-query-construction", "dim-analytical-techniques", "dim-data-modeling"],
+      "citationIds": ["src-sql-standard", "src-postgresql-docs", "src-use-the-index-luke"],
+      "previousLevelId": "level-1",
+      "nextLevelId": "level-3"
+    },
+    {
+      "id": "level-3",
+      "slug": "schema-designer",
+      "levelNumber": 3,
+      "title": "Schema Designer",
+      "shortLabel": "Designer",
+      "summary": "Designs normalized relational schemas, manages data integrity through constraints and transactions, and reads execution plans.",
+      "definition": [
+        "The Schema Designer owns the structural layer of a database. They design tables from requirements rather than retrofitting queries onto ad-hoc schemas.",
+        "They enforce integrity via constraints, understand indexing write implications, and can diagnose common performance problems at the plan level."
+      ],
+      "coreConcepts": [
+        { "id": "c3-normalization", "name": "Normalization", "definition": "Understanding 1NF through 3NF and when to deviate with documented reasoning." },
+        { "id": "c3-constraints", "name": "Constraints", "definition": "Using NOT NULL, UNIQUE, CHECK, and FOREIGN KEY constraints to enforce data integrity." },
+        { "id": "c3-transactions", "name": "Transactions", "definition": "Understanding ACID properties and using explicit transaction blocks with COMMIT/ROLLBACK." },
+        { "id": "c3-execution-plans", "name": "Execution Plans", "definition": "Reading EXPLAIN output to understand how the database executes a query." },
+        { "id": "c3-stored-procedures", "name": "Stored Procedures", "definition": "Writing reusable server-side logic as stored procedures, functions, and views." }
+      ],
+      "coreSkills": [
+        { "id": "s3-schema-design", "name": "Schema Design", "definition": "Can design a normalized schema from business requirements.", "observableEvidence": "Produces an ER diagram and DDL from a feature specification." },
+        { "id": "s3-migration-writing", "name": "Migration Writing", "definition": "Can write reversible migration scripts.", "observableEvidence": "Writes up/down migration scripts that can be rolled back safely." },
+        { "id": "s3-constraint-usage", "name": "Constraint Application", "definition": "Applies constraints systematically to enforce data integrity.", "observableEvidence": "Every new table includes appropriate NOT NULL, FK, and CHECK constraints." },
+        { "id": "s3-plan-reading", "name": "Execution Plan Reading", "definition": "Can read EXPLAIN output and identify seq scans vs index scans.", "observableEvidence": "Identifies a missing index from a sequential scan in the plan." },
+        { "id": "s3-transaction-management", "name": "Transaction Management", "definition": "Uses explicit transactions for multi-statement operations.", "observableEvidence": "Wraps related DML statements in BEGIN/COMMIT blocks." }
+      ],
+      "observableBehaviors": [
+        "Normalizes to 3NF by default; deviates intentionally with documented reasoning.",
+        "Writes migration scripts that are reversible.",
+        "Adds foreign key constraints and understands their locking implications.",
+        "Reads EXPLAIN output and identifies seq scans vs index scans."
+      ],
+      "failureModes": [
+        "Over-normalizes schemas that need read performance.",
+        "Writes migrations without considering rollback.",
+        "Adds indexes without understanding write overhead.",
+        "Uses stored procedures where application logic would be more maintainable."
+      ],
+      "graduationCriteria": [
+        { "text": "Designs and validates an index strategy for a given query workload." },
+        { "text": "Demonstrates understanding of all four isolation levels with concrete failure scenarios." },
+        { "text": "Diagnoses and fixes a slow query using execution plan analysis." },
+        { "text": "Writes a partitioned table definition with appropriate partition key reasoning." }
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t3-schema-design",
+          "title": "Design a Schema from Requirements",
+          "description": "Given a feature specification for an e-commerce returns system, design a normalized schema with appropriate constraints and write migration DDL.",
+          "successCriteria": [
+            "Schema is in 3NF or has documented reasons for denormalization.",
+            "All foreign keys and constraints are present.",
+            "Migration includes both up and down scripts."
+          ]
+        }
+      ],
+      "learningEmphasis": [
+        "Study normalization theory with real examples.",
+        "Practice reading execution plans.",
+        "Learn your database's migration tooling."
+      ],
+      "relatedDimensionIds": ["dim-data-modeling", "dim-data-integrity", "dim-performance-optimization", "dim-tooling-workflow"],
+      "citationIds": ["src-sql-standard", "src-postgresql-docs", "src-use-the-index-luke", "src-database-internals"],
+      "previousLevelId": "level-2",
+      "nextLevelId": "level-4"
+    },
+    {
+      "id": "level-4",
+      "slug": "performance-engineer",
+      "levelNumber": 4,
+      "title": "Performance Engineer",
+      "shortLabel": "Engineer",
+      "summary": "Designs index strategies, interprets execution plans, optimizes slow queries, and manages concurrency and isolation.",
+      "definition": [
+        "The Performance Engineer treats the database as a system to be tuned, not just queried. They understand statistics, cardinality, and join algorithms.",
+        "They design composite indexes deliberately, recognize implicit type-cast index suppression, and manage concurrency through isolation level selection."
+      ],
+      "coreConcepts": [
+        { "id": "c4-index-strategy", "name": "Index Strategy", "definition": "Designing composite and covering indexes based on query workload analysis." },
+        { "id": "c4-query-optimizer", "name": "Query Optimizer", "definition": "Understanding how the optimizer selects plans based on statistics and cardinality estimates." },
+        { "id": "c4-isolation-levels", "name": "Isolation Levels", "definition": "Deep understanding of READ UNCOMMITTED through SERIALIZABLE and their concurrency implications." },
+        { "id": "c4-partitioning", "name": "Partitioning", "definition": "Table partitioning strategies for large datasets: range, list, and hash partitioning." },
+        { "id": "c4-concurrency", "name": "Concurrency Control", "definition": "Understanding MVCC, locking, deadlock detection, and lock granularity." }
+      ],
+      "coreSkills": [
+        { "id": "s4-index-design", "name": "Index Design", "definition": "Can design optimal indexes for a given workload.", "observableEvidence": "Analyzes slow query log and creates composite indexes that eliminate table scans." },
+        { "id": "s4-plan-optimization", "name": "Plan Optimization", "definition": "Can rewrite queries to produce better execution plans.", "observableEvidence": "Rewrites a correlated subquery as a join when plan shows nested loops at scale." },
+        { "id": "s4-concurrency-management", "name": "Concurrency Management", "definition": "Selects appropriate isolation levels and locking strategies.", "observableEvidence": "Chooses isolation level based on consistency requirements vs throughput trade-offs." },
+        { "id": "s4-partition-design", "name": "Partition Design", "definition": "Can partition large tables with appropriate partition keys.", "observableEvidence": "Designs time-based partitioning for a high-volume event table." },
+        { "id": "s4-performance-diagnosis", "name": "Performance Diagnosis", "definition": "Can diagnose slow queries systematically.", "observableEvidence": "Uses execution plans, statistics, and slow query logs together." }
+      ],
+      "observableBehaviors": [
+        "Reviews auto-generated indexes critically and removes unused ones.",
+        "Rewrites correlated subqueries as joins when the plan shows nested loops at scale.",
+        "Uses query hints only as a last resort with documented justification.",
+        "Understands MVCC mechanics and their impact on vacuum and replication lag."
+      ],
+      "failureModes": [
+        "Over-indexes tables without measuring write impact.",
+        "Applies query hints as a first resort instead of fixing root causes.",
+        "Chooses SERIALIZABLE isolation level universally without considering trade-offs.",
+        "Optimizes queries without understanding the full workload pattern."
+      ],
+      "graduationCriteria": [
+        { "text": "Designs a multi-tenant or partitioned architecture with horizontal scaling reasoning." },
+        { "text": "Defines an HA/DR strategy with RPO/RTO targets and replication configuration." },
+        { "text": "Authors SQL standards and review guidelines for a development team." },
+        { "text": "Evaluates SQL vs NoSQL trade-offs for a given workload and documents the decision." }
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t4-performance-tuning",
+          "title": "Diagnose and Fix a Slow Query",
+          "description": "Given a slow query execution plan and table statistics, identify the performance bottleneck, propose an optimization strategy, and validate the improvement.",
+          "successCriteria": [
+            "Correctly identifies the bottleneck from the execution plan.",
+            "Proposed index or rewrite addresses the root cause.",
+            "Validates improvement with before/after plan comparison."
+          ]
+        }
+      ],
+      "learningEmphasis": [
+        "Study your database's optimizer internals.",
+        "Practice with real-world slow query examples.",
+        "Learn MVCC and concurrency mechanics deeply."
+      ],
+      "relatedDimensionIds": ["dim-performance-optimization", "dim-data-integrity", "dim-query-construction", "dim-tooling-workflow"],
+      "citationIds": ["src-use-the-index-luke", "src-database-internals", "src-postgresql-docs", "src-high-performance-mysql"],
+      "previousLevelId": "level-3",
+      "nextLevelId": "level-5"
+    },
+    {
+      "id": "level-5",
+      "slug": "database-architect",
+      "levelNumber": 5,
+      "title": "Database Architect",
+      "shortLabel": "Architect",
+      "summary": "Designs enterprise data architectures, establishes governance and standards, and aligns data strategy across teams.",
+      "definition": [
+        "The Database Architect operates at the organizational level. They design for scale, resilience, and team autonomy simultaneously.",
+        "They define data contracts between services, govern naming conventions and review processes, and make buy-vs-build decisions for data infrastructure."
+      ],
+      "coreConcepts": [
+        { "id": "c5-distributed-sql", "name": "Distributed SQL", "definition": "Understanding distributed database architectures, sharding strategies, and consistency trade-offs." },
+        { "id": "c5-data-governance", "name": "Data Governance", "definition": "Establishing schema review processes, naming conventions, and approval gates." },
+        { "id": "c5-replication", "name": "Replication & HA", "definition": "Designing high-availability architectures with replication, failover, and disaster recovery." },
+        { "id": "c5-data-contracts", "name": "Data Contracts", "definition": "Defining cross-service data contracts that decouple teams while maintaining data integrity." },
+        { "id": "c5-capacity-planning", "name": "Capacity Planning", "definition": "Forecasting storage, throughput, and compute requirements for database infrastructure." }
+      ],
+      "coreSkills": [
+        { "id": "s5-architecture-design", "name": "Architecture Design", "definition": "Can design data architectures that scale across teams and services.", "observableEvidence": "Produces architecture documents with clear trade-off analysis." },
+        { "id": "s5-governance", "name": "Governance Establishment", "definition": "Can establish and enforce data governance practices.", "observableEvidence": "Implements schema review processes with clear approval criteria." },
+        { "id": "s5-ha-design", "name": "HA/DR Design", "definition": "Can design high-availability and disaster recovery strategies.", "observableEvidence": "Defines RPO/RTO targets and tests failover procedures." },
+        { "id": "s5-cross-team-alignment", "name": "Cross-Team Alignment", "definition": "Can align multiple teams on shared data models and contracts.", "observableEvidence": "Leads data model review sessions across service boundaries." },
+        { "id": "s5-technology-evaluation", "name": "Technology Evaluation", "definition": "Can evaluate database technologies against requirements.", "observableEvidence": "Produces decision documents comparing SQL and NoSQL options for a given workload." }
+      ],
+      "observableBehaviors": [
+        "Establishes schema review processes with clear approval gates.",
+        "Designs data models that are stable under changing access patterns.",
+        "Treats backward compatibility of schema changes as a first-class constraint.",
+        "Leads cross-team alignment on shared reference data."
+      ],
+      "failureModes": [
+        "Designs theoretical architectures disconnected from practical team constraints.",
+        "Imposes governance overhead that slows teams without proportionate benefit.",
+        "Chooses distributed systems when a single well-tuned database would suffice.",
+        "Neglects backward compatibility in schema evolution."
+      ],
+      "graduationCriteria": [
+        { "text": "This is the terminal level — mastery is demonstrated through sustained organizational impact." },
+        { "text": "Data architectures designed remain stable through multiple product cycles." },
+        { "text": "Teams independently follow governance standards without constant enforcement." },
+        { "text": "Technology decisions are validated by production outcomes over time." }
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t5-architecture-review",
+          "title": "Design a Multi-Service Data Architecture",
+          "description": "Design the data architecture for a system with 5+ services that share customer and transaction data. Address consistency, ownership, and migration strategy.",
+          "successCriteria": [
+            "Clear data ownership boundaries between services.",
+            "Consistency strategy documented with trade-off analysis.",
+            "Migration path from current state to target architecture."
+          ]
+        }
+      ],
+      "learningEmphasis": [
+        "Study distributed systems theory.",
+        "Learn from post-mortems of data architecture failures.",
+        "Practice cross-team communication and governance design."
+      ],
+      "relatedDimensionIds": ["dim-data-modeling", "dim-performance-optimization", "dim-collaboration-standards", "dim-data-integrity", "dim-tooling-workflow"],
+      "citationIds": ["src-database-internals", "src-ddia", "src-sql-standard"],
+      "previousLevelId": "level-4"
+    }
+  ]
+}

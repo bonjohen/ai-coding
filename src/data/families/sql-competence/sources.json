@@ -1,0 +1,106 @@
+{
+  "familyId": "sql-competence",
+  "sourceGroups": [
+    { "id": "grp-standards", "name": "Standards & Official Documentation", "summary": "SQL standards and official database documentation.", "order": 1 },
+    { "id": "grp-books", "name": "Books & Deep References", "summary": "In-depth technical books on SQL, databases, and data systems.", "order": 2 },
+    { "id": "grp-practitioner", "name": "Practitioner Resources", "summary": "Tutorials, blogs, and community resources for SQL practitioners.", "order": 3 }
+  ],
+  "sources": [
+    {
+      "id": "src-sql-standard",
+      "groupId": "grp-standards",
+      "title": "ISO/IEC 9075 SQL Standard",
+      "author": "ISO/IEC",
+      "publisher": "ISO",
+      "publishedDate": "2023",
+      "url": "https://www.iso.org/standard/76583.html",
+      "sourceType": "specification",
+      "summary": "The international standard for SQL, defining the language's syntax, semantics, and conformance requirements.",
+      "relevance": "Authoritative reference for SQL syntax and behavior across all levels."
+    },
+    {
+      "id": "src-postgresql-docs",
+      "groupId": "grp-standards",
+      "title": "PostgreSQL Documentation",
+      "author": "PostgreSQL Global Development Group",
+      "publisher": "PostgreSQL",
+      "publishedDate": "2025",
+      "url": "https://www.postgresql.org/docs/current/",
+      "sourceType": "documentation",
+      "summary": "Comprehensive documentation for PostgreSQL, covering SQL syntax, administration, performance tuning, and internals.",
+      "relevance": "Primary dialect reference used throughout the framework examples."
+    },
+    {
+      "id": "src-use-the-index-luke",
+      "groupId": "grp-books",
+      "title": "Use The Index, Luke!",
+      "author": "Markus Winand",
+      "publisher": "Self-published",
+      "publishedDate": "2012",
+      "url": "https://use-the-index-luke.com/",
+      "sourceType": "book",
+      "summary": "A guide to database performance for developers, focused on SQL indexing and execution plan analysis.",
+      "relevance": "Core reference for Levels 3-4 performance optimization and index strategy."
+    },
+    {
+      "id": "src-database-internals",
+      "groupId": "grp-books",
+      "title": "Database Internals",
+      "author": "Alex Petrov",
+      "publisher": "O'Reilly Media",
+      "publishedDate": "2019",
+      "url": "https://www.databass.dev/",
+      "sourceType": "book",
+      "summary": "A deep dive into database storage engines, distributed systems, and internal algorithms.",
+      "relevance": "Key reference for Level 4-5 concepts around storage, replication, and distributed architectures."
+    },
+    {
+      "id": "src-ddia",
+      "groupId": "grp-books",
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "publisher": "O'Reilly Media",
+      "publishedDate": "2017",
+      "url": "https://dataintensive.net/",
+      "sourceType": "book",
+      "summary": "Comprehensive guide to the principles behind reliable, scalable, and maintainable data systems.",
+      "relevance": "Foundation for Level 5 distributed data architecture and consistency trade-offs."
+    },
+    {
+      "id": "src-high-performance-mysql",
+      "groupId": "grp-books",
+      "title": "High Performance MySQL",
+      "author": "Silvia Botros, Jeremy Tinley",
+      "publisher": "O'Reilly Media",
+      "publishedDate": "2021",
+      "url": "https://www.oreilly.com/library/view/high-performance-mysql/9781492080503/",
+      "sourceType": "book",
+      "summary": "Practical guide to MySQL optimization, covering schema design, indexing, query optimization, and replication.",
+      "relevance": "MySQL-specific depth for Levels 3-4 performance and schema design."
+    },
+    {
+      "id": "src-sql-style-guide",
+      "groupId": "grp-practitioner",
+      "title": "SQL Style Guide",
+      "author": "Simon Holywell",
+      "publisher": "sqlstyle.guide",
+      "publishedDate": "2016",
+      "url": "https://www.sqlstyle.guide/",
+      "sourceType": "guide",
+      "summary": "A consistent style guide for writing clean, readable SQL based on Joe Celko's conventions.",
+      "relevance": "Reference for Collaboration & Standards dimension across all levels."
+    },
+    {
+      "id": "src-modern-sql",
+      "groupId": "grp-practitioner",
+      "title": "Modern SQL",
+      "author": "Markus Winand",
+      "publisher": "modern-sql.com",
+      "publishedDate": "2025",
+      "url": "https://modern-sql.com/",
+      "sourceType": "blog",
+      "summary": "Coverage of modern SQL features including window functions, CTEs, lateral joins, and other post-SQL:1999 additions.",
+      "relevance": "Key resource for Level 2-3 analytical techniques and modern query patterns."
+    }
+  ]
+}
