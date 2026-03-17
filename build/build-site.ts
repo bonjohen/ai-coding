@@ -19,7 +19,7 @@ const validateOnly = args.includes('--validate-only');
 function clean(): void {
   console.log('Cleaning docs/ output...');
   // Remove generated output; preserve hand-authored docs/*.md files
-  const keepFiles = new Set(['claude_code_levels_design.md', 'claude_code_levels_todos.md']);
+  const keepFiles = new Set(['claude_code_levels_design.md', 'claude_code_levels_todos.md', 'sql_competence_design.md']);
   for (const entry of readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
     if (keepFiles.has(entry.name)) continue;
     rmSync(join(OUTPUT_DIR, entry.name), { recursive: true, force: true });
