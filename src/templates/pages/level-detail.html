@@ -115,14 +115,14 @@
 
   <nav class="level-nav">
     {{#if prevLevel}}
-    <a href="/{{ basePath }}{{ family.slug }}/levels/{{ prevLevel.slug }}/" class="level-nav__link">
+    <a href="{{ basePath }}{{ family.slug }}/levels/{{ prevLevel.slug }}/" class="level-nav__link">
       &larr; Level {{ prevLevel.levelNumber }}: {{ prevLevel.shortLabel }}
     </a>
     {{else}}
     <span></span>
     {{/if}}
     {{#if nextLevel}}
-    <a href="/{{ basePath }}{{ family.slug }}/levels/{{ nextLevel.slug }}/" class="level-nav__link">
+    <a href="{{ basePath }}{{ family.slug }}/levels/{{ nextLevel.slug }}/" class="level-nav__link">
       Level {{ nextLevel.levelNumber }}: {{ nextLevel.shortLabel }} &rarr;
     </a>
     {{/if}}

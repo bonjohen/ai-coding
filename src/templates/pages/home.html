@@ -9,7 +9,7 @@
   <div class="grid grid--3col">
     {{#each families}}
     <div class="card">
-      <h3 class="card__title"><a href="/{{ slug }}/">{{ title }}</a></h3>
+      <h3 class="card__title"><a href="{{ landingPath }}">{{ title }}</a></h3>
       <p class="card__description">{{ summary }}</p>
       {{#if status}}
       <span class="badge mt-sm">{{ status }}</span>
