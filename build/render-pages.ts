@@ -63,12 +63,16 @@ function buildFamilyContext(data: AllData, family: FamilyData): TemplateContext 
 }
 
 function collectPageDefs(data: AllData): PageDef[] {
+  // basePath drives link hrefs in templates (e.g. "/ai-coding/")
   const basePath = data.site.site.siteBasePath.replace(/^\/|\/$/g, '');
+  // Files are output directly to docs/ root — GitHub Pages serves docs/ at the repo base URL,
+  // so docs/index.html → https://bonjohen.github.io/ai-coding/ (no double-nesting).
+  const outRoot = '';
   const pages: PageDef[] = [];
 
   // Top-level landing page
   pages.push({
-    outputPath: `${basePath}/index.html`,
+    outputPath: `${outRoot}index.html`,
     layout: 'landing',
     page: 'home',
     context: {
@@ -82,7 +86,8 @@ function collectPageDefs(data: AllData): PageDef[] {
 
   // Family pages
   for (const [_familyId, family] of data.families) {
-    const familyBase = `${basePath}/${family.family.slug}`;
+    const familyBase = `${basePath}/${family.family.slug}`; // for link hrefs
+    const familyOut = family.family.slug;                   // for output file paths
     const familyCtx = buildFamilyContext(data, family);
 
     // Enrich level summaries with images for overview/landing pages
@@ -100,7 +105,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
     // Family landing
     pages.push({
-      outputPath: `${familyBase}/index.html`,
+      outputPath: `${familyOut}/index.html`,
       layout: 'family-home',
       page: 'family-overview',
       context: {
@@ -122,7 +127,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
     // Overview
     pages.push({
-      outputPath: `${familyBase}/overview/index.html`,
+      outputPath: `${familyOut}/overview/index.html`,
       layout: 'article',
       page: 'family-overview',
       context: {
@@ -151,7 +156,7 @@ function collectPageDefs(data: AllData): PageDef[] {
     };
 
     pages.push({
-      outputPath: `${familyBase}/dimensions/index.html`,
+      outputPath: `${familyOut}/dimensions/index.html`,
       layout: 'article',
       page: 'dimensions',
       context: {
@@ -180,7 +185,7 @@ function collectPageDefs(data: AllData): PageDef[] {
     };
 
     pages.push({
-      outputPath: `${familyBase}/matrix/index.html`,
+      outputPath: `${familyOut}/matrix/index.html`,
       layout: 'matrix',
       page: 'matrix',
       context: {
@@ -236,7 +241,7 @@ function collectPageDefs(data: AllData): PageDef[] {
         : null;
 
       pages.push({
-        outputPath: `${familyBase}/levels/${level.slug}/index.html`,
+        outputPath: `${familyOut}/levels/${level.slug}/index.html`,
         layout: 'article',
         page: 'level-detail',
         context: {
@@ -274,7 +279,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       }));
 
     pages.push({
-      outputPath: `${familyBase}/sources/index.html`,
+      outputPath: `${familyOut}/sources/index.html`,
       layout: 'source-list',
       page: 'sources',
       context: {
@@ -293,7 +298,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
     // Author perspective
     pages.push({
-      outputPath: `${familyBase}/author-perspective/index.html`,
+      outputPath: `${familyOut}/author-perspective/index.html`,
       layout: 'article',
       page: 'author-perspective',
       context: {
@@ -311,7 +316,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
     // Glossary
     pages.push({
-      outputPath: `${familyBase}/glossary/index.html`,
+      outputPath: `${familyOut}/glossary/index.html`,
       layout: 'article',
       page: 'glossary',
       context: {
@@ -349,7 +354,7 @@ function collectPageDefs(data: AllData): PageDef[] {
     };
 
     pages.push({
-      outputPath: `${familyBase}/roadmap/index.html`,
+      outputPath: `${familyOut}/roadmap/index.html`,
       layout: 'article',
       page: 'roadmap',
       context: {
@@ -380,7 +385,7 @@ function collectPageDefs(data: AllData): PageDef[] {
         .map(d => ({ id: d.id, name: d.name, shortName: d.shortName, summary: d.summary }));
 
       pages.push({
-        outputPath: `${familyBase}/assess/index.html`,
+        outputPath: `${familyOut}/assess/index.html`,
         layout: 'article',
         page: 'self-assessment',
         context: {
@@ -411,7 +416,7 @@ function collectPageDefs(data: AllData): PageDef[] {
         .map(d => ({ id: d.id, name: d.name, shortName: d.shortName }));
 
       pages.push({
-        outputPath: `${familyBase}/quiz/index.html`,
+        outputPath: `${familyOut}/quiz/index.html`,
         layout: 'article',
         page: 'quiz',
         context: {
@@ -447,7 +452,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       }));
 
       pages.push({
-        outputPath: `${familyBase}/projects/index.html`,
+        outputPath: `${familyOut}/projects/index.html`,
         layout: 'article',
         page: 'project-gallery',
         context: {
@@ -468,7 +473,7 @@ function collectPageDefs(data: AllData): PageDef[] {
         const slug = project.id.replace(/^proj-\d+-/, '');
         const level = family.levels.levels.find(l => l.id === project.levelId);
         pages.push({
-          outputPath: `${familyBase}/projects/${slug}/index.html`,
+          outputPath: `${familyOut}/projects/${slug}/index.html`,
           layout: 'article',
           page: 'project-detail',
           context: {
@@ -492,7 +497,8 @@ function collectPageDefs(data: AllData): PageDef[] {
     // Certification pages
     if (family.certifications) {
       const cert = family.certifications;
-      const certBase = `${familyBase}/certifications`;
+      const certBase = `${familyBase}/certifications`;    // for hrefs
+      const certOut = `${familyOut}/certifications`;      // for output paths
 
       // Group exams by provider
       const examsByProvider = cert.providers.map(p => ({
@@ -502,7 +508,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
       // Certification landing page
       pages.push({
-        outputPath: `${certBase}/index.html`,
+        outputPath: `${certOut}/index.html`,
         layout: 'article',
         page: 'cert-landing',
         context: {
@@ -525,7 +531,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       // Per-provider pages
       for (const { provider, exams } of examsByProvider) {
         pages.push({
-          outputPath: `${certBase}/${provider.slug}/index.html`,
+          outputPath: `${certOut}/${provider.slug}/index.html`,
           layout: 'article',
           page: 'cert-provider',
           context: {
@@ -549,7 +555,7 @@ function collectPageDefs(data: AllData): PageDef[] {
 
       // Quiz page (single page, receives ?exam= param)
       pages.push({
-        outputPath: `${certBase}/quiz/index.html`,
+        outputPath: `${certOut}/quiz/index.html`,
         layout: 'article',
         page: 'cert-quiz',
         context: {
@@ -579,7 +585,7 @@ function collectPageDefs(data: AllData): PageDef[] {
     }));
 
     pages.push({
-      outputPath: `${familyBase}/study-guide/index.html`,
+      outputPath: `${familyOut}/study-guide/index.html`,
       layout: 'article',
       page: 'study-guide',
       context: {
@@ -603,11 +609,12 @@ function collectPageDefs(data: AllData): PageDef[] {
 
 export function getGeneratedPaths(data: AllData): Set<string> {
   const pages = collectPageDefs(data);
-  const basePath = data.site.site.siteBasePath;
+  const siteBasePath = data.site.site.siteBasePath; // "/ai-coding/"
   return new Set(pages.map(p => {
-    // Convert "ai-coding/claude-code-competence/index.html" -> "/ai-coding/claude-code-competence/"
-    const path = p.outputPath.replace(/index\.html$/, '');
-    return `/${path}`;
+    // outputPath is now relative to docs/ root (e.g. "claude-code-competence/index.html")
+    // Prepend siteBasePath to reconstruct the public URL path (e.g. "/ai-coding/claude-code-competence/")
+    const rel = p.outputPath.replace(/index\.html$/, '');
+    return `${siteBasePath}${rel}`;
   }));
 }
 

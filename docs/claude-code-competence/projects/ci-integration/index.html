@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adding Claude Code to a CI/CD Pipeline for Automated PR Review — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Integrate Claude Code into a GitHub Actions workflow to automatically review pull requests and post feedback.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/projects/ci-integration/">
+<meta property="og:title" content="Adding Claude Code to a CI/CD Pipeline for Automated PR Review — Claude Code Competence">
+<meta property="og:description" content="Integrate Claude Code into a GitHub Actions workflow to automatically review pull requests and post feedback.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="breadcrumbs__link">Projects</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Adding Claude Code to a CI/CD Pipeline for Automated PR Review</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      
+      <span class="badge badge--level-4">Level 4</span>
+      
+      <span class="text-sm text-muted">50 minutes</span>
+    </div>
+    <h1 class="hero__title">Adding Claude Code to a CI/CD Pipeline for Automated PR Review</h1>
+    <p class="hero__summary">Integrate Claude Code into a GitHub Actions workflow to automatically review pull requests and post feedback.</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>Your team merges 15-20 PRs per week. Manual code review is a bottleneck. You want Claude Code to automatically review every PR, check for common issues, and post comments — not to replace human review, but to catch the easy things so reviewers can focus on design and architecture.</p>
+    </div>
+  </section>
+
+  
+  <section class="section project-step">
+    <h2>Design the Review Workflow</h2>
+    
+    <p>The CI workflow should: (1) trigger on PR open and update, (2) run Claude Code in headless mode to review the diff, (3) post review comments back to the PR, and (4) set a status check that does not block merge but provides visibility.</p>
+    
+    <p>This is a quality monitoring system. It augments human review rather than replacing it.</p>
+    
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Create the GitHub Actions Workflow</h2>
+    
+    <p>The workflow uses Claude Code in headless mode with a structured prompt that asks for specific review criteria. The output is captured and posted as a PR comment.</p>
+    
+    <p>Store the API key as a GitHub secret. Never hardcode credentials in workflow files.</p>
+    
+    
+    <pre><code># .github/workflows/claude-review.yml
+name: Claude Code PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Get PR diff
+        run: git diff origin/$...HEAD > /tmp/pr-diff.txt
+
+      - name: Run Claude Code Review
+        env:
+          ANTHROPIC_API_KEY: $
+        run: |
+          claude -p "Review the following code diff for a pull request. \
+          Check for: (1) bugs or logic errors, (2) security issues, \
+          (3) missing error handling, (4) test coverage gaps, \
+          (5) naming and convention violations per CLAUDE.md. \
+          Format your response as a markdown review with sections for \
+          each category. Only mention issues you actually found — do not \
+          list categories with no issues. Be specific: reference file \
+          names and line numbers. Here is the diff:" \
+          --file /tmp/pr-diff.txt > /tmp/review-output.md
+
+      - name: Post Review Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const review = fs.readFileSync('/tmp/review-output.md', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## Claude Code Review\n\n${review}\n\n---\n*Automated review by Claude Code. This does not replace human review.*`
+            });</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Add Cost Controls and Rate Limiting</h2>
+    
+    <p>Automated pipelines can run up costs quickly. Add controls to limit token usage per review and skip reviews on trivial changes.</p>
+    
+    <p>Set a maximum output token limit and filter out PRs that only change documentation or configuration.</p>
+    
+    
+    <pre><code># Add to the workflow, before the review step:
+      - name: Check if review needed
+        id: check
+        run: |
+          # Skip review for docs-only or config-only changes
+          CHANGED_FILES=$(git diff --name-only origin/$...HEAD)
+          CODE_FILES=$(echo "$CHANGED_FILES" | grep -E '\.(ts|js|tsx|jsx|py|go|rs)$' || true)
+          if [ -z "$CODE_FILES" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "No code files changed, skipping review."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            # Limit diff size to control token usage
+            DIFF_LINES=$(wc -l < /tmp/pr-diff.txt)
+            if [ "$DIFF_LINES" -gt 2000 ]; then
+              echo "large_diff=true" >> $GITHUB_OUTPUT
+            else
+              echo "large_diff=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run Claude Code Review
+        if: steps.check.outputs.skip != 'true'
+        env:
+          ANTHROPIC_API_KEY: $
+        run: |
+          MAX_TOKENS=4096
+          if [ "$" = "true" ]; then
+            echo "Large diff detected. Reviewing summary only."
+            PROMPT="Summarize the key changes and flag any obvious issues."
+          else
+            PROMPT="Full review as specified in the review prompt."
+          fi
+          claude -p "$PROMPT" --max-tokens $MAX_TOKENS \
+            --file /tmp/pr-diff.txt > /tmp/review-output.md</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Monitor Review Quality Over Time</h2>
+    
+    <p>Track whether the automated reviews are actually useful. Log review outputs and periodically check: are the comments actionable? Are there too many false positives? Is the team ignoring the automated reviews?</p>
+    
+    <p>If the team starts ignoring automated reviews, the system is adding noise, not value. Adjust the prompt to be more precise or raise the threshold for what gets flagged.</p>
+    
+    
+    <pre><code># Add a simple tracking step to the workflow
+      - name: Log Review Metrics
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          # Count issues found by category
+          BUGS=$(grep -c '## Bugs' /tmp/review-output.md || echo 0)
+          SECURITY=$(grep -c '## Security' /tmp/review-output.md || echo 0)
+          echo "review_date=$(date -u +%Y-%m-%d)" >> review-metrics.log
+          echo "pr_number=$" >> review-metrics.log
+          echo "diff_lines=$(wc -l < /tmp/pr-diff.txt)" >> review-metrics.log
+          echo "issues_found=$(grep -c '^-' /tmp/review-output.md || echo 0)" >> review-metrics.log</code></pre>
+    
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">s4-ci-cd</span>
+      
+      <span class="project-tag">s4-cost-management</span>
+      
+      <span class="project-tag">s4-error-handling</span>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">c4-ci-integration</span>
+      
+      <span class="project-tag">c4-headless-mode</span>
+      
+      <span class="project-tag">c4-quality-monitoring</span>
+      
+    </div>
+  </section>
+  
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

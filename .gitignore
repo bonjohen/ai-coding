@@ -1,6 +1,6 @@
 node_modules/
 dist/
-docs/ai-coding/
+docs/assets/
 *.tsbuildinfo
 .DS_Store
 Thumbs.db

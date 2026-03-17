@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competency Matrix — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Full competency matrix: dimensions vs. levels.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/matrix/">
+<meta property="og:title" content="Competency Matrix — Claude Code Competence">
+<meta property="og:description" content="Full competency matrix: dimensions vs. levels.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Matrix</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--wide page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">Competency Matrix</h1>
+  <p class="hero__summary">Full competency matrix mapping dimensions against the five levels.</p>
+</section>
+
+<section class="section">
+  <div class="matrix-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        
+        <th>L1: Operator</th>
+        
+        <th>L2: Collaborator</th>
+        
+        <th>L3: Builder</th>
+        
+        <th>L4: Engineer</th>
+        
+        <th>L5: Expert</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr data-dimension="dim-conceptual-understanding">
+        <td class="matrix-dimension-header">Conceptual Understanding</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Knows Claude Code exists and can run it.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Understands it is a CLI tool that generates code from natural language</li>
+            
+            <li>Cannot explain what a context window is or why it matters</li>
+            
+            <li>Does not distinguish between tool use and direct text generation</li>
+            
+            <li>Treats the model as a black box — no mental model of how it works</li>
+            
+            <li>Cannot predict when the tool will struggle or succeed</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Understands the prompt-response cycle and role of context.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Knows context window limits exist and affect multi-file tasks</li>
+            
+            <li>Understands that providing file paths and conventions improves output</li>
+            
+            <li>Can explain the difference between a vague and a well-structured prompt</li>
+            
+            <li>Recognizes when output quality degrades due to insufficient context</li>
+            
+            <li>Begins to understand that the same prompt can produce different results</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Understands configuration, hooks, MCP, and persistent context.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Knows how CLAUDE.md content shapes model behavior across sessions</li>
+            
+            <li>Understands MCP server architecture and what data they expose</li>
+            
+            <li>Can explain how hooks intercept and automate tool events</li>
+            
+            <li>Understands the permission model and why allowlists/denylists matter</li>
+            
+            <li>Grasps the difference between session context and persistent configuration</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Understands multi-agent orchestration, automation, and system design.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Grasps headless mode and non-interactive operation constraints</li>
+            
+            <li>Understands how worktree isolation prevents agent conflicts</li>
+            
+            <li>Can reason about token costs and budget across parallel workflows</li>
+            
+            <li>Understands the failure modes of automated agent pipelines</li>
+            
+            <li>Can articulate trade-offs between speed, cost, and quality in agent workflows</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Deep architectural understanding of AI coding systems at organizational scale.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Can reason about system-level implications of widespread AI code generation</li>
+            
+            <li>Understands how AI coding governance parallels data governance maturity models</li>
+            
+            <li>Can evaluate model capabilities against organizational risk profiles</li>
+            
+            <li>Understands the human factors of AI-assisted development at scale</li>
+            
+            <li>Can predict how tool evolution will affect organizational strategy</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-task-framing">
+        <td class="matrix-dimension-header">Task Framing</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Vague, single-turn prompts with no structure.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Asks for things without specifying constraints or edge cases</li>
+            
+            <li>Does not decompose multi-step tasks into sequential prompts</li>
+            
+            <li>Provides no file paths, conventions, or architectural context</li>
+            
+            <li>Expects the model to guess what &#039;fix this&#039; or &#039;make it work&#039; means</li>
+            
+            <li>Retries the same prompt when results are poor instead of refining</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Structured prompts with explicit context, constraints, and decomposition.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Provides file paths, function names, and coding conventions in prompts</li>
+            
+            <li>Decomposes features into 3-5 sequential, focused prompts</li>
+            
+            <li>Specifies constraints: edge cases, performance bounds, style rules</li>
+            
+            <li>References previous steps when building on prior work in a session</li>
+            
+            <li>Plans the prompt sequence before starting a complex task</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Environment-level framing that reduces per-prompt overhead.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Context is provided persistently via CLAUDE.md, not repeated each prompt</li>
+            
+            <li>Tasks build on established project configuration and conventions</li>
+            
+            <li>Prompts assume the model already knows build commands and architecture</li>
+            
+            <li>Frames tasks in terms of project patterns rather than low-level instructions</li>
+            
+            <li>New sessions are productive immediately because environment provides context</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Workflow-level task design across multiple agents and pipelines.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Decomposes work across multiple agents with clear interface contracts</li>
+            
+            <li>Designs task dependency graphs identifying what can run in parallel</li>
+            
+            <li>Frames headless/scripted prompts for batch and CI/CD operation</li>
+            
+            <li>Specifies rollback and error-handling behavior in automated task definitions</li>
+            
+            <li>Writes prompt templates that are reusable across similar tasks</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Organizational task strategy and scalable prompt patterns.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Frames AI coding work at portfolio level across teams and projects</li>
+            
+            <li>Designs task patterns and prompt libraries that scale across the organization</li>
+            
+            <li>Creates standards for how teams decompose work for AI agents</li>
+            
+            <li>Evaluates task framing effectiveness using quality and productivity metrics</li>
+            
+            <li>Adapts task strategies as model capabilities evolve</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-verification-discipline">
+        <td class="matrix-dimension-header">Verification Discipline</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Minimal — accepts output if it looks roughly correct.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Does not run tests after accepting AI-generated code</li>
+            
+            <li>Reviews output superficially — scans rather than reads line-by-line</li>
+            
+            <li>Cannot identify subtle bugs in generated diffs</li>
+            
+            <li>Accepts hardcoded values, missing error handling, or style violations</li>
+            
+            <li>Does not verify that generated code handles edge cases</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Systematic — reviews diffs and tests after every change.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Reviews every diff line-by-line before accepting</li>
+            
+            <li>Runs the full test suite after each significant change</li>
+            
+            <li>Checks for hardcoded values that should come from configuration</li>
+            
+            <li>Verifies naming conventions and code style match project standards</li>
+            
+            <li>Iterates on failures rather than accepting partially correct output</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Automated — hooks and tooling enforce verification standards.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Pre-commit hooks run linting, type-checking, and formatting automatically</li>
+            
+            <li>Configured hooks catch common AI-generated code issues before commit</li>
+            
+            <li>Security scanning runs on every change without manual invocation</li>
+            
+            <li>Test coverage thresholds prevent merging untested AI-generated code</li>
+            
+            <li>Verification is part of the environment, not dependent on individual discipline</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Pipeline-integrated verification with automated quality gates.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>CI/CD runs full verification on every agent-generated commit</li>
+            
+            <li>Automated quality gates block merges that fail verification thresholds</li>
+            
+            <li>Agent output quality is monitored for drift over time</li>
+            
+            <li>Verification results are logged and tracked as metrics</li>
+            
+            <li>Failure patterns in automated verification trigger process improvements</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Governance-level verification with audit trails and compliance.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Audit trails record every AI-generated change with provenance</li>
+            
+            <li>Compliance verification is integrated into deployment workflows</li>
+            
+            <li>Verification policies are documented and enforced across teams</li>
+            
+            <li>Regular audits assess whether verification processes catch real issues</li>
+            
+            <li>Incident post-mortems track whether AI-generated code was the root cause</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-context-management">
+        <td class="matrix-dimension-header">Context Management</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">No context management — prompts without orientation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Starts prompting without telling the model what project or file is in scope</li>
+            
+            <li>Loses context in long sessions without realizing quality has degraded</li>
+            
+            <li>Does not know when to start a fresh session vs. continue</li>
+            
+            <li>Provides the same context repeatedly because it is not persisted</li>
+            
+            <li>Cannot explain why the model sometimes &#039;forgets&#039; earlier instructions</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Per-session context management with deliberate orientation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Provides file paths and architecture context at the start of each session</li>
+            
+            <li>Recognizes when context window is approaching limits and starts fresh</li>
+            
+            <li>References specific files and functions rather than vague descriptions</li>
+            
+            <li>Knows that long conversations accumulate noise and reduces quality</li>
+            
+            <li>Begins saving useful context snippets for reuse across sessions</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Persistent project context via CLAUDE.md and configuration.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Root CLAUDE.md provides baseline project context automatically</li>
+            
+            <li>Directory-level CLAUDE.md files scope context to specific code areas</li>
+            
+            <li>Permission settings reduce context overhead from repeated approval prompts</li>
+            
+            <li>MCP servers provide live context from databases and external systems</li>
+            
+            <li>Context hierarchy is designed so the model gets the right info at the right scope</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Cross-agent context coordination across parallel workflows.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Context is explicitly partitioned when work is split across agents</li>
+            
+            <li>Shared interfaces and type definitions serve as context contracts between agents</li>
+            
+            <li>Worktree isolation ensures agents have clean context without interference</li>
+            
+            <li>Context budgets are managed to control token costs in multi-agent workflows</li>
+            
+            <li>Results from one agent&#039;s work are summarized before being passed to another</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Organizational context architecture and knowledge management.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Context systems are designed at organizational scale across teams</li>
+            
+            <li>CLAUDE.md templates and conventions are standardized across projects</li>
+            
+            <li>Knowledge from AI-assisted work is captured and reusable</li>
+            
+            <li>Context quality is measured and improved systematically</li>
+            
+            <li>Organizational learning from AI interactions is preserved beyond individual sessions</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-environment-design">
+        <td class="matrix-dimension-header">Environment Design</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">No configuration — uses defaults.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses Claude Code with factory default settings</li>
+            
+            <li>No CLAUDE.md, no hooks, no permission customization</li>
+            
+            <li>Every session starts from scratch with no project awareness</li>
+            
+            <li>Approves every tool permission prompt manually</li>
+            
+            <li>Does not know configuration options exist</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Minimal configuration — beginning to customize.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>May have created a basic CLAUDE.md with build commands</li>
+            
+            <li>Has explored .claude/settings.json but not configured it deeply</li>
+            
+            <li>Understands that configuration exists but uses it inconsistently</li>
+            
+            <li>Relies on per-session context rather than persistent environment</li>
+            
+            <li>Beginning to version-control AI tool configuration</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Comprehensive environment with CLAUDE.md, hooks, MCP, and permissions.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Layered CLAUDE.md files provide context at project and directory levels</li>
+            
+            <li>Hooks enforce linting, testing, and formatting on every change</li>
+            
+            <li>MCP servers connect to databases, APIs, or documentation as needed</li>
+            
+            <li>Permission allowlists let common operations run without interruption</li>
+            
+            <li>A new team member is productive with Claude Code immediately using the configuration</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Workflow-ready environment supporting automation and multi-agent operation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Environment supports headless and non-interactive operation</li>
+            
+            <li>CI/CD pipelines have Claude Code steps configured and tested</li>
+            
+            <li>Worktree scripts and agent orchestration tools are in place</li>
+            
+            <li>Token budgets and cost controls are configured for automated workflows</li>
+            
+            <li>Environment configuration is tested and documented for reliability</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Organization-wide environment standards and governance integration.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Template environments provide consistent setup across all team projects</li>
+            
+            <li>Governance policies are embedded in environment configuration (deny rules, audit hooks)</li>
+            
+            <li>Environment standards are versioned, reviewed, and updated organizationally</li>
+            
+            <li>New projects inherit a compliant baseline configuration automatically</li>
+            
+            <li>Environment metrics track adoption, compliance, and productivity impact</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-workflow-scaling">
+        <td class="matrix-dimension-header">Workflow Scaling</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Single task, single session, one prompt at a time.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Works on one task per session with no parallelism</li>
+            
+            <li>Does not plan sequences of prompts in advance</li>
+            
+            <li>Each interaction is independent with no workflow continuity</li>
+            
+            <li>Cannot estimate how long a multi-step task will take with AI</li>
+            
+            <li>Does not use scripts or automation for repetitive tasks</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Multi-step sessions with planned prompt sequences.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Plans 3-5 sequential prompts before starting a complex task</li>
+            
+            <li>Tracks progress through a task within a single session</li>
+            
+            <li>Uses follow-up prompts to iterate and refine previous output</li>
+            
+            <li>Still limited to one agent at a time in one session</li>
+            
+            <li>Begins to recognize tasks that could benefit from automation</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Automated single-agent tasks with scripting and headless mode.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Uses claude -p for scripted, non-interactive operations</li>
+            
+            <li>Writes bash scripts that run Claude Code on multiple files</li>
+            
+            <li>Automates repetitive tasks like documentation updates or code formatting</li>
+            
+            <li>Designs multi-session workflows where each session builds on prior artifacts</li>
+            
+            <li>Begins to explore running multiple agents in parallel</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Multi-agent parallel workflows integrated into development pipelines.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Runs multiple Claude Code agents simultaneously on isolated worktrees</li>
+            
+            <li>CI/CD pipelines include automated Claude Code steps for review or generation</li>
+            
+            <li>Task decomposition maximizes parallel execution across agents</li>
+            
+            <li>Error handling and retry logic handle agent failures gracefully</li>
+            
+            <li>Cost and token usage are monitored across all automated workflows</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Organizational AI workflow strategy with cross-team orchestration.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Workflow patterns are standardized and shared across engineering teams</li>
+            
+            <li>Capacity planning accounts for AI agent compute and token budgets</li>
+            
+            <li>Cross-team workflow orchestration handles complex multi-project tasks</li>
+            
+            <li>Workflow effectiveness is measured with productivity and quality metrics</li>
+            
+            <li>New workflow patterns are evaluated, piloted, and rolled out systematically</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+      <tr data-dimension="dim-safety-governance">
+        <td class="matrix-dimension-header">Safety and Governance</td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">No safety awareness — accepts code without security review.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Does not review AI-generated code for security vulnerabilities</li>
+            
+            <li>No audit trail for what AI changes were made and when</li>
+            
+            <li>Accepts hardcoded credentials or insecure patterns without noticing</li>
+            
+            <li>Does not consider the risk of AI-generated code in production</li>
+            
+            <li>Cannot articulate what could go wrong with unreviewed AI output</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Basic awareness — reviews for obvious security issues.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Checks for hardcoded secrets and credentials in diffs</li>
+            
+            <li>Understands that AI-generated code can have subtle security flaws</li>
+            
+            <li>Reviews authentication and authorization code more carefully</li>
+            
+            <li>Knows that AI output should not be trusted for security-critical paths</li>
+            
+            <li>Begins to think about what happens if AI-generated code reaches production</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Project-level safety with configured permissions and automated checks.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Permission denylists prevent dangerous operations (rm -rf, git push --force)</li>
+            
+            <li>Hooks run security scanning on every AI-generated change</li>
+            
+            <li>Sensitive files (.env, credentials) are protected from AI modification</li>
+            
+            <li>MCP server access is scoped to least-privilege for the task</li>
+            
+            <li>Safety configuration is version-controlled and reviewed</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Workflow-level safety with boundaries, monitoring, and escalation.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Automated agents operate within defined safety boundaries</li>
+            
+            <li>Output quality monitoring detects drift before it reaches production</li>
+            
+            <li>Escalation paths exist for when automated agents encounter edge cases</li>
+            
+            <li>All automated agent actions are logged with full provenance</li>
+            
+            <li>Safety boundaries are tested regularly to verify they actually prevent harm</li>
+            
+          </ul>
+        </td>
+        
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">Organizational governance with policies, compliance, and audit frameworks.</div>
+          <ul class="matrix-cell__detail">
+            
+            <li>Documented policies define what AI agents can and cannot do per team/project</li>
+            
+            <li>Compliance verification is integrated into deployment and release workflows</li>
+            
+            <li>Audit frameworks track all AI-generated code changes with retention policies</li>
+            
+            <li>Incident response procedures specifically address AI-generated code failures</li>
+            
+            <li>Governance is regularly reviewed and adapted as tool capabilities evolve</li>
+            
+          </ul>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

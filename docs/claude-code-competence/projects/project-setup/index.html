@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setting Up CLAUDE.md, Hooks, and MCP for a New Project — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Configure a complete Claude Code environment with layered context files, automated hooks, and an MCP server integration.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/projects/project-setup/">
+<meta property="og:title" content="Setting Up CLAUDE.md, Hooks, and MCP for a New Project — Claude Code Competence">
+<meta property="og:description" content="Configure a complete Claude Code environment with layered context files, automated hooks, and an MCP server integration.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="breadcrumbs__link">Projects</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Setting Up CLAUDE.md, Hooks, and MCP for a New Project</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      
+      <span class="badge badge--level-3">Level 3</span>
+      
+      <span class="text-sm text-muted">30 minutes</span>
+    </div>
+    <h1 class="hero__title">Setting Up CLAUDE.md, Hooks, and MCP for a New Project</h1>
+    <p class="hero__summary">Configure a complete Claude Code environment with layered context files, automated hooks, and an MCP server integration.</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>You are starting a new TypeScript microservice and want to configure the project so that Claude Code is effective from the first session. This means setting up CLAUDE.md with project conventions, hooks for quality enforcement, and an MCP server for database access.</p>
+    </div>
+  </section>
+
+  
+  <section class="section project-step">
+    <h2>Design the Root CLAUDE.md</h2>
+    
+    <p>The root CLAUDE.md is the most important configuration file. It tells Claude Code about the project&#039;s architecture, conventions, build commands, and rules. Keep it focused — include what Claude Code needs to know, not everything about the project.</p>
+    
+    <p>A good CLAUDE.md answers three questions: How do I build and test this project? What conventions should I follow? What should I never do?</p>
+    
+    
+    <pre><code># CLAUDE.md
+
+## Project Overview
+Order processing microservice. TypeScript, Express, Prisma ORM, PostgreSQL.
+
+## Build & Test Commands
+- `npm run build` — compile TypeScript
+- `npm test` — run all tests (Jest)
+- `npm test -- tests/unit/FILE.test.ts` — run a single test file
+- `npm run lint` — ESLint + Prettier check
+- `npm run db:migrate` — run Prisma migrations
+
+## Code Conventions
+- Use named exports, never default exports
+- All service functions return `Result<T, AppError>` (see src/lib/result.ts)
+- Database access only through Prisma — never raw SQL
+- Error messages must be user-facing safe (no stack traces, no internal IDs)
+
+## Architecture
+- src/routes/ — Express route handlers (thin, delegate to services)
+- src/services/ — Business logic (no direct HTTP concerns)
+- src/models/ — Prisma schema and generated types
+- src/lib/ — Shared utilities
+
+## Rules
+- NEVER modify prisma/migrations/ manually
+- NEVER commit .env files
+- Always run `npm test` before considering a task complete</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Add Directory-Level CLAUDE.md Files</h2>
+    
+    <p>For larger projects, add CLAUDE.md files in key directories to provide scoped context. These supplement the root file with directory-specific conventions.</p>
+    
+    <p>Directory-level files should be short and focused. They answer: what is in this directory, and what rules apply here specifically?</p>
+    
+    
+    <pre><code># src/services/CLAUDE.md
+
+## Service Layer Conventions
+- Every service file exports a class with static methods
+- Methods accept plain objects, not Express Request objects
+- All methods must validate input using zod schemas from src/schemas/
+- Return Result<T, AppError> — never throw exceptions
+- Log operations using the logger from src/lib/logger.ts
+
+## Testing
+- Unit tests mock the Prisma client using tests/helpers/mock-prisma.ts
+- Each service file has a corresponding test in tests/unit/services/</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Configure Hooks for Quality Enforcement</h2>
+    
+    <p>Hooks run automatically during Claude Code&#039;s workflow to catch issues before they are committed. Configure hooks in the project settings to enforce your quality standards.</p>
+    
+    <p>The key insight at Level 3 is that hooks shift enforcement from your attention to automation. You do not have to remember to run the linter — the hook does it for you.</p>
+    
+    
+    <pre><code>// .claude/settings.json
+{
+  "hooks": {
+    "preCommit": [
+      {
+        "command": "npm run lint",
+        "description": "Run ESLint and Prettier checks"
+      },
+      {
+        "command": "npm test -- --bail",
+        "description": "Run test suite, stop on first failure"
+      }
+    ],
+    "postFileEdit": [
+      {
+        "command": "npx tsc --noEmit --pretty",
+        "description": "Type-check after file edits"
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npx prisma *)",
+      "Bash(npx tsc *)",
+      "Read(*)",
+      "Write(src/**)",
+      "Write(tests/**)"
+    ],
+    "deny": [
+      "Write(.env*)",
+      "Write(prisma/migrations/**)",
+      "Bash(rm -rf *)",
+      "Bash(git push *)"
+    ]
+  }
+}</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Set Up an MCP Server for Database Access</h2>
+    
+    <p>MCP (Model Context Protocol) servers give Claude Code access to external tools and data sources. For this project, set up a PostgreSQL MCP server so Claude Code can query the development database to understand the current state of data.</p>
+    
+    <p>This is powerful but requires care. The MCP server should connect to the development database only, never production.</p>
+    
+    
+    <pre><code>// .claude/mcp.json
+{
+  "servers": {
+    "postgres-dev": {
+      "command": "npx",
+      "args": [
+        "@anthropic/mcp-server-postgres",
+        "--connection-string",
+        "postgresql://dev:dev@localhost:5432/orders_dev"
+      ],
+      "description": "Development database access for querying schema and sample data"
+    }
+  }
+}</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Verify the Complete Setup</h2>
+    
+    <p>Launch a new Claude Code session and verify that everything works together. The CLAUDE.md should be picked up automatically, hooks should run on edits, and the MCP server should be available.</p>
+    
+    <p>Ask Claude Code to describe the project to confirm it has read the CLAUDE.md. Then make a small change to trigger the hooks and verify they fire.</p>
+    
+    
+    <pre><code>claude
+
+> Describe this project's architecture and conventions based on
+> the CLAUDE.md files.
+
+# Claude Code should accurately describe the project from CLAUDE.md
+
+> Now create a simple health check endpoint in src/routes/health.ts
+> that returns { status: 'ok', timestamp: Date.now() }. Register it
+> in src/routes/index.ts.
+
+# The hooks should run automatically: type-check on file edit,
+# lint + test on commit attempt</code></pre>
+    
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">s3-claude-md-design</span>
+      
+      <span class="project-tag">s3-hook-config</span>
+      
+      <span class="project-tag">s3-mcp-setup</span>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">c3-claude-md</span>
+      
+      <span class="project-tag">c3-hooks</span>
+      
+      <span class="project-tag">c3-mcp</span>
+      
+    </div>
+  </section>
+  
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

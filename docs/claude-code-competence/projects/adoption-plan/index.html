@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating a Phased Adoption Plan for an Engineering Organization — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Design a complete adoption strategy for introducing Claude Code to a 100-person engineering organization, covering training, tooling, governance, and measurement.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/projects/adoption-plan/">
+<meta property="og:title" content="Creating a Phased Adoption Plan for an Engineering Organization — Claude Code Competence">
+<meta property="og:description" content="Design a complete adoption strategy for introducing Claude Code to a 100-person engineering organization, covering training, tooling, governance, and measurement.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="breadcrumbs__link">Projects</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Creating a Phased Adoption Plan for an Engineering Organization</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      
+      <span class="badge badge--level-5">Level 5</span>
+      
+      <span class="text-sm text-muted">120 minutes</span>
+    </div>
+    <h1 class="hero__title">Creating a Phased Adoption Plan for an Engineering Organization</h1>
+    <p class="hero__summary">Design a complete adoption strategy for introducing Claude Code to a 100-person engineering organization, covering training, tooling, governance, and measurement.</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>You are the engineering director at a mid-size company with 100 engineers across 12 teams. The CTO has approved adopting Claude Code organization-wide. You need to create a phased plan that gets teams productive while managing risk, including a training curriculum, tooling standards, and success metrics.</p>
+    </div>
+  </section>
+
+  
+  <section class="section project-step">
+    <h2>Assess Current Team Capabilities</h2>
+    
+    <p>Before rolling out any tool, understand where your teams stand today. Survey engineers on their current AI coding experience and map them to the competence levels. This determines your training investment.</p>
+    
+    <p>The assessment is not a test — it is a planning tool. Teams with more experience can move faster; teams with less experience need more support.</p>
+    
+    
+    <pre><code># adoption-plan/assessment-template.md
+
+## AI Coding Competence Self-Assessment
+
+For each statement, rate your current comfort level: 1 (never done) to 5 (do regularly)
+
+### Basic Usage (Maps to Level 1)
+- [ ] I can install and launch Claude Code from the command line
+- [ ] I can write a prompt that produces useful code output
+- [ ] I review generated diffs before accepting them
+- [ ] I can recover when Claude Code produces an error or unhelpful output
+
+### Structured Collaboration (Maps to Level 2)
+- [ ] I provide file paths and context in my prompts
+- [ ] I break complex tasks into multiple focused prompts
+- [ ] I run tests after each AI-generated change
+- [ ] I specify constraints (what the code must/must not do) in prompts
+
+### Environment Configuration (Maps to Level 3)
+- [ ] I have configured CLAUDE.md files for my projects
+- [ ] I use hooks to enforce quality standards automatically
+- [ ] I have set up MCP servers for external tool access
+- [ ] I have configured permissions for safe AI operation
+
+### Workflow Automation (Maps to Level 4)
+- [ ] I have run multiple Claude Code agents in parallel
+- [ ] I have integrated Claude Code into CI/CD pipelines
+- [ ] I can design error handling for automated AI workflows
+- [ ] I monitor the quality of automated AI output</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Design the Training Curriculum</h2>
+    
+    <p>Structure training around the competence levels. Every engineer starts at Level 1 regardless of self-assessed skill — the training validates and reinforces fundamentals before advancing.</p>
+    
+    <p>Each level has a hands-on workshop, self-study materials, and a practical assessment. Engineers must complete the assessment to advance. This is not bureaucracy — it is quality control.</p>
+    
+    
+    <pre><code># adoption-plan/training-curriculum.md
+
+## Level 1: Operator (Week 1)
+- **Workshop** (2 hours): Install, basic prompting, diff review, error recovery
+- **Self-study**: Complete 3 guided exercises from the exercise bank
+- **Assessment**: Generate a utility function, fix a bug, explain what Claude Code did
+- **Graduation requirement**: Pass assessment with mentor sign-off
+
+## Level 2: Structured Collaborator (Weeks 2-3)
+- **Workshop** (3 hours): Context-setting, task decomposition, verification loops
+- **Self-study**: Implement a multi-file feature using decomposed prompts
+- **Assessment**: Refactor a module with constraints, all tests must pass
+- **Graduation requirement**: Ship a real PR using structured collaboration
+
+## Level 3: Environment Builder (Weeks 4-6)
+- **Workshop** (3 hours): CLAUDE.md design, hooks, MCP, permissions
+- **Self-study**: Configure a project environment from scratch
+- **Assessment**: New team member can be productive using only your config
+- **Graduation requirement**: Team project has complete Claude Code environment
+
+## Level 4: Workflow Engineer (Weeks 7-10, select engineers)
+- **Workshop** (4 hours): Multi-agent orchestration, CI/CD integration
+- **Self-study**: Design and implement an automated workflow
+- **Assessment**: Automated pipeline runs without manual intervention
+- **Graduation requirement**: Production workflow running for 2 weeks
+
+## Level 5: Agentic Systems Expert (Ongoing, tech leads only)
+- **Seminar series** (6 sessions): Governance, safety, strategy, metrics
+- **Capstone**: Design team-level governance framework
+- **Ongoing**: Quarterly reviews and framework updates</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Establish Tooling Standards</h2>
+    
+    <p>Standardize how Claude Code is configured across the organization. Create templates for CLAUDE.md, settings files, and CI workflows that teams can adopt and customize.</p>
+    
+    <p>Standardization reduces support burden. When every team configures Claude Code differently, every problem is unique. When they start from a common template, solutions are reusable.</p>
+    
+    
+    <pre><code># adoption-plan/tooling-standards/claude-md-template.md
+
+# CLAUDE.md (Organization Template)
+# Teams should customize this for their specific project.
+
+## Project Overview
+<!-- Replace with your project description -->
+[Project name]. [Tech stack]. [Primary purpose].
+
+## Build & Test Commands
+<!-- Replace with your actual commands -->
+- `npm run build` — compile
+- `npm test` — run all tests
+- `npm run lint` — check code style
+
+## Code Conventions
+<!-- Add your team's conventions. At minimum include: -->
+- Import style (named vs default)
+- Error handling pattern
+- Naming conventions
+- File organization rules
+
+## Architecture
+<!-- Describe your project structure. Include: -->
+- Directory layout and purpose of each top-level directory
+- Key patterns (service layer, repository pattern, etc.)
+- Where new code should go for common tasks
+
+## Rules
+<!-- Non-negotiable rules. These are guardrails, not suggestions. -->
+- NEVER [your critical safety rules]
+- Always [your critical quality rules]
+
+## Team-Specific
+<!-- Add anything unique to your team's workflow --></code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Define Success Metrics and Reporting</h2>
+    
+    <p>Define what success looks like at each phase. Metrics should cover adoption rate, productivity impact, quality maintenance, and cost. Report monthly to leadership.</p>
+    
+    <p>Be honest about what metrics can and cannot tell you. Lines of code generated is a vanity metric. Defect rate of AI code versus human code is a real signal.</p>
+    
+    
+    <pre><code>// adoption-plan/success-metrics.ts
+
+interface AdoptionMetrics {
+  // Phase 1 Success (Month 1-2): Adoption
+  phase1: {
+    engineersOnboarded: number;     // Target: 100% through Level 1
+    engineersAtLevel2: number;      // Target: 60% by end of month 2
+    projectsWithClaudeMd: number;   // Target: 80% of active repos
+    weeklyActiveUsers: number;      // Target: 70% of engineers
+  };
+
+  // Phase 2 Success (Month 3-4): Productivity
+  phase2: {
+    prThroughputChange: number;     // Target: +20% PRs per developer
+    timeToMergeChange: number;      // Target: -15% time to merge
+    developerSatisfaction: number;  // Target: 4.0/5.0 on survey
+    engineersAtLevel3: number;      // Target: 30% by end of month 4
+  };
+
+  // Phase 3 Success (Month 5-6): Quality & Scale
+  phase3: {
+    aiCodeDefectRate: number;       // Target: <= human code defect rate
+    automatedWorkflowCount: number; // Target: 5+ automated workflows
+    costPerDeveloperMonth: number;  // Target: < $200/developer/month
+    governanceCompliance: number;   // Target: 95% of AI PRs have audit trail
+  };
+
+  // Ongoing: Health Checks
+  ongoing: {
+    toolAbandonment: number;        // Alert if > 10% stop using in a month
+    escalationVolume: number;       // Alert if > 5 per week
+    securityIncidents: number;      // Target: 0 AI-related security incidents
+  };
+}</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Risk Mitigation and Rollback Strategy</h2>
+    
+    <p>Every adoption plan needs a rollback strategy. If AI coding is not working — if quality drops, costs spike, or teams are unhappy — you need a clear path to scale back without disruption.</p>
+    
+    <p>The rollback strategy is not an admission of failure. It is responsible planning that makes leadership more comfortable approving the initiative.</p>
+    
+    
+    <pre><code># adoption-plan/risk-mitigation.md
+
+## Identified Risks and Mitigations
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|-----------|--------|------------|
+| Code quality decrease | Medium | High | Automated quality gates, mandatory tests, defect tracking |
+| Cost overruns | Medium | Medium | Token budgets per team, weekly cost reports, auto-alerts at 80% |
+| Security vulnerability in AI code | Low | Critical | Security scans in CI, Tier 3+ review for sensitive code |
+| Developer over-reliance | Medium | Medium | Competence assessments, rotation of AI-free sprints |
+| Tool vendor lock-in | Low | Medium | Abstract AI interfaces, maintain manual workflow capability |
+
+## Rollback Triggers
+- AI code defect rate exceeds 2x human code defect rate for 2 consecutive weeks
+- Monthly cost exceeds budget by more than 50%
+- Any security incident directly caused by AI-generated code
+- Developer satisfaction drops below 3.0/5.0
+
+## Rollback Procedure
+1. **Partial rollback**: Restrict AI to Tier 1 (low-risk) code only
+2. **Team-level rollback**: Specific team pauses AI usage, investigates
+3. **Full rollback**: All automated AI workflows paused, manual review only
+4. **Post-mortem**: Root cause analysis within 1 week, remediation plan
+
+All rollback decisions require sign-off from Engineering Director.
+All rollbacks are temporary — the goal is to fix and resume, not to abandon.</code></pre>
+    
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">s5-training-design</span>
+      
+      <span class="project-tag">s5-capability-eval</span>
+      
+      <span class="project-tag">s5-metrics-design</span>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">c5-strategy</span>
+      
+      <span class="project-tag">c5-human-ai-teaming</span>
+      
+      <span class="project-tag">c5-risk-assessment</span>
+      
+    </div>
+  </section>
+  
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

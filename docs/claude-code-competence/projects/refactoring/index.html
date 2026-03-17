@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refactoring a Module with Constraints — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Guide Claude Code through a refactoring that preserves the public API while improving internal structure and adding tests.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/projects/refactoring/">
+<meta property="og:title" content="Refactoring a Module with Constraints — Claude Code Competence">
+<meta property="og:description" content="Guide Claude Code through a refactoring that preserves the public API while improving internal structure and adding tests.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="breadcrumbs__link">Projects</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Refactoring a Module with Constraints</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      
+      <span class="badge badge--level-2">Level 2</span>
+      
+      <span class="text-sm text-muted">40 minutes</span>
+    </div>
+    <h1 class="hero__title">Refactoring a Module with Constraints</h1>
+    <p class="hero__summary">Guide Claude Code through a refactoring that preserves the public API while improving internal structure and adding tests.</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>Your authentication module has grown into a 500-line monolith. You need to refactor it into smaller, focused files while keeping the exact same public API so that no consuming code needs to change.</p>
+    </div>
+  </section>
+
+  
+  <section class="section project-step">
+    <h2>Establish the Constraints</h2>
+    
+    <p>The most important part of a constrained refactoring is making the constraints explicit. Tell Claude Code exactly what must not change, what must be preserved, and what the goals are.</p>
+    
+    <p>This is constraint specification — a core Level 2 skill. Vague instructions like &#039;refactor this&#039; will produce unpredictable results.</p>
+    
+    
+    <pre><code>> I need to refactor src/auth/index.ts (currently ~500 lines) into
+> smaller modules. Here are the hard constraints:
+>
+> 1. The public API exported from src/auth/index.ts MUST NOT change.
+>    Any file importing from 'src/auth' must work without modification.
+> 2. All existing tests in tests/auth.test.ts must continue to pass.
+> 3. No new dependencies may be added.
+>
+> Goals:
+> - Split into: token.ts (JWT logic), password.ts (hashing/comparison),
+>   session.ts (session management), middleware.ts (Express middleware)
+> - Each sub-module should have a single responsibility
+> - Re-export everything from index.ts to preserve the public API
+>
+> First, show me the plan before making any changes.</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Review the Refactoring Plan</h2>
+    
+    <p>Claude Code should present a plan before writing code. Review it to make sure the proposed file structure makes sense and the re-export strategy will preserve the public API.</p>
+    
+    <p>If anything in the plan concerns you, now is the time to correct it. It is much cheaper to fix a plan than to fix code.</p>
+    
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Execute the Refactoring Incrementally</h2>
+    
+    <p>Ask Claude Code to do the refactoring one file at a time. After each file is extracted, run the test suite. This is iterative refinement in practice — each step is verified before moving on.</p>
+    
+    <p>If a test breaks after extracting a module, do not move on. Diagnose the issue with Claude Code and fix it first.</p>
+    
+    
+    <pre><code>> Let's start with extracting the JWT logic. Move the token generation
+> and verification functions into src/auth/token.ts. Update index.ts
+> to import and re-export from token.ts. Do not change any function
+> signatures.
+
+# After Claude Code makes the changes:
+npm test -- tests/auth.test.ts
+
+# If tests pass, continue to the next extraction:
+> Good, tests pass. Now extract the password hashing logic into
+> src/auth/password.ts. Same rules: preserve function signatures,
+> re-export from index.ts.</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Add Unit Tests for New Modules</h2>
+    
+    <p>Once the refactoring is complete and all existing tests pass, ask Claude Code to add unit tests for each new sub-module. The existing tests are integration-level; now each module deserves its own focused tests.</p>
+    
+    
+    <pre><code>> All existing tests pass after the refactoring. Now add unit tests:
+> - tests/auth/token.test.ts — test JWT generation, verification,
+>   expiration, and invalid token handling
+> - tests/auth/password.test.ts — test hashing, comparison, and
+>   edge cases (empty string, very long input)
+>
+> Follow the test style in the existing tests/auth.test.ts.
+> Each test file should be self-contained with its own setup.</code></pre>
+    
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">s2-context-prompt</span>
+      
+      <span class="project-tag">s2-verify</span>
+      
+      <span class="project-tag">s2-error-diagnosis</span>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">c2-constraint-specification</span>
+      
+      <span class="project-tag">c2-iterative-refinement</span>
+      
+      <span class="project-tag">c2-verification-loops</span>
+      
+    </div>
+  </section>
+  
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

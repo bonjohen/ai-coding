@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3: Environment Builder — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Configures persistent project environments with CLAUDE.md, hooks, MCP, and permissions for consistent AI-assisted development.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/levels/environment-builder/">
+<meta property="og:title" content="Level 3: Environment Builder — Claude Code Competence">
+<meta property="og:description" content="Configures persistent project environments with CLAUDE.md, hooks, MCP, and permissions for consistent AI-assisted development.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Levels</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Builder</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero hero--with-image hero--image-left">
+    
+    <div class="hero__image">
+      <img src="/ai-coding/assets/images/levels/level-environment-builder.svg" alt="Level 3: Environment Builder" loading="lazy">
+    </div>
+    
+    <div class="hero__text">
+      <span class="badge badge--level-3">Level 3</span>
+      <h1 class="hero__title">Environment Builder</h1>
+      <p class="hero__summary">Configures persistent project environments with CLAUDE.md, hooks, MCP, and permissions for consistent AI-assisted development.</p>
+    </div>
+  </header>
+
+  <nav class="section-toc" aria-label="On this page">
+    <h2 class="section-toc__title">On this page</h2>
+    <ul>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      <li><a href="#core-skills">Core Skills</a></li>
+      <li><a href="#observable-behaviors">Observable Behaviors</a></li>
+      <li><a href="#failure-modes">Failure Modes</a></li>
+      <li><a href="#graduation-criteria">Graduation Criteria</a></li>
+      <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
+      <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#practice-questions">Practice Questions</a></li>
+      <li><a href="#learning-emphasis">Learning Emphasis</a></li>
+      <li><a href="#related-dimensions">Related Dimensions</a></li>
+      <li><a href="#citations">Citations</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="section" id="definition">
+    <h2>Definition</h2>
+    
+    <p>The Environment Builder shifts focus from individual prompts to persistent infrastructure. They configure CLAUDE.md files, set up hooks, integrate MCP servers, and design project structures that make Claude Code effective by default.</p>
+    
+    <p>At this level, the practitioner&#039;s environment does much of the work. New team members can be productive with Claude Code immediately because the project is configured for it.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-concepts">
+    <h2>Core Concepts</h2>
+    
+    <div class="mb-lg">
+      <h3>CLAUDE.md Configuration</h3>
+      <p>Using project-level and directory-level CLAUDE.md files to provide persistent context, conventions, and instructions.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Hooks and Automation</h3>
+      <p>Configuring pre-commit hooks, linting rules, and automated checks that run alongside Claude Code.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>MCP Server Integration</h3>
+      <p>Setting up Model Context Protocol servers to give Claude Code access to external tools and data sources.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Permission Configuration</h3>
+      <p>Setting up allowlists and denylists for tool use so Claude Code can operate efficiently without excessive permission prompts.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Layered Context Architecture</h3>
+      <p>Designing a hierarchy of context files (root CLAUDE.md, directory-level overrides, .claude/settings) that provide the right information at the right scope.</p>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-skills">
+    <h2>Core Skills</h2>
+    
+    <div class="mb-lg">
+      <h3>CLAUDE.md Design</h3>
+      <p>Can design effective CLAUDE.md files that guide AI behavior for a project.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Project has layered CLAUDE.md files with build commands, conventions, and architecture notes.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Hook Configuration</h3>
+      <p>Can configure hooks that enforce code quality standards automatically.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Pre-commit hooks catch common issues before code is committed.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>MCP Server Setup</h3>
+      <p>Can configure and use MCP servers for database, API, or file system access.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Claude Code accesses external systems through configured MCP servers.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Permission Tuning</h3>
+      <p>Can configure permission settings that balance safety with productivity.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Claude Code runs common operations without interrupting for approval, while still gating destructive actions.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Team Onboarding</h3>
+      <p>Can set up an environment so that a new team member can use Claude Code productively on day one.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> New contributor follows CLAUDE.md and is productive without asking how to use Claude Code in the project.</p>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="observable-behaviors">
+    <h2>Observable Behaviors</h2>
+    <ul>
+      
+      <li>Maintains CLAUDE.md files as living documents updated with project evolution.</li>
+      
+      <li>Configures hooks for linting, testing, and formatting.</li>
+      
+      <li>Sets up MCP servers for project-specific external tool access.</li>
+      
+      <li>Designs directory structures that help Claude Code navigate large codebases.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="failure-modes">
+    <h2>Typical Failure Modes</h2>
+    <ul>
+      
+      <li>Over-engineers CLAUDE.md with excessive detail that the model ignores.</li>
+      
+      <li>Configures hooks that are too strict and block productive work.</li>
+      
+      <li>Sets up MCP servers without proper security boundaries.</li>
+      
+      <li>Does not version-control environment configuration.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="graduation-criteria">
+    <h2>Graduation Criteria</h2>
+    <ul>
+      
+      <li>
+        Designs workflows that span multiple Claude Code sessions.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-3-environment-builder/gc01-workflows-spanning-multiple-sessions.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Uses non-interactive or headless mode for automated tasks.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-3-environment-builder/gc02-non-interactive-headless-mode.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Begins orchestrating multiple agents on parallel tasks.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-3-environment-builder/gc03-orchestrating-multiple-agents.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Integrates Claude Code into CI/CD pipelines.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-3-environment-builder/gc04-integrating-into-ci-cd-pipelines.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="evaluation-tasks">
+    <h2>Evaluation Tasks</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Project Environment Setup</h3>
+      <p>Configure a new project with CLAUDE.md, hooks, and at least one MCP server.</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>CLAUDE.md provides useful guidance</li>
+        
+        <li>Hooks catch at least one common issue</li>
+        
+        <li>MCP server is functional</li>
+        
+      </ul>
+      
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Team Environment Handoff</h3>
+      <p>Configure an environment and have a colleague use Claude Code in the project without verbal instructions.</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>Colleague completes a task using only CLAUDE.md and project config for guidance</li>
+        
+        <li>No manual intervention required</li>
+        
+        <li>Output meets project standards</li>
+        
+      </ul>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="exercises">
+    <h2>Exercises</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Project Environment Setup</h3>
+      <p>Configure a complete Claude Code environment for a project.</p>
+      <span class="badge mt-sm">intermediate</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Layered Context Design</h3>
+      <p>Design a directory-level CLAUDE.md hierarchy for a monorepo.</p>
+      <span class="badge mt-sm">intermediate</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Headless Automation Script</h3>
+      <p>Write a script that uses Claude Code in non-interactive mode.</p>
+      <span class="badge mt-sm">advanced</span>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-projects">
+    <h2>Related Projects</h2>
+    <div class="grid grid--2col">
+      
+      <a href="/ai-coding/claude-code-competence/projects/project-setup/" class="card">
+        <h3 class="card__title">Setting Up CLAUDE.md, Hooks, and MCP for a New Project</h3>
+        <p class="card__description">Configure a complete Claude Code environment with layered context files, automated hooks, and an MCP server integration.</p>
+        <span class="text-sm text-muted">30 minutes</span>
+      </a>
+      
+      <a href="/ai-coding/claude-code-competence/projects/team-onboarding/" class="card">
+        <h3 class="card__title">Configuring an Environment for Team Onboarding</h3>
+        <p class="card__description">Set up a project environment so a new team member can be productive with Claude Code immediately without verbal instructions.</p>
+        <span class="text-sm text-muted">35 minutes</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section" id="practice-questions">
+    <h2>Practice Questions</h2>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How effectively do you use CLAUDE.md files to persist project-level context across sessions?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>Have you configured CLAUDE.md files, hooks, and permission settings for the projects you work on with Claude Code?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How often do you use hooks to enforce pre-commit checks, linting, or formatting alongside Claude Code?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>Have you set up MCP servers to give Claude Code access to external tools, databases, or APIs?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How consistently do you review AI-generated code for security vulnerabilities before accepting it?</p>
+    </div>
+    
+    <a href="/ai-coding/claude-code-competence/quiz/" class="btn mt-md">Take a full quiz &rarr;</a>
+  </section>
+  
+
+  
+  <section class="section" id="learning-emphasis">
+    <h2>Learning Emphasis</h2>
+    
+    <p>Think of your environment as a product. It should make Claude Code more effective for everyone who uses it.</p>
+    
+    <p>Start exploring automation: what tasks can Claude Code do without you watching?</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-dimensions">
+    <h2>Related Dimensions</h2>
+    <ul>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Context Management</a>
+        <span class="text-sm text-muted"> — Skill in managing information flow to and from the model.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Environment Design</a>
+        <span class="text-sm text-muted"> — Configuration of persistent tooling and project infrastructure.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Verification Discipline</a>
+        <span class="text-sm text-muted"> — Rigor in validating AI-generated output.</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="citations">
+    <h2>Citations</h2>
+    <div class="citation-list">
+      <ul>
+        
+        <li>
+          
+          <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code Documentation</a>
+          
+          <span class="text-sm text-muted"> — Anthropic, Anthropic</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol Specification</a>
+          
+          <span class="text-sm text-muted"> — Anthropic, Anthropic</span>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+
+  
+
+  <nav class="level-nav">
+    
+    <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="level-nav__link">
+      &larr; Level 2: Collaborator
+    </a>
+    
+    
+    <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="level-nav__link">
+      Level 4: Engineer &rarr;
+    </a>
+    
+  </nav>
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

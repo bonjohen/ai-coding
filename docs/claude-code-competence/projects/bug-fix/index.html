@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finding and Fixing a Bug — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Use Claude Code to identify and fix a bug in an existing function, then verify the fix works.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/projects/bug-fix/">
+<meta property="og:title" content="Finding and Fixing a Bug — Claude Code Competence">
+<meta property="og:description" content="Use Claude Code to identify and fix a bug in an existing function, then verify the fix works.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="breadcrumbs__link">Projects</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Finding and Fixing a Bug</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      
+      <span class="badge badge--level-1">Level 1</span>
+      
+      <span class="text-sm text-muted">15 minutes</span>
+    </div>
+    <h1 class="hero__title">Finding and Fixing a Bug</h1>
+    <p class="hero__summary">Use Claude Code to identify and fix a bug in an existing function, then verify the fix works.</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>Your date formatting function is returning the wrong month. January shows as &#039;0&#039; and December shows as &#039;11&#039;. You want Claude Code to find the bug and fix it.</p>
+    </div>
+  </section>
+
+  
+  <section class="section project-step">
+    <h2>Describe the Bug to Claude Code</h2>
+    
+    <p>Launch Claude Code and describe the bug you are seeing. Include the file path and the symptoms. You do not need to know the root cause — that is what Claude Code will help with.</p>
+    
+    <p>A good bug report prompt includes: what file, what happens, and what should happen instead.</p>
+    
+    
+    <pre><code>claude
+
+> There's a bug in src/utils/date.ts in the formatDate function.
+> When I pass in a date for January 15, 2025, it returns "0/15/2025"
+> instead of "1/15/2025". December dates show month 11 instead of 12.
+> Can you find and fix the bug?</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Read Claude Code&#039;s Explanation</h2>
+    
+    <p>Claude Code will explain that JavaScript&#039;s getMonth() returns 0-indexed values (0 for January, 11 for December). The fix is to add 1 to the month value.</p>
+    
+    <p>Pay attention to the explanation, not just the code. Understanding why the bug exists helps you catch similar issues in the future.</p>
+    
+    
+    <pre><code>// Before (buggy):
+function formatDate(date: Date): string {
+  const month = date.getMonth();
+  const day = date.getDate();
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
+}
+
+// After (fixed):
+function formatDate(date: Date): string {
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
+}</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>Verify the Fix</h2>
+    
+    <p>Accept the diff and run your existing tests, or test manually. Confirm that January now shows as 1 and December as 12.</p>
+    
+    <p>If you do not have tests, this is a good time to ask Claude Code to write a quick test for you. But at Level 1, even running the function manually and checking the output is a valid verification step.</p>
+    
+    
+    <pre><code>npx ts-node -e "
+import { formatDate } from './src/utils/date';
+console.log(formatDate(new Date('2025-01-15'))); // 1/15/2025
+console.log(formatDate(new Date('2025-12-25'))); // 12/25/2025
+console.log(formatDate(new Date('2025-06-01'))); // 6/1/2025
+"</code></pre>
+    
+  </section>
+  
+  <section class="section project-step">
+    <h2>What If the Fix Does Not Work?</h2>
+    
+    <p>Sometimes Claude Code&#039;s first attempt does not fully solve the problem. If the fix does not work, do not give up. Describe what is still wrong and ask Claude Code to try again.</p>
+    
+    <p>Error recovery at Level 1 is about persistence and communication. Tell Claude Code what you expected, what you got instead, and ask for another approach.</p>
+    
+    
+    <pre><code>> The fix partially worked but now dates with single-digit months
+> aren't zero-padded. January 5 shows as "1/5/2025" but I need
+> "01/05/2025". Can you update the function to zero-pad both
+> month and day?</code></pre>
+    
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">s1-simple-prompt</span>
+      
+      <span class="project-tag">s1-accept-output</span>
+      
+      <span class="project-tag">s1-error-recovery</span>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      
+      <span class="project-tag">c1-basic-prompting</span>
+      
+      <span class="project-tag">c1-tool-output</span>
+      
+      <span class="project-tag">c1-model-awareness</span>
+      
+    </div>
+  </section>
+  
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

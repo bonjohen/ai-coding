@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: Structured Collaborator — Claude Code Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Structures interactions with explicit context, constraints, and verification loops.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/claude-code-competence/levels/structured-collaborator/">
+<meta property="og:title" content="Level 2: Structured Collaborator — Claude Code Competence">
+<meta property="og:description" content="Structures interactions with explicit context, constraints, and verification loops.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/claude-code-competence.css">
+
+
+</head>
+<body class="family--claude-code-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link" title="Framework Overview">Overview</a>
+  
+  <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link" title="Evaluation Dimensions">Dimensions</a>
+  
+  <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link" title="Competency Matrix">Matrix</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link" title="Level 1: Operator">L1: Operator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link" title="Level 2: Structured Collaborator">L2: Collaborator</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link" title="Level 3: Environment Builder">L3: Builder</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link" title="Level 4: Workflow Engineer">L4: Engineer</a>
+  
+  <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link" title="Level 5: Agentic Systems Expert">L5: Expert</a>
+  
+  <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link" title="Source Inventory">Sources</a>
+  
+  <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link" title="Author Perspective">Author Perspective</a>
+  
+  <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link" title="Glossary">Glossary</a>
+  
+  <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link" title="Learning Roadmap">Roadmap</a>
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Claude Code Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/" class="breadcrumbs__link">Levels</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Collaborator</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<article>
+  <header class="hero hero--with-image hero--image-left">
+    
+    <div class="hero__image">
+      <img src="/ai-coding/assets/images/levels/level-structured-collaborator.svg" alt="Level 2: Structured Collaborator" loading="lazy">
+    </div>
+    
+    <div class="hero__text">
+      <span class="badge badge--level-2">Level 2</span>
+      <h1 class="hero__title">Structured Collaborator</h1>
+      <p class="hero__summary">Structures interactions with explicit context, constraints, and verification loops.</p>
+    </div>
+  </header>
+
+  <nav class="section-toc" aria-label="On this page">
+    <h2 class="section-toc__title">On this page</h2>
+    <ul>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      <li><a href="#core-skills">Core Skills</a></li>
+      <li><a href="#observable-behaviors">Observable Behaviors</a></li>
+      <li><a href="#failure-modes">Failure Modes</a></li>
+      <li><a href="#graduation-criteria">Graduation Criteria</a></li>
+      <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
+      <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#practice-questions">Practice Questions</a></li>
+      <li><a href="#learning-emphasis">Learning Emphasis</a></li>
+      <li><a href="#related-dimensions">Related Dimensions</a></li>
+      <li><a href="#citations">Citations</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="section" id="definition">
+    <h2>Definition</h2>
+    
+    <p>The Structured Collaborator has moved beyond naive prompting. They provide context, specify constraints, decompose tasks, and verify output systematically.</p>
+    
+    <p>At this level, Claude Code becomes a reliable pair programmer. The practitioner understands that prompt quality directly determines output quality and invests in framing.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-concepts">
+    <h2>Core Concepts</h2>
+    
+    <div class="mb-lg">
+      <h3>Context Setting</h3>
+      <p>Providing relevant file context, codebase conventions, and requirements before requesting changes.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Task Decomposition</h3>
+      <p>Breaking complex tasks into sequential, well-scoped prompts.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Verification Loops</h3>
+      <p>Systematically testing and reviewing output after each interaction.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Constraint Specification</h3>
+      <p>Explicitly stating what the output must and must not do — including edge cases, performance bounds, and style conventions.</p>
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Iterative Refinement</h3>
+      <p>Using follow-up prompts to correct, extend, or improve initial output rather than accepting or rejecting wholesale.</p>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="core-skills">
+    <h2>Core Skills</h2>
+    
+    <div class="mb-lg">
+      <h3>Contextual Prompting</h3>
+      <p>Can write prompts that include file paths, conventions, and constraints.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Prompts reference specific files and coding standards.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Task Decomposition</h3>
+      <p>Can break a feature request into 3-5 sequential prompts.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Plans a multi-step interaction before starting.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Systematic Verification</h3>
+      <p>Runs tests and reviews diffs after every significant change.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Never accepts a diff without running the test suite.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Error Diagnosis</h3>
+      <p>Can read Claude Code error output and provide corrective context to resolve issues.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Pastes error messages back with analysis and asks for targeted fixes.</p>
+      
+    </div>
+    
+    <div class="mb-lg">
+      <h3>Session Management</h3>
+      <p>Knows when to continue a session vs. start fresh to maintain context quality.</p>
+      
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> Starts a new session when context has drifted rather than fighting accumulated confusion.</p>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="observable-behaviors">
+    <h2>Observable Behaviors</h2>
+    <ul>
+      
+      <li>Provides file paths and context at the start of each session.</li>
+      
+      <li>Decomposes features into multiple focused prompts.</li>
+      
+      <li>Runs tests after each change and iterates on failures.</li>
+      
+      <li>Asks Claude Code to explain its reasoning when output seems wrong.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="failure-modes">
+    <h2>Typical Failure Modes</h2>
+    <ul>
+      
+      <li>Over-specifies prompts to the point of constraining useful creativity.</li>
+      
+      <li>Spends too long on prompt engineering instead of iterating.</li>
+      
+      <li>Does not yet use persistent project configuration.</li>
+      
+      <li>Treats each session as independent rather than building on prior work.</li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="graduation-criteria">
+    <h2>Graduation Criteria</h2>
+    <ul>
+      
+      <li>
+        Creates and maintains CLAUDE.md files for projects.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-2-structured-collaborator/gc01-creating-and-maintaining-claude-md.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Uses hooks or pre-commit checks to enforce standards.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-2-structured-collaborator/gc02-using-hooks-or-precommit-checks.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Configures project-level context that persists across sessions.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-2-structured-collaborator/gc03-configuring-project-level-context.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+      <li>
+        Begins using MCP servers or external tool integrations.
+        
+        <a href="/ai-coding/claude-code-competence/examples/level-2-structured-collaborator/gc04-using-mcp-servers-or-integrations.md" class="example-link">View example &rarr;</a>
+        
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="evaluation-tasks">
+    <h2>Evaluation Tasks</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Multi-Step Feature Implementation</h3>
+      <p>Implement a feature that requires changes across 3+ files using decomposed prompts.</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>Feature works end-to-end</li>
+        
+        <li>Each prompt is well-scoped</li>
+        
+        <li>Tests pass after each step</li>
+        
+      </ul>
+      
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Guided Refactoring</h3>
+      <p>Refactor an existing module by providing Claude Code with constraints (preserve API, improve internal structure, add tests).</p>
+      
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        
+        <li>Public API is unchanged</li>
+        
+        <li>Internal structure is improved</li>
+        
+        <li>New tests cover the refactored code</li>
+        
+        <li>All existing tests still pass</li>
+        
+      </ul>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="exercises">
+    <h2>Exercises</h2>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Decomposed Feature</h3>
+      <p>Implement a feature using multiple structured prompts.</p>
+      <span class="badge mt-sm">intermediate</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Error Recovery Session</h3>
+      <p>Practice diagnosing and recovering from a failed Claude Code interaction.</p>
+      <span class="badge mt-sm">intermediate</span>
+    </div>
+    
+    <div class="card mb-md">
+      <h3 class="card__title">Constraint-Driven Refactoring</h3>
+      <p>Refactor code by providing explicit constraints to Claude Code.</p>
+      <span class="badge mt-sm">intermediate</span>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-projects">
+    <h2>Related Projects</h2>
+    <div class="grid grid--2col">
+      
+      <a href="/ai-coding/claude-code-competence/projects/multi-file-feature/" class="card">
+        <h3 class="card__title">Implementing a Feature Across Multiple Files</h3>
+        <p class="card__description">Decompose a feature request into focused prompts and implement it across model, service, and API layers.</p>
+        <span class="text-sm text-muted">45 minutes</span>
+      </a>
+      
+      <a href="/ai-coding/claude-code-competence/projects/refactoring/" class="card">
+        <h3 class="card__title">Refactoring a Module with Constraints</h3>
+        <p class="card__description">Guide Claude Code through a refactoring that preserves the public API while improving internal structure and adding tests.</p>
+        <span class="text-sm text-muted">40 minutes</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section" id="practice-questions">
+    <h2>Practice Questions</h2>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>Can you describe what happens when Claude Code executes a bash command — including how it decides to run the command, what permissions apply, and how the output is processed?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How often do you provide context about the codebase (file paths, conventions, architecture) before asking Claude Code to make changes?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How effectively can you decompose a large feature into a sequence of well-scoped prompts for Claude Code?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How often do you specify constraints and edge cases upfront when asking Claude Code to generate code?</p>
+    </div>
+    
+    <div class="card mb-sm">
+      <span class="badge mb-xs">self-rate</span>
+      <p>How often do you run tests after each significant change made by Claude Code?</p>
+    </div>
+    
+    <a href="/ai-coding/claude-code-competence/quiz/" class="btn mt-md">Take a full quiz &rarr;</a>
+  </section>
+  
+
+  
+  <section class="section" id="learning-emphasis">
+    <h2>Learning Emphasis</h2>
+    
+    <p>Invest in prompt structure. A well-framed prompt saves multiple iterations.</p>
+    
+    <p>Start exploring CLAUDE.md and project-level configuration to reduce repetitive context-setting.</p>
+    
+  </section>
+  
+
+  
+  <section class="section" id="related-dimensions">
+    <h2>Related Dimensions</h2>
+    <ul>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Task Framing</a>
+        <span class="text-sm text-muted"> — Ability to decompose and communicate tasks effectively.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Verification Discipline</a>
+        <span class="text-sm text-muted"> — Rigor in validating AI-generated output.</span>
+      </li>
+      
+      <li>
+        <a href="/ai-coding/claude-code-competence/dimensions/">Context Management</a>
+        <span class="text-sm text-muted"> — Skill in managing information flow to and from the model.</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section class="section" id="citations">
+    <h2>Citations</h2>
+    <div class="citation-list">
+      <ul>
+        
+        <li>
+          
+          <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code Documentation</a>
+          
+          <span class="text-sm text-muted"> — Anthropic, Anthropic</span>
+        </li>
+        
+        <li>
+          
+          <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering" target="_blank" rel="noopener">Prompt Engineering Guide</a>
+          
+          <span class="text-sm text-muted"> — Anthropic, Anthropic</span>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+
+  
+
+  <nav class="level-nav">
+    
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="level-nav__link">
+      &larr; Level 1: Operator
+    </a>
+    
+    
+    <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="level-nav__link">
+      Level 3: Builder &rarr;
+    </a>
+    
+  </nav>
+</article>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>
