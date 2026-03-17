@@ -24,6 +24,8 @@
       <li><a href="#graduation-criteria">Graduation Criteria</a></li>
       <li><a href="#evaluation-tasks">Evaluation Tasks</a></li>
       <li><a href="#exercises">Exercises</a></li>
+      <li><a href="#related-projects">Related Projects</a></li>
+      <li><a href="#practice-questions">Practice Questions</a></li>
       <li><a href="#learning-emphasis">Learning Emphasis</a></li>
       <li><a href="#related-dimensions">Related Dimensions</a></li>
       <li><a href="#citations">Citations</a></li>
@@ -134,6 +136,34 @@
       <span class="badge mt-sm">{{ estimatedDifficulty }}</span>
     </div>
     {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if levelProjects}}
+  <section class="section" id="related-projects">
+    <h2>Related Projects</h2>
+    <div class="grid grid--2col">
+      {{#each levelProjects}}
+      <a href="{{ basePath }}{{ family.slug }}/projects/{{ slug }}/" class="card">
+        <h3 class="card__title">{{ title }}</h3>
+        <p class="card__description">{{ summary }}</p>
+        <span class="text-sm text-muted">{{ estimatedTime }}</span>
+      </a>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if levelQuestions}}
+  <section class="section" id="practice-questions">
+    <h2>Practice Questions</h2>
+    {{#each levelQuestions}}
+    <div class="card mb-sm">
+      <span class="badge mb-xs">{{ type }}</span>
+      <p>{{ text }}</p>
+    </div>
+    {{/each}}
+    <a href="{{ quizFilterHref }}" class="btn mt-md">Take a full quiz &rarr;</a>
   </section>
   {{/if}}
 

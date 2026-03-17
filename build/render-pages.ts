@@ -157,6 +157,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       context: {
         ...familyCtx,
         dimensions: dimensionsWithImages,
+        assessHref: `/${familyBase}/assess/`,
         pageTitle: `Dimensions — ${family.family.shortTitle}`,
         pageDescription: 'Cross-level evaluation dimensions for the competence framework.',
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/dimensions/`,
@@ -214,6 +215,21 @@ function collectPageDefs(data: AllData): PageDef[] {
       // Filter exercises for this level
       const levelExercises = family.exercises.exercises.filter(e => e.levelId === level.id);
 
+      // Related projects for this level
+      const levelProjects = family.exampleProjects
+        ? family.exampleProjects.projects
+            .filter(p => p.levelId === level.id)
+            .map(p => ({ ...p, slug: p.id.replace(/^proj-\d+-/, '') }))
+        : [];
+
+      // Practice questions for this level
+      const levelQuestions = family.quizQuestions
+        ? family.quizQuestions.questions
+            .filter(q => q.levelId === level.id)
+            .slice(0, 5)
+            .map(q => ({ id: q.id, text: q.text, type: q.type }))
+        : [];
+
       // Level image path
       const levelImage = levelImageMap[level.slug]
         ? `${data.site.site.siteBasePath}assets/images/levels/${levelImageMap[level.slug]}`
@@ -231,6 +247,10 @@ function collectPageDefs(data: AllData): PageDef[] {
           levelDimensions,
           levelCitations,
           levelExercises,
+          levelProjects,
+          levelQuestions,
+          quizFilterHref: `/${familyBase}/quiz/`,
+          projectsHref: `/${familyBase}/projects/`,
           levelImage,
           pageTitle: `Level ${level.levelNumber}: ${level.title} — ${family.family.shortTitle}`,
           pageDescription: level.summary,
@@ -307,13 +327,34 @@ function collectPageDefs(data: AllData): PageDef[] {
       },
     });
 
-    // Roadmap
+    // Roadmap — enrich stages with links to projects and quiz
+    const enrichedRoadmap = {
+      ...family.roadmap,
+      learningStages: family.roadmap.learningStages.map(stage => {
+        const stageLevel = family.levels.levels.find(l => stage.recommendedLevelIds.includes(l.id));
+        const stageProjects = family.exampleProjects
+          ? family.exampleProjects.projects
+              .filter(p => stage.recommendedLevelIds.includes(p.levelId))
+              .map(p => ({ title: p.title, href: `/${familyBase}/projects/${p.id.replace(/^proj-\d+-/, '')}/` }))
+          : [];
+        return {
+          ...stage,
+          stageProjects,
+          quizHref: stageLevel ? `/${familyBase}/quiz/` : null,
+          assessHref: `/${familyBase}/assess/`,
+          levelSlug: stageLevel?.slug || null,
+          levelNumber: stageLevel?.levelNumber || null,
+        };
+      }),
+    };
+
     pages.push({
       outputPath: `${familyBase}/roadmap/index.html`,
       layout: 'article',
       page: 'roadmap',
       context: {
         ...familyCtx,
+        roadmap: enrichedRoadmap,
         pageTitle: `Roadmap — ${family.family.shortTitle}`,
         pageDescription: 'Learning path and future expansion notes.',
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/roadmap/`,

@@ -314,13 +314,13 @@ Goal: A guided assessment that estimates the user's current level and shows wher
 Goal: Configurable random quizzes that point users to study material.
 
 ### 8.1 Quiz page
-- [ ] `src/templates/pages/quiz.html` — Configuration UI (question count: 5/10/15/all, filter by level, filter by dimension), question display area, results area
-- [ ] Generate at `/ai-coding/claude-code-competence/quiz/index.html`
-- [ ] Embed full question bank as `<script type="application/json" id="quiz-data">`
-- [ ] `<noscript>` fallback: full question list as printable study material
+- [x] `src/templates/pages/quiz.html` — Configuration UI (question count: 5/10/15/all, filter by level, filter by dimension), question display area, results area
+- [x] Generate at `/ai-coding/claude-code-competence/quiz/index.html`
+- [x] Embed full question bank as `<script type="application/json" id="quiz-data">`
+- [x] `<noscript>` fallback: full question list as printable study material
 
 ### 8.2 Quiz JavaScript
-- [ ] `src/scripts/quiz-engine.ts` — Quiz mechanics:
+- [x] `src/scripts/quiz-engine.ts` — Quiz mechanics:
   - `selectQuestions(bank, filters, count)` — filter, Fisher-Yates shuffle, deprioritize recently-seen (from localStorage `ccc-quiz-seen`)
   - Single-question navigation with answer → explanation → study links → next
   - Result aggregation: per-dimension scores, weak area identification
@@ -328,14 +328,14 @@ Goal: Configurable random quizzes that point users to study material.
   - Save quiz history to localStorage (`ccc-quiz-history`)
 
 ### 8.3 Build wiring
-- [ ] Update `build/render-pages.ts` — add quiz page to `collectPageDefs()`
-- [ ] Update `src/scripts/main.ts` — conditionally init quiz on quiz page
-- [ ] Update `src/data/site/navigation.json` — add Quiz nav item
+- [x] Update `build/render-pages.ts` — add quiz page to `collectPageDefs()`
+- [x] Update `src/scripts/main.ts` — conditionally init quiz on quiz page
+- [x] Update `src/data/site/navigation.json` — add Quiz nav item
 
 ### 8.4 CSS
-- [ ] Quiz-specific styles: config panel, question card with choices, explanation reveal, result summary with weak-area highlighting
+- [x] Quiz-specific styles: config panel, question card with choices, explanation reveal, result summary with weak-area highlighting
 
-**Phase 8 exit criteria:** Quiz page allows configuration, presents random questions, shows explanations with study links after each answer, and displays a result summary with prioritized study recommendations.
+**Phase 8 exit criteria:** Quiz page allows configuration, presents random questions, shows explanations with study links after each answer, and displays a result summary with prioritized study recommendations. **DONE**
 
 ---
 
@@ -344,21 +344,21 @@ Goal: Configurable random quizzes that point users to study material.
 Goal: Step-by-step walkthroughs demonstrating competence at each level.
 
 ### 9.1 Project gallery page
-- [ ] `src/templates/pages/project-gallery.html` — Browse projects grouped by level, with cards showing title, summary, estimated time, level badge
-- [ ] Generate at `/ai-coding/claude-code-competence/projects/index.html`
+- [x] `src/templates/pages/project-gallery.html` — Browse projects grouped by level, with cards showing title, summary, estimated time, level badge
+- [x] Generate at `/ai-coding/claude-code-competence/projects/index.html`
 
 ### 9.2 Project detail page
-- [ ] `src/templates/pages/project-detail.html` — Walkthrough layout: scenario box, step-by-step sections with code snippets, demonstrated skills list, prerequisites, next project link
-- [ ] Generate one page per project at `/ai-coding/claude-code-competence/projects/{slug}/index.html`
+- [x] `src/templates/pages/project-detail.html` — Walkthrough layout: scenario box, step-by-step sections with code snippets, demonstrated skills list, prerequisites, next project link
+- [x] Generate one page per project at `/ai-coding/claude-code-competence/projects/{slug}/index.html`
 
 ### 9.3 Build wiring
-- [ ] Update `build/render-pages.ts` — add gallery and per-project detail pages to `collectPageDefs()`
-- [ ] Update `src/data/site/navigation.json` — add Projects nav item
+- [x] Update `build/render-pages.ts` — add gallery and per-project detail pages to `collectPageDefs()`
+- [x] Update `src/data/site/navigation.json` — add Projects nav item
 
 ### 9.4 CSS
-- [ ] Project-specific styles: scenario callout box, code snippet blocks with language labels, step indicators, skill/concept tag pills
+- [x] Project-specific styles: scenario callout box, code snippet blocks with language labels, step indicators, skill/concept tag pills
 
-**Phase 9 exit criteria:** Project gallery shows all 10 projects grouped by level. Each detail page has a complete walkthrough with code snippets and links to related skills/concepts.
+**Phase 9 exit criteria:** Project gallery shows all 10 projects grouped by level. Each detail page has a complete walkthrough with code snippets and links to related skills/concepts. **DONE**
 
 ---
 
@@ -367,28 +367,28 @@ Goal: Step-by-step walkthroughs demonstrating competence at each level.
 Goal: Personalized study recommendations and deep cross-links between all content.
 
 ### 10.1 Study guide page
-- [ ] `src/templates/pages/study-guide.html` — Reads localStorage assessment + quiz history, renders personalized recommendations
-- [ ] Generate at `/ai-coding/claude-code-competence/study-guide/index.html`
-- [ ] `src/scripts/study-guide.ts` — Merge assessment and quiz data, identify weak areas, generate prioritized link list grouped by priority tier (Priority / Developing / Strong)
-- [ ] Empty state: prompt to take assessment if no localStorage data
+- [x] `src/templates/pages/study-guide.html` — Reads localStorage assessment + quiz history, renders personalized recommendations
+- [x] Generate at `/ai-coding/claude-code-competence/study-guide/index.html`
+- [x] `src/scripts/study-guide.ts` — Merge assessment and quiz data, identify weak areas, generate prioritized link list grouped by priority tier (Priority / Developing / Strong)
+- [x] Empty state: prompt to take assessment if no localStorage data
 
 ### 10.2 Cross-links on existing pages
-- [ ] Level detail pages: add "Related Projects" and "Practice Questions" sections linking to relevant projects and quiz questions
-- [ ] Dimension page: add "Assess this dimension" link to the assessment
-- [ ] Family landing page: show "Your Level" indicator from localStorage (if available)
-- [ ] Roadmap page: link learning stages to relevant projects and quiz filters
+- [x] Level detail pages: add "Related Projects" and "Practice Questions" sections linking to relevant projects and quiz questions
+- [x] Dimension page: add "Assess this dimension" link to the assessment
+- [x] Family landing page: show "Your Level" indicator from localStorage (if available)
+- [x] Roadmap page: link learning stages to relevant projects and quiz filters
 
 ### 10.3 Navigation update
-- [ ] Update `src/data/site/navigation.json` — add Study Guide nav item
+- [x] Update `src/data/site/navigation.json` — add Study Guide nav item
 
 ### 10.4 Final verification
-- [ ] All studyLinks in quiz questions point to valid generated pages
-- [ ] All project prerequisite IDs reference valid project IDs
-- [ ] All demonstrated skill/concept IDs reference valid level data
-- [ ] JS-disabled fallback: all static content (questions, projects, guides) readable without JS
-- [ ] Build produces all new pages (assess, quiz, projects gallery, 10 project details, study guide = 14 new pages)
+- [x] All studyLinks in quiz questions point to valid generated pages
+- [x] All project prerequisite IDs reference valid project IDs
+- [x] All demonstrated skill/concept IDs reference valid level data
+- [x] JS-disabled fallback: all static content (questions, projects, guides) readable without JS
+- [x] Build produces all new pages (assess, quiz, projects gallery, 10 project details, study guide = 14 new pages)
 
-**Phase 10 exit criteria:** Study guide renders personalized recommendations. All educational content is cross-linked. Site builds cleanly with 28+ total pages. Progressive enhancement verified.
+**Phase 10 exit criteria:** Study guide renders personalized recommendations. All educational content is cross-linked. Site builds cleanly with 33 total pages. Progressive enhancement verified. **DONE**
 
 ---
 

@@ -9,6 +9,9 @@
   <h2>Learning Stages</h2>
   {{#each roadmap.learningStages}}
   <div class="card mb-lg">
+    {{#if levelNumber}}
+    <span class="badge badge--level-{{ levelNumber }} mb-sm">Level {{ levelNumber }}</span>
+    {{/if}}
     <h3 class="card__title">{{ title }}</h3>
     <p>{{ summary }}</p>
     {{#if suggestedActivities}}
@@ -19,6 +22,20 @@
       {{/each}}
     </ul>
     {{/if}}
+    {{#if stageProjects}}
+    <h4 class="mt-md text-sm font-bold">Example Projects</h4>
+    <ul>
+      {{#each stageProjects}}
+      <li><a href="{{ href }}">{{ title }}</a></li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    <div class="flex gap-sm mt-md">
+      {{#if quizHref}}
+      <a href="{{ quizHref }}" class="btn btn--sm">Practice Quiz</a>
+      {{/if}}
+      <a href="{{ assessHref }}" class="btn btn--sm btn--outline">Self-Assessment</a>
+    </div>
   </div>
   {{/each}}
 </section>
