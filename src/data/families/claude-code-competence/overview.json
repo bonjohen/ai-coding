@@ -1,18 +1,24 @@
 {
   "familyId": "claude-code-competence",
   "heroTitle": "Claude Code Competence Framework",
-  "heroSummary": "A structured five-level model for understanding and developing proficiency with Claude Code as an AI-assisted development tool.",
+  "heroSummary": "A five-level model of proficiency measured across seven cross-cutting dimensions, from basic tool operation to agentic systems design.",
+  "frameworkIntro": [
+    "This framework defines competence not as a checklist of features learned, but as measurable growth across seven dimensions that each capture a distinct aspect of effective AI-assisted development.",
+    "Every practitioner — from someone running their first prompt to someone designing enterprise-scale governance — operates across all seven dimensions simultaneously. The levels describe how deeply and consistently that capability is expressed."
+  ],
+  "dimensionsIntro": "Each dimension is independent: a practitioner can be strong in Task Framing but weak in Verification Discipline. The matrix page shows exactly how each dimension is expected to manifest at each level.",
+  "levelsIntro": "Each level represents a recognizable, observable mode of working with Claude Code. Movement between levels is not linear mastery of isolated skills — it is a shift in how all seven dimensions are engaged together.",
+  "howToUseThisFramework": [
+    "Use the Self-Assessment to score yourself across all seven dimensions and get an estimated level. Use the Competency Matrix to see how your weakest dimensions compare to your strongest.",
+    "Use the level detail pages for graduation criteria and evaluation tasks. Use the Study Guide to generate a prioritized reading list based on your assessment results."
+  ],
   "purpose": [
-    "This framework defines five levels of competence for working with Claude Code, ranging from basic tool operation to designing agentic systems.",
-    "It provides a common vocabulary for discussing AI coding proficiency and a structured path for skill development."
+    "This framework provides a common vocabulary for discussing AI coding proficiency and a structured path for skill development.",
+    "It is a reference for self-assessment and guided learning, not a certification or a test."
   ],
   "whatThisIs": [
     "This is a maturity model — a structured ladder that describes observable behaviors, core skills, and knowledge at each stage of Claude Code proficiency.",
-    "It is not a certification or a test. It is a reference framework for self-assessment and guided learning."
-  ],
-  "howToUseThisFramework": [
-    "Start by reading the level summaries to find where you currently sit. Then explore the dimensions to understand what cross-cutting skills matter at every level.",
-    "Use the matrix to see how each dimension evolves across levels. Use the level detail pages to understand graduation criteria and evaluation tasks."
+    "The seven dimensions define what competence means. The five levels define how much of it you have."
   ],
   "levelSummaries": [
     { "levelId": "level-1", "levelNumber": 1, "title": "Operator", "shortLabel": "Operator", "summary": "Uses Claude Code as a command-line tool with basic prompting.", "href": "/ai-coding/claude-code-competence/levels/operator/" },

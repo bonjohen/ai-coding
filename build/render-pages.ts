@@ -125,11 +125,11 @@ function collectPageDefs(data: AllData): PageDef[] {
       },
     });
 
-    // Overview
+    // Overview — uses dedicated overview template (family landing uses family-overview)
     pages.push({
       outputPath: `${familyOut}/overview/index.html`,
       layout: 'article',
-      page: 'family-overview',
+      page: 'overview',
       context: {
         ...familyCtx,
         overview: overviewWithImages,

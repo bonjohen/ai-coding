@@ -272,10 +272,11 @@ function checkDuplicates(errors: ValidationError[], file: string, entityType: st
 }
 
 function validateNavHrefs(data: AllData, generatedPaths: Set<string>, errors: ValidationError[]): void {
-  const allNavItems = [
+  const topLevel = [
     ...data.site.navigation.primaryNav,
     ...data.site.navigation.familyNav.flatMap(g => g.items),
   ];
+  const allNavItems = topLevel.flatMap(item => [item, ...(item.children ?? [])]);
   for (const item of allNavItems) {
     if (!generatedPaths.has(item.href)) {
       errors.push({ file: 'navigation.json', field: 'href', message: `Nav href "${item.href}" does not match any generated page` });

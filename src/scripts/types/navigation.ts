@@ -4,6 +4,7 @@ export interface NavigationItem {
   href: string;
   title: string;
   order: number;
+  children?: NavigationItem[];
 }
 
 export interface FamilyNavGroup {

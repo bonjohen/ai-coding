@@ -6,7 +6,18 @@
   <span class="site-nav__separator" aria-hidden="true">|</span>
   {{#each navigation.familyNav}}
   {{#each items}}
+  {{#if children}}
+  <div class="nav-dropdown">
+    <a href="{{ href }}" class="site-nav__link nav-dropdown__toggle" title="{{ title }}" aria-haspopup="true" aria-expanded="false">{{ label }} <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      {{#each children}}
+      <a href="{{ href }}" class="site-nav__link nav-dropdown__item" title="{{ title }}" role="menuitem">{{ label }}</a>
+      {{/each}}
+    </div>
+  </div>
+  {{else}}
   <a href="{{ href }}" class="site-nav__link" title="{{ title }}">{{ label }}</a>
+  {{/if}}
   {{/each}}
   {{/each}}
   {{/if}}

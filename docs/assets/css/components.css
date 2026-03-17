@@ -122,6 +122,101 @@
 }
 
 /* ========================================
+   Dimension Summary (Overview page)
+   ======================================== */
+.dimension-summary {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dimension-summary:last-of-type {
+  border-bottom: none;
+}
+
+.dimension-summary__name {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin: 0 0 var(--space-xs) 0;
+  color: var(--color-accent);
+}
+
+.dimension-summary__definition {
+  margin: 0 0 var(--space-xs) 0;
+}
+
+/* ========================================
+   Nav Dropdowns
+   ======================================== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown__caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.6;
+  transition: transform var(--transition-fast);
+}
+
+.nav-dropdown--open .nav-dropdown__caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  min-width: 190px;
+  z-index: 200;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.nav-dropdown--open .nav-dropdown__menu {
+  display: flex;
+}
+
+.nav-dropdown__item {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown__toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-dropdown__menu {
+    position: static;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 0 0 var(--space-md);
+  }
+}
+
+/* ========================================
    Breadcrumbs
    ======================================== */
 .breadcrumbs {
