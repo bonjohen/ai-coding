@@ -239,7 +239,8 @@
   height: 72px;
   object-fit: contain;
   flex-shrink: 0;
-  mix-blend-mode: lighten;
+  mix-blend-mode: multiply;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .level-card__content {
@@ -754,7 +755,8 @@
   height: 100px;
   object-fit: contain;
   flex-shrink: 0;
-  mix-blend-mode: lighten;
+  mix-blend-mode: multiply;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 @media (max-width: 640px) {
