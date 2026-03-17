@@ -8,13 +8,13 @@
   <h2>Content Families</h2>
   <div class="grid grid--3col">
     {{#each families}}
-    <div class="card">
-      <h3 class="card__title"><a href="{{ landingPath }}">{{ title }}</a></h3>
+    <a href="{{ landingPath }}" class="card">
+      <h3 class="card__title">{{ title }}</h3>
       <p class="card__description">{{ summary }}</p>
       {{#if status}}
       <span class="badge mt-sm">{{ status }}</span>
       {{/if}}
-    </div>
+    </a>
     {{/each}}
   </div>
 </section>
@@ -22,18 +22,18 @@
 <section class="section">
   <h2>Practice &amp; Assessment</h2>
   <div class="grid grid--3col">
-    <div class="card">
-      <h3 class="card__title"><a href="/ai-coding/claude-code-competence/assess/">Self-Assessment</a></h3>
+    <a href="/ai-coding/claude-code-competence/assess/" class="card">
+      <h3 class="card__title">Self-Assessment</h3>
       <p class="card__description">Evaluate your Claude Code competence across 7 dimensions with a guided assessment and radar chart visualization.</p>
-    </div>
-    <div class="card">
-      <h3 class="card__title"><a href="/ai-coding/claude-code-competence/quiz/">Practice Quiz</a></h3>
+    </a>
+    <a href="/ai-coding/claude-code-competence/quiz/" class="card">
+      <h3 class="card__title">Practice Quiz</h3>
       <p class="card__description">Test your knowledge with 50 questions across multiple types — scenarios, knowledge checks, and behavioral assessments.</p>
-    </div>
-    <div class="card">
-      <h3 class="card__title"><a href="/ai-coding/claude-code-competence/certifications/">Cloud Certifications</a></h3>
+    </a>
+    <a href="/ai-coding/claude-code-competence/certifications/" class="card">
+      <h3 class="card__title">Cloud Certifications</h3>
       <p class="card__description">25 cloud certification exams across Azure, AWS, and Google Cloud with scenario-based questions and progressive hints.</p>
-    </div>
+    </a>
   </div>
 </section>
 {{/block}}

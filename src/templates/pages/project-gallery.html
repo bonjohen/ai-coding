@@ -10,14 +10,14 @@
   <h2>Level {{ level.levelNumber }}: {{ level.title }}</h2>
   <div class="grid grid--2col">
     {{#each projects}}
-    <div class="card">
+    <a href="{{ basePath }}{{ family.slug }}/projects/{{ slug }}/" class="card">
       <div class="flex items-center gap-sm mb-sm">
         <span class="badge badge--level-{{ level.levelNumber }}">L{{ level.levelNumber }}</span>
         <span class="text-sm text-muted">{{ estimatedTime }}</span>
       </div>
-      <h3 class="card__title"><a href="{{ basePath }}{{ family.slug }}/projects/{{ id }}/">{{ title }}</a></h3>
+      <h3 class="card__title">{{ title }}</h3>
       <p class="card__description">{{ summary }}</p>
-    </div>
+    </a>
     {{/each}}
   </div>
 </section>

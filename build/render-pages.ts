@@ -393,9 +393,13 @@ function collectPageDefs(data: AllData): PageDef[] {
 
     // Project gallery and detail pages
     if (family.exampleProjects) {
+      const projectsWithSlugs = family.exampleProjects!.projects.map(p => ({
+        ...p,
+        slug: p.id.replace(/^proj-\d+-/, ''),
+      }));
       const projectsByLevel = family.levels.levels.map(l => ({
         level: l,
-        projects: family.exampleProjects!.projects.filter(p => p.levelId === l.id),
+        projects: projectsWithSlugs.filter(p => p.levelId === l.id),
         levelImage: levelImageMap[l.slug]
           ? `${data.site.site.siteBasePath}assets/images/levels/${levelImageMap[l.slug]}`
           : null,

@@ -164,6 +164,13 @@
   position: relative;
 }
 
+a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .card:hover {
   border-color: var(--color-text-light);
   box-shadow: var(--shadow-md);

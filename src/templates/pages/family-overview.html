@@ -52,10 +52,10 @@
 {{#if hasCertifications}}
 <section class="section">
   <h2>Cloud Certification Practice</h2>
-  <div class="card" style="border-left: 3px solid var(--color-accent);">
-    <h3 class="card__title"><a href="{{ certHref }}">{{ certTotalExams }} Certification Exams</a></h3>
+  <a href="{{ certHref }}" class="card" style="border-left: 3px solid var(--color-accent);">
+    <h3 class="card__title">{{ certTotalExams }} Certification Exams</h3>
     <p class="card__description">Scenario-based practice quizzes across {{ certProviderCount }} cloud providers with progressive hints, progress tracking, and session persistence.</p>
-  </div>
+  </a>
 </section>
 {{/if}}
 {{/block}}
