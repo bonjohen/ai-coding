@@ -118,13 +118,23 @@ function collectPageDefs(data: AllData): PageDef[] {
       },
     });
 
-    // Matrix
+    // Matrix — enrich rows with dimension display names
+    const dimLookup = new Map(family.dimensions.dimensions.map(d => [d.id, d.name]));
+    const enrichedMatrix = {
+      ...family.matrix,
+      rows: family.matrix.rows.map(row => ({
+        ...row,
+        dimensionName: dimLookup.get(row.dimensionId) || row.dimensionId,
+      })),
+    };
+
     pages.push({
       outputPath: `${familyBase}/matrix/index.html`,
       layout: 'matrix',
       page: 'matrix',
       context: {
         ...familyCtx,
+        matrix: enrichedMatrix,
         pageTitle: `Competency Matrix — ${family.family.shortTitle}`,
         pageDescription: 'Full competency matrix: dimensions vs. levels.',
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/matrix/`,

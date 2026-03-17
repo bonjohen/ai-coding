@@ -33,10 +33,18 @@ function initDimensionFilters(container: Element): void {
   });
   filterContainer.appendChild(showAll);
 
+  // Build a map of dimension IDs to display names from the table cells
+  const dimNames = new Map<string, string>();
+  rows.forEach(row => {
+    const dimId = row.getAttribute('data-dimension')!;
+    const header = row.querySelector('.matrix-dimension-header');
+    if (header) dimNames.set(dimId, header.textContent?.trim() || dimId);
+  });
+
   // Per-dimension toggle buttons
   for (const dim of uniqueDimensions) {
     const btn = document.createElement('button');
-    btn.textContent = dim.replace('dim-', '').replace(/-/g, ' ');
+    btn.textContent = dimNames.get(dim) || dim.replace('dim-', '').replace(/-/g, ' ');
     btn.className = 'matrix-filter-btn';
     btn.addEventListener('click', () => {
       rows.forEach(row => {

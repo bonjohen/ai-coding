@@ -368,8 +368,16 @@
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
   color: var(--color-text-muted);
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border-bottom: 1px solid var(--color-border);
+}
+
+.matrix-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  border-right: 1px solid var(--color-border);
+  min-width: 180px;
 }
 
 .matrix-table td {
@@ -411,9 +419,16 @@
 .matrix-dimension-header {
   font-weight: 600;
   white-space: nowrap;
-  min-width: 120px;
+  min-width: 180px;
+  max-width: 200px;
   color: var(--color-text);
   font-size: var(--text-sm);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg-alt);
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 1px solid var(--color-border);
 }
 
 /* ========================================
