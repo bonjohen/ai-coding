@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f06292" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="11.15"/>
+
+  <!-- Brain (left half) -->
+  <path d="M12 5.5c-1.5 0-2.8.8-3.4 2-.8-.2-1.6 0-2.2.5s-.9 1.3-.7 2.1c-.7.6-1.2 1.5-1.2 2.4 0 1.2.7 2.2 1.8 2.7.1 1.1 1 2.1 2.2 2.1.5 0 1-.2 1.4-.5"/>
+  <!-- Brain (right half) -->
+  <path d="M12 5.5c1.5 0 2.8.8 3.4 2 .8-.2 1.6 0 2.2.5s.9 1.3.7 2.1c.7.6 1.2 1.5 1.2 2.4 0 1.2-.7 2.2-1.8 2.7-.1 1.1-1 2.1-2.2 2.1-.5 0-1-.2-1.4-.5"/>
+  <!-- Brain center line -->
+  <line x1="12" y1="5.5" x2="12" y2="16.8"/>
+
+  <!-- Shield overlay (bottom right) -->
+  <path d="M15 14l-0.1 0 3.5-1.5v2c0 2.2-1.5 4-3.4 4.8-1.9-.8-3.4-2.6-3.4-4.8v-2z" fill="none"/>
+  <!-- Check in shield -->
+  <polyline points="13.2,16.5 14.5,17.8 17,15.5"/>
+
+</svg>

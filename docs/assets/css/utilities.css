@@ -1,0 +1,62 @@
+/* Visibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Spacing */
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Text */
+.text-center { text-align: center; }
+.text-muted { color: var(--color-text-muted); }
+.text-sm { font-size: var(--text-sm); }
+.text-lg { font-size: var(--text-lg); }
+.font-bold { font-weight: 700; }
+
+/* Flex */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.badge--level-1 { background-color: var(--color-level-1-dim); color: var(--color-level-1); border-color: rgba(94, 164, 248, 0.25); }
+.badge--level-2 { background-color: var(--color-level-2-dim); color: var(--color-level-2); border-color: rgba(139, 124, 246, 0.25); }
+.badge--level-3 { background-color: var(--color-level-3-dim); color: var(--color-level-3); border-color: rgba(34, 201, 160, 0.25); }
+.badge--level-4 { background-color: var(--color-level-4-dim); color: var(--color-level-4); border-color: rgba(240, 150, 64, 0.25); }
+.badge--level-5 { background-color: var(--color-level-5-dim); color: var(--color-level-5); border-color: rgba(240, 98, 146, 0.25); }

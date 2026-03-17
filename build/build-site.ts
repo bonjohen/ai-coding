@@ -1,4 +1,4 @@
-import { rmSync, mkdirSync, writeFileSync, existsSync } from 'fs';
+import { rmSync, mkdirSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { loadAllData } from './load-data.js';
 import { validateAllData } from './validate-data.js';
@@ -18,12 +18,11 @@ const validateOnly = args.includes('--validate-only');
 
 function clean(): void {
   console.log('Cleaning docs/ output...');
-  // Only clean generated subdirectories, preserve docs/claude_code_levels_design.md etc.
-  for (const subdir of ['ai-coding']) {
-    const target = join(OUTPUT_DIR, subdir);
-    if (existsSync(target)) {
-      rmSync(target, { recursive: true, force: true });
-    }
+  // Remove generated output; preserve hand-authored docs/*.md files
+  const keepFiles = new Set(['claude_code_levels_design.md', 'claude_code_levels_todos.md']);
+  for (const entry of readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
+    if (keepFiles.has(entry.name)) continue;
+    rmSync(join(OUTPUT_DIR, entry.name), { recursive: true, force: true });
   }
 }
 
@@ -90,20 +89,18 @@ function build(): void {
     writeFileSync(filePath, page.html, 'utf-8');
   }
 
-  // Step 7: Copy assets (into basePath subdirectory so paths resolve)
-  const basePath = data.site.site.siteBasePath.replace(/^\/|\/$/g, '');
-  const assetsOutputDir = join(OUTPUT_DIR, basePath);
+  // Step 7: Copy assets to docs/ root (links use /ai-coding/assets/… which GitHub Pages maps here)
   console.log('Copying assets...');
-  copyAllAssets(SRC_DIR, assetsOutputDir);
+  copyAllAssets(SRC_DIR, OUTPUT_DIR);
 
   // Step 8: Copy family example files
   console.log('Copying examples...');
   const familySlugs = Array.from(data.families.values()).map(f => f.family.slug);
-  copyFamilyExamples(DATA_DIR, assetsOutputDir, familySlugs);
+  copyFamilyExamples(DATA_DIR, OUTPUT_DIR, familySlugs);
 
   // Step 8b: Copy certification data files
   console.log('Copying certification data...');
-  copyCertificationData(DATA_DIR, assetsOutputDir, familySlugs);
+  copyCertificationData(DATA_DIR, OUTPUT_DIR, familySlugs);
 
   // Step 9: Report
   console.log('\n=== Build Complete ===');

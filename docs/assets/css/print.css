@@ -1,0 +1,88 @@
+@media print {
+  /* Hide navigation chrome */
+  .site-header,
+  .site-nav,
+  .nav-toggle,
+  .breadcrumbs,
+  .site-footer,
+  .level-nav,
+  .matrix-filters {
+    display: none !important;
+  }
+
+  /* Reset to light for print */
+  :root {
+    --color-bg: #fff;
+    --color-bg-alt: #f8f8f8;
+    --color-surface: #fff;
+    --color-text: #111;
+    --color-text-muted: #555;
+    --color-border: #ddd;
+    --color-border-light: #eee;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 11pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Expand collapsed content */
+  .accordion__content {
+    display: block !important;
+  }
+
+  .matrix-cell__detail {
+    display: block !important;
+  }
+
+  /* Prevent overflow in matrix */
+  .matrix-table {
+    overflow: visible;
+    border: 1px solid #ccc;
+  }
+
+  .matrix-table table {
+    min-width: 0;
+    font-size: 9pt;
+  }
+
+  /* Show link URLs */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Preserve headings */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #111;
+    -webkit-text-fill-color: #111;
+  }
+
+  /* Avoid breaking within sections */
+  .section,
+  .card,
+  .level-card,
+  .source-card {
+    page-break-inside: avoid;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero::before {
+    display: none;
+  }
+}
