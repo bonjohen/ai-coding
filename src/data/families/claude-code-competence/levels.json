@@ -15,12 +15,16 @@
       "coreConcepts": [
         { "id": "c1-cli-basics", "name": "CLI Basics", "definition": "Understanding how to install, launch, and interact with Claude Code from the command line." },
         { "id": "c1-basic-prompting", "name": "Basic Prompting", "definition": "The ability to express a request in natural language that Claude Code can act on." },
-        { "id": "c1-tool-output", "name": "Tool Output Reading", "definition": "The ability to read and interpret Claude Code's responses, diffs, and tool invocations." }
+        { "id": "c1-tool-output", "name": "Tool Output Reading", "definition": "The ability to read and interpret Claude Code's responses, diffs, and tool invocations." },
+        { "id": "c1-model-awareness", "name": "Model Awareness", "definition": "A basic understanding that Claude Code is powered by a language model with capabilities and limitations, not a deterministic compiler." },
+        { "id": "c1-permission-model", "name": "Permission Model", "definition": "Understanding that Claude Code asks for permission before executing commands, editing files, or accessing resources, and why those guardrails exist." }
       ],
       "coreSkills": [
         { "id": "s1-install-run", "name": "Install and Run", "definition": "Can install Claude Code and start a session.", "observableEvidence": "Launches Claude Code from terminal without assistance." },
         { "id": "s1-simple-prompt", "name": "Simple Prompting", "definition": "Can write a natural language prompt that produces useful output.", "observableEvidence": "Asks Claude Code to write a function and gets a working result." },
-        { "id": "s1-accept-output", "name": "Accept or Reject Output", "definition": "Can review a generated diff and decide whether to accept it.", "observableEvidence": "Reviews a diff and either accepts or asks for revision." }
+        { "id": "s1-accept-output", "name": "Accept or Reject Output", "definition": "Can review a generated diff and decide whether to accept it.", "observableEvidence": "Reviews a diff and either accepts or asks for revision." },
+        { "id": "s1-navigate-tools", "name": "Tool Navigation", "definition": "Can use slash commands (/help, /clear) and understand the basic tool palette.", "observableEvidence": "Uses /help to discover available commands without external documentation." },
+        { "id": "s1-error-recovery", "name": "Basic Error Recovery", "definition": "Can recognize when Claude Code has produced an error and retry with a different approach.", "observableEvidence": "Rephrases a prompt after getting an unhelpful response rather than giving up." }
       ],
       "observableBehaviors": [
         "Launches Claude Code and immediately starts prompting without setting context.",
@@ -46,6 +50,12 @@
           "title": "Generate a Utility Function",
           "description": "Ask Claude Code to write a string utility function with edge cases.",
           "successCriteria": ["Function works correctly", "Practitioner can explain what it does", "Practitioner reviews the diff before accepting"]
+        },
+        {
+          "id": "t1-bug-fix",
+          "title": "Fix a Known Bug",
+          "description": "Give Claude Code a file with a known bug and ask it to find and fix the issue.",
+          "successCriteria": ["Bug is correctly identified", "Fix is applied cleanly", "Practitioner verifies the fix by running the code"]
         }
       ],
       "learningEmphasis": [
@@ -70,12 +80,16 @@
       "coreConcepts": [
         { "id": "c2-context-setting", "name": "Context Setting", "definition": "Providing relevant file context, codebase conventions, and requirements before requesting changes." },
         { "id": "c2-task-decomposition", "name": "Task Decomposition", "definition": "Breaking complex tasks into sequential, well-scoped prompts." },
-        { "id": "c2-verification-loops", "name": "Verification Loops", "definition": "Systematically testing and reviewing output after each interaction." }
+        { "id": "c2-verification-loops", "name": "Verification Loops", "definition": "Systematically testing and reviewing output after each interaction." },
+        { "id": "c2-constraint-specification", "name": "Constraint Specification", "definition": "Explicitly stating what the output must and must not do — including edge cases, performance bounds, and style conventions." },
+        { "id": "c2-iterative-refinement", "name": "Iterative Refinement", "definition": "Using follow-up prompts to correct, extend, or improve initial output rather than accepting or rejecting wholesale." }
       ],
       "coreSkills": [
         { "id": "s2-context-prompt", "name": "Contextual Prompting", "definition": "Can write prompts that include file paths, conventions, and constraints.", "observableEvidence": "Prompts reference specific files and coding standards." },
         { "id": "s2-decompose", "name": "Task Decomposition", "definition": "Can break a feature request into 3-5 sequential prompts.", "observableEvidence": "Plans a multi-step interaction before starting." },
-        { "id": "s2-verify", "name": "Systematic Verification", "definition": "Runs tests and reviews diffs after every significant change.", "observableEvidence": "Never accepts a diff without running the test suite." }
+        { "id": "s2-verify", "name": "Systematic Verification", "definition": "Runs tests and reviews diffs after every significant change.", "observableEvidence": "Never accepts a diff without running the test suite." },
+        { "id": "s2-error-diagnosis", "name": "Error Diagnosis", "definition": "Can read Claude Code error output and provide corrective context to resolve issues.", "observableEvidence": "Pastes error messages back with analysis and asks for targeted fixes." },
+        { "id": "s2-session-management", "name": "Session Management", "definition": "Knows when to continue a session vs. start fresh to maintain context quality.", "observableEvidence": "Starts a new session when context has drifted rather than fighting accumulated confusion." }
       ],
       "observableBehaviors": [
         "Provides file paths and context at the start of each session.",
@@ -101,6 +115,12 @@
           "title": "Multi-Step Feature Implementation",
           "description": "Implement a feature that requires changes across 3+ files using decomposed prompts.",
           "successCriteria": ["Feature works end-to-end", "Each prompt is well-scoped", "Tests pass after each step"]
+        },
+        {
+          "id": "t2-refactor",
+          "title": "Guided Refactoring",
+          "description": "Refactor an existing module by providing Claude Code with constraints (preserve API, improve internal structure, add tests).",
+          "successCriteria": ["Public API is unchanged", "Internal structure is improved", "New tests cover the refactored code", "All existing tests still pass"]
         }
       ],
       "learningEmphasis": [
@@ -126,12 +146,16 @@
       "coreConcepts": [
         { "id": "c3-claude-md", "name": "CLAUDE.md Configuration", "definition": "Using project-level and directory-level CLAUDE.md files to provide persistent context, conventions, and instructions." },
         { "id": "c3-hooks", "name": "Hooks and Automation", "definition": "Configuring pre-commit hooks, linting rules, and automated checks that run alongside Claude Code." },
-        { "id": "c3-mcp", "name": "MCP Server Integration", "definition": "Setting up Model Context Protocol servers to give Claude Code access to external tools and data sources." }
+        { "id": "c3-mcp", "name": "MCP Server Integration", "definition": "Setting up Model Context Protocol servers to give Claude Code access to external tools and data sources." },
+        { "id": "c3-permissions", "name": "Permission Configuration", "definition": "Setting up allowlists and denylists for tool use so Claude Code can operate efficiently without excessive permission prompts." },
+        { "id": "c3-layered-context", "name": "Layered Context Architecture", "definition": "Designing a hierarchy of context files (root CLAUDE.md, directory-level overrides, .claude/settings) that provide the right information at the right scope." }
       ],
       "coreSkills": [
         { "id": "s3-claude-md-design", "name": "CLAUDE.md Design", "definition": "Can design effective CLAUDE.md files that guide AI behavior for a project.", "observableEvidence": "Project has layered CLAUDE.md files with build commands, conventions, and architecture notes." },
         { "id": "s3-hook-config", "name": "Hook Configuration", "definition": "Can configure hooks that enforce code quality standards automatically.", "observableEvidence": "Pre-commit hooks catch common issues before code is committed." },
-        { "id": "s3-mcp-setup", "name": "MCP Server Setup", "definition": "Can configure and use MCP servers for database, API, or file system access.", "observableEvidence": "Claude Code accesses external systems through configured MCP servers." }
+        { "id": "s3-mcp-setup", "name": "MCP Server Setup", "definition": "Can configure and use MCP servers for database, API, or file system access.", "observableEvidence": "Claude Code accesses external systems through configured MCP servers." },
+        { "id": "s3-permission-tuning", "name": "Permission Tuning", "definition": "Can configure permission settings that balance safety with productivity.", "observableEvidence": "Claude Code runs common operations without interrupting for approval, while still gating destructive actions." },
+        { "id": "s3-team-onboarding", "name": "Team Onboarding", "definition": "Can set up an environment so that a new team member can use Claude Code productively on day one.", "observableEvidence": "New contributor follows CLAUDE.md and is productive without asking how to use Claude Code in the project." }
       ],
       "observableBehaviors": [
         "Maintains CLAUDE.md files as living documents updated with project evolution.",
@@ -157,6 +181,12 @@
           "title": "Project Environment Setup",
           "description": "Configure a new project with CLAUDE.md, hooks, and at least one MCP server.",
           "successCriteria": ["CLAUDE.md provides useful guidance", "Hooks catch at least one common issue", "MCP server is functional"]
+        },
+        {
+          "id": "t3-team-env",
+          "title": "Team Environment Handoff",
+          "description": "Configure an environment and have a colleague use Claude Code in the project without verbal instructions.",
+          "successCriteria": ["Colleague completes a task using only CLAUDE.md and project config for guidance", "No manual intervention required", "Output meets project standards"]
         }
       ],
       "learningEmphasis": [
@@ -182,12 +212,16 @@
       "coreConcepts": [
         { "id": "c4-multi-agent", "name": "Multi-Agent Orchestration", "definition": "Running multiple Claude Code instances on related but independent tasks, coordinating their work." },
         { "id": "c4-ci-integration", "name": "CI/CD Integration", "definition": "Embedding Claude Code into automated pipelines for code generation, review, and testing." },
-        { "id": "c4-headless-mode", "name": "Headless Operation", "definition": "Using Claude Code in non-interactive mode for scripted and automated workflows." }
+        { "id": "c4-headless-mode", "name": "Headless Operation", "definition": "Using Claude Code in non-interactive mode for scripted and automated workflows." },
+        { "id": "c4-worktree-isolation", "name": "Worktree Isolation", "definition": "Using git worktrees to give each agent an isolated copy of the repository, preventing merge conflicts during parallel operation." },
+        { "id": "c4-quality-monitoring", "name": "Output Quality Monitoring", "definition": "Designing feedback loops that detect when automated agent output drifts below acceptable quality thresholds." }
       ],
       "coreSkills": [
         { "id": "s4-orchestrate", "name": "Workflow Orchestration", "definition": "Can design and run multi-agent workflows with proper task decomposition.", "observableEvidence": "Runs parallel agents on independent tasks and merges results." },
         { "id": "s4-ci-cd", "name": "Pipeline Integration", "definition": "Can embed Claude Code into CI/CD pipelines for automated code operations.", "observableEvidence": "CI pipeline includes Claude Code steps for code review or generation." },
-        { "id": "s4-error-handling", "name": "Workflow Error Handling", "definition": "Can design workflows that handle failures gracefully.", "observableEvidence": "Automated workflows retry or escalate on failure rather than silently breaking." }
+        { "id": "s4-error-handling", "name": "Workflow Error Handling", "definition": "Can design workflows that handle failures gracefully.", "observableEvidence": "Automated workflows retry or escalate on failure rather than silently breaking." },
+        { "id": "s4-task-graph", "name": "Task Graph Design", "definition": "Can model dependencies between agent tasks and determine which can run in parallel.", "observableEvidence": "Draws or documents a task dependency graph before launching parallel agents." },
+        { "id": "s4-cost-management", "name": "Token and Cost Management", "definition": "Can estimate and manage token usage across multi-agent workflows to control costs.", "observableEvidence": "Sets token budgets for automated workflows and monitors actual usage." }
       ],
       "observableBehaviors": [
         "Runs multiple Claude Code instances on parallel branches.",
@@ -213,6 +247,12 @@
           "title": "Multi-Agent Workflow Design",
           "description": "Design and execute a workflow where 2+ Claude Code agents work on parallel tasks with coordinated output.",
           "successCriteria": ["Tasks are correctly decomposed", "Agents work in parallel", "Results merge without conflicts"]
+        },
+        {
+          "id": "t4-ci-pipeline",
+          "title": "CI/CD Pipeline Integration",
+          "description": "Add a Claude Code step to an existing CI pipeline that automatically reviews or generates code on pull requests.",
+          "successCriteria": ["Pipeline runs without manual intervention", "Agent output is reviewed before merge", "Failures are reported clearly"]
         }
       ],
       "learningEmphasis": [
@@ -238,12 +278,16 @@
       "coreConcepts": [
         { "id": "c5-governance", "name": "AI Coding Governance", "definition": "Designing policies, review processes, and audit trails for AI-generated code at organizational scale." },
         { "id": "c5-safety-boundaries", "name": "Safety Boundaries", "definition": "Defining what autonomous agents can and cannot do, with enforcement mechanisms." },
-        { "id": "c5-strategy", "name": "Organizational AI Strategy", "definition": "Planning how AI coding tools are adopted, integrated, and evolved across an organization." }
+        { "id": "c5-strategy", "name": "Organizational AI Strategy", "definition": "Planning how AI coding tools are adopted, integrated, and evolved across an organization." },
+        { "id": "c5-risk-assessment", "name": "AI Risk Assessment", "definition": "Evaluating the risk profile of AI-generated code in different contexts — from internal tooling to production-critical systems." },
+        { "id": "c5-human-ai-teaming", "name": "Human-AI Teaming", "definition": "Designing collaboration models that optimize the strengths of both human engineers and AI agents while mitigating the weaknesses of each." }
       ],
       "coreSkills": [
         { "id": "s5-governance-design", "name": "Governance Framework Design", "definition": "Can design and implement governance frameworks for AI-generated code.", "observableEvidence": "Organization has documented policies for AI code review and approval." },
         { "id": "s5-safety-design", "name": "Safety Boundary Design", "definition": "Can design safety mechanisms that prevent autonomous agents from causing harm.", "observableEvidence": "Agents operate within defined boundaries with automatic escalation." },
-        { "id": "s5-capability-eval", "name": "Capability Evaluation", "definition": "Can evaluate new AI coding tools and patterns for organizational fit.", "observableEvidence": "Produces structured evaluations of new tools with risk/benefit analysis." }
+        { "id": "s5-capability-eval", "name": "Capability Evaluation", "definition": "Can evaluate new AI coding tools and patterns for organizational fit.", "observableEvidence": "Produces structured evaluations of new tools with risk/benefit analysis." },
+        { "id": "s5-training-design", "name": "Training Program Design", "definition": "Can design onboarding and upskilling programs for AI coding competence across teams.", "observableEvidence": "Team members progress through competence levels with structured guidance." },
+        { "id": "s5-metrics-design", "name": "AI Coding Metrics", "definition": "Can define and track metrics that measure the effectiveness and safety of AI coding adoption.", "observableEvidence": "Dashboard tracks AI coding productivity, quality, and incident rates." }
       ],
       "observableBehaviors": [
         "Designs organization-wide AI coding policies.",
@@ -267,6 +311,12 @@
           "title": "Governance Framework Design",
           "description": "Design a governance framework for AI-generated code in a team of 10+ engineers.",
           "successCriteria": ["Framework covers code review, audit, permissions, and escalation", "Balances safety with productivity", "Is practical to implement"]
+        },
+        {
+          "id": "t5-adoption-plan",
+          "title": "Organizational Adoption Plan",
+          "description": "Create a phased adoption plan for introducing AI coding tools to a development organization.",
+          "successCriteria": ["Plan addresses training, tooling, governance, and measurement", "Risk mitigation is included", "Rollback strategy exists", "Timeline is realistic"]
         }
       ],
       "learningEmphasis": [
