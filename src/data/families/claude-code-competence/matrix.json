@@ -4,71 +4,421 @@
     {
       "dimensionId": "dim-conceptual-understanding",
       "cells": [
-        { "levelId": "level-1", "summary": "Knows Claude Code exists and can run it.", "detail": ["Understands it is a CLI tool.", "Does not yet understand context windows or tool use architecture."] },
-        { "levelId": "level-2", "summary": "Understands prompt-response cycle and context.", "detail": ["Knows context window limits exist.", "Understands that providing context improves output."] },
-        { "levelId": "level-3", "summary": "Understands configuration, hooks, and MCP.", "detail": ["Knows how CLAUDE.md affects model behavior.", "Understands MCP server architecture."] },
-        { "levelId": "level-4", "summary": "Understands multi-agent orchestration and automation.", "detail": ["Grasps headless mode and non-interactive operation.", "Understands agent coordination patterns."] },
-        { "levelId": "level-5", "summary": "Deep architectural understanding of AI coding systems.", "detail": ["Can reason about system-level implications.", "Understands governance and safety at architectural level."] }
+        {
+          "levelId": "level-1",
+          "summary": "Knows Claude Code exists and can run it.",
+          "detail": [
+            "Understands it is a CLI tool that generates code from natural language",
+            "Cannot explain what a context window is or why it matters",
+            "Does not distinguish between tool use and direct text generation",
+            "Treats the model as a black box — no mental model of how it works",
+            "Cannot predict when the tool will struggle or succeed"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Understands the prompt-response cycle and role of context.",
+          "detail": [
+            "Knows context window limits exist and affect multi-file tasks",
+            "Understands that providing file paths and conventions improves output",
+            "Can explain the difference between a vague and a well-structured prompt",
+            "Recognizes when output quality degrades due to insufficient context",
+            "Begins to understand that the same prompt can produce different results"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Understands configuration, hooks, MCP, and persistent context.",
+          "detail": [
+            "Knows how CLAUDE.md content shapes model behavior across sessions",
+            "Understands MCP server architecture and what data they expose",
+            "Can explain how hooks intercept and automate tool events",
+            "Understands the permission model and why allowlists/denylists matter",
+            "Grasps the difference between session context and persistent configuration"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Understands multi-agent orchestration, automation, and system design.",
+          "detail": [
+            "Grasps headless mode and non-interactive operation constraints",
+            "Understands how worktree isolation prevents agent conflicts",
+            "Can reason about token costs and budget across parallel workflows",
+            "Understands the failure modes of automated agent pipelines",
+            "Can articulate trade-offs between speed, cost, and quality in agent workflows"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Deep architectural understanding of AI coding systems at organizational scale.",
+          "detail": [
+            "Can reason about system-level implications of widespread AI code generation",
+            "Understands how AI coding governance parallels data governance maturity models",
+            "Can evaluate model capabilities against organizational risk profiles",
+            "Understands the human factors of AI-assisted development at scale",
+            "Can predict how tool evolution will affect organizational strategy"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-task-framing",
       "cells": [
-        { "levelId": "level-1", "summary": "Vague, single-turn prompts.", "detail": ["Asks for things without specifying constraints.", "Does not decompose tasks."] },
-        { "levelId": "level-2", "summary": "Structured prompts with context and constraints.", "detail": ["Provides file paths and conventions.", "Decomposes features into steps."] },
-        { "levelId": "level-3", "summary": "Environment-level framing via CLAUDE.md.", "detail": ["Context is provided persistently, not per-prompt.", "Tasks build on established project configuration."] },
-        { "levelId": "level-4", "summary": "Workflow-level task design.", "detail": ["Decomposes work across multiple agents.", "Designs task graphs with dependencies."] },
-        { "levelId": "level-5", "summary": "Organizational task strategy.", "detail": ["Frames AI coding work at portfolio level.", "Designs task patterns that scale across teams."] }
+        {
+          "levelId": "level-1",
+          "summary": "Vague, single-turn prompts with no structure.",
+          "detail": [
+            "Asks for things without specifying constraints or edge cases",
+            "Does not decompose multi-step tasks into sequential prompts",
+            "Provides no file paths, conventions, or architectural context",
+            "Expects the model to guess what 'fix this' or 'make it work' means",
+            "Retries the same prompt when results are poor instead of refining"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Structured prompts with explicit context, constraints, and decomposition.",
+          "detail": [
+            "Provides file paths, function names, and coding conventions in prompts",
+            "Decomposes features into 3-5 sequential, focused prompts",
+            "Specifies constraints: edge cases, performance bounds, style rules",
+            "References previous steps when building on prior work in a session",
+            "Plans the prompt sequence before starting a complex task"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Environment-level framing that reduces per-prompt overhead.",
+          "detail": [
+            "Context is provided persistently via CLAUDE.md, not repeated each prompt",
+            "Tasks build on established project configuration and conventions",
+            "Prompts assume the model already knows build commands and architecture",
+            "Frames tasks in terms of project patterns rather than low-level instructions",
+            "New sessions are productive immediately because environment provides context"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Workflow-level task design across multiple agents and pipelines.",
+          "detail": [
+            "Decomposes work across multiple agents with clear interface contracts",
+            "Designs task dependency graphs identifying what can run in parallel",
+            "Frames headless/scripted prompts for batch and CI/CD operation",
+            "Specifies rollback and error-handling behavior in automated task definitions",
+            "Writes prompt templates that are reusable across similar tasks"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Organizational task strategy and scalable prompt patterns.",
+          "detail": [
+            "Frames AI coding work at portfolio level across teams and projects",
+            "Designs task patterns and prompt libraries that scale across the organization",
+            "Creates standards for how teams decompose work for AI agents",
+            "Evaluates task framing effectiveness using quality and productivity metrics",
+            "Adapts task strategies as model capabilities evolve"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-verification-discipline",
       "cells": [
-        { "levelId": "level-1", "summary": "Minimal — accepts if it looks right.", "detail": ["Does not run tests.", "Reviews output superficially."] },
-        { "levelId": "level-2", "summary": "Systematic — tests after each change.", "detail": ["Reviews diffs line-by-line.", "Runs test suite after changes."] },
-        { "levelId": "level-3", "summary": "Automated — hooks enforce verification.", "detail": ["Pre-commit hooks catch issues.", "Linting and formatting are automated."] },
-        { "levelId": "level-4", "summary": "Pipeline-integrated verification.", "detail": ["CI/CD runs verification on agent output.", "Automated quality gates for AI-generated code."] },
-        { "levelId": "level-5", "summary": "Governance-level verification.", "detail": ["Audit trails for all AI-generated changes.", "Compliance verification integrated into workflows."] }
+        {
+          "levelId": "level-1",
+          "summary": "Minimal — accepts output if it looks roughly correct.",
+          "detail": [
+            "Does not run tests after accepting AI-generated code",
+            "Reviews output superficially — scans rather than reads line-by-line",
+            "Cannot identify subtle bugs in generated diffs",
+            "Accepts hardcoded values, missing error handling, or style violations",
+            "Does not verify that generated code handles edge cases"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Systematic — reviews diffs and tests after every change.",
+          "detail": [
+            "Reviews every diff line-by-line before accepting",
+            "Runs the full test suite after each significant change",
+            "Checks for hardcoded values that should come from configuration",
+            "Verifies naming conventions and code style match project standards",
+            "Iterates on failures rather than accepting partially correct output"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Automated — hooks and tooling enforce verification standards.",
+          "detail": [
+            "Pre-commit hooks run linting, type-checking, and formatting automatically",
+            "Configured hooks catch common AI-generated code issues before commit",
+            "Security scanning runs on every change without manual invocation",
+            "Test coverage thresholds prevent merging untested AI-generated code",
+            "Verification is part of the environment, not dependent on individual discipline"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Pipeline-integrated verification with automated quality gates.",
+          "detail": [
+            "CI/CD runs full verification on every agent-generated commit",
+            "Automated quality gates block merges that fail verification thresholds",
+            "Agent output quality is monitored for drift over time",
+            "Verification results are logged and tracked as metrics",
+            "Failure patterns in automated verification trigger process improvements"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Governance-level verification with audit trails and compliance.",
+          "detail": [
+            "Audit trails record every AI-generated change with provenance",
+            "Compliance verification is integrated into deployment workflows",
+            "Verification policies are documented and enforced across teams",
+            "Regular audits assess whether verification processes catch real issues",
+            "Incident post-mortems track whether AI-generated code was the root cause"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-context-management",
       "cells": [
-        { "levelId": "level-1", "summary": "No context management.", "detail": ["Starts prompting without orientation.", "Loses context in long sessions."] },
-        { "levelId": "level-2", "summary": "Per-session context management.", "detail": ["Provides context at session start.", "Knows when to start fresh."] },
-        { "levelId": "level-3", "summary": "Persistent project context.", "detail": ["CLAUDE.md provides baseline context.", "Directory-level context scoping."] },
-        { "levelId": "level-4", "summary": "Cross-agent context coordination.", "detail": ["Context shared across workflow agents.", "Context boundaries managed by design."] },
-        { "levelId": "level-5", "summary": "Organizational context architecture.", "detail": ["Context systems designed at scale.", "Knowledge management across AI-assisted projects."] }
+        {
+          "levelId": "level-1",
+          "summary": "No context management — prompts without orientation.",
+          "detail": [
+            "Starts prompting without telling the model what project or file is in scope",
+            "Loses context in long sessions without realizing quality has degraded",
+            "Does not know when to start a fresh session vs. continue",
+            "Provides the same context repeatedly because it is not persisted",
+            "Cannot explain why the model sometimes 'forgets' earlier instructions"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Per-session context management with deliberate orientation.",
+          "detail": [
+            "Provides file paths and architecture context at the start of each session",
+            "Recognizes when context window is approaching limits and starts fresh",
+            "References specific files and functions rather than vague descriptions",
+            "Knows that long conversations accumulate noise and reduces quality",
+            "Begins saving useful context snippets for reuse across sessions"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Persistent project context via CLAUDE.md and configuration.",
+          "detail": [
+            "Root CLAUDE.md provides baseline project context automatically",
+            "Directory-level CLAUDE.md files scope context to specific code areas",
+            "Permission settings reduce context overhead from repeated approval prompts",
+            "MCP servers provide live context from databases and external systems",
+            "Context hierarchy is designed so the model gets the right info at the right scope"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Cross-agent context coordination across parallel workflows.",
+          "detail": [
+            "Context is explicitly partitioned when work is split across agents",
+            "Shared interfaces and type definitions serve as context contracts between agents",
+            "Worktree isolation ensures agents have clean context without interference",
+            "Context budgets are managed to control token costs in multi-agent workflows",
+            "Results from one agent's work are summarized before being passed to another"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Organizational context architecture and knowledge management.",
+          "detail": [
+            "Context systems are designed at organizational scale across teams",
+            "CLAUDE.md templates and conventions are standardized across projects",
+            "Knowledge from AI-assisted work is captured and reusable",
+            "Context quality is measured and improved systematically",
+            "Organizational learning from AI interactions is preserved beyond individual sessions"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-environment-design",
       "cells": [
-        { "levelId": "level-1", "summary": "No configuration.", "detail": ["Uses Claude Code with default settings.", "No project-specific setup."] },
-        { "levelId": "level-2", "summary": "Minimal configuration.", "detail": ["May have basic CLAUDE.md.", "Beginning to explore settings."] },
-        { "levelId": "level-3", "summary": "Comprehensive environment.", "detail": ["Layered CLAUDE.md files.", "Hooks, MCP servers, and permissions configured."] },
-        { "levelId": "level-4", "summary": "Workflow-ready environment.", "detail": ["Environment supports multi-agent operation.", "CI/CD integration configured."] },
-        { "levelId": "level-5", "summary": "Organization-wide environment standards.", "detail": ["Template environments for teams.", "Governance policies embedded in configuration."] }
+        {
+          "levelId": "level-1",
+          "summary": "No configuration — uses defaults.",
+          "detail": [
+            "Uses Claude Code with factory default settings",
+            "No CLAUDE.md, no hooks, no permission customization",
+            "Every session starts from scratch with no project awareness",
+            "Approves every tool permission prompt manually",
+            "Does not know configuration options exist"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Minimal configuration — beginning to customize.",
+          "detail": [
+            "May have created a basic CLAUDE.md with build commands",
+            "Has explored .claude/settings.json but not configured it deeply",
+            "Understands that configuration exists but uses it inconsistently",
+            "Relies on per-session context rather than persistent environment",
+            "Beginning to version-control AI tool configuration"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Comprehensive environment with CLAUDE.md, hooks, MCP, and permissions.",
+          "detail": [
+            "Layered CLAUDE.md files provide context at project and directory levels",
+            "Hooks enforce linting, testing, and formatting on every change",
+            "MCP servers connect to databases, APIs, or documentation as needed",
+            "Permission allowlists let common operations run without interruption",
+            "A new team member is productive with Claude Code immediately using the configuration"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Workflow-ready environment supporting automation and multi-agent operation.",
+          "detail": [
+            "Environment supports headless and non-interactive operation",
+            "CI/CD pipelines have Claude Code steps configured and tested",
+            "Worktree scripts and agent orchestration tools are in place",
+            "Token budgets and cost controls are configured for automated workflows",
+            "Environment configuration is tested and documented for reliability"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Organization-wide environment standards and governance integration.",
+          "detail": [
+            "Template environments provide consistent setup across all team projects",
+            "Governance policies are embedded in environment configuration (deny rules, audit hooks)",
+            "Environment standards are versioned, reviewed, and updated organizationally",
+            "New projects inherit a compliant baseline configuration automatically",
+            "Environment metrics track adoption, compliance, and productivity impact"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-workflow-scaling",
       "cells": [
-        { "levelId": "level-1", "summary": "Single task, single session.", "detail": ["One prompt at a time.", "No parallelism."] },
-        { "levelId": "level-2", "summary": "Multi-step single sessions.", "detail": ["Sequential task chains.", "Still single-agent."] },
-        { "levelId": "level-3", "summary": "Automated single-agent tasks.", "detail": ["Scripted operations.", "Beginning headless usage."] },
-        { "levelId": "level-4", "summary": "Multi-agent parallel workflows.", "detail": ["Parallel task execution.", "Pipeline-integrated automation."] },
-        { "levelId": "level-5", "summary": "Organizational AI workflow strategy.", "detail": ["Cross-team workflow orchestration.", "Capacity planning for AI agents."] }
+        {
+          "levelId": "level-1",
+          "summary": "Single task, single session, one prompt at a time.",
+          "detail": [
+            "Works on one task per session with no parallelism",
+            "Does not plan sequences of prompts in advance",
+            "Each interaction is independent with no workflow continuity",
+            "Cannot estimate how long a multi-step task will take with AI",
+            "Does not use scripts or automation for repetitive tasks"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Multi-step sessions with planned prompt sequences.",
+          "detail": [
+            "Plans 3-5 sequential prompts before starting a complex task",
+            "Tracks progress through a task within a single session",
+            "Uses follow-up prompts to iterate and refine previous output",
+            "Still limited to one agent at a time in one session",
+            "Begins to recognize tasks that could benefit from automation"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Automated single-agent tasks with scripting and headless mode.",
+          "detail": [
+            "Uses claude -p for scripted, non-interactive operations",
+            "Writes bash scripts that run Claude Code on multiple files",
+            "Automates repetitive tasks like documentation updates or code formatting",
+            "Designs multi-session workflows where each session builds on prior artifacts",
+            "Begins to explore running multiple agents in parallel"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Multi-agent parallel workflows integrated into development pipelines.",
+          "detail": [
+            "Runs multiple Claude Code agents simultaneously on isolated worktrees",
+            "CI/CD pipelines include automated Claude Code steps for review or generation",
+            "Task decomposition maximizes parallel execution across agents",
+            "Error handling and retry logic handle agent failures gracefully",
+            "Cost and token usage are monitored across all automated workflows"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Organizational AI workflow strategy with cross-team orchestration.",
+          "detail": [
+            "Workflow patterns are standardized and shared across engineering teams",
+            "Capacity planning accounts for AI agent compute and token budgets",
+            "Cross-team workflow orchestration handles complex multi-project tasks",
+            "Workflow effectiveness is measured with productivity and quality metrics",
+            "New workflow patterns are evaluated, piloted, and rolled out systematically"
+          ]
+        }
       ]
     },
     {
       "dimensionId": "dim-safety-governance",
       "cells": [
-        { "levelId": "level-1", "summary": "No safety awareness.", "detail": ["Accepts code without security review.", "No audit trail."] },
-        { "levelId": "level-2", "summary": "Basic awareness.", "detail": ["Reviews for obvious security issues.", "Understands risk exists."] },
-        { "levelId": "level-3", "summary": "Project-level safety.", "detail": ["Permissions configured.", "Hooks enforce safety checks."] },
-        { "levelId": "level-4", "summary": "Workflow-level safety.", "detail": ["Safety boundaries in automated workflows.", "Monitoring for quality drift."] },
-        { "levelId": "level-5", "summary": "Organizational governance.", "detail": ["Policies for AI code generation.", "Compliance and audit frameworks.", "Safety boundary enforcement at scale."] }
+        {
+          "levelId": "level-1",
+          "summary": "No safety awareness — accepts code without security review.",
+          "detail": [
+            "Does not review AI-generated code for security vulnerabilities",
+            "No audit trail for what AI changes were made and when",
+            "Accepts hardcoded credentials or insecure patterns without noticing",
+            "Does not consider the risk of AI-generated code in production",
+            "Cannot articulate what could go wrong with unreviewed AI output"
+          ]
+        },
+        {
+          "levelId": "level-2",
+          "summary": "Basic awareness — reviews for obvious security issues.",
+          "detail": [
+            "Checks for hardcoded secrets and credentials in diffs",
+            "Understands that AI-generated code can have subtle security flaws",
+            "Reviews authentication and authorization code more carefully",
+            "Knows that AI output should not be trusted for security-critical paths",
+            "Begins to think about what happens if AI-generated code reaches production"
+          ]
+        },
+        {
+          "levelId": "level-3",
+          "summary": "Project-level safety with configured permissions and automated checks.",
+          "detail": [
+            "Permission denylists prevent dangerous operations (rm -rf, git push --force)",
+            "Hooks run security scanning on every AI-generated change",
+            "Sensitive files (.env, credentials) are protected from AI modification",
+            "MCP server access is scoped to least-privilege for the task",
+            "Safety configuration is version-controlled and reviewed"
+          ]
+        },
+        {
+          "levelId": "level-4",
+          "summary": "Workflow-level safety with boundaries, monitoring, and escalation.",
+          "detail": [
+            "Automated agents operate within defined safety boundaries",
+            "Output quality monitoring detects drift before it reaches production",
+            "Escalation paths exist for when automated agents encounter edge cases",
+            "All automated agent actions are logged with full provenance",
+            "Safety boundaries are tested regularly to verify they actually prevent harm"
+          ]
+        },
+        {
+          "levelId": "level-5",
+          "summary": "Organizational governance with policies, compliance, and audit frameworks.",
+          "detail": [
+            "Documented policies define what AI agents can and cannot do per team/project",
+            "Compliance verification is integrated into deployment and release workflows",
+            "Audit frameworks track all AI-generated code changes with retention policies",
+            "Incident response procedures specifically address AI-generated code failures",
+            "Governance is regularly reviewed and adapted as tool capabilities evolve"
+          ]
+        }
       ]
     }
   ]

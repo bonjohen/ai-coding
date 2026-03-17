@@ -15,11 +15,11 @@
         {{#each cells}}
         <td class="matrix-cell">
           <div class="matrix-cell__summary">{{ summary }}</div>
-          <div class="matrix-cell__detail">
+          <ul class="matrix-cell__detail">
             {{#each detail}}
-            <p>{{ this }}</p>
+            <li>{{ this }}</li>
             {{/each}}
-          </div>
+          </ul>
         </td>
         {{/each}}
       </tr>

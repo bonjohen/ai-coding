@@ -389,8 +389,27 @@
   border-bottom: none;
 }
 
+.matrix-table tbody tr {
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
 .matrix-table tbody tr:hover {
   background-color: var(--color-bg-elevated);
+}
+
+.matrix-row--expanded {
+  background-color: var(--color-bg-elevated);
+}
+
+.matrix-row--expanded .matrix-dimension-header::after {
+  content: ' ▾';
+  color: var(--color-accent);
+}
+
+.matrix-table tbody tr:not(.matrix-row--expanded) .matrix-dimension-header::after {
+  content: ' ▸';
+  color: var(--color-text-light);
 }
 
 .matrix-cell {
@@ -410,6 +429,12 @@
   color: var(--color-text-muted);
   font-size: var(--text-xs);
   line-height: var(--line-height-normal);
+  padding-left: var(--space-md);
+  list-style: disc;
+}
+
+.matrix-cell__detail li {
+  margin-bottom: 2px;
 }
 
 .matrix-cell--expanded .matrix-cell__detail {
