@@ -81,6 +81,22 @@ export function copyStaticAssets(assetsDir: string, outputDir: string): void {
 }
 
 /**
+ * Copy family example files to output.
+ * Copies src/data/families/{slug}/examples/ to outputDir/../{slug}/examples/
+ */
+export function copyFamilyExamples(dataDir: string, outputDir: string, familySlugs: string[]): void {
+  for (const slug of familySlugs) {
+    const examplesDir = join(dataDir, 'families', slug, 'examples');
+    if (!existsSync(examplesDir)) continue;
+
+    // outputDir is docs/ai-coding, so examples go to docs/ai-coding/{slug}/examples/
+    const destDir = join(outputDir, slug, 'examples');
+    mkdirSync(destDir, { recursive: true });
+    cpSync(examplesDir, destDir, { recursive: true });
+  }
+}
+
+/**
  * Run all asset copy operations.
  */
 export function copyAllAssets(srcDir: string, outputDir: string): void {

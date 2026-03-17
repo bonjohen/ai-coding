@@ -1,3 +1,5 @@
+import { existsSync } from 'fs';
+import { join } from 'path';
 import type { AllData, FamilyData } from './load-data.js';
 
 export interface ValidationError {
@@ -91,6 +93,23 @@ function validateFamily(familyId: string, family: FamilyData, errors: Validation
     requireNumber(errors, prefix, l, 'levelNumber');
     for (const field of ['definition', 'coreConcepts', 'coreSkills', 'observableBehaviors', 'failureModes', 'graduationCriteria', 'evaluationTasks', 'learningEmphasis', 'relatedDimensionIds', 'citationIds']) {
       requireArray(errors, prefix, l, field);
+    }
+
+    // Validate graduationCriteria objects
+    if (Array.isArray(level.graduationCriteria)) {
+      for (let i = 0; i < level.graduationCriteria.length; i++) {
+        const gc = level.graduationCriteria[i] as Record<string, unknown>;
+        if (typeof gc !== 'object' || gc === null) {
+          errors.push({ file: prefix, field: `graduationCriteria[${i}]`, message: 'Must be an object with a "text" field' });
+        } else {
+          if (typeof gc.text !== 'string' || (gc.text as string).trim() === '') {
+            errors.push({ file: prefix, field: `graduationCriteria[${i}].text`, message: 'Required string field "text" is missing or empty' });
+          }
+          if (gc.exampleFile !== undefined && typeof gc.exampleFile !== 'string') {
+            errors.push({ file: prefix, field: `graduationCriteria[${i}].exampleFile`, message: 'exampleFile must be a string if provided' });
+          }
+        }
+      }
     }
 
     // Cross-reference: relatedDimensionIds must exist

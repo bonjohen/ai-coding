@@ -10,7 +10,7 @@ export interface Level {
   coreSkills: SkillRecord[];
   observableBehaviors: string[];
   failureModes: string[];
-  graduationCriteria: string[];
+  graduationCriteria: GraduationCriterion[];
   evaluationTasks: TaskRecord[];
   learningEmphasis: string[];
   relatedDimensionIds: string[];
@@ -18,6 +18,11 @@ export interface Level {
   previousLevelId?: string;
   nextLevelId?: string;
   personalNote?: string[];
+}
+
+export interface GraduationCriterion {
+  text: string;
+  exampleFile?: string;
 }
 
 export interface ConceptRecord {

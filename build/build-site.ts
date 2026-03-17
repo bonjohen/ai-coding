@@ -3,7 +3,7 @@ import { join, dirname } from 'path';
 import { loadAllData } from './load-data.js';
 import { validateAllData } from './validate-data.js';
 import { renderAllPages, getGeneratedPaths } from './render-pages.js';
-import { copyAllAssets } from './copy-assets.js';
+import { copyAllAssets, copyFamilyExamples } from './copy-assets.js';
 import { clearTemplateCache } from './template-engine.js';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -96,7 +96,12 @@ function build(): void {
   console.log('Copying assets...');
   copyAllAssets(SRC_DIR, assetsOutputDir);
 
-  // Step 8: Report
+  // Step 8: Copy family example files
+  console.log('Copying examples...');
+  const familySlugs = Array.from(data.families.values()).map(f => f.family.slug);
+  copyFamilyExamples(DATA_DIR, assetsOutputDir, familySlugs);
+
+  // Step 9: Report
   console.log('\n=== Build Complete ===');
   console.log(`  Pages: ${pages.length}`);
   console.log(`  Output: ${OUTPUT_DIR}`);

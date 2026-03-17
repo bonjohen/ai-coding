@@ -283,6 +283,22 @@
   background: var(--color-bg-elevated);
 }
 
+/* Example links in graduation criteria */
+.example-link {
+  display: inline-block;
+  margin-left: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.example-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /* ========================================
    Matrix Table
    ======================================== */

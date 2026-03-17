@@ -39,10 +39,10 @@
         "Does not understand why the same prompt produces different results."
       ],
       "graduationCriteria": [
-        "Consistently provides context before asking for code changes.",
-        "Reviews generated diffs line-by-line before accepting.",
-        "Can explain what Claude Code did and why.",
-        "Begins to decompose larger tasks into smaller prompts."
+        { "text": "Consistently provides context before asking for code changes.", "exampleFile": "level-1-operator/gc01-providing-context-before-changes.md" },
+        { "text": "Reviews generated diffs line-by-line before accepting.", "exampleFile": "level-1-operator/gc02-reviewing-diffs-line-by-line.md" },
+        { "text": "Can explain what Claude Code did and why.", "exampleFile": "level-1-operator/gc03-explaining-what-claude-code-did.md" },
+        { "text": "Begins to decompose larger tasks into smaller prompts.", "exampleFile": "level-1-operator/gc04-decomposing-tasks-into-smaller-prompts.md" }
       ],
       "evaluationTasks": [
         {
@@ -104,10 +104,10 @@
         "Treats each session as independent rather than building on prior work."
       ],
       "graduationCriteria": [
-        "Creates and maintains CLAUDE.md files for projects.",
-        "Uses hooks or pre-commit checks to enforce standards.",
-        "Configures project-level context that persists across sessions.",
-        "Begins using MCP servers or external tool integrations."
+        { "text": "Creates and maintains CLAUDE.md files for projects.", "exampleFile": "level-2-structured-collaborator/gc01-creating-and-maintaining-claude-md.md" },
+        { "text": "Uses hooks or pre-commit checks to enforce standards.", "exampleFile": "level-2-structured-collaborator/gc02-using-hooks-or-precommit-checks.md" },
+        { "text": "Configures project-level context that persists across sessions.", "exampleFile": "level-2-structured-collaborator/gc03-configuring-project-level-context.md" },
+        { "text": "Begins using MCP servers or external tool integrations.", "exampleFile": "level-2-structured-collaborator/gc04-using-mcp-servers-or-integrations.md" }
       ],
       "evaluationTasks": [
         {
@@ -170,10 +170,10 @@
         "Does not version-control environment configuration."
       ],
       "graduationCriteria": [
-        "Designs workflows that span multiple Claude Code sessions.",
-        "Uses non-interactive or headless mode for automated tasks.",
-        "Begins orchestrating multiple agents on parallel tasks.",
-        "Integrates Claude Code into CI/CD pipelines."
+        { "text": "Designs workflows that span multiple Claude Code sessions.", "exampleFile": "level-3-environment-builder/gc01-workflows-spanning-multiple-sessions.md" },
+        { "text": "Uses non-interactive or headless mode for automated tasks.", "exampleFile": "level-3-environment-builder/gc02-non-interactive-headless-mode.md" },
+        { "text": "Begins orchestrating multiple agents on parallel tasks.", "exampleFile": "level-3-environment-builder/gc03-orchestrating-multiple-agents.md" },
+        { "text": "Integrates Claude Code into CI/CD pipelines.", "exampleFile": "level-3-environment-builder/gc04-integrating-into-ci-cd-pipelines.md" }
       ],
       "evaluationTasks": [
         {
@@ -236,10 +236,10 @@
         "Ignores security implications of autonomous code generation."
       ],
       "graduationCriteria": [
-        "Designs organizational AI coding strategy and governance.",
-        "Creates safety boundaries and audit trails for autonomous agents.",
-        "Mentors others on AI coding best practices.",
-        "Can evaluate and adopt new AI coding tools and patterns."
+        { "text": "Designs organizational AI coding strategy and governance.", "exampleFile": "level-4-workflow-engineer/gc01-organizational-ai-coding-strategy.md" },
+        { "text": "Creates safety boundaries and audit trails for autonomous agents.", "exampleFile": "level-4-workflow-engineer/gc02-safety-boundaries-and-audit-trails.md" },
+        { "text": "Mentors others on AI coding best practices.", "exampleFile": "level-4-workflow-engineer/gc03-mentoring-ai-coding-best-practices.md" },
+        { "text": "Can evaluate and adopt new AI coding tools and patterns.", "exampleFile": "level-4-workflow-engineer/gc04-evaluating-new-ai-coding-tools.md" }
       ],
       "evaluationTasks": [
         {
@@ -303,7 +303,7 @@
         "Does not account for the human experience of working alongside AI agents."
       ],
       "graduationCriteria": [
-        "This is the current ceiling of the framework. Graduation would involve contributing to the advancement of the field itself."
+        { "text": "This is the current ceiling of the framework. Graduation would involve contributing to the advancement of the field itself.", "exampleFile": "level-5-agentic-systems-expert/gc01-contributing-to-field-advancement.md" }
       ],
       "evaluationTasks": [
         {

@@ -69,7 +69,12 @@
     <h2>Graduation Criteria</h2>
     <ul>
       {{#each level.graduationCriteria}}
-      <li>{{ this }}</li>
+      <li>
+        {{ text }}
+        {{#if exampleFile}}
+        <a href="{{ basePath }}{{ family.slug }}/examples/{{ exampleFile }}" class="example-link">View example &rarr;</a>
+        {{/if}}
+      </li>
       {{/each}}
     </ul>
   </section>
