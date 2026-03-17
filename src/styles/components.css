@@ -239,6 +239,7 @@
   height: 72px;
   object-fit: contain;
   flex-shrink: 0;
+  mix-blend-mode: lighten;
 }
 
 .level-card__content {
@@ -753,6 +754,7 @@
   height: 100px;
   object-fit: contain;
   flex-shrink: 0;
+  mix-blend-mode: lighten;
 }
 
 @media (max-width: 640px) {
