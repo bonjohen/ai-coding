@@ -19,7 +19,7 @@ const validateOnly = args.includes('--validate-only');
 function clean(): void {
   console.log('Cleaning docs/ output...');
   // Only clean generated subdirectories, preserve docs/claude_code_levels_design.md etc.
-  for (const subdir of ['ai-coding', 'assets']) {
+  for (const subdir of ['ai-coding']) {
     const target = join(OUTPUT_DIR, subdir);
     if (existsSync(target)) {
       rmSync(target, { recursive: true, force: true });
@@ -90,9 +90,11 @@ function build(): void {
     writeFileSync(filePath, page.html, 'utf-8');
   }
 
-  // Step 7: Copy assets
+  // Step 7: Copy assets (into basePath subdirectory so paths resolve)
+  const basePath = data.site.site.siteBasePath.replace(/^\/|\/$/g, '');
+  const assetsOutputDir = join(OUTPUT_DIR, basePath);
   console.log('Copying assets...');
-  copyAllAssets(SRC_DIR, OUTPUT_DIR);
+  copyAllAssets(SRC_DIR, assetsOutputDir);
 
   // Step 8: Report
   console.log('\n=== Build Complete ===');
