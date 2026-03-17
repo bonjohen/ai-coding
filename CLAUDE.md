@@ -100,3 +100,18 @@ GitHub Pages from `docs/` on main branch. Custom domain: `johnboen.com`. CNAME f
 3. Render all pages and wire navigation
 4. JavaScript enhancements, print support, validation improvements
 5. Deployment-ready docs/ output
+
+## jcodemunch MCP Integration
+
+This project has a **jcodemunch MCP server** configured for code intelligence.
+
+- **Repo identifier**: `local/claude_code_levels-f0212741` (use this for all `repo` parameters)
+- **Index**: Run `index_repo(url: "local/claude_code_levels-f0212741", use_ai_summaries: false)` to index/re-index. Use `incremental: true` (default) after code changes.
+- **AI summaries are disabled** (`use_ai_summaries: false`) — do not enable them.
+
+### When to Use jcodemunch vs Built-in Tools
+
+- **Use jcodemunch** for: understanding code structure, finding symbol definitions, exploring unfamiliar parts of the codebase
+- **Use built-in Read/Glob/Grep** for: reading specific known files, making edits, simple pattern matching
+- **Prefer `search_symbols`** over Grep when looking for function/class/type definitions
+- **Prefer `get_file_outline`** before reading a large file to understand its structure first
