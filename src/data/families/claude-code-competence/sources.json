@@ -109,7 +109,6 @@
       "author": "Various practitioners",
       "publisher": "Community",
       "publishedDate": "2025-2026",
-      "url": "https://github.com/anthropics/claude-code/discussions",
       "sourceType": "community",
       "summary": "Collected community patterns for multi-agent coding workflows, CI integration, and governance approaches emerging from early adopters.",
       "relevance": "Informs Levels 4-5 workflow scaling and governance concepts drawn from practitioner experience.",
