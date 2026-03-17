@@ -228,3 +228,164 @@ Goal: Production-ready output, verified and documented.
 8. Author perspective distinct from source-backed content
 9. Site hostable as static files under GitHub Pages or `johnboen.com`
 10. Architecture supports adding four future families with same pattern
+
+---
+
+## Phase 6 — Educational Features: Data Foundation
+
+Goal: Structured data for quizzes, example projects, and expanded exercises.
+
+### 6.1 New type definitions
+- [ ] `src/scripts/types/quiz.ts` — QuizQuestion, QuizChoice, StudyLink interfaces
+- [ ] `src/scripts/types/example-project.ts` — ExampleProject, ProjectSection interfaces
+
+### 6.2 Quiz question bank
+- [ ] `src/data/families/claude-code-competence/quiz-questions.json` — ~50 questions across 4 types:
+  - `self-rate` — converted from dimensions.json `assessmentQuestions` (3-4 per dimension, ~21-28)
+  - `scenario` — derived from `evaluationTasks` and `graduationCriteria` (~10)
+  - `knowledge` — derived from `coreConcepts` and `glossary` (~10)
+  - `behavior` — derived from `observableBehaviors` and `failureModes` (~5)
+- [ ] Each question has: id, text, type, choices (1-4 Likert scale), dimensionId, levelId, tags, studyLinks[], explanation
+
+### 6.3 Example projects
+- [ ] `src/data/families/claude-code-competence/example-projects.json` — 2 projects per level (10 total):
+  - Level 1: String utility walkthrough, Bug fix walkthrough
+  - Level 2: Multi-file feature implementation, Guided refactoring session
+  - Level 3: Full project environment setup, Team onboarding configuration
+  - Level 4: Multi-agent parallel workflow, CI/CD pipeline integration
+  - Level 5: Governance framework design, Organizational adoption plan
+- [ ] Each project has: id, levelId, title, summary, scenario, sections[] (with code snippets), demonstratedSkills, estimatedTime, prerequisites
+
+### 6.4 Expand exercises
+- [ ] Expand `exercises.json` from 3 to 15 exercises (3 per level)
+- [ ] Add `tags` and `relatedQuestionIds` fields to exercise records
+
+### 6.5 Build pipeline updates
+- [ ] Update `build/load-data.ts` — load quiz-questions.json and example-projects.json into FamilyData
+- [ ] Update `build/validate-data.ts` — validate quiz question IDs unique, dimensionId/levelId refs valid, studyLinks point to generated pages
+
+**Phase 6 exit criteria:** `npm run validate` passes with all new data files. Question bank has 50+ questions covering all 7 dimensions and all 5 levels. 10 example projects with realistic content.
+
+---
+
+## Phase 7 — Self-Assessment Page
+
+Goal: A guided assessment that estimates the user's current level and shows where to focus.
+
+### 7.1 Assessment page
+- [ ] `src/templates/pages/self-assessment.html` — Static HTML shell with dimension sections, question containers, progress bar, results area
+- [ ] Generate at `/ai-coding/claude-code-competence/assess/index.html`
+- [ ] Embed quiz question data as `<script type="application/json" id="assessment-data">` at build time
+- [ ] `<noscript>` fallback: printable checklist of all assessment questions rendered at build time
+
+### 7.2 Assessment JavaScript
+- [ ] `src/scripts/self-assessment.ts` — Assessment flow:
+  - Walk through 7 dimensions, 3 questions each
+  - Progress bar showing "Dimension X of 7"
+  - Calculate per-dimension scores (1-4 scale)
+  - Map to estimated level (1.0-1.5→L1, 1.5-2.25→L2, 2.25-3.0→L3, 3.0-3.5→L4, 3.5-4.0→L5)
+  - Render results with radar chart and study links
+  - Save/load from localStorage (`ccc-assessment`)
+  - "Retake" and "View previous results" options
+
+### 7.3 Radar chart
+- [ ] `src/scripts/radar-chart.ts` — Pure SVG 7-axis radar chart (~60-80 lines):
+  - Takes dimension scores (1-4) and dimension labels
+  - Renders polygon with labeled axes
+  - No external dependencies
+
+### 7.4 localStorage helpers
+- [ ] Extend `src/scripts/page-state.ts` with generic helpers: `getStoredData<T>(key)`, `setStoredData<T>(key, data)`, `clearStoredData(key)`
+
+### 7.5 Build wiring
+- [ ] Update `build/render-pages.ts` — add assess page to `collectPageDefs()`
+- [ ] Update `src/scripts/main.ts` — conditionally init assessment on assess page
+- [ ] Update `src/data/site/navigation.json` — add Self-Assessment nav item
+
+### 7.6 CSS
+- [ ] Add assessment component styles: progress bar, question cards, result cards, radar chart container, score badges
+
+**Phase 7 exit criteria:** Assessment page walks through all 7 dimensions, calculates scores, renders a radar chart, shows estimated level with study links, and persists to localStorage.
+
+---
+
+## Phase 8 — Practice Quiz Page
+
+Goal: Configurable random quizzes that point users to study material.
+
+### 8.1 Quiz page
+- [ ] `src/templates/pages/quiz.html` — Configuration UI (question count: 5/10/15/all, filter by level, filter by dimension), question display area, results area
+- [ ] Generate at `/ai-coding/claude-code-competence/quiz/index.html`
+- [ ] Embed full question bank as `<script type="application/json" id="quiz-data">`
+- [ ] `<noscript>` fallback: full question list as printable study material
+
+### 8.2 Quiz JavaScript
+- [ ] `src/scripts/quiz-engine.ts` — Quiz mechanics:
+  - `selectQuestions(bank, filters, count)` — filter, Fisher-Yates shuffle, deprioritize recently-seen (from localStorage `ccc-quiz-seen`)
+  - Single-question navigation with answer → explanation → study links → next
+  - Result aggregation: per-dimension scores, weak area identification
+  - Study link ranking: links appearing in multiple weak-area questions ranked higher
+  - Save quiz history to localStorage (`ccc-quiz-history`)
+
+### 8.3 Build wiring
+- [ ] Update `build/render-pages.ts` — add quiz page to `collectPageDefs()`
+- [ ] Update `src/scripts/main.ts` — conditionally init quiz on quiz page
+- [ ] Update `src/data/site/navigation.json` — add Quiz nav item
+
+### 8.4 CSS
+- [ ] Quiz-specific styles: config panel, question card with choices, explanation reveal, result summary with weak-area highlighting
+
+**Phase 8 exit criteria:** Quiz page allows configuration, presents random questions, shows explanations with study links after each answer, and displays a result summary with prioritized study recommendations.
+
+---
+
+## Phase 9 — Example Projects
+
+Goal: Step-by-step walkthroughs demonstrating competence at each level.
+
+### 9.1 Project gallery page
+- [ ] `src/templates/pages/project-gallery.html` — Browse projects grouped by level, with cards showing title, summary, estimated time, level badge
+- [ ] Generate at `/ai-coding/claude-code-competence/projects/index.html`
+
+### 9.2 Project detail page
+- [ ] `src/templates/pages/project-detail.html` — Walkthrough layout: scenario box, step-by-step sections with code snippets, demonstrated skills list, prerequisites, next project link
+- [ ] Generate one page per project at `/ai-coding/claude-code-competence/projects/{slug}/index.html`
+
+### 9.3 Build wiring
+- [ ] Update `build/render-pages.ts` — add gallery and per-project detail pages to `collectPageDefs()`
+- [ ] Update `src/data/site/navigation.json` — add Projects nav item
+
+### 9.4 CSS
+- [ ] Project-specific styles: scenario callout box, code snippet blocks with language labels, step indicators, skill/concept tag pills
+
+**Phase 9 exit criteria:** Project gallery shows all 10 projects grouped by level. Each detail page has a complete walkthrough with code snippets and links to related skills/concepts.
+
+---
+
+## Phase 10 — Study Guide & Cross-Linking
+
+Goal: Personalized study recommendations and deep cross-links between all content.
+
+### 10.1 Study guide page
+- [ ] `src/templates/pages/study-guide.html` — Reads localStorage assessment + quiz history, renders personalized recommendations
+- [ ] Generate at `/ai-coding/claude-code-competence/study-guide/index.html`
+- [ ] `src/scripts/study-guide.ts` — Merge assessment and quiz data, identify weak areas, generate prioritized link list grouped by priority tier (Priority / Developing / Strong)
+- [ ] Empty state: prompt to take assessment if no localStorage data
+
+### 10.2 Cross-links on existing pages
+- [ ] Level detail pages: add "Related Projects" and "Practice Questions" sections linking to relevant projects and quiz questions
+- [ ] Dimension page: add "Assess this dimension" link to the assessment
+- [ ] Family landing page: show "Your Level" indicator from localStorage (if available)
+- [ ] Roadmap page: link learning stages to relevant projects and quiz filters
+
+### 10.3 Navigation update
+- [ ] Update `src/data/site/navigation.json` — add Study Guide nav item
+
+### 10.4 Final verification
+- [ ] All studyLinks in quiz questions point to valid generated pages
+- [ ] All project prerequisite IDs reference valid project IDs
+- [ ] All demonstrated skill/concept IDs reference valid level data
+- [ ] JS-disabled fallback: all static content (questions, projects, guides) readable without JS
+- [ ] Build produces all new pages (assess, quiz, projects gallery, 10 project details, study guide = 14 new pages)
+
+**Phase 10 exit criteria:** Study guide renders personalized recommendations. All educational content is cross-linked. Site builds cleanly with 28+ total pages. Progressive enhancement verified.
