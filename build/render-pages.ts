@@ -28,11 +28,11 @@ function buildBaseContext(data: AllData): TemplateContext {
 
 // Map level slugs to image filenames
 const levelImageMap: Record<string, string> = {
-  'operator': 'operator.png',
-  'structured-collaborator': 'collaborator.png',
-  'environment-builder': 'environment.png',
-  'workflow-engineer': 'workflow.png',
-  'agentic-systems-expert': 'agentic.png',
+  'operator': 'level-operator.svg',
+  'structured-collaborator': 'level-structured-collaborator.svg',
+  'environment-builder': 'level-environment-builder.svg',
+  'workflow-engineer': 'level-workflow-engineer.svg',
+  'agentic-systems-expert': 'level-agentic-systems-expert.svg',
 };
 
 // Map dimension slugs to image filenames
