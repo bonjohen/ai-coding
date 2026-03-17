@@ -338,6 +338,8 @@ a.level-card--with-image {
 .level-card--3 { border-left-color: var(--color-level-3); background: var(--color-level-3-dim); }
 .level-card--4 { border-left-color: var(--color-level-4); background: var(--color-level-4-dim); }
 .level-card--5 { border-left-color: var(--color-level-5); background: var(--color-level-5-dim); }
+.level-card--dim { border-left-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface)); }
+.level-card--dim .level-card__number { color: var(--color-accent); }
 
 .level-card__number {
   font-size: var(--text-xs);

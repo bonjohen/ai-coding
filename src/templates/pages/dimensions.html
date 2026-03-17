@@ -5,7 +5,7 @@
 </section>
 
 {{#each dimensions.dimensions}}
-<section class="dimension-card section">
+<section id="{{ slug }}" class="dimension-card section">
   <div class="dimension-card__header">
     {{#if image}}
     <img src="{{ image }}" alt="{{ name }}" class="dimension-card__image" loading="lazy">

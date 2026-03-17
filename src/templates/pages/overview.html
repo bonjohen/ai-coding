@@ -17,18 +17,17 @@
   <h2>The Seven Dimensions</h2>
   <p class="text-muted mb-lg">{{ overview.dimensionsIntro }}</p>
   {{#each dimensions.dimensions}}
-  <div class="dimension-summary mb-lg">
-    <div class="dimension-summary__header">
-      {{#if image}}
-      <img src="{{ image }}" alt="{{ name }}" class="dimension-summary__icon" loading="lazy">
-      {{/if}}
-      <h3 class="dimension-summary__name">{{ name }}</h3>
+  <a href="{{ basePath }}{{ family.slug }}/dimensions/#{{ slug }}" class="level-card level-card--dim level-card--with-image">
+    {{#if image}}
+    <img src="{{ image }}" alt="{{ name }}" class="level-card__image" loading="lazy">
+    {{/if}}
+    <div class="level-card__content">
+      <span class="level-card__number">Dimension</span>
+      <h3 class="level-card__title">{{ name }}</h3>
+      <p class="level-card__summary">{{ summary }}</p>
     </div>
-    <p class="dimension-summary__definition">{{ definition }}</p>
-    <p class="text-sm text-muted">{{ whyItMatters }}</p>
-  </div>
+  </a>
   {{/each}}
-  <a href="{{ basePath }}{{ family.slug }}/dimensions/" class="btn btn--sm mt-md">Full dimension detail &rarr;</a>
 </section>
 {{/if}}
 
