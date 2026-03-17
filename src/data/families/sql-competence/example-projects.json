@@ -1,0 +1,332 @@
+{
+  "familyId": "sql-competence",
+  "projects": [
+    {
+      "id": "proj-1-first-query",
+      "levelId": "level-1",
+      "title": "Your First Filtered Query",
+      "summary": "Write a query to retrieve specific data from a single table with filtering and sorting.",
+      "scenario": "You have access to a customer database. Your manager asks: 'How many customers signed up in March 2025, and can you list them alphabetically?' You need to write a query to answer this.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "connect-and-explore",
+          "title": "Connect and Explore the Table",
+          "content": [
+            "First, connect to the database and understand the table structure. Before writing any query, look at what columns are available.",
+            "Always start by understanding the data. Running a quick exploratory query saves time later."
+          ],
+          "codeSnippet": "-- See what columns exist\nSELECT column_name, data_type\nFROM information_schema.columns\nWHERE table_name = 'customers';\n\n-- Peek at a few rows\nSELECT * FROM customers LIMIT 5;",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "write-the-query",
+          "title": "Write the Filtered Query",
+          "content": [
+            "Now write the query with explicit column names (not SELECT *), a WHERE clause for the date range, and ORDER BY for alphabetical sorting.",
+            "Notice we select specific columns, not everything. This is a good habit even for simple queries."
+          ],
+          "codeSnippet": "SELECT first_name, last_name, email, created_at\nFROM customers\nWHERE created_at >= '2025-03-01'\n  AND created_at < '2025-04-01'\nORDER BY last_name, first_name;",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "count-the-results",
+          "title": "Answer the Count Question",
+          "content": [
+            "Your manager also asked 'how many.' A separate COUNT query gives the answer clearly.",
+            "At Level 1, running a separate count query is fine. Later you will learn to combine these."
+          ],
+          "codeSnippet": "SELECT COUNT(*) AS march_signups\nFROM customers\nWHERE created_at >= '2025-03-01'\n  AND created_at < '2025-04-01';",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-1-debug-query",
+      "levelId": "level-1",
+      "title": "Debugging a Broken Query",
+      "summary": "Find and fix errors in a SQL query by reading error messages.",
+      "scenario": "A colleague wrote a query that doesn't work. They get an error but can't figure out what's wrong. You need to read the error, identify the problem, and fix it.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "see-the-error",
+          "title": "Read the Error Message",
+          "content": [
+            "The broken query and its error message are your starting point. Read the error carefully — SQL error messages usually tell you exactly what's wrong and where.",
+            "Don't just scan the query visually. Match the error message to the specific part of the query it references."
+          ],
+          "codeSnippet": "-- The broken query:\nSELECT first_name last_name, email\nFROM customer\nWHERE signup_date = '2025-03-15'\nORDER BY last_name\n\n-- Error: relation \"customer\" does not exist\n-- (table is actually named 'customers')",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "fix-and-verify",
+          "title": "Fix the Errors and Verify",
+          "content": [
+            "This query has three errors: wrong table name ('customer' vs 'customers'), missing comma between first_name and last_name, and missing semicolon. Fix them all.",
+            "After fixing, always run the query and verify the results make sense."
+          ],
+          "codeSnippet": "-- Fixed query:\nSELECT first_name, last_name, email\nFROM customers\nWHERE signup_date = '2025-03-15'\nORDER BY last_name;",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-2-revenue-report",
+      "levelId": "level-2",
+      "title": "Monthly Revenue Report",
+      "summary": "Write a multi-table analytical query with JOINs, aggregation, and a CTE.",
+      "scenario": "The finance team needs a monthly revenue report broken down by product category. You need to join orders, order items, and products, then aggregate by month and category.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "plan-the-joins",
+          "title": "Plan the Join Path",
+          "content": [
+            "Before writing, identify the tables and how they connect. Orders have order_items, order_items reference products, products belong to categories.",
+            "Draw the join path: orders -> order_items -> products -> categories. Each join is through a foreign key."
+          ],
+          "codeSnippet": "-- Join path:\n-- orders.id = order_items.order_id\n-- order_items.product_id = products.id\n-- products.category_id = categories.id",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "write-with-cte",
+          "title": "Write the Query Using a CTE",
+          "content": [
+            "Use a CTE to compute the line-item revenue first, then aggregate by month and category in the outer query.",
+            "Check row counts at each step. After the JOIN, verify no accidental row multiplication by comparing against expected order_items count."
+          ],
+          "codeSnippet": "WITH line_revenue AS (\n  SELECT\n    DATE_TRUNC('month', o.order_date) AS month,\n    c.name AS category,\n    oi.quantity * oi.unit_price AS line_total\n  FROM orders o\n  JOIN order_items oi ON oi.order_id = o.id\n  JOIN products p ON p.id = oi.product_id\n  JOIN categories c ON c.id = p.category_id\n)\nSELECT\n  month,\n  category,\n  SUM(line_total) AS revenue,\n  COUNT(*) AS line_items\nFROM line_revenue\nGROUP BY month, category\nORDER BY month DESC, revenue DESC;",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-2-window-ranking",
+      "levelId": "level-2",
+      "title": "Top Customers by Region",
+      "summary": "Use window functions to rank customers within regions by total spending.",
+      "scenario": "Marketing wants to identify the top 3 customers in each region for a VIP program. You need to rank customers by spending within their region and return only the top 3.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "compute-spending",
+          "title": "Compute Total Spending per Customer",
+          "content": [
+            "First CTE: aggregate total spending per customer by joining customers and orders."
+          ],
+          "codeSnippet": "WITH customer_spending AS (\n  SELECT\n    c.id AS customer_id,\n    c.name,\n    c.region,\n    SUM(o.total_amount) AS total_spent\n  FROM customers c\n  JOIN orders o ON o.customer_id = c.id\n  GROUP BY c.id, c.name, c.region\n)",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "rank-and-filter",
+          "title": "Rank Within Region and Filter Top 3",
+          "content": [
+            "Use DENSE_RANK() to handle ties (two customers with the same spend get the same rank). Filter to rank <= 3 in the outer query.",
+            "Decision: DENSE_RANK vs ROW_NUMBER. DENSE_RANK is correct here because ties should share a rank. ROW_NUMBER would arbitrarily break ties."
+          ],
+          "codeSnippet": "WITH customer_spending AS (\n  SELECT c.id, c.name, c.region,\n         SUM(o.total_amount) AS total_spent\n  FROM customers c\n  JOIN orders o ON o.customer_id = c.id\n  GROUP BY c.id, c.name, c.region\n),\nranked AS (\n  SELECT *,\n    DENSE_RANK() OVER (\n      PARTITION BY region ORDER BY total_spent DESC\n    ) AS rank\n  FROM customer_spending\n)\nSELECT name, region, total_spent, rank\nFROM ranked\nWHERE rank <= 3\nORDER BY region, rank;",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-3-booking-schema",
+      "levelId": "level-3",
+      "title": "Design a Room Booking Schema",
+      "summary": "Design a normalized schema for a room booking system with constraints and migrations.",
+      "scenario": "A coworking space needs a booking system. Users book rooms for time slots. Bookings can be cancelled. Rooms have different capacities and amenities. Design the schema.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "identify-entities",
+          "title": "Identify Entities and Relationships",
+          "content": [
+            "Start with the entities: Users, Rooms, Bookings, Amenities. Rooms have amenities (many-to-many). Bookings connect Users to Rooms for a time slot.",
+            "Normalize to 3NF: room amenities go in a junction table, not a comma-separated list."
+          ],
+          "codeSnippet": "-- Entity relationships:\n-- users (1) --< (many) bookings\n-- rooms (1) --< (many) bookings\n-- rooms (many) >--< (many) amenities (via room_amenities)",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "write-ddl",
+          "title": "Write the DDL with Constraints",
+          "content": [
+            "Every table needs appropriate constraints: NOT NULL for required fields, FOREIGN KEY for relationships, CHECK for business rules (end_time > start_time), UNIQUE where needed.",
+            "The booking table uses an exclusion constraint to prevent overlapping bookings for the same room."
+          ],
+          "codeSnippet": "CREATE TABLE users (\n  id SERIAL PRIMARY KEY,\n  email VARCHAR(255) NOT NULL UNIQUE,\n  name VARCHAR(255) NOT NULL,\n  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE TABLE rooms (\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  capacity INT NOT NULL CHECK (capacity > 0),\n  floor INT NOT NULL\n);\n\nCREATE TABLE amenities (\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(100) NOT NULL UNIQUE\n);\n\nCREATE TABLE room_amenities (\n  room_id INT NOT NULL REFERENCES rooms(id) ON DELETE CASCADE,\n  amenity_id INT NOT NULL REFERENCES amenities(id) ON DELETE CASCADE,\n  PRIMARY KEY (room_id, amenity_id)\n);\n\nCREATE TABLE bookings (\n  id SERIAL PRIMARY KEY,\n  user_id INT NOT NULL REFERENCES users(id),\n  room_id INT NOT NULL REFERENCES rooms(id),\n  start_time TIMESTAMPTZ NOT NULL,\n  end_time TIMESTAMPTZ NOT NULL,\n  status VARCHAR(20) NOT NULL DEFAULT 'confirmed'\n    CHECK (status IN ('confirmed', 'cancelled')),\n  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  CHECK (end_time > start_time)\n);",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "write-migration",
+          "title": "Write Reversible Migration Scripts",
+          "content": [
+            "Wrap the DDL in up/down migration scripts. The down script should drop tables in reverse dependency order."
+          ],
+          "codeSnippet": "-- UP migration\nBEGIN;\n  -- (DDL from above)\nCOMMIT;\n\n-- DOWN migration\nBEGIN;\n  DROP TABLE IF EXISTS bookings;\n  DROP TABLE IF EXISTS room_amenities;\n  DROP TABLE IF EXISTS amenities;\n  DROP TABLE IF EXISTS rooms;\n  DROP TABLE IF EXISTS users;\nCOMMIT;",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-3-plan-analysis",
+      "levelId": "level-3",
+      "title": "Execution Plan Analysis",
+      "summary": "Read an execution plan, identify a missing index, and verify the improvement.",
+      "scenario": "A query that lists recent bookings for a specific user is slow. You need to analyze the execution plan, identify the problem, and propose a fix.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "run-explain",
+          "title": "Run EXPLAIN ANALYZE",
+          "content": [
+            "Run the slow query with EXPLAIN ANALYZE to see the actual execution plan and timings."
+          ],
+          "codeSnippet": "EXPLAIN ANALYZE\nSELECT b.id, r.name AS room, b.start_time, b.end_time\nFROM bookings b\nJOIN rooms r ON r.id = b.room_id\nWHERE b.user_id = 42\n  AND b.start_time >= NOW() - INTERVAL '30 days'\nORDER BY b.start_time DESC;",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "identify-and-fix",
+          "title": "Identify the Problem and Add an Index",
+          "content": [
+            "The plan shows a Seq Scan on bookings filtered by user_id and start_time. With thousands of bookings, this scans every row.",
+            "A composite index on (user_id, start_time) lets the database find the user's bookings and filter by time efficiently."
+          ],
+          "codeSnippet": "-- Create the composite index\nCREATE INDEX idx_bookings_user_time\n  ON bookings (user_id, start_time DESC);\n\n-- Re-run EXPLAIN ANALYZE to verify\n-- Should now show Index Scan using idx_bookings_user_time",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-4-index-strategy",
+      "levelId": "level-4",
+      "title": "Designing an Index Strategy",
+      "summary": "Design a complete index strategy for a workload of 5 common queries.",
+      "scenario": "An e-commerce platform has 5 frequently-run queries against its orders schema. You need to design an index strategy that covers all of them without over-indexing.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "analyze-workload",
+          "title": "Analyze the Query Workload",
+          "content": [
+            "List the 5 queries and identify which columns they filter, join, and sort on. Look for overlapping patterns.",
+            "A good index strategy shares indexes across queries where possible."
+          ],
+          "codeSnippet": "-- Query 1: Recent orders by customer\n--   WHERE customer_id = ? AND created_at > ?\n--   ORDER BY created_at DESC\n\n-- Query 2: Order status lookup\n--   WHERE customer_id = ? AND status = ?\n\n-- Query 3: Daily revenue report\n--   WHERE created_at BETWEEN ? AND ?\n--   GROUP BY DATE(created_at)\n\n-- Query 4: Fulfillment queue\n--   WHERE status = 'pending' ORDER BY created_at\n\n-- Query 5: Customer order history\n--   WHERE customer_id = ? ORDER BY created_at DESC",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "design-indexes",
+          "title": "Design the Index Set",
+          "content": [
+            "Queries 1, 2, and 5 all filter on customer_id. A composite index (customer_id, created_at DESC) covers queries 1 and 5. Query 2 needs (customer_id, status).",
+            "Query 3 filters on created_at alone. Query 4 filters on status + created_at. Design each index with column order matching the query pattern.",
+            "Document trade-offs: each index adds write overhead. Verify no redundancy."
+          ],
+          "codeSnippet": "-- Index strategy:\nCREATE INDEX idx_orders_customer_date\n  ON orders (customer_id, created_at DESC);\n  -- Covers: Query 1, Query 5\n\nCREATE INDEX idx_orders_customer_status\n  ON orders (customer_id, status);\n  -- Covers: Query 2\n\nCREATE INDEX idx_orders_created\n  ON orders (created_at);\n  -- Covers: Query 3\n\nCREATE INDEX idx_orders_status_date\n  ON orders (status, created_at)\n  WHERE status = 'pending';\n  -- Covers: Query 4 (partial index)\n\n-- Trade-off: 4 indexes on one table.\n-- Write overhead is acceptable because orders are\n-- written once but queried many times.",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-4-isolation-demo",
+      "levelId": "level-4",
+      "title": "Isolation Level Experiment",
+      "summary": "Demonstrate concurrency anomalies and how isolation levels prevent them.",
+      "scenario": "You need to teach your team about isolation levels. Set up a hands-on demonstration showing a non-repeatable read and how REPEATABLE READ prevents it.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "setup-demo",
+          "title": "Set Up the Demonstration",
+          "content": [
+            "Open two database sessions (Session A and Session B). Create a simple test table."
+          ],
+          "codeSnippet": "CREATE TABLE account_balance (\n  account_id INT PRIMARY KEY,\n  balance DECIMAL(10,2) NOT NULL\n);\nINSERT INTO account_balance VALUES (1, 1000.00);",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "show-anomaly",
+          "title": "Demonstrate the Anomaly",
+          "content": [
+            "In READ COMMITTED (default), Session A reads the balance, Session B updates and commits, Session A reads again and sees a different value.",
+            "Then repeat with REPEATABLE READ to show the anomaly is prevented."
+          ],
+          "codeSnippet": "-- Session A (READ COMMITTED):\nBEGIN;\nSELECT balance FROM account_balance WHERE account_id = 1;\n-- Returns: 1000.00\n\n-- Session B (in parallel):\nUPDATE account_balance SET balance = 500.00 WHERE account_id = 1;\nCOMMIT;\n\n-- Session A reads again:\nSELECT balance FROM account_balance WHERE account_id = 1;\n-- Returns: 500.00  <-- non-repeatable read!\nCOMMIT;\n\n-- Now repeat with REPEATABLE READ:\n-- Session A:\nBEGIN ISOLATION LEVEL REPEATABLE READ;\nSELECT balance FROM account_balance WHERE account_id = 1;\n-- Returns: 1000.00 (after resetting)\n\n-- Session B updates and commits...\n\n-- Session A reads again:\nSELECT balance FROM account_balance WHERE account_id = 1;\n-- Still returns: 1000.00  <-- consistent!\nCOMMIT;",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-5-data-architecture",
+      "levelId": "level-5",
+      "title": "Multi-Service Data Architecture",
+      "summary": "Design data architecture for a system migrating from a monolithic database to microservices.",
+      "scenario": "Your company is splitting a monolithic application into 4 services: Users, Orders, Inventory, and Payments. All currently share one PostgreSQL database. Design the target data architecture.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "define-ownership",
+          "title": "Define Data Ownership Boundaries",
+          "content": [
+            "Each service owns its data. No service directly queries another service's tables. Identify which tables belong to which service.",
+            "Shared reference data (e.g., country codes) needs a clear ownership strategy."
+          ],
+          "codeSnippet": "-- Data ownership:\n-- Users Service:   users, user_addresses, user_preferences\n-- Orders Service:  orders, order_items, order_status_history\n-- Inventory:       products, stock_levels, warehouses\n-- Payments:        payments, refunds, payment_methods\n\n-- Shared reference: countries, currencies\n-- Decision: owned by Users service, replicated read-only to others",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "consistency-strategy",
+          "title": "Design the Consistency Strategy",
+          "content": [
+            "Cross-service operations (e.g., placing an order checks inventory and creates a payment) need a consistency approach.",
+            "Decision: use the Saga pattern with compensating transactions rather than distributed 2PC. Document the trade-offs."
+          ],
+          "codeSnippet": "-- Order placement saga:\n-- 1. Orders service: create order (status = 'pending')\n-- 2. Inventory service: reserve stock\n--    - If fails: Orders cancels order (compensating tx)\n-- 3. Payments service: process payment\n--    - If fails: Inventory releases stock, Orders cancels\n-- 4. Orders service: confirm order (status = 'confirmed')\n\n-- Trade-off: eventual consistency between services.\n-- An order may be 'pending' for seconds during the saga.\n-- Acceptable for this use case; payment-critical paths\n-- have explicit compensation logic.",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "migration-plan",
+          "title": "Plan the Migration Path",
+          "content": [
+            "Migration from monolith to microservices happens in phases. Start by extracting the service with the fewest cross-dependencies.",
+            "Use the Strangler Fig pattern: new services read from the monolith initially, then gradually take over writes."
+          ],
+          "codeSnippet": "-- Migration phases:\n-- Phase 1: Extract Users service\n--   - New users DB with same schema\n--   - Dual-write during transition\n--   - Verify data consistency\n--   - Cut over reads, then writes\n--\n-- Phase 2: Extract Inventory\n--   - Products move to inventory DB\n--   - Orders service uses API instead of JOIN\n--\n-- Phase 3: Extract Payments\n-- Phase 4: Orders becomes standalone\n--\n-- Each phase: 2-4 weeks with rollback capability",
+          "codeLanguage": "sql"
+        }
+      ]
+    },
+    {
+      "id": "proj-5-governance",
+      "levelId": "level-5",
+      "title": "Establishing Data Governance",
+      "summary": "Create a data governance framework including naming conventions, review process, and quality metrics.",
+      "scenario": "Your 30-person engineering team has inconsistent database practices: some use snake_case, others camelCase; migrations aren't always reviewed; there's no documentation standard. You need to establish governance.",
+      "prerequisites": [],
+      "sections": [
+        {
+          "id": "naming-conventions",
+          "title": "Define Naming Conventions",
+          "content": [
+            "Establish clear, enforceable naming rules for all database objects. Document with examples.",
+            "The convention should be opinionated but practical — the goal is consistency, not perfection."
+          ],
+          "codeSnippet": "-- Naming Convention Standard\n--\n-- Tables: snake_case, plural (users, order_items)\n-- Columns: snake_case, singular (first_name, created_at)\n-- Primary keys: id (serial or UUID)\n-- Foreign keys: {referenced_table_singular}_id (user_id)\n-- Indexes: idx_{table}_{columns} (idx_orders_customer_date)\n-- Constraints: chk_{table}_{rule} (chk_bookings_end_after_start)\n-- Booleans: is_{adjective} or has_{noun} (is_active, has_verified_email)\n-- Timestamps: {verb}_at (created_at, updated_at, deleted_at)",
+          "codeLanguage": "sql"
+        },
+        {
+          "id": "review-process",
+          "title": "Design the Review Process",
+          "content": [
+            "Every schema change needs review. Define who reviews, what they check, and what blocks a merge.",
+            "Automate what you can: linters catch naming violations, CI verifies migrations run forward and backward."
+          ],
+          "codeSnippet": "-- Schema Change Review Checklist:\n-- [ ] Migration runs forward and backward without errors\n-- [ ] Naming follows convention (enforced by linter)\n-- [ ] All new columns have NOT NULL or explicit DEFAULT\n-- [ ] Foreign keys include ON DELETE behavior\n-- [ ] New indexes justified by query workload\n-- [ ] Backward-compatible (old code still works)\n-- [ ] Data backfill plan documented if needed\n-- [ ] Estimated lock time for ALTER on large tables\n--\n-- Approval: 1 reviewer for additive changes\n--           2 reviewers for destructive changes (DROP, ALTER type)",
+          "codeLanguage": "sql"
+        }
+      ]
+    }
+  ]
+}

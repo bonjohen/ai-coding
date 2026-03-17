@@ -50,7 +50,7 @@ Update navigation to include Projects link.
 
 **Acceptance:** Projects gallery and all project detail pages render.
 
-- [ ] Phase 3
+- [x] Phase 3
 
 ---
 

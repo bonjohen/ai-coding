@@ -94,7 +94,8 @@
         },
         { "id": "sql-assess", "label": "Assess", "href": "/ai-coding/sql-competence/assess/", "title": "Self-Assessment", "order": 15 },
         { "id": "sql-quiz", "label": "Quiz", "href": "/ai-coding/sql-competence/quiz/", "title": "Practice Quiz", "order": 16 },
-        { "id": "sql-study", "label": "Study Guide", "href": "/ai-coding/sql-competence/study-guide/", "title": "Study Guide", "order": 17 }
+        { "id": "sql-projects", "label": "Projects", "href": "/ai-coding/sql-competence/projects/", "title": "Example Projects", "order": 17 },
+        { "id": "sql-study", "label": "Study Guide", "href": "/ai-coding/sql-competence/study-guide/", "title": "Study Guide", "order": 18 }
       ]
     }
   ]

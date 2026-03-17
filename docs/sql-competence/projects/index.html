@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Projects — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Step-by-step walkthroughs demonstrating Claude Code competence at each level.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/projects/">
+<meta property="og:title" content="Example Projects — SQL Competence">
+<meta property="og:description" content="Step-by-step walkthroughs demonstrating Claude Code competence at each level.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Projects</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">Example Projects</h1>
+  <p class="hero__summary">Step-by-step walkthroughs demonstrating Claude Code competence at each level.</p>
+</section>
+
+
+
+<section class="section">
+  <h2>Level 1: Query Writer</h2>
+  <div class="grid grid--2col">
+    
+    <a href="/ai-coding/sql-competence/projects/first-query/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-1">L1</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Your First Filtered Query</h3>
+      <p class="card__description">Write a query to retrieve specific data from a single table with filtering and sorting.</p>
+    </a>
+    
+    <a href="/ai-coding/sql-competence/projects/debug-query/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-1">L1</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Debugging a Broken Query</h3>
+      <p class="card__description">Find and fix errors in a SQL query by reading error messages.</p>
+    </a>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <h2>Level 2: Data Analyst</h2>
+  <div class="grid grid--2col">
+    
+    <a href="/ai-coding/sql-competence/projects/revenue-report/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-2">L2</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Monthly Revenue Report</h3>
+      <p class="card__description">Write a multi-table analytical query with JOINs, aggregation, and a CTE.</p>
+    </a>
+    
+    <a href="/ai-coding/sql-competence/projects/window-ranking/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-2">L2</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Top Customers by Region</h3>
+      <p class="card__description">Use window functions to rank customers within regions by total spending.</p>
+    </a>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <h2>Level 3: Schema Designer</h2>
+  <div class="grid grid--2col">
+    
+    <a href="/ai-coding/sql-competence/projects/booking-schema/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-3">L3</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Design a Room Booking Schema</h3>
+      <p class="card__description">Design a normalized schema for a room booking system with constraints and migrations.</p>
+    </a>
+    
+    <a href="/ai-coding/sql-competence/projects/plan-analysis/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-3">L3</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Execution Plan Analysis</h3>
+      <p class="card__description">Read an execution plan, identify a missing index, and verify the improvement.</p>
+    </a>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <h2>Level 4: Performance Engineer</h2>
+  <div class="grid grid--2col">
+    
+    <a href="/ai-coding/sql-competence/projects/index-strategy/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-4">L4</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Designing an Index Strategy</h3>
+      <p class="card__description">Design a complete index strategy for a workload of 5 common queries.</p>
+    </a>
+    
+    <a href="/ai-coding/sql-competence/projects/isolation-demo/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-4">L4</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Isolation Level Experiment</h3>
+      <p class="card__description">Demonstrate concurrency anomalies and how isolation levels prevent them.</p>
+    </a>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <h2>Level 5: Database Architect</h2>
+  <div class="grid grid--2col">
+    
+    <a href="/ai-coding/sql-competence/projects/data-architecture/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-5">L5</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Multi-Service Data Architecture</h3>
+      <p class="card__description">Design data architecture for a system migrating from a monolithic database to microservices.</p>
+    </a>
+    
+    <a href="/ai-coding/sql-competence/projects/governance/" class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-5">L5</span>
+        <span class="text-sm text-muted"></span>
+      </div>
+      <h3 class="card__title">Establishing Data Governance</h3>
+      <p class="card__description">Create a data governance framework including naming conventions, review process, and quality metrics.</p>
+    </a>
+    
+  </div>
+</section>
+
+
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>
