@@ -548,8 +548,11 @@ Goal: Wire certification into existing educational content.
 
 ## Phase C6 — Certification Verification & Cleanup
 
-- [ ] `npm run build` produces 33 pages
-- [ ] `npm run validate` passes with certification data
-- [ ] Runtime quiz works via `npm run dev`
-- [ ] Progressive enhancement verified (noscript fallback)
-- [ ] Update SESSION_HANDOFF.md, README
+- [x] `npm run build` produces 33 pages
+- [x] `npm run validate` passes with certification data
+- [x] All 33 pages serve HTTP 200 via `npm run dev`
+- [x] All assets serve: CSS, JS, XML data files (azure, aws, gcp)
+- [x] Skip-to-content and ARIA landmarks present on cert pages
+- [x] Progressive enhancement verified (noscript fallback on quiz page)
+- [x] Update SESSION_HANDOFF.md
+- [ ] Update README with certification section
