@@ -6,8 +6,15 @@
 
 {{#each dimensions.dimensions}}
 <section class="dimension-card section">
-  <h2 class="dimension-card__name">{{ name }}</h2>
-  <p class="dimension-card__definition">{{ definition }}</p>
+  <div class="dimension-card__header">
+    {{#if image}}
+    <img src="{{ image }}" alt="{{ name }}" class="dimension-card__image" loading="lazy">
+    {{/if}}
+    <div>
+      <h2 class="dimension-card__name">{{ name }}</h2>
+      <p class="dimension-card__definition">{{ definition }}</p>
+    </div>
+  </div>
 
   <div class="dimension-card__why">
     <h3>Why It Matters</h3>

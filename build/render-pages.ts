@@ -26,6 +26,26 @@ function buildBaseContext(data: AllData): TemplateContext {
   };
 }
 
+// Map level slugs to image filenames
+const levelImageMap: Record<string, string> = {
+  'operator': 'operator.png',
+  'structured-collaborator': 'collaborator.png',
+  'environment-builder': 'environment.png',
+  'workflow-engineer': 'workflow.png',
+  'agentic-systems-expert': 'agentic.png',
+};
+
+// Map dimension slugs to image filenames
+const dimImageMap: Record<string, string> = {
+  'conceptual-understanding': 'conceptual_understanding.png',
+  'task-framing': 'task_framing.png',
+  'verification-discipline': 'verification_discipline.png',
+  'context-management': 'context_management.png',
+  'environment-design': 'environmental_design.png',
+  'workflow-scaling': 'workflow_scaling.png',
+  'safety-governance': 'safety_and_governance.png',
+};
+
 function buildFamilyContext(data: AllData, family: FamilyData): TemplateContext {
   return {
     ...buildBaseContext(data),
@@ -65,6 +85,19 @@ function collectPageDefs(data: AllData): PageDef[] {
     const familyBase = `${basePath}/${family.family.slug}`;
     const familyCtx = buildFamilyContext(data, family);
 
+    // Enrich level summaries with images for overview/landing pages
+    const levelSummariesWithImages = family.overview.levelSummaries.map(ls => {
+      const level = family.levels.levels.find(l => l.id === ls.levelId);
+      const slug = level?.slug || '';
+      return {
+        ...ls,
+        image: levelImageMap[slug]
+          ? `${data.site.site.siteBasePath}assets/images/levels/${levelImageMap[slug]}`
+          : null,
+      };
+    });
+    const overviewWithImages = { ...family.overview, levelSummaries: levelSummariesWithImages };
+
     // Family landing
     pages.push({
       outputPath: `${familyBase}/index.html`,
@@ -72,6 +105,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       page: 'family-overview',
       context: {
         ...familyCtx,
+        overview: overviewWithImages,
         pageTitle: family.family.title,
         pageDescription: family.family.summary,
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/`,
@@ -89,6 +123,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       page: 'family-overview',
       context: {
         ...familyCtx,
+        overview: overviewWithImages,
         pageTitle: `Overview — ${family.family.shortTitle}`,
         pageDescription: family.overview.heroSummary,
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/overview/`,
@@ -100,13 +135,24 @@ function collectPageDefs(data: AllData): PageDef[] {
       },
     });
 
-    // Dimensions
+    // Dimensions — enrich with image paths
+    const dimensionsWithImages = {
+      ...family.dimensions,
+      dimensions: family.dimensions.dimensions.map(d => ({
+        ...d,
+        image: dimImageMap[d.slug]
+          ? `${data.site.site.siteBasePath}assets/images/dims/${dimImageMap[d.slug]}`
+          : null,
+      })),
+    };
+
     pages.push({
       outputPath: `${familyBase}/dimensions/index.html`,
       layout: 'article',
       page: 'dimensions',
       context: {
         ...familyCtx,
+        dimensions: dimensionsWithImages,
         pageTitle: `Dimensions — ${family.family.shortTitle}`,
         pageDescription: 'Cross-level evaluation dimensions for the competence framework.',
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/dimensions/`,
@@ -164,6 +210,11 @@ function collectPageDefs(data: AllData): PageDef[] {
       // Filter exercises for this level
       const levelExercises = family.exercises.exercises.filter(e => e.levelId === level.id);
 
+      // Level image path
+      const levelImage = levelImageMap[level.slug]
+        ? `${data.site.site.siteBasePath}assets/images/levels/${levelImageMap[level.slug]}`
+        : null;
+
       pages.push({
         outputPath: `${familyBase}/levels/${level.slug}/index.html`,
         layout: 'article',
@@ -176,6 +227,7 @@ function collectPageDefs(data: AllData): PageDef[] {
           levelDimensions,
           levelCitations,
           levelExercises,
+          levelImage,
           pageTitle: `Level ${level.levelNumber}: ${level.title} — ${family.family.shortTitle}`,
           pageDescription: level.summary,
           canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/levels/${level.slug}/`,

@@ -35,10 +35,15 @@
 <section class="section">
   <h2>The Five Levels</h2>
   {{#each overview.levelSummaries}}
-  <div class="level-card level-card--{{ levelNumber }}">
-    <span class="level-card__number">Level {{ levelNumber }}</span>
-    <h3 class="level-card__title"><a href="{{ href }}">{{ title }}</a></h3>
-    <p class="level-card__summary">{{ summary }}</p>
+  <div class="level-card level-card--{{ levelNumber }} level-card--with-image">
+    {{#if image}}
+    <img src="{{ image }}" alt="Level {{ levelNumber }}" class="level-card__image" loading="lazy">
+    {{/if}}
+    <div class="level-card__content">
+      <span class="level-card__number">Level {{ levelNumber }}</span>
+      <h3 class="level-card__title"><a href="{{ href }}">{{ title }}</a></h3>
+      <p class="level-card__summary">{{ summary }}</p>
+    </div>
   </div>
   {{/each}}
 </section>
