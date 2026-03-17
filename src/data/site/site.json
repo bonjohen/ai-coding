@@ -1,0 +1,12 @@
+{
+  "siteId": "ai-coding-site",
+  "siteTitle": "AI Coding",
+  "siteSubtitle": "Structured frameworks for AI-assisted software development competence",
+  "siteBasePath": "/ai-coding/",
+  "siteUrl": "https://johnboen.com",
+  "authorName": "John Boen",
+  "repositoryUrl": "https://github.com/bonjohen/ai-coding-site",
+  "customDomain": "johnboen.com",
+  "defaultLanguage": "en",
+  "copyrightText": "&copy; 2026 John Boen. All rights reserved."
+}

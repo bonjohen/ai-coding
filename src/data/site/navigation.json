@@ -1,0 +1,20 @@
+{
+  "primaryNav": [
+    { "id": "home", "label": "Home", "href": "/ai-coding/", "title": "AI Coding Home", "order": 1 }
+  ],
+  "familyNav": [
+    {
+      "familyId": "claude-code-competence",
+      "items": [
+        { "id": "ccc-overview", "label": "Overview", "href": "/ai-coding/claude-code-competence/overview/", "title": "Framework Overview", "order": 1 },
+        { "id": "ccc-dimensions", "label": "Dimensions", "href": "/ai-coding/claude-code-competence/dimensions/", "title": "Evaluation Dimensions", "order": 2 },
+        { "id": "ccc-matrix", "label": "Matrix", "href": "/ai-coding/claude-code-competence/matrix/", "title": "Competency Matrix", "order": 3 },
+        { "id": "ccc-levels", "label": "Levels", "href": "/ai-coding/claude-code-competence/", "title": "All Levels", "order": 4 },
+        { "id": "ccc-sources", "label": "Sources", "href": "/ai-coding/claude-code-competence/sources/", "title": "Source Inventory", "order": 5 },
+        { "id": "ccc-author", "label": "Author Perspective", "href": "/ai-coding/claude-code-competence/author-perspective/", "title": "Author Perspective", "order": 6 },
+        { "id": "ccc-glossary", "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/", "title": "Glossary", "order": 7 },
+        { "id": "ccc-roadmap", "label": "Roadmap", "href": "/ai-coding/claude-code-competence/roadmap/", "title": "Learning Roadmap", "order": 8 }
+      ]
+    }
+  ]
+}

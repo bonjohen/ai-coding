@@ -1,0 +1,131 @@
+{{#block content}}
+<article>
+  <header class="hero">
+    <span class="badge badge--level-{{ level.levelNumber }}">Level {{ level.levelNumber }}</span>
+    <h1 class="hero__title">{{ level.title }}</h1>
+    <p class="hero__summary">{{ level.summary }}</p>
+  </header>
+
+  {{#if level.definition}}
+  <section class="section">
+    <h2>Definition</h2>
+    {{#each level.definition}}
+    <p>{{ this }}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if level.coreConcepts}}
+  <section class="section">
+    <h2>Core Concepts</h2>
+    {{#each level.coreConcepts}}
+    <div class="mb-lg">
+      <h3>{{ name }}</h3>
+      <p>{{ definition }}</p>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if level.coreSkills}}
+  <section class="section">
+    <h2>Core Skills</h2>
+    {{#each level.coreSkills}}
+    <div class="mb-lg">
+      <h3>{{ name }}</h3>
+      <p>{{ definition }}</p>
+      {{#if observableEvidence}}
+      <p class="text-sm text-muted mt-sm"><strong>Observable evidence:</strong> {{ observableEvidence }}</p>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if level.observableBehaviors}}
+  <section class="section">
+    <h2>Observable Behaviors</h2>
+    <ul>
+      {{#each level.observableBehaviors}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if level.failureModes}}
+  <section class="section">
+    <h2>Typical Failure Modes</h2>
+    <ul>
+      {{#each level.failureModes}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if level.graduationCriteria}}
+  <section class="section">
+    <h2>Graduation Criteria</h2>
+    <ul>
+      {{#each level.graduationCriteria}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if level.evaluationTasks}}
+  <section class="section">
+    <h2>Evaluation Tasks</h2>
+    {{#each level.evaluationTasks}}
+    <div class="card mb-md">
+      <h3 class="card__title">{{ title }}</h3>
+      <p>{{ description }}</p>
+      {{#if successCriteria}}
+      <h4 class="mt-md text-sm font-bold">Success Criteria</h4>
+      <ul>
+        {{#each successCriteria}}
+        <li>{{ this }}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if level.learningEmphasis}}
+  <section class="section">
+    <h2>Learning Emphasis</h2>
+    {{#each level.learningEmphasis}}
+    <p>{{ this }}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if level.personalNote}}
+  <section class="section">
+    <h2>Personal Note</h2>
+    {{#each level.personalNote}}
+    <p>{{ this }}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  <nav class="level-nav">
+    {{#if prevLevel}}
+    <a href="/{{ basePath }}{{ family.slug }}/levels/{{ prevLevel.slug }}/" class="level-nav__link">
+      &larr; Level {{ prevLevel.levelNumber }}: {{ prevLevel.shortLabel }}
+    </a>
+    {{else}}
+    <span></span>
+    {{/if}}
+    {{#if nextLevel}}
+    <a href="/{{ basePath }}{{ family.slug }}/levels/{{ nextLevel.slug }}/" class="level-nav__link">
+      Level {{ nextLevel.levelNumber }}: {{ nextLevel.shortLabel }} &rarr;
+    </a>
+    {{/if}}
+  </nav>
+</article>
+{{/block}}

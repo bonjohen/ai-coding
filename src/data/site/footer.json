@@ -1,0 +1,21 @@
+{
+  "footerSections": [
+    {
+      "id": "site",
+      "title": "Site",
+      "links": [
+        { "id": "footer-home", "label": "Home", "href": "/ai-coding/", "title": "AI Coding Home", "order": 1 }
+      ]
+    },
+    {
+      "id": "claude-code-competence",
+      "title": "Claude Code Competence",
+      "links": [
+        { "id": "footer-overview", "label": "Overview", "href": "/ai-coding/claude-code-competence/overview/", "title": "Overview", "order": 1 },
+        { "id": "footer-levels", "label": "Levels", "href": "/ai-coding/claude-code-competence/", "title": "Levels", "order": 2 },
+        { "id": "footer-sources", "label": "Sources", "href": "/ai-coding/claude-code-competence/sources/", "title": "Sources", "order": 3 }
+      ]
+    }
+  ],
+  "legalText": "&copy; 2026 John Boen. All rights reserved."
+}

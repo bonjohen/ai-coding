@@ -1,0 +1,20 @@
+{
+  "name": "ai-coding-site",
+  "version": "1.0.0",
+  "description": "Static site generator for AI Coding competence frameworks",
+  "type": "module",
+  "scripts": {
+    "build": "tsx build/build-site.ts",
+    "clean": "tsx build/build-site.ts --clean",
+    "validate": "tsx build/build-site.ts --validate-only",
+    "dev": "npx serve docs -l 3000",
+    "watch": "tsx watch build/build-site.ts"
+  },
+  "author": "John Boen",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "familyId": "claude-code-competence",
+  "pageTitle": "Learning Roadmap",
+  "summary": "A suggested progression path for developing Claude Code competence, from first use through organizational strategy.",
+  "learningStages": [
+    {
+      "id": "stage-getting-started",
+      "title": "Getting Started",
+      "summary": "Install Claude Code, learn the basics, and develop the habit of reviewing output carefully.",
+      "recommendedLevelIds": ["level-1"],
+      "suggestedActivities": [
+        "Install Claude Code and complete a simple coding task.",
+        "Practice reading diffs before accepting them.",
+        "Try writing the same prompt three different ways and compare results.",
+        "Read the official Claude Code documentation end-to-end."
+      ]
+    },
+    {
+      "id": "stage-structured-practice",
+      "title": "Structured Practice",
+      "summary": "Develop structured prompting habits and systematic verification practices.",
+      "recommendedLevelIds": ["level-2"],
+      "suggestedActivities": [
+        "Implement a multi-file feature using decomposed prompts.",
+        "Create a personal checklist for reviewing AI-generated code.",
+        "Practice providing explicit context and constraints in every prompt.",
+        "Start a CLAUDE.md file for your most active project."
+      ]
+    },
+    {
+      "id": "stage-environment-mastery",
+      "title": "Environment Mastery",
+      "summary": "Configure project environments that make Claude Code effective by default.",
+      "recommendedLevelIds": ["level-3"],
+      "suggestedActivities": [
+        "Design and implement CLAUDE.md files for three different projects.",
+        "Configure hooks for automated linting and formatting.",
+        "Set up at least one MCP server for external tool access.",
+        "Experiment with directory-level CLAUDE.md for monorepo structures."
+      ]
+    },
+    {
+      "id": "stage-workflow-design",
+      "title": "Workflow Design",
+      "summary": "Design multi-agent workflows and integrate AI coding into development pipelines.",
+      "recommendedLevelIds": ["level-4"],
+      "suggestedActivities": [
+        "Run parallel Claude Code agents on independent tasks.",
+        "Integrate Claude Code into a CI/CD pipeline.",
+        "Design a workflow for automated PR review.",
+        "Practice headless/non-interactive mode for scripted operations."
+      ]
+    },
+    {
+      "id": "stage-organizational-strategy",
+      "title": "Organizational Strategy",
+      "summary": "Develop governance frameworks and AI coding strategy at organizational scale.",
+      "recommendedLevelIds": ["level-5"],
+      "suggestedActivities": [
+        "Draft an AI coding governance policy for your team.",
+        "Design an audit trail system for AI-generated code changes.",
+        "Create a training plan for onboarding team members to AI coding tools.",
+        "Evaluate new AI coding tools with a structured risk/benefit framework."
+      ]
+    }
+  ],
+  "futureExpansions": [
+    { "id": "future-prompt-engineering", "title": "Prompt Engineering for Code", "summary": "Deep-dive into prompt engineering techniques specific to code generation tasks.", "status": "planned" },
+    { "id": "future-multi-model", "title": "Multi-Model Strategies", "summary": "Using different AI models for different coding tasks based on their strengths.", "status": "planned" },
+    { "id": "future-team-patterns", "title": "Team AI Coding Patterns", "summary": "Patterns for teams collaborating with AI coding tools at scale.", "status": "planned" },
+    { "id": "future-safety-deep-dive", "title": "AI Code Safety Deep Dive", "summary": "Advanced safety analysis for AI-generated code in production systems.", "status": "planned" }
+  ]
+}

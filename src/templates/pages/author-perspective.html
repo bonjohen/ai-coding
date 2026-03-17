@@ -1,0 +1,24 @@
+{{#block content}}
+<article>
+  <section class="hero">
+    <h1 class="hero__title">{{ authorNotes.pageTitle }}</h1>
+  </section>
+
+  {{#if authorNotes.intro}}
+  <section class="section">
+    {{#each authorNotes.intro}}
+    <p>{{ this }}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#each authorNotes.sections}}
+  <section class="section">
+    <h2>{{ title }}</h2>
+    {{#each content}}
+    <p>{{ this }}</p>
+    {{/each}}
+  </section>
+  {{/each}}
+</article>
+{{/block}}

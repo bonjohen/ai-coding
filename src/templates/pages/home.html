@@ -1,0 +1,21 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">{{ site.siteTitle }}</h1>
+  <p class="hero__summary">{{ site.siteSubtitle }}</p>
+</section>
+
+<section class="section">
+  <h2>Content Families</h2>
+  <div class="grid grid--3col">
+    {{#each families}}
+    <div class="card">
+      <h3 class="card__title"><a href="/{{ slug }}/">{{ title }}</a></h3>
+      <p class="card__description">{{ summary }}</p>
+      {{#if status}}
+      <span class="badge mt-sm">{{ status }}</span>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+</section>
+{{/block}}

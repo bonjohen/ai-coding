@@ -1,0 +1,10 @@
+{{#if citationIds}}
+<div class="citation-list">
+  <h4 class="citation-list__title">Sources</h4>
+  <ul>
+    {{#each citationIds}}
+    <li>{{ this }}</li>
+    {{/each}}
+  </ul>
+</div>
+{{/if}}

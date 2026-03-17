@@ -1,0 +1,14 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Sources</h1>
+  <p class="hero__summary">Source inventory for the {{ family.shortTitle }} framework.</p>
+</section>
+
+{{#each sources.sourceGroups}}
+<section class="source-group section">
+  <h2 class="source-group__title">{{ name }}</h2>
+  <p class="source-group__summary">{{ summary }}</p>
+  <!-- Sources for this group rendered by filtering -->
+</section>
+{{/each}}
+{{/block}}

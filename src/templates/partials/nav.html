@@ -1,0 +1,13 @@
+<nav class="site-nav" aria-label="Primary navigation">
+  {{#each navigation.primaryNav}}
+  <a href="{{ href }}" class="site-nav__link" title="{{ title }}">{{ label }}</a>
+  {{/each}}
+  {{#if family}}
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  {{#each navigation.familyNav}}
+  {{#each items}}
+  <a href="{{ href }}" class="site-nav__link" title="{{ title }}">{{ label }}</a>
+  {{/each}}
+  {{/each}}
+  {{/if}}
+</nav>

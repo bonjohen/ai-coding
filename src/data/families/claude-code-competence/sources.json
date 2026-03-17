@@ -1,0 +1,83 @@
+{
+  "familyId": "claude-code-competence",
+  "sourceGroups": [
+    { "id": "grp-official", "name": "Official Anthropic Sources", "summary": "Documentation and guides published by Anthropic.", "order": 1 },
+    { "id": "grp-practitioner", "name": "Practitioner Sources", "summary": "Articles, posts, and guides from practitioners using Claude Code.", "order": 2 },
+    { "id": "grp-interviews", "name": "Interviews and Talks", "summary": "Recorded conversations and presentations about AI-assisted development.", "order": 3 },
+    { "id": "grp-synthesis", "name": "Synthesis Notes", "summary": "Author's synthesis and interpretation of source material.", "order": 4 }
+  ],
+  "sources": [
+    {
+      "id": "src-claude-code-docs",
+      "groupId": "grp-official",
+      "title": "Claude Code Documentation",
+      "author": "Anthropic",
+      "publisher": "Anthropic",
+      "publishedDate": "2025",
+      "url": "https://docs.anthropic.com/en/docs/claude-code",
+      "sourceType": "documentation",
+      "summary": "Official documentation for Claude Code CLI, covering installation, configuration, CLAUDE.md, hooks, MCP, and permissions.",
+      "relevance": "Primary reference for all levels. Defines the tool capabilities that underpin the entire framework."
+    },
+    {
+      "id": "src-prompt-engineering",
+      "groupId": "grp-official",
+      "title": "Prompt Engineering Guide",
+      "author": "Anthropic",
+      "publisher": "Anthropic",
+      "publishedDate": "2025",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+      "sourceType": "guide",
+      "summary": "Anthropic's guide to effective prompting techniques for Claude models.",
+      "relevance": "Directly relevant to Levels 1-2 task framing and context management dimensions."
+    },
+    {
+      "id": "src-mcp-spec",
+      "groupId": "grp-official",
+      "title": "Model Context Protocol Specification",
+      "author": "Anthropic",
+      "publisher": "Anthropic",
+      "publishedDate": "2025",
+      "url": "https://modelcontextprotocol.io",
+      "sourceType": "specification",
+      "summary": "The open specification for MCP, defining how AI models connect to external tools and data sources.",
+      "relevance": "Core reference for Level 3 environment design and MCP server configuration."
+    },
+    {
+      "id": "src-agent-sdk",
+      "groupId": "grp-official",
+      "title": "Claude Agent SDK",
+      "author": "Anthropic",
+      "publisher": "Anthropic",
+      "publishedDate": "2025",
+      "url": "https://docs.anthropic.com/en/docs/agent-sdk",
+      "sourceType": "documentation",
+      "summary": "SDK for building custom agents using Claude, relevant to multi-agent orchestration patterns.",
+      "relevance": "Key reference for Level 4 workflow engineering and multi-agent design."
+    },
+    {
+      "id": "src-anthropic-safety",
+      "groupId": "grp-official",
+      "title": "Anthropic Safety Practices",
+      "author": "Anthropic",
+      "publisher": "Anthropic",
+      "publishedDate": "2025",
+      "url": "https://www.anthropic.com/research/safety",
+      "sourceType": "research",
+      "summary": "Anthropic's published research and practices around AI safety.",
+      "relevance": "Foundation for Level 5 safety and governance dimension."
+    },
+    {
+      "id": "src-author-synthesis",
+      "groupId": "grp-synthesis",
+      "title": "Author's Framework Synthesis",
+      "author": "John Boen",
+      "publisher": "Self-published",
+      "publishedDate": "2026",
+      "url": "",
+      "sourceType": "synthesis",
+      "summary": "The author's personal synthesis of Claude Code competence levels, informed by hands-on experience and source material analysis.",
+      "relevance": "Provides the interpretive layer that connects source observations to the five-level framework."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Glossary</h1>
+  <p class="hero__summary">Key terms and definitions used in the {{ family.shortTitle }} framework.</p>
+</section>
+
+<section class="section">
+  {{#each glossary.terms}}
+  <div class="glossary-term" id="term-{{ id }}">
+    <h3 class="glossary-term__name">{{ term }}</h3>
+    <p class="glossary-term__definition">{{ definition }}</p>
+    {{#if relatedTerms}}
+    <p class="glossary-term__related">Related: {{#each relatedTerms}}{{ this }}{{#if @last}}{{else}}, {{/if}}{{/each}}</p>
+    {{/if}}
+  </div>
+  {{/each}}
+</section>
+{{/block}}

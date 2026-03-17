@@ -1,0 +1,110 @@
+{
+  "familyId": "claude-code-competence",
+  "dimensions": [
+    {
+      "id": "dim-conceptual-understanding",
+      "slug": "conceptual-understanding",
+      "name": "Conceptual Understanding",
+      "shortName": "Concepts",
+      "summary": "Depth of mental model for how Claude Code works.",
+      "definition": "How well the practitioner understands the underlying architecture of Claude Code — context windows, tool use, model behavior, and system constraints.",
+      "whyItMatters": "Without accurate mental models, practitioners cannot predict tool behavior, diagnose failures, or make informed decisions about prompting strategy.",
+      "assessmentQuestions": [
+        "Can you explain how context window limits affect multi-file tasks?",
+        "Do you understand the difference between tool use and direct generation?",
+        "Can you describe what happens when Claude Code executes a bash command?"
+      ],
+      "order": 1
+    },
+    {
+      "id": "dim-task-framing",
+      "slug": "task-framing",
+      "name": "Task Framing",
+      "shortName": "Framing",
+      "summary": "Ability to decompose and communicate tasks effectively.",
+      "definition": "The skill of breaking down work into well-scoped prompts with clear context, constraints, and success criteria that Claude Code can act on effectively.",
+      "whyItMatters": "Task framing is the primary lever for output quality. Poor framing leads to wasted iterations and incorrect results regardless of tool capability.",
+      "assessmentQuestions": [
+        "Do you provide context about the codebase before asking for changes?",
+        "Can you decompose a large feature into sequential prompts?",
+        "Do you specify constraints and edge cases upfront?"
+      ],
+      "order": 2
+    },
+    {
+      "id": "dim-verification-discipline",
+      "slug": "verification-discipline",
+      "name": "Verification Discipline",
+      "shortName": "Verification",
+      "summary": "Rigor in validating AI-generated output.",
+      "definition": "The practice of systematically reviewing, testing, and validating code produced by Claude Code before accepting it.",
+      "whyItMatters": "AI-generated code can be subtly wrong. Without verification discipline, bugs accumulate silently and trust erodes over time.",
+      "assessmentQuestions": [
+        "Do you review every diff before accepting?",
+        "Do you run tests after each significant change?",
+        "Do you verify that generated code handles edge cases?"
+      ],
+      "order": 3
+    },
+    {
+      "id": "dim-context-management",
+      "slug": "context-management",
+      "name": "Context Management",
+      "shortName": "Context",
+      "summary": "Skill in managing information flow to and from the model.",
+      "definition": "The ability to control what information Claude Code has access to, including file context, conversation history, and persistent configuration.",
+      "whyItMatters": "Context is the model's working memory. Managing it well improves output quality and reduces token waste. Managing it poorly leads to hallucination and drift.",
+      "assessmentQuestions": [
+        "Do you use CLAUDE.md to persist project-level context?",
+        "Can you manage context window limits across long sessions?",
+        "Do you know when to start a fresh conversation vs. continue?"
+      ],
+      "order": 4
+    },
+    {
+      "id": "dim-environment-design",
+      "slug": "environment-design",
+      "name": "Environment Design",
+      "shortName": "Environment",
+      "summary": "Configuration of persistent tooling and project infrastructure.",
+      "definition": "The practice of configuring CLAUDE.md files, hooks, MCP servers, permissions, and project structure so that Claude Code operates more effectively by default.",
+      "whyItMatters": "A well-designed environment reduces repetitive prompting, enforces standards automatically, and makes Claude Code more productive for everyone on the team.",
+      "assessmentQuestions": [
+        "Have you configured CLAUDE.md for your projects?",
+        "Do you use hooks to enforce pre-commit checks?",
+        "Have you set up MCP servers for external tool access?"
+      ],
+      "order": 5
+    },
+    {
+      "id": "dim-workflow-scaling",
+      "slug": "workflow-scaling",
+      "name": "Workflow Scaling",
+      "shortName": "Scaling",
+      "summary": "Ability to orchestrate multi-agent and automated workflows.",
+      "definition": "The skill of designing workflows where multiple Claude Code instances collaborate, tasks are parallelized, and AI coding integrates into CI/CD pipelines.",
+      "whyItMatters": "Scaling beyond single-session usage is where AI coding delivers order-of-magnitude productivity gains. Without workflow design, gains plateau at individual task speed.",
+      "assessmentQuestions": [
+        "Can you run multiple Claude Code agents on parallel tasks?",
+        "Have you integrated Claude Code into CI/CD pipelines?",
+        "Do you use headless/non-interactive mode for automation?"
+      ],
+      "order": 6
+    },
+    {
+      "id": "dim-safety-governance",
+      "slug": "safety-governance",
+      "name": "Safety and Governance",
+      "shortName": "Safety",
+      "summary": "Practices for safe, auditable, and governed AI code generation.",
+      "definition": "The discipline of ensuring that AI-generated code is safe, reviewed, compliant with organizational standards, and auditable in production.",
+      "whyItMatters": "As AI coding scales, the risk surface grows. Without governance, organizations face compliance failures, security vulnerabilities, and unauditable code changes.",
+      "assessmentQuestions": [
+        "Do you review AI-generated code for security vulnerabilities?",
+        "Is there an audit trail for AI-generated changes?",
+        "Do you have policies for what AI agents can and cannot do?"
+      ],
+      "order": 7
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "familyId": "claude-code-competence",
+  "heroTitle": "Claude Code Competence Framework",
+  "heroSummary": "A structured five-level model for understanding and developing proficiency with Claude Code as an AI-assisted development tool.",
+  "purpose": [
+    "This framework defines five levels of competence for working with Claude Code, ranging from basic tool operation to designing agentic systems.",
+    "It provides a common vocabulary for discussing AI coding proficiency and a structured path for skill development."
+  ],
+  "whatThisIs": [
+    "This is a maturity model — a structured ladder that describes observable behaviors, core skills, and knowledge at each stage of Claude Code proficiency.",
+    "It is not a certification or a test. It is a reference framework for self-assessment and guided learning."
+  ],
+  "howToUseThisFramework": [
+    "Start by reading the level summaries to find where you currently sit. Then explore the dimensions to understand what cross-cutting skills matter at every level.",
+    "Use the matrix to see how each dimension evolves across levels. Use the level detail pages to understand graduation criteria and evaluation tasks."
+  ],
+  "levelSummaries": [
+    { "levelId": "level-1", "levelNumber": 1, "title": "Operator", "shortLabel": "Operator", "summary": "Uses Claude Code as a command-line tool with basic prompting.", "href": "/ai-coding/claude-code-competence/levels/operator/" },
+    { "levelId": "level-2", "levelNumber": 2, "title": "Structured Collaborator", "shortLabel": "Collaborator", "summary": "Structures interactions with context, constraints, and verification.", "href": "/ai-coding/claude-code-competence/levels/structured-collaborator/" },
+    { "levelId": "level-3", "levelNumber": 3, "title": "Environment Builder", "shortLabel": "Builder", "summary": "Configures persistent environments with CLAUDE.md, hooks, and MCP.", "href": "/ai-coding/claude-code-competence/levels/environment-builder/" },
+    { "levelId": "level-4", "levelNumber": 4, "title": "Workflow Engineer", "shortLabel": "Engineer", "summary": "Designs multi-agent workflows and CI/CD integration.", "href": "/ai-coding/claude-code-competence/levels/workflow-engineer/" },
+    { "levelId": "level-5", "levelNumber": 5, "title": "Agentic Systems Expert", "shortLabel": "Expert", "summary": "Architects governance, safety, and organizational AI coding strategy.", "href": "/ai-coding/claude-code-competence/levels/agentic-systems-expert/" }
+  ]
+}

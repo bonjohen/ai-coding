@@ -1,0 +1,29 @@
+<div class="matrix-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        {{#each levels.levels}}
+        <th>L{{ levelNumber }}: {{ shortLabel }}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each matrix.rows}}
+      <tr data-dimension="{{ dimensionId }}">
+        <td class="matrix-dimension-header">{{ dimensionId }}</td>
+        {{#each cells}}
+        <td class="matrix-cell">
+          <div class="matrix-cell__summary">{{ summary }}</div>
+          <div class="matrix-cell__detail">
+            {{#each detail}}
+            <p>{{ this }}</p>
+            {{/each}}
+          </div>
+        </td>
+        {{/each}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

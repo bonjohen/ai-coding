@@ -1,0 +1,13 @@
+/* Claude Code Competence family accent overrides */
+.family--claude-code-competence {
+  --color-accent: #2563eb;
+  --color-accent-light: #dbeafe;
+}
+
+.family--claude-code-competence .hero {
+  border-bottom-color: var(--color-accent-light);
+}
+
+.family--claude-code-competence .quote-block {
+  border-left-color: var(--color-accent);
+}

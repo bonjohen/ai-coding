@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ site.defaultLanguage }}">
+<head>
+  {{> head}}
+</head>
+<body>
+  <div class="site-wrapper">
+    {{> header}}
+    <main class="site-main">
+      <div class="container page-content">
+        {{#slot content}}{{/slot}}
+      </div>
+    </main>
+    {{> footer}}
+  </div>
+  <script src="{{ basePath }}assets/js/main.js" defer></script>
+</body>
+</html>

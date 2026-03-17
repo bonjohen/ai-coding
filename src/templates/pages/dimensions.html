@@ -1,0 +1,29 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Evaluation Dimensions</h1>
+  <p class="hero__summary">Cross-level dimensions used to evaluate competence across the framework.</p>
+</section>
+
+{{#each dimensions.dimensions}}
+<section class="dimension-card section">
+  <h2 class="dimension-card__name">{{ name }}</h2>
+  <p class="dimension-card__definition">{{ definition }}</p>
+
+  <div class="dimension-card__why">
+    <h3>Why It Matters</h3>
+    <p>{{ whyItMatters }}</p>
+  </div>
+
+  {{#if assessmentQuestions}}
+  <div class="dimension-card__questions">
+    <h3>Assessment Questions</h3>
+    <ul>
+      {{#each assessmentQuestions}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+</section>
+{{/each}}
+{{/block}}

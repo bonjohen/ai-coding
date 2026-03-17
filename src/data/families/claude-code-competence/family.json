@@ -1,0 +1,15 @@
+{
+  "familyId": "claude-code-competence",
+  "slug": "claude-code-competence",
+  "title": "Claude Code Competence",
+  "shortTitle": "Claude Code Competence",
+  "summary": "A five-level maturity framework for Claude Code proficiency, from basic tool operation to agentic systems design.",
+  "status": "published",
+  "version": "1.0.0",
+  "publishDate": "2026-03-16",
+  "updatedDate": "2026-03-16",
+  "owner": "John Boen",
+  "landingPath": "/ai-coding/claude-code-competence/",
+  "rootPath": "/ai-coding/claude-code-competence/",
+  "themeKey": "claude-code-competence"
+}

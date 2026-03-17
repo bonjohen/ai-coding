@@ -1,0 +1,281 @@
+{
+  "familyId": "claude-code-competence",
+  "levels": [
+    {
+      "id": "level-1",
+      "slug": "operator",
+      "levelNumber": 1,
+      "title": "Operator",
+      "shortLabel": "Operator",
+      "summary": "Uses Claude Code as a command-line tool with basic prompting and accepts output with minimal verification.",
+      "definition": [
+        "The Operator treats Claude Code as a smart autocomplete or command executor. Interactions are single-turn or loosely structured. The practitioner can install, launch, and prompt Claude Code but lacks a systematic approach to task framing or output verification.",
+        "At this level, the tool is useful but unpredictable. Results vary because prompts are vague, context is not managed, and there is no feedback loop beyond 'does it look right?'"
+      ],
+      "coreConcepts": [
+        { "id": "c1-cli-basics", "name": "CLI Basics", "definition": "Understanding how to install, launch, and interact with Claude Code from the command line." },
+        { "id": "c1-basic-prompting", "name": "Basic Prompting", "definition": "The ability to express a request in natural language that Claude Code can act on." },
+        { "id": "c1-tool-output", "name": "Tool Output Reading", "definition": "The ability to read and interpret Claude Code's responses, diffs, and tool invocations." }
+      ],
+      "coreSkills": [
+        { "id": "s1-install-run", "name": "Install and Run", "definition": "Can install Claude Code and start a session.", "observableEvidence": "Launches Claude Code from terminal without assistance." },
+        { "id": "s1-simple-prompt", "name": "Simple Prompting", "definition": "Can write a natural language prompt that produces useful output.", "observableEvidence": "Asks Claude Code to write a function and gets a working result." },
+        { "id": "s1-accept-output", "name": "Accept or Reject Output", "definition": "Can review a generated diff and decide whether to accept it.", "observableEvidence": "Reviews a diff and either accepts or asks for revision." }
+      ],
+      "observableBehaviors": [
+        "Launches Claude Code and immediately starts prompting without setting context.",
+        "Accepts generated code without running tests.",
+        "Uses single-turn prompts for complex multi-step tasks.",
+        "Does not use CLAUDE.md or any persistent configuration."
+      ],
+      "failureModes": [
+        "Accepts incorrect code because the output 'looks right.'",
+        "Repeats the same vague prompt when results are poor instead of refining.",
+        "Loses context in long sessions without realizing it.",
+        "Does not understand why the same prompt produces different results."
+      ],
+      "graduationCriteria": [
+        "Consistently provides context before asking for code changes.",
+        "Reviews generated diffs line-by-line before accepting.",
+        "Can explain what Claude Code did and why.",
+        "Begins to decompose larger tasks into smaller prompts."
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t1-basic-function",
+          "title": "Generate a Utility Function",
+          "description": "Ask Claude Code to write a string utility function with edge cases.",
+          "successCriteria": ["Function works correctly", "Practitioner can explain what it does", "Practitioner reviews the diff before accepting"]
+        }
+      ],
+      "learningEmphasis": [
+        "Focus on reading output carefully. Every diff is a learning opportunity.",
+        "Start providing context: tell Claude Code what file you're working in, what the function should do, and what constraints exist."
+      ],
+      "relatedDimensionIds": ["dim-conceptual-understanding", "dim-task-framing", "dim-verification-discipline"],
+      "citationIds": ["src-claude-code-docs"],
+      "nextLevelId": "level-2"
+    },
+    {
+      "id": "level-2",
+      "slug": "structured-collaborator",
+      "levelNumber": 2,
+      "title": "Structured Collaborator",
+      "shortLabel": "Collaborator",
+      "summary": "Structures interactions with explicit context, constraints, and verification loops.",
+      "definition": [
+        "The Structured Collaborator has moved beyond naive prompting. They provide context, specify constraints, decompose tasks, and verify output systematically.",
+        "At this level, Claude Code becomes a reliable pair programmer. The practitioner understands that prompt quality directly determines output quality and invests in framing."
+      ],
+      "coreConcepts": [
+        { "id": "c2-context-setting", "name": "Context Setting", "definition": "Providing relevant file context, codebase conventions, and requirements before requesting changes." },
+        { "id": "c2-task-decomposition", "name": "Task Decomposition", "definition": "Breaking complex tasks into sequential, well-scoped prompts." },
+        { "id": "c2-verification-loops", "name": "Verification Loops", "definition": "Systematically testing and reviewing output after each interaction." }
+      ],
+      "coreSkills": [
+        { "id": "s2-context-prompt", "name": "Contextual Prompting", "definition": "Can write prompts that include file paths, conventions, and constraints.", "observableEvidence": "Prompts reference specific files and coding standards." },
+        { "id": "s2-decompose", "name": "Task Decomposition", "definition": "Can break a feature request into 3-5 sequential prompts.", "observableEvidence": "Plans a multi-step interaction before starting." },
+        { "id": "s2-verify", "name": "Systematic Verification", "definition": "Runs tests and reviews diffs after every significant change.", "observableEvidence": "Never accepts a diff without running the test suite." }
+      ],
+      "observableBehaviors": [
+        "Provides file paths and context at the start of each session.",
+        "Decomposes features into multiple focused prompts.",
+        "Runs tests after each change and iterates on failures.",
+        "Asks Claude Code to explain its reasoning when output seems wrong."
+      ],
+      "failureModes": [
+        "Over-specifies prompts to the point of constraining useful creativity.",
+        "Spends too long on prompt engineering instead of iterating.",
+        "Does not yet use persistent project configuration.",
+        "Treats each session as independent rather than building on prior work."
+      ],
+      "graduationCriteria": [
+        "Creates and maintains CLAUDE.md files for projects.",
+        "Uses hooks or pre-commit checks to enforce standards.",
+        "Configures project-level context that persists across sessions.",
+        "Begins using MCP servers or external tool integrations."
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t2-multi-step",
+          "title": "Multi-Step Feature Implementation",
+          "description": "Implement a feature that requires changes across 3+ files using decomposed prompts.",
+          "successCriteria": ["Feature works end-to-end", "Each prompt is well-scoped", "Tests pass after each step"]
+        }
+      ],
+      "learningEmphasis": [
+        "Invest in prompt structure. A well-framed prompt saves multiple iterations.",
+        "Start exploring CLAUDE.md and project-level configuration to reduce repetitive context-setting."
+      ],
+      "relatedDimensionIds": ["dim-task-framing", "dim-verification-discipline", "dim-context-management"],
+      "citationIds": ["src-claude-code-docs", "src-prompt-engineering"],
+      "previousLevelId": "level-1",
+      "nextLevelId": "level-3"
+    },
+    {
+      "id": "level-3",
+      "slug": "environment-builder",
+      "levelNumber": 3,
+      "title": "Environment Builder",
+      "shortLabel": "Builder",
+      "summary": "Configures persistent project environments with CLAUDE.md, hooks, MCP, and permissions for consistent AI-assisted development.",
+      "definition": [
+        "The Environment Builder shifts focus from individual prompts to persistent infrastructure. They configure CLAUDE.md files, set up hooks, integrate MCP servers, and design project structures that make Claude Code effective by default.",
+        "At this level, the practitioner's environment does much of the work. New team members can be productive with Claude Code immediately because the project is configured for it."
+      ],
+      "coreConcepts": [
+        { "id": "c3-claude-md", "name": "CLAUDE.md Configuration", "definition": "Using project-level and directory-level CLAUDE.md files to provide persistent context, conventions, and instructions." },
+        { "id": "c3-hooks", "name": "Hooks and Automation", "definition": "Configuring pre-commit hooks, linting rules, and automated checks that run alongside Claude Code." },
+        { "id": "c3-mcp", "name": "MCP Server Integration", "definition": "Setting up Model Context Protocol servers to give Claude Code access to external tools and data sources." }
+      ],
+      "coreSkills": [
+        { "id": "s3-claude-md-design", "name": "CLAUDE.md Design", "definition": "Can design effective CLAUDE.md files that guide AI behavior for a project.", "observableEvidence": "Project has layered CLAUDE.md files with build commands, conventions, and architecture notes." },
+        { "id": "s3-hook-config", "name": "Hook Configuration", "definition": "Can configure hooks that enforce code quality standards automatically.", "observableEvidence": "Pre-commit hooks catch common issues before code is committed." },
+        { "id": "s3-mcp-setup", "name": "MCP Server Setup", "definition": "Can configure and use MCP servers for database, API, or file system access.", "observableEvidence": "Claude Code accesses external systems through configured MCP servers." }
+      ],
+      "observableBehaviors": [
+        "Maintains CLAUDE.md files as living documents updated with project evolution.",
+        "Configures hooks for linting, testing, and formatting.",
+        "Sets up MCP servers for project-specific external tool access.",
+        "Designs directory structures that help Claude Code navigate large codebases."
+      ],
+      "failureModes": [
+        "Over-engineers CLAUDE.md with excessive detail that the model ignores.",
+        "Configures hooks that are too strict and block productive work.",
+        "Sets up MCP servers without proper security boundaries.",
+        "Does not version-control environment configuration."
+      ],
+      "graduationCriteria": [
+        "Designs workflows that span multiple Claude Code sessions.",
+        "Uses non-interactive or headless mode for automated tasks.",
+        "Begins orchestrating multiple agents on parallel tasks.",
+        "Integrates Claude Code into CI/CD pipelines."
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t3-env-setup",
+          "title": "Project Environment Setup",
+          "description": "Configure a new project with CLAUDE.md, hooks, and at least one MCP server.",
+          "successCriteria": ["CLAUDE.md provides useful guidance", "Hooks catch at least one common issue", "MCP server is functional"]
+        }
+      ],
+      "learningEmphasis": [
+        "Think of your environment as a product. It should make Claude Code more effective for everyone who uses it.",
+        "Start exploring automation: what tasks can Claude Code do without you watching?"
+      ],
+      "relatedDimensionIds": ["dim-context-management", "dim-environment-design", "dim-verification-discipline"],
+      "citationIds": ["src-claude-code-docs", "src-mcp-spec"],
+      "previousLevelId": "level-2",
+      "nextLevelId": "level-4"
+    },
+    {
+      "id": "level-4",
+      "slug": "workflow-engineer",
+      "levelNumber": 4,
+      "title": "Workflow Engineer",
+      "shortLabel": "Engineer",
+      "summary": "Designs multi-agent workflows, CI/CD integration, and automated development pipelines using Claude Code.",
+      "definition": [
+        "The Workflow Engineer operates at the system level. They design workflows where multiple Claude Code instances collaborate, tasks are parallelized across agents, and AI coding is integrated into continuous integration and deployment pipelines.",
+        "At this level, Claude Code is not just a tool — it is infrastructure. The practitioner thinks about orchestration, error handling, and workflow resilience."
+      ],
+      "coreConcepts": [
+        { "id": "c4-multi-agent", "name": "Multi-Agent Orchestration", "definition": "Running multiple Claude Code instances on related but independent tasks, coordinating their work." },
+        { "id": "c4-ci-integration", "name": "CI/CD Integration", "definition": "Embedding Claude Code into automated pipelines for code generation, review, and testing." },
+        { "id": "c4-headless-mode", "name": "Headless Operation", "definition": "Using Claude Code in non-interactive mode for scripted and automated workflows." }
+      ],
+      "coreSkills": [
+        { "id": "s4-orchestrate", "name": "Workflow Orchestration", "definition": "Can design and run multi-agent workflows with proper task decomposition.", "observableEvidence": "Runs parallel agents on independent tasks and merges results." },
+        { "id": "s4-ci-cd", "name": "Pipeline Integration", "definition": "Can embed Claude Code into CI/CD pipelines for automated code operations.", "observableEvidence": "CI pipeline includes Claude Code steps for code review or generation." },
+        { "id": "s4-error-handling", "name": "Workflow Error Handling", "definition": "Can design workflows that handle failures gracefully.", "observableEvidence": "Automated workflows retry or escalate on failure rather than silently breaking." }
+      ],
+      "observableBehaviors": [
+        "Runs multiple Claude Code instances on parallel branches.",
+        "Uses headless mode for batch operations.",
+        "Integrates Claude Code into PR review automation.",
+        "Designs retry and fallback logic for automated workflows."
+      ],
+      "failureModes": [
+        "Over-automates without sufficient verification checkpoints.",
+        "Creates workflows that are brittle and hard to debug.",
+        "Does not monitor automated agent output for quality drift.",
+        "Ignores security implications of autonomous code generation."
+      ],
+      "graduationCriteria": [
+        "Designs organizational AI coding strategy and governance.",
+        "Creates safety boundaries and audit trails for autonomous agents.",
+        "Mentors others on AI coding best practices.",
+        "Can evaluate and adopt new AI coding tools and patterns."
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t4-multi-agent",
+          "title": "Multi-Agent Workflow Design",
+          "description": "Design and execute a workflow where 2+ Claude Code agents work on parallel tasks with coordinated output.",
+          "successCriteria": ["Tasks are correctly decomposed", "Agents work in parallel", "Results merge without conflicts"]
+        }
+      ],
+      "learningEmphasis": [
+        "Think about AI coding as infrastructure, not a tool. What does reliability mean when agents generate code?",
+        "Start considering governance: who reviews what the agents produce? What audit trail exists?"
+      ],
+      "relatedDimensionIds": ["dim-workflow-scaling", "dim-environment-design", "dim-safety-governance"],
+      "citationIds": ["src-claude-code-docs", "src-agent-sdk"],
+      "previousLevelId": "level-3",
+      "nextLevelId": "level-5"
+    },
+    {
+      "id": "level-5",
+      "slug": "agentic-systems-expert",
+      "levelNumber": 5,
+      "title": "Agentic Systems Expert",
+      "shortLabel": "Expert",
+      "summary": "Architects organizational AI coding strategy, governance frameworks, and safety boundaries for autonomous agentic systems.",
+      "definition": [
+        "The Agentic Systems Expert operates at the organizational and architectural level. They design governance frameworks, safety boundaries, and strategy for how AI coding tools are adopted, scaled, and governed across teams.",
+        "At this level, the practitioner is not just using Claude Code — they are shaping how their organization uses AI for software development, including policy, risk management, and capability evaluation."
+      ],
+      "coreConcepts": [
+        { "id": "c5-governance", "name": "AI Coding Governance", "definition": "Designing policies, review processes, and audit trails for AI-generated code at organizational scale." },
+        { "id": "c5-safety-boundaries", "name": "Safety Boundaries", "definition": "Defining what autonomous agents can and cannot do, with enforcement mechanisms." },
+        { "id": "c5-strategy", "name": "Organizational AI Strategy", "definition": "Planning how AI coding tools are adopted, integrated, and evolved across an organization." }
+      ],
+      "coreSkills": [
+        { "id": "s5-governance-design", "name": "Governance Framework Design", "definition": "Can design and implement governance frameworks for AI-generated code.", "observableEvidence": "Organization has documented policies for AI code review and approval." },
+        { "id": "s5-safety-design", "name": "Safety Boundary Design", "definition": "Can design safety mechanisms that prevent autonomous agents from causing harm.", "observableEvidence": "Agents operate within defined boundaries with automatic escalation." },
+        { "id": "s5-capability-eval", "name": "Capability Evaluation", "definition": "Can evaluate new AI coding tools and patterns for organizational fit.", "observableEvidence": "Produces structured evaluations of new tools with risk/benefit analysis." }
+      ],
+      "observableBehaviors": [
+        "Designs organization-wide AI coding policies.",
+        "Creates audit trails and compliance mechanisms for AI-generated code.",
+        "Evaluates new AI coding tools and recommends adoption strategy.",
+        "Mentors teams on responsible AI coding practices.",
+        "Designs safety boundaries for autonomous agent operation."
+      ],
+      "failureModes": [
+        "Creates governance that is too heavy and blocks productive work.",
+        "Focuses on strategy without maintaining hands-on technical skill.",
+        "Under-estimates the pace of tool evolution and locks into rigid frameworks.",
+        "Does not account for the human experience of working alongside AI agents."
+      ],
+      "graduationCriteria": [
+        "This is the current ceiling of the framework. Graduation would involve contributing to the advancement of the field itself."
+      ],
+      "evaluationTasks": [
+        {
+          "id": "t5-governance",
+          "title": "Governance Framework Design",
+          "description": "Design a governance framework for AI-generated code in a team of 10+ engineers.",
+          "successCriteria": ["Framework covers code review, audit, permissions, and escalation", "Balances safety with productivity", "Is practical to implement"]
+        }
+      ],
+      "learningEmphasis": [
+        "The frontier is moving fast. Stay hands-on while developing organizational perspective.",
+        "Study how data infrastructure governance evolved — AI coding governance will follow similar patterns."
+      ],
+      "relatedDimensionIds": ["dim-safety-governance", "dim-workflow-scaling", "dim-conceptual-understanding"],
+      "citationIds": ["src-claude-code-docs", "src-agent-sdk", "src-anthropic-safety"],
+      "previousLevelId": "level-4"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">{{ roadmap.pageTitle }}</h1>
+  <p class="hero__summary">{{ roadmap.summary }}</p>
+</section>
+
+{{#if roadmap.learningStages}}
+<section class="section">
+  <h2>Learning Stages</h2>
+  {{#each roadmap.learningStages}}
+  <div class="card mb-lg">
+    <h3 class="card__title">{{ title }}</h3>
+    <p>{{ summary }}</p>
+    {{#if suggestedActivities}}
+    <h4 class="mt-md text-sm font-bold">Suggested Activities</h4>
+    <ul>
+      {{#each suggestedActivities}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+  {{/each}}
+</section>
+{{/if}}
+
+{{#if roadmap.futureExpansions}}
+<section class="section">
+  <h2>Future Expansions</h2>
+  {{#each roadmap.futureExpansions}}
+  <div class="card mb-md">
+    <h3 class="card__title">{{ title }}</h3>
+    <p>{{ summary }}</p>
+    <span class="badge mt-sm">{{ status }}</span>
+  </div>
+  {{/each}}
+</section>
+{{/if}}
+{{/block}}

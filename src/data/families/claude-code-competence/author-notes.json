@@ -1,0 +1,36 @@
+{
+  "familyId": "claude-code-competence",
+  "pageTitle": "Author Perspective",
+  "intro": [
+    "This page presents my personal interpretation and synthesis of the Claude Code competence framework. The views expressed here are my own and should be distinguished from the source-backed observations on other pages.",
+    "I developed this framework to structure my own learning journey with Claude Code and to provide a reference that others might find useful."
+  ],
+  "sections": [
+    {
+      "id": "self-assessment",
+      "title": "My Current Position",
+      "content": [
+        "I assess myself as mid-Level 4 (Workflow Engineer), actively working toward Level 5. I am comfortable with multi-agent workflows, CI/CD integration, and headless operation. I am beginning to engage with governance and organizational strategy questions but have not yet designed a full governance framework.",
+        "This self-assessment is honest rather than aspirational. The gap between Level 4 and Level 5 is primarily about organizational scope, not technical capability."
+      ]
+    },
+    {
+      "id": "infrastructure-parallel",
+      "title": "The Infrastructure Parallel",
+      "content": [
+        "I believe AI coding infrastructure is following the same maturity curve that data infrastructure followed over the past decade. First, individual tools become useful. Then teams standardize. Then platforms emerge. Then governance becomes necessary.",
+        "Data engineering went through this: ad-hoc scripts became ETL pipelines, became orchestrated workflows, became governed data platforms. AI coding is on the same trajectory — and the organizations that recognize this early will have a significant advantage.",
+        "This parallel is why the framework emphasizes environment design and governance at higher levels. The technical skills at Levels 1-3 are necessary but not sufficient. The organizational skills at Levels 4-5 are where lasting value is created."
+      ]
+    },
+    {
+      "id": "level-5-readiness",
+      "title": "Partial Readiness for Level 5",
+      "content": [
+        "My experience with data infrastructure governance gives me a head start on Level 5 concepts. I understand how to design review processes, audit trails, and compliance frameworks because I have done it for data pipelines.",
+        "However, AI coding governance has unique challenges that data governance does not. The speed of code generation, the non-deterministic nature of AI output, and the human factors of working alongside agents all require new thinking.",
+        "I consider myself partially ready for Level 5 — I have the governance instincts but need to develop the AI-specific safety and policy frameworks."
+      ]
+    }
+  ]
+}

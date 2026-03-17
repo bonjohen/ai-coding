@@ -1,0 +1,75 @@
+{
+  "familyId": "claude-code-competence",
+  "rows": [
+    {
+      "dimensionId": "dim-conceptual-understanding",
+      "cells": [
+        { "levelId": "level-1", "summary": "Knows Claude Code exists and can run it.", "detail": ["Understands it is a CLI tool.", "Does not yet understand context windows or tool use architecture."] },
+        { "levelId": "level-2", "summary": "Understands prompt-response cycle and context.", "detail": ["Knows context window limits exist.", "Understands that providing context improves output."] },
+        { "levelId": "level-3", "summary": "Understands configuration, hooks, and MCP.", "detail": ["Knows how CLAUDE.md affects model behavior.", "Understands MCP server architecture."] },
+        { "levelId": "level-4", "summary": "Understands multi-agent orchestration and automation.", "detail": ["Grasps headless mode and non-interactive operation.", "Understands agent coordination patterns."] },
+        { "levelId": "level-5", "summary": "Deep architectural understanding of AI coding systems.", "detail": ["Can reason about system-level implications.", "Understands governance and safety at architectural level."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-task-framing",
+      "cells": [
+        { "levelId": "level-1", "summary": "Vague, single-turn prompts.", "detail": ["Asks for things without specifying constraints.", "Does not decompose tasks."] },
+        { "levelId": "level-2", "summary": "Structured prompts with context and constraints.", "detail": ["Provides file paths and conventions.", "Decomposes features into steps."] },
+        { "levelId": "level-3", "summary": "Environment-level framing via CLAUDE.md.", "detail": ["Context is provided persistently, not per-prompt.", "Tasks build on established project configuration."] },
+        { "levelId": "level-4", "summary": "Workflow-level task design.", "detail": ["Decomposes work across multiple agents.", "Designs task graphs with dependencies."] },
+        { "levelId": "level-5", "summary": "Organizational task strategy.", "detail": ["Frames AI coding work at portfolio level.", "Designs task patterns that scale across teams."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-verification-discipline",
+      "cells": [
+        { "levelId": "level-1", "summary": "Minimal — accepts if it looks right.", "detail": ["Does not run tests.", "Reviews output superficially."] },
+        { "levelId": "level-2", "summary": "Systematic — tests after each change.", "detail": ["Reviews diffs line-by-line.", "Runs test suite after changes."] },
+        { "levelId": "level-3", "summary": "Automated — hooks enforce verification.", "detail": ["Pre-commit hooks catch issues.", "Linting and formatting are automated."] },
+        { "levelId": "level-4", "summary": "Pipeline-integrated verification.", "detail": ["CI/CD runs verification on agent output.", "Automated quality gates for AI-generated code."] },
+        { "levelId": "level-5", "summary": "Governance-level verification.", "detail": ["Audit trails for all AI-generated changes.", "Compliance verification integrated into workflows."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-context-management",
+      "cells": [
+        { "levelId": "level-1", "summary": "No context management.", "detail": ["Starts prompting without orientation.", "Loses context in long sessions."] },
+        { "levelId": "level-2", "summary": "Per-session context management.", "detail": ["Provides context at session start.", "Knows when to start fresh."] },
+        { "levelId": "level-3", "summary": "Persistent project context.", "detail": ["CLAUDE.md provides baseline context.", "Directory-level context scoping."] },
+        { "levelId": "level-4", "summary": "Cross-agent context coordination.", "detail": ["Context shared across workflow agents.", "Context boundaries managed by design."] },
+        { "levelId": "level-5", "summary": "Organizational context architecture.", "detail": ["Context systems designed at scale.", "Knowledge management across AI-assisted projects."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-environment-design",
+      "cells": [
+        { "levelId": "level-1", "summary": "No configuration.", "detail": ["Uses Claude Code with default settings.", "No project-specific setup."] },
+        { "levelId": "level-2", "summary": "Minimal configuration.", "detail": ["May have basic CLAUDE.md.", "Beginning to explore settings."] },
+        { "levelId": "level-3", "summary": "Comprehensive environment.", "detail": ["Layered CLAUDE.md files.", "Hooks, MCP servers, and permissions configured."] },
+        { "levelId": "level-4", "summary": "Workflow-ready environment.", "detail": ["Environment supports multi-agent operation.", "CI/CD integration configured."] },
+        { "levelId": "level-5", "summary": "Organization-wide environment standards.", "detail": ["Template environments for teams.", "Governance policies embedded in configuration."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-workflow-scaling",
+      "cells": [
+        { "levelId": "level-1", "summary": "Single task, single session.", "detail": ["One prompt at a time.", "No parallelism."] },
+        { "levelId": "level-2", "summary": "Multi-step single sessions.", "detail": ["Sequential task chains.", "Still single-agent."] },
+        { "levelId": "level-3", "summary": "Automated single-agent tasks.", "detail": ["Scripted operations.", "Beginning headless usage."] },
+        { "levelId": "level-4", "summary": "Multi-agent parallel workflows.", "detail": ["Parallel task execution.", "Pipeline-integrated automation."] },
+        { "levelId": "level-5", "summary": "Organizational AI workflow strategy.", "detail": ["Cross-team workflow orchestration.", "Capacity planning for AI agents."] }
+      ]
+    },
+    {
+      "dimensionId": "dim-safety-governance",
+      "cells": [
+        { "levelId": "level-1", "summary": "No safety awareness.", "detail": ["Accepts code without security review.", "No audit trail."] },
+        { "levelId": "level-2", "summary": "Basic awareness.", "detail": ["Reviews for obvious security issues.", "Understands risk exists."] },
+        { "levelId": "level-3", "summary": "Project-level safety.", "detail": ["Permissions configured.", "Hooks enforce safety checks."] },
+        { "levelId": "level-4", "summary": "Workflow-level safety.", "detail": ["Safety boundaries in automated workflows.", "Monitoring for quality drift."] },
+        { "levelId": "level-5", "summary": "Organizational governance.", "detail": ["Policies for AI code generation.", "Compliance and audit frameworks.", "Safety boundary enforcement at scale."] }
+      ]
+    }
+  ]
+}

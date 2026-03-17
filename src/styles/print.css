@@ -1,0 +1,70 @@
+@media print {
+  /* Hide navigation chrome */
+  .site-header,
+  .site-nav,
+  .nav-toggle,
+  .breadcrumbs,
+  .site-footer,
+  .level-nav {
+    display: none !important;
+  }
+
+  /* Reset background colors */
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Expand collapsed content */
+  .accordion__content {
+    display: block !important;
+  }
+
+  .matrix-cell__detail {
+    display: block !important;
+  }
+
+  /* Prevent overflow in matrix */
+  .matrix-table {
+    overflow: visible;
+  }
+
+  .matrix-table table {
+    min-width: 0;
+    font-size: 9pt;
+  }
+
+  /* Show link URLs */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Preserve headings */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* Avoid orphan/widow sections */
+  .section,
+  .card,
+  .level-card,
+  .source-card {
+    page-break-inside: avoid;
+  }
+
+  /* Remove shadows and borders that print poorly */
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  /* Full width */
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}

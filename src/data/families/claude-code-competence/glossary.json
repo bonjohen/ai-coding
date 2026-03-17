@@ -1,0 +1,17 @@
+{
+  "familyId": "claude-code-competence",
+  "terms": [
+    { "id": "term-agent", "term": "Agent", "definition": "An AI system that can autonomously plan and execute multi-step tasks using tools, within defined boundaries.", "relatedTerms": ["subagent", "multi-agent"] },
+    { "id": "term-hook", "term": "Hook", "definition": "A user-configured shell command that runs automatically in response to Claude Code events such as tool calls or notifications.", "relatedTerms": ["pre-commit", "automation"] },
+    { "id": "term-skill", "term": "Skill", "definition": "A slash-command extension in Claude Code that provides specialized capabilities, invoked with /skill-name syntax.", "relatedTerms": ["MCP", "tool use"] },
+    { "id": "term-mcp", "term": "MCP (Model Context Protocol)", "definition": "An open protocol that allows AI models to connect to external tools and data sources through standardized server interfaces.", "relatedTerms": ["MCP server", "tool use"] },
+    { "id": "term-verification-loop", "term": "Verification Loop", "definition": "A systematic practice of reviewing, testing, and validating AI-generated output before accepting it into the codebase.", "relatedTerms": ["verification discipline", "testing"] },
+    { "id": "term-context-window", "term": "Context Window", "definition": "The maximum amount of text (measured in tokens) that a language model can process in a single interaction.", "relatedTerms": ["context management", "token"] },
+    { "id": "term-non-interactive", "term": "Non-Interactive Mode", "definition": "Running Claude Code without human interaction, using flags like --print or piped input, suitable for automation and CI/CD.", "relatedTerms": ["headless", "automation"] },
+    { "id": "term-subagent", "term": "Subagent", "definition": "A Claude Code instance spawned by another agent to handle a subtask, operating with its own context window.", "relatedTerms": ["agent", "multi-agent"] },
+    { "id": "term-governance", "term": "Governance", "definition": "The organizational framework of policies, processes, and controls that ensure AI-generated code meets quality, security, and compliance standards.", "relatedTerms": ["safety", "audit trail"] },
+    { "id": "term-review-automation", "term": "Review Automation", "definition": "Using AI agents to automatically review pull requests, check for issues, and provide feedback as part of the development workflow.", "relatedTerms": ["CI/CD", "verification loop"] },
+    { "id": "term-claude-md", "term": "CLAUDE.md", "definition": "A markdown file placed in a project directory that provides persistent context, conventions, and instructions to Claude Code across sessions.", "relatedTerms": ["context management", "environment design"] },
+    { "id": "term-headless", "term": "Headless Mode", "definition": "Running Claude Code without a terminal UI, typically for automated or scripted workflows.", "relatedTerms": ["non-interactive mode", "automation"] }
+  ]
+}

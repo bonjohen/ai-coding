@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}">
+<link rel="canonical" href="{{ canonicalUrl }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:image" content="{{ seo.defaultOgImage }}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="{{ basePath }}assets/css/tokens.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/reset.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/base.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/typography.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/layout.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/components.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/utilities.css">
+<link rel="stylesheet" href="{{ basePath }}assets/css/print.css">
+{{#if family}}
+<link rel="stylesheet" href="{{ basePath }}assets/css/families/{{ family.themeKey }}.css">
+{{/if}}

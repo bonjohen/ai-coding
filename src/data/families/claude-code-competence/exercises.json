@@ -1,0 +1,56 @@
+{
+  "familyId": "claude-code-competence",
+  "exercises": [
+    {
+      "id": "ex-1-basic-prompt",
+      "levelId": "level-1",
+      "title": "First Prompt",
+      "summary": "Write your first prompt to Claude Code and review the output.",
+      "instructions": [
+        "Open Claude Code in a project directory.",
+        "Ask Claude Code to create a simple utility function.",
+        "Review the generated diff carefully before accepting."
+      ],
+      "successCriteria": [
+        "Function works as expected.",
+        "You can explain what the function does.",
+        "You reviewed the diff before accepting."
+      ],
+      "estimatedDifficulty": "beginner"
+    },
+    {
+      "id": "ex-2-decomposed-task",
+      "levelId": "level-2",
+      "title": "Decomposed Feature",
+      "summary": "Implement a feature using multiple structured prompts.",
+      "instructions": [
+        "Plan a feature that requires changes to at least 3 files.",
+        "Write a sequence of focused prompts, each targeting one aspect.",
+        "Run tests after each prompt and iterate on failures."
+      ],
+      "successCriteria": [
+        "Feature works end-to-end.",
+        "Each prompt was well-scoped with context.",
+        "Tests pass after each step."
+      ],
+      "estimatedDifficulty": "intermediate"
+    },
+    {
+      "id": "ex-3-env-config",
+      "levelId": "level-3",
+      "title": "Project Environment Setup",
+      "summary": "Configure a complete Claude Code environment for a project.",
+      "instructions": [
+        "Create a CLAUDE.md with build commands, conventions, and architecture notes.",
+        "Configure at least one hook for automated checking.",
+        "Set up an MCP server for external tool access."
+      ],
+      "successCriteria": [
+        "CLAUDE.md improves Claude Code's output quality.",
+        "Hook catches at least one real issue.",
+        "MCP server connects successfully."
+      ],
+      "estimatedDifficulty": "intermediate"
+    }
+  ]
+}
