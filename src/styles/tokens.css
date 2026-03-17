@@ -1,29 +1,39 @@
 :root {
-  /* Colors — neutral */
-  --color-bg: #ffffff;
-  --color-bg-alt: #f7f8fa;
-  --color-bg-code: #f0f2f5;
-  --color-surface: #ffffff;
-  --color-border: #d1d5db;
-  --color-border-light: #e5e7eb;
-  --color-text: #1a1a2e;
-  --color-text-muted: #6b7280;
-  --color-text-light: #9ca3af;
-  --color-link: #2563eb;
-  --color-link-hover: #1d4ed8;
-  --color-focus: #3b82f6;
+  /* Colors — dark theme foundation */
+  --color-bg: #0c0e14;
+  --color-bg-alt: #12151e;
+  --color-bg-code: #181c28;
+  --color-bg-elevated: #1a1e2c;
+  --color-surface: #161a26;
+  --color-border: #2a2f40;
+  --color-border-light: #1f2333;
+  --color-text: #e4e6ed;
+  --color-text-muted: #8891a5;
+  --color-text-light: #5c6478;
+  --color-link: #6dacf0;
+  --color-link-hover: #93c4ff;
+  --color-focus: #6dacf0;
 
   /* Colors — semantic */
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
 
-  /* Colors — levels (maturity ladder) */
-  --color-level-1: #6366f1;
-  --color-level-2: #8b5cf6;
-  --color-level-3: #06b6d4;
-  --color-level-4: #0891b2;
-  --color-level-5: #0d9488;
+  /* Colors — levels (maturity ladder: cool → warm progression) */
+  --color-level-1: #5ea4f8;
+  --color-level-1-dim: rgba(94, 164, 248, 0.12);
+  --color-level-2: #8b7cf6;
+  --color-level-2-dim: rgba(139, 124, 246, 0.12);
+  --color-level-3: #22c9a0;
+  --color-level-3-dim: rgba(34, 201, 160, 0.12);
+  --color-level-4: #f09640;
+  --color-level-4-dim: rgba(240, 150, 64, 0.12);
+  --color-level-5: #f06292;
+  --color-level-5-dim: rgba(240, 98, 146, 0.12);
+
+  /* Accent for current family */
+  --color-accent: #6dacf0;
+  --color-accent-dim: rgba(109, 172, 240, 0.1);
 
   /* Spacing scale */
   --space-xs: 0.25rem;
@@ -32,43 +42,52 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
 
-  /* Typography scale */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  /* Typography */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.6;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.5rem;
+
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.65;
   --line-height-loose: 1.8;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.08em;
 
   /* Content widths */
   --content-width: 72rem;
-  --content-narrow: 48rem;
+  --content-narrow: 46rem;
   --content-wide: 90rem;
   --sidebar-width: 16rem;
 
   /* Border radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 20px rgba(109, 172, 240, 0.15);
 
-  /* Breakpoints (for reference — used in media queries) */
-  /* --bp-sm: 640px; */
-  /* --bp-md: 768px; */
-  /* --bp-lg: 1024px; */
-  /* --bp-xl: 1280px; */
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
 }

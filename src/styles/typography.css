@@ -1,42 +1,60 @@
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
   line-height: var(--line-height-tight);
   color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 h1 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-5xl);
   margin-bottom: var(--space-lg);
+  font-style: italic;
 }
 
 h2 {
   font-size: var(--text-3xl);
   margin-top: var(--space-3xl);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
 }
 
 h3 {
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-md);
 }
 
 h4 {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   margin-top: var(--space-xl);
   margin-bottom: var(--space-sm);
 }
 
 h5 {
-  font-size: var(--text-lg);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-}
-
-h6 {
   font-size: var(--text-base);
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+h6 {
+  font-size: var(--text-sm);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
 }
 
 p {
@@ -55,6 +73,11 @@ ol {
 
 li {
   margin-bottom: var(--space-xs);
+  line-height: var(--line-height-normal);
+}
+
+li::marker {
+  color: var(--color-text-light);
 }
 
 li:last-child {
@@ -62,11 +85,15 @@ li:last-child {
 }
 
 blockquote {
-  border-left: 3px solid var(--color-border);
-  padding-left: var(--space-lg);
+  border-left: 2px solid var(--color-accent);
+  padding: var(--space-md) var(--space-lg);
   margin: var(--space-lg) 0;
   color: var(--color-text-muted);
   font-style: italic;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  background: var(--color-accent-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 small {
@@ -75,11 +102,12 @@ small {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .lead {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   line-height: var(--line-height-loose);
   color: var(--color-text-muted);
 }

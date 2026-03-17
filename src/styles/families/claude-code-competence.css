@@ -1,13 +1,20 @@
 /* Claude Code Competence family accent overrides */
 .family--claude-code-competence {
-  --color-accent: #2563eb;
-  --color-accent-light: #dbeafe;
+  --color-accent: #6dacf0;
+  --color-accent-dim: rgba(109, 172, 240, 0.08);
 }
 
 .family--claude-code-competence .hero {
-  border-bottom-color: var(--color-accent-light);
+  border-bottom-color: var(--color-border);
 }
 
 .family--claude-code-competence .quote-block {
   border-left-color: var(--color-accent);
+}
+
+.family--claude-code-competence .hero__title {
+  background: linear-gradient(135deg, #6dacf0 0%, #8b7cf6 50%, #22c9a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
