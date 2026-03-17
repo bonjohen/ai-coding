@@ -198,13 +198,13 @@ Goal: Production-ready output, verified and documented.
 - [x] Test: CSS and JS assets present in `docs/assets/`
 - [x] Test: all nav hrefs resolve to generated pages
 - [x] Test: all level/dimension/source ID cross-references valid
-- [ ] Test: validation fails on deliberately broken input (missing field, bad ID ref, duplicate ID, wrong level order)
+- [x] Test: validation fails on deliberately broken input (missing field, bad ID ref, duplicate ID, wrong level order)
 
 ### 5.2 Deployment artifacts
 - [x] `CNAME` contains correct domain
 - [x] All asset references use relative paths honoring `siteBasePath`
 - [x] `docs/` output is self-contained and servable as static files
-- [ ] Verify site works when served from local static server (`npm run dev`)
+- [x] Verify site works when served from local static server (`npm run dev`)
 
 ### 5.3 Documentation
 - [x] `README.md` with: project purpose, repository layout, build commands, content file locations, deployment model, how to add a new family, how to add a new level/source, how to change siteBasePath
@@ -428,7 +428,7 @@ These items were identified as missing from the original implementation and viol
 ### G.7 Remaining Phase 4-5 incomplete items
 - [ ] Test browser print preview on level page, matrix page, and sources page
 - [ ] Test validation fails on deliberately broken input
-- [ ] Verify site works when served from local static server (`npm run dev`)
+- [x] Verify site works when served from local static server (`npm run dev`)
 
 ### G.8 README gaps
 - [ ] Document exercises.json structure and how to add exercises
@@ -436,8 +436,8 @@ These items were identified as missing from the original implementation and viol
 - [ ] List all validation rules from the design doc
 
 ### G.9 Accessibility improvements
-- [ ] Add skip-to-content link in base layout
-- [ ] Add ARIA landmarks (`role="navigation"`, `role="main"`, `role="contentinfo"`) where not implicit
+- [x] Add skip-to-content link in all layouts
+- [x] Add ARIA landmarks (`role="contentinfo"` on footer; `<main id="main-content">` on all layouts; nav already has `aria-label`)
 
 ---
 
