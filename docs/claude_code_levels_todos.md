@@ -192,29 +192,29 @@ Goal: Interactive behaviors and print-friendly output.
 Goal: Production-ready output, verified and documented.
 
 ### 5.1 Build verification tests
-- [ ] Test: data validation passes on all JSON files
-- [ ] Test: build completes without error
-- [ ] Test: all 14 required pages present in `docs/`
-- [ ] Test: CSS and JS assets present in `docs/assets/`
-- [ ] Test: all nav hrefs resolve to generated pages
-- [ ] Test: all level/dimension/source ID cross-references valid
+- [x] Test: data validation passes on all JSON files
+- [x] Test: build completes without error
+- [x] Test: all 14 required pages present in `docs/`
+- [x] Test: CSS and JS assets present in `docs/assets/`
+- [x] Test: all nav hrefs resolve to generated pages
+- [x] Test: all level/dimension/source ID cross-references valid
 - [ ] Test: validation fails on deliberately broken input (missing field, bad ID ref, duplicate ID, wrong level order)
 
 ### 5.2 Deployment artifacts
 - [x] `CNAME` contains correct domain
 - [x] All asset references use relative paths honoring `siteBasePath`
-- [ ] `docs/` output is self-contained and servable as static files
+- [x] `docs/` output is self-contained and servable as static files
 - [ ] Verify site works when served from local static server (`npm run dev`)
 
 ### 5.3 Documentation
-- [ ] `README.md` with: project purpose, repository layout, build commands, content file locations, deployment model, how to add a new family, how to add a new level/source, how to change siteBasePath
+- [x] `README.md` with: project purpose, repository layout, build commands, content file locations, deployment model, how to add a new family, how to add a new level/source, how to change siteBasePath
 
 ### 5.4 Optional enhancements (not required for first release)
 - [ ] GitHub Actions workflow for automated build and publish
 - [ ] Printable summary page (`/ai-coding/claude-code-competence/printable/index.html`)
 - [ ] `npm run watch` for file-change rebuild
 - [ ] Dark/light theme toggle
-- [ ] localStorage for expanded matrix rows
+- [x] localStorage for expanded matrix rows
 - [ ] Self-assessed level highlighter
 
 **Phase 5 exit criteria:** All 10 acceptance criteria from the design document pass:
