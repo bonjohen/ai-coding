@@ -1,0 +1,30 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Practice Quiz</h1>
+  <p class="hero__summary">Test your Claude Code knowledge with random questions. Each answer links to relevant study material.</p>
+</section>
+
+<div id="quiz-app">
+  <noscript>
+    <section class="section">
+      <h2>Quiz Questions (Print Version)</h2>
+      <p class="text-muted mb-lg">JavaScript is required for the interactive quiz. Below are all questions as a printable study guide.</p>
+      {{#each allQuestions}}
+      <div class="mb-lg">
+        <p><strong>{{ text }}</strong></p>
+        <ul>
+          {{#each choices}}
+          <li>{{ label }}</li>
+          {{/each}}
+        </ul>
+        <p class="text-sm text-muted">{{ explanation }}</p>
+      </div>
+      {{/each}}
+    </section>
+  </noscript>
+</div>
+
+<script type="application/json" id="quiz-data">{{{ quizDataJson }}}</script>
+<script type="application/json" id="quiz-dimensions">{{{ quizDimensionsJson }}}</script>
+<script type="application/json" id="quiz-levels">{{{ quizLevelsJson }}}</script>
+{{/block}}

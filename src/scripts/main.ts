@@ -5,6 +5,7 @@ import { initCitations } from './citations.js';
 import { initFilters } from './filters.js';
 import { initPageState } from './page-state.js';
 import { initAssessment } from './self-assessment.js';
+import { initQuiz } from './quiz-engine.js';
 
 /**
  * Initialize all browser enhancements.
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initPageState();
   initAssessment();
+  initQuiz();
 });

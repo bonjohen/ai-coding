@@ -1,0 +1,26 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Example Projects</h1>
+  <p class="hero__summary">Step-by-step walkthroughs demonstrating Claude Code competence at each level.</p>
+</section>
+
+{{#each projectsByLevel}}
+{{#if projects}}
+<section class="section">
+  <h2>Level {{ level.levelNumber }}: {{ level.title }}</h2>
+  <div class="grid grid--2col">
+    {{#each projects}}
+    <div class="card">
+      <div class="flex items-center gap-sm mb-sm">
+        <span class="badge badge--level-{{ level.levelNumber }}">L{{ level.levelNumber }}</span>
+        <span class="text-sm text-muted">{{ estimatedTime }}</span>
+      </div>
+      <h3 class="card__title"><a href="{{ basePath }}{{ family.slug }}/projects/{{ id }}/">{{ title }}</a></h3>
+      <p class="card__description">{{ summary }}</p>
+    </div>
+    {{/each}}
+  </div>
+</section>
+{{/if}}
+{{/each}}
+{{/block}}

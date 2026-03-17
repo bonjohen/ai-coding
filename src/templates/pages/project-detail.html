@@ -1,0 +1,55 @@
+{{#block content}}
+<article>
+  <header class="hero">
+    <div class="flex items-center gap-sm mb-sm">
+      {{#if projectLevel}}
+      <span class="badge badge--level-{{ projectLevel.levelNumber }}">Level {{ projectLevel.levelNumber }}</span>
+      {{/if}}
+      <span class="text-sm text-muted">{{ project.estimatedTime }}</span>
+    </div>
+    <h1 class="hero__title">{{ project.title }}</h1>
+    <p class="hero__summary">{{ project.summary }}</p>
+  </header>
+
+  <section class="section">
+    <div class="project-scenario">
+      <h2>Scenario</h2>
+      <p>{{ project.scenario }}</p>
+    </div>
+  </section>
+
+  {{#each project.sections}}
+  <section class="section project-step">
+    <h2>{{ title }}</h2>
+    {{#each content}}
+    <p>{{ this }}</p>
+    {{/each}}
+    {{#if codeSnippet}}
+    <pre><code>{{{ codeSnippet }}}</code></pre>
+    {{/if}}
+  </section>
+  {{/each}}
+
+  {{#if project.demonstratedSkills}}
+  <section class="section">
+    <h2>Skills Demonstrated</h2>
+    <div class="flex flex-wrap gap-sm">
+      {{#each project.demonstratedSkills}}
+      <span class="project-tag">{{ this }}</span>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if project.demonstratedConcepts}}
+  <section class="section">
+    <h2>Concepts Covered</h2>
+    <div class="flex flex-wrap gap-sm">
+      {{#each project.demonstratedConcepts}}
+      <span class="project-tag">{{ this }}</span>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+</article>
+{{/block}}

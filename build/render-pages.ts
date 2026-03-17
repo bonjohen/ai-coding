@@ -354,6 +354,91 @@ function collectPageDefs(data: AllData): PageDef[] {
         },
       });
     }
+
+    // Quiz page
+    if (family.quizQuestions) {
+      const allQuestions = family.quizQuestions.questions;
+      const quizLevels = family.levels.levels.map(l => ({
+        id: l.id, title: l.title, shortLabel: l.shortLabel, levelNumber: l.levelNumber, slug: l.slug,
+      }));
+      const quizDimensions = family.dimensions.dimensions
+        .sort((a, b) => a.order - b.order)
+        .map(d => ({ id: d.id, name: d.name, shortName: d.shortName }));
+
+      pages.push({
+        outputPath: `${familyBase}/quiz/index.html`,
+        layout: 'article',
+        page: 'quiz',
+        context: {
+          ...familyCtx,
+          allQuestions,
+          quizDataJson: JSON.stringify(allQuestions),
+          quizDimensionsJson: JSON.stringify(quizDimensions),
+          quizLevelsJson: JSON.stringify(quizLevels),
+          pageTitle: `Practice Quiz — ${family.family.shortTitle}`,
+          pageDescription: 'Test your Claude Code knowledge with random questions.',
+          canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/quiz/`,
+          breadcrumbs: [
+            { label: 'Home', href: `/${basePath}/` },
+            { label: family.family.shortTitle, href: `/${familyBase}/` },
+            { label: 'Quiz', href: '' },
+          ],
+        },
+      });
+    }
+
+    // Project gallery and detail pages
+    if (family.exampleProjects) {
+      const projectsByLevel = family.levels.levels.map(l => ({
+        level: l,
+        projects: family.exampleProjects!.projects.filter(p => p.levelId === l.id),
+        levelImage: levelImageMap[l.slug]
+          ? `${data.site.site.siteBasePath}assets/images/levels/${levelImageMap[l.slug]}`
+          : null,
+      }));
+
+      pages.push({
+        outputPath: `${familyBase}/projects/index.html`,
+        layout: 'article',
+        page: 'project-gallery',
+        context: {
+          ...familyCtx,
+          projectsByLevel,
+          pageTitle: `Example Projects — ${family.family.shortTitle}`,
+          pageDescription: 'Step-by-step walkthroughs demonstrating Claude Code competence at each level.',
+          canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/projects/`,
+          breadcrumbs: [
+            { label: 'Home', href: `/${basePath}/` },
+            { label: family.family.shortTitle, href: `/${familyBase}/` },
+            { label: 'Projects', href: '' },
+          ],
+        },
+      });
+
+      for (const project of family.exampleProjects.projects) {
+        const slug = project.id.replace(/^proj-\d+-/, '');
+        const level = family.levels.levels.find(l => l.id === project.levelId);
+        pages.push({
+          outputPath: `${familyBase}/projects/${slug}/index.html`,
+          layout: 'article',
+          page: 'project-detail',
+          context: {
+            ...familyCtx,
+            project,
+            projectLevel: level,
+            pageTitle: `${project.title} — ${family.family.shortTitle}`,
+            pageDescription: project.summary,
+            canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/projects/${slug}/`,
+            breadcrumbs: [
+              { label: 'Home', href: `/${basePath}/` },
+              { label: family.family.shortTitle, href: `/${familyBase}/` },
+              { label: 'Projects', href: `/${familyBase}/projects/` },
+              { label: project.title, href: '' },
+            ],
+          },
+        });
+      }
+    }
   }
 
   return pages;
