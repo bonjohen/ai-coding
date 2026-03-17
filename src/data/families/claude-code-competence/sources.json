@@ -3,8 +3,7 @@
   "sourceGroups": [
     { "id": "grp-official", "name": "Official Anthropic Sources", "summary": "Documentation and guides published by Anthropic.", "order": 1 },
     { "id": "grp-practitioner", "name": "Practitioner Sources", "summary": "Articles, posts, and guides from practitioners using Claude Code.", "order": 2 },
-    { "id": "grp-interviews", "name": "Interviews and Talks", "summary": "Recorded conversations and presentations about AI-assisted development.", "order": 3 },
-    { "id": "grp-synthesis", "name": "Synthesis Notes", "summary": "Author's synthesis and interpretation of source material.", "order": 4 }
+    { "id": "grp-interviews", "name": "Interviews and Talks", "summary": "Recorded conversations and presentations about AI-assisted development.", "order": 3 }
   ],
   "sources": [
     {
@@ -110,7 +109,7 @@
       "author": "Various practitioners",
       "publisher": "Community",
       "publishedDate": "2025-2026",
-      "url": "",
+      "url": "https://github.com/anthropics/claude-code/discussions",
       "sourceType": "community",
       "summary": "Collected community patterns for multi-agent coding workflows, CI integration, and governance approaches emerging from early adopters.",
       "relevance": "Informs Levels 4-5 workflow scaling and governance concepts drawn from practitioner experience.",
@@ -135,23 +134,11 @@
       "author": "Various speakers",
       "publisher": "AI Engineering Summit",
       "publishedDate": "2025",
-      "url": "",
+      "url": "https://www.ai.engineer/",
       "sourceType": "conference",
       "summary": "Conference talks covering the emerging discipline of AI engineering, including governance, safety, and organizational adoption of AI coding tools.",
       "relevance": "Informs Level 5 organizational strategy and the broader context of AI coding tool adoption.",
       "notes": "Multiple sessions across AI engineering conferences addressing governance and team adoption patterns."
-    },
-    {
-      "id": "src-author-synthesis",
-      "groupId": "grp-synthesis",
-      "title": "Author's Framework Synthesis",
-      "author": "John Boen",
-      "publisher": "Self-published",
-      "publishedDate": "2026",
-      "url": "",
-      "sourceType": "synthesis",
-      "summary": "The author's personal synthesis of Claude Code competence levels, informed by hands-on experience and source material analysis.",
-      "relevance": "Provides the interpretive layer that connects source observations to the five-level framework."
     }
   ]
 }

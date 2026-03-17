@@ -133,10 +133,23 @@
   border-bottom: none;
 }
 
+.dimension-summary__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.dimension-summary__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
 .dimension-summary__name {
   font-size: var(--text-base);
   font-weight: 600;
-  margin: 0 0 var(--space-xs) 0;
+  margin: 0;
   color: var(--color-accent);
 }
 

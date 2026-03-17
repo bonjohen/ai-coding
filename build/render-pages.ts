@@ -125,6 +125,17 @@ function collectPageDefs(data: AllData): PageDef[] {
       },
     });
 
+    // Dimensions — enrich with image paths (used by both overview and dimensions pages)
+    const dimensionsWithImages = {
+      ...family.dimensions,
+      dimensions: family.dimensions.dimensions.map(d => ({
+        ...d,
+        image: dimImageMap[d.slug]
+          ? `${data.site.site.siteBasePath}assets/images/dims/${dimImageMap[d.slug]}`
+          : null,
+      })),
+    };
+
     // Overview — uses dedicated overview template (family landing uses family-overview)
     pages.push({
       outputPath: `${familyOut}/overview/index.html`,
@@ -133,6 +144,7 @@ function collectPageDefs(data: AllData): PageDef[] {
       context: {
         ...familyCtx,
         overview: overviewWithImages,
+        dimensions: dimensionsWithImages,
         pageTitle: `Overview — ${family.family.shortTitle}`,
         pageDescription: family.overview.heroSummary,
         canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/overview/`,
@@ -143,17 +155,6 @@ function collectPageDefs(data: AllData): PageDef[] {
         ],
       },
     });
-
-    // Dimensions — enrich with image paths
-    const dimensionsWithImages = {
-      ...family.dimensions,
-      dimensions: family.dimensions.dimensions.map(d => ({
-        ...d,
-        image: dimImageMap[d.slug]
-          ? `${data.site.site.siteBasePath}assets/images/dims/${dimImageMap[d.slug]}`
-          : null,
-      })),
-    };
 
     pages.push({
       outputPath: `${familyOut}/dimensions/index.html`,
