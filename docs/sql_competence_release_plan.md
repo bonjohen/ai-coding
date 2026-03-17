@@ -63,4 +63,4 @@ Start local dev server.
 **Acceptance:** Full site builds cleanly. SQL family navigable end-to-end.
 Local dev server running for review.
 
-- [ ] Phase 4
+- [x] Phase 4
