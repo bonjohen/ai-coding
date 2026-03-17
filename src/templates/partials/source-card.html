@@ -1,14 +1,19 @@
+{{#if url}}
+<a href="{{ url }}" target="_blank" rel="noopener" class="source-card source-card--link">
+  <h4 class="source-card__title">{{ title }}</h4>
+  <p class="source-card__meta">{{ author }} — {{ publisher }}, {{ publishedDate }}</p>
+  <p class="source-card__summary">{{ summary }}</p>
+  {{#if relevance}}
+  <p class="text-sm text-muted mt-sm"><strong>Relevance:</strong> {{ relevance }}</p>
+  {{/if}}
+</a>
+{{else}}
 <div class="source-card">
-  <h4 class="source-card__title">
-    {{#if url}}
-    <a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a>
-    {{else}}
-    {{ title }}
-    {{/if}}
-  </h4>
+  <h4 class="source-card__title">{{ title }}</h4>
   <p class="source-card__meta">{{ author }} — {{ publisher }}, {{ publishedDate }}</p>
   <p class="source-card__summary">{{ summary }}</p>
   {{#if relevance}}
   <p class="text-sm text-muted mt-sm"><strong>Relevance:</strong> {{ relevance }}</p>
   {{/if}}
 </div>
+{{/if}}

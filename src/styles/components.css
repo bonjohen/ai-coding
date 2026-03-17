@@ -164,11 +164,17 @@
   position: relative;
 }
 
-a.card {
+a.card,
+a.level-card,
+a.source-card {
   display: block;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+a.level-card--with-image {
+  display: flex;
 }
 
 .card:hover {
@@ -534,6 +540,23 @@ a.card {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--line-height-normal);
+}
+
+.source-card--link {
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.source-card--link:hover {
+  background-color: var(--color-bg-elevated);
+}
+
+.source-card--link .source-card__title {
+  color: var(--color-link);
+}
+
+.source-card--link:hover .source-card__title {
+  color: var(--color-link-hover);
 }
 
 /* ========================================
