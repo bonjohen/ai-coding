@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Assessment — SQL Competence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Evaluate your Claude Code competence across 7 dimensions.">
+<link rel="canonical" href="https://bonjohen.github.io/ai-coding/sql-competence/assess/">
+<meta property="og:title" content="Self-Assessment — SQL Competence">
+<meta property="og:description" content="Evaluate your Claude Code competence across 7 dimensions.">
+<meta property="og:image" content="/ai-coding/assets/social/og-default.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/ai-coding/assets/css/tokens.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/reset.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/base.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/typography.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/layout.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/components.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/utilities.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/certification.css">
+<link rel="stylesheet" href="/ai-coding/assets/css/print.css">
+
+<link rel="stylesheet" href="/ai-coding/assets/css/families/sql-competence.css">
+
+
+</head>
+<body class="family--sql-competence">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/ai-coding/" class="site-header__brand">AI Coding</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+  
+  <a href="/ai-coding/" class="site-nav__link" title="AI Coding Home">Home</a>
+  
+  
+  <span class="site-nav__separator" aria-hidden="true">|</span>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/claude-code-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/levels/operator/" class="site-nav__link nav-dropdown__item" title="Level 1: Operator" role="menuitem">L1: Operator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/structured-collaborator/" class="site-nav__link nav-dropdown__item" title="Level 2: Structured Collaborator" role="menuitem">L2: Collaborator</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/environment-builder/" class="site-nav__link nav-dropdown__item" title="Level 3: Environment Builder" role="menuitem">L3: Builder</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/workflow-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Workflow Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/claude-code-competence/levels/agentic-systems-expert/" class="site-nav__link nav-dropdown__item" title="Level 5: Agentic Systems Expert" role="menuitem">L5: Expert</a>
+      
+      <a href="/ai-coding/claude-code-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/claude-code-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/claude-code-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/claude-code-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/projects/" class="site-nav__link" title="Example Projects">Projects</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  <a href="/ai-coding/claude-code-competence/certifications/" class="site-nav__link" title="Cloud Certification Practice">Certifications</a>
+  
+  
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/overview/" class="site-nav__link nav-dropdown__toggle" title="Framework Overview" aria-haspopup="true" aria-expanded="false">Overview <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/dimensions/" class="site-nav__link nav-dropdown__item" title="Evaluation Dimensions" role="menuitem">Dimensions</a>
+      
+      <a href="/ai-coding/sql-competence/matrix/" class="site-nav__link nav-dropdown__item" title="Competency Matrix" role="menuitem">Competences</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__toggle" title="Competence Levels" aria-haspopup="true" aria-expanded="false">Levels <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/levels/query-writer/" class="site-nav__link nav-dropdown__item" title="Level 1: Query Writer" role="menuitem">L1: Writer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/data-analyst/" class="site-nav__link nav-dropdown__item" title="Level 2: Data Analyst" role="menuitem">L2: Analyst</a>
+      
+      <a href="/ai-coding/sql-competence/levels/schema-designer/" class="site-nav__link nav-dropdown__item" title="Level 3: Schema Designer" role="menuitem">L3: Designer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/performance-engineer/" class="site-nav__link nav-dropdown__item" title="Level 4: Performance Engineer" role="menuitem">L4: Engineer</a>
+      
+      <a href="/ai-coding/sql-competence/levels/database-architect/" class="site-nav__link nav-dropdown__item" title="Level 5: Database Architect" role="menuitem">L5: Architect</a>
+      
+      <a href="/ai-coding/sql-competence/roadmap/" class="site-nav__link nav-dropdown__item" title="Learning Roadmap" role="menuitem">Roadmap</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="nav-dropdown">
+    <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__toggle" title="Reference Materials" aria-haspopup="true" aria-expanded="false">Reference <span class="nav-dropdown__caret" aria-hidden="true"></span></a>
+    <div class="nav-dropdown__menu" role="menu">
+      
+      <a href="/ai-coding/sql-competence/sources/" class="site-nav__link nav-dropdown__item" title="Source Inventory" role="menuitem">Sources</a>
+      
+      <a href="/ai-coding/sql-competence/glossary/" class="site-nav__link nav-dropdown__item" title="Glossary" role="menuitem">Glossary</a>
+      
+      <a href="/ai-coding/sql-competence/author-perspective/" class="site-nav__link nav-dropdown__item" title="Author Perspective" role="menuitem">Author&#039;s Perspective</a>
+      
+    </div>
+  </div>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/assess/" class="site-nav__link" title="Self-Assessment">Assess</a>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/quiz/" class="site-nav__link" title="Practice Quiz">Quiz</a>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/study-guide/" class="site-nav__link" title="Study Guide">Study Guide</a>
+  
+  
+  
+  
+</nav>
+
+  </div>
+</header>
+
+    <main id="main-content" class="site-main">
+      <div class="container">
+        
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  
+  
+  <a href="/ai-coding/" class="breadcrumbs__link">Home</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <a href="/ai-coding/sql-competence/" class="breadcrumbs__link">SQL Competence</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  
+  
+  
+  <span class="breadcrumbs__current" aria-current="page">Self-Assessment</span>
+  
+  
+</nav>
+
+
+      </div>
+      <div class="container container--narrow page-content">
+        
+<section class="hero">
+  <h1 class="hero__title">Self-Assessment</h1>
+  <p class="hero__summary">Evaluate your Claude Code competence across 7 dimensions. Takes about 5 minutes. Results are private and stored locally.</p>
+</section>
+
+<div id="assessment-app">
+  <noscript>
+    <section class="section">
+      <h2>Assessment Checklist (Print Version)</h2>
+      <p class="text-muted mb-lg">JavaScript is required for the interactive assessment. Below is a printable checklist you can use instead.</p>
+      
+      <div class="mb-xl">
+        <h3>Query Construction</h3>
+        <p class="text-sm text-muted mb-md">Ability to write correct, readable, and efficient SQL.</p>
+        
+        <div class="mb-md">
+          <p><strong>How confident are you writing a multi-table JOIN that returns correct results without accidental row duplication?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I can only query one table at a time</li>
+            
+            <li>&#9744; Sometimes — I can write simple JOINs but sometimes get unexpected row counts</li>
+            
+            <li>&#9744; Usually — I choose JOIN types deliberately and verify row counts</li>
+            
+            <li>&#9744; Always — I can join any number of tables correctly and explain the join semantics</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>How effectively do you use CTEs (WITH clauses) to organize complex queries?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what a CTE is</li>
+            
+            <li>&#9744; Sometimes — I&#039;ve used them but default to nested subqueries</li>
+            
+            <li>&#9744; Usually — I restructure complex queries into CTEs for readability</li>
+            
+            <li>&#9744; Always — I design query pipelines with CTEs and can explain when they help vs hurt performance</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you rewrite a query to produce a better execution plan without changing its results?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t think about how queries execute</li>
+            
+            <li>&#9744; Sometimes — I know some queries are slow but don&#039;t know how to fix them</li>
+            
+            <li>&#9744; Usually — I can identify and rewrite common anti-patterns</li>
+            
+            <li>&#9744; Always — I routinely optimize queries based on execution plan analysis</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Data Modeling</h3>
+        <p class="text-sm text-muted mb-md">Skill in designing relational schemas and entity relationships.</p>
+        
+        <div class="mb-md">
+          <p><strong>Can you design a normalized schema (3NF) from a set of business requirements?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t create tables, I only query existing ones</li>
+            
+            <li>&#9744; Sometimes — I can create simple tables but don&#039;t think about normalization</li>
+            
+            <li>&#9744; Usually — I apply normalization rules and can identify violations</li>
+            
+            <li>&#9744; Always — I design schemas from requirements with deliberate normalization and documented trade-offs</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>How well can you explain when denormalization is the right choice and what trade-offs it introduces?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what denormalization means</li>
+            
+            <li>&#9744; Sometimes — I&#039;ve heard the term but can&#039;t explain the trade-offs</li>
+            
+            <li>&#9744; Usually — I can explain read vs write trade-offs of denormalization</li>
+            
+            <li>&#9744; Always — I make deliberate denormalization decisions with documented reasoning</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you design cross-service data models with clear ownership boundaries?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I only work with single-database schemas</li>
+            
+            <li>&#9744; Sometimes — I&#039;ve thought about it but haven&#039;t designed one</li>
+            
+            <li>&#9744; Usually — I can define ownership boundaries for shared data</li>
+            
+            <li>&#9744; Always — I design enterprise data models with contracts between services</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Analytical Techniques</h3>
+        <p class="text-sm text-muted mb-md">Proficiency with aggregation, window functions, and analysis patterns.</p>
+        
+        <div class="mb-md">
+          <p><strong>How well can you write window functions (ROW_NUMBER, RANK, LAG, LEAD) with appropriate PARTITION BY and ORDER BY?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what window functions are</li>
+            
+            <li>&#9744; Sometimes — I can use ROW_NUMBER but struggle with more complex patterns</li>
+            
+            <li>&#9744; Usually — I use various window functions and understand partitioning</li>
+            
+            <li>&#9744; Always — I write complex analytical queries with multiple window functions fluently</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you write a rolling average, cumulative sum, or cohort analysis query in SQL?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I can only do basic GROUP BY aggregations</li>
+            
+            <li>&#9744; Sometimes — I can do rolling averages with help</li>
+            
+            <li>&#9744; Usually — I write these patterns independently</li>
+            
+            <li>&#9744; Always — I design complex analytical queries including time-series and cohort patterns</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you optimize analytical queries for performance on large datasets (e.g., using materialized views or pre-aggregation)?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t think about analytical query performance</li>
+            
+            <li>&#9744; Sometimes — I know large queries are slow but don&#039;t know how to fix them</li>
+            
+            <li>&#9744; Usually — I use materialized views and pre-aggregation when appropriate</li>
+            
+            <li>&#9744; Always — I design analytical systems for performance at scale</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Performance &amp; Optimization</h3>
+        <p class="text-sm text-muted mb-md">Understanding of index design, execution plans, and query tuning.</p>
+        
+        <div class="mb-md">
+          <p><strong>Can you read an EXPLAIN / EXPLAIN ANALYZE output and identify why a query is slow?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what EXPLAIN does</li>
+            
+            <li>&#9744; Sometimes — I can run EXPLAIN but struggle to interpret the output</li>
+            
+            <li>&#9744; Usually — I identify sequential scans, missing indexes, and sort operations</li>
+            
+            <li>&#9744; Always — I read plans fluently and predict optimizer behavior</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you design a composite index that covers a specific query&#039;s WHERE, JOIN, and ORDER BY requirements?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t create indexes</li>
+            
+            <li>&#9744; Sometimes — I create single-column indexes but not composites</li>
+            
+            <li>&#9744; Usually — I design composite indexes with deliberate column ordering</li>
+            
+            <li>&#9744; Always — I design covering indexes and understand their write trade-offs</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you forecast database performance requirements and design for horizontal scaling?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t think about scale</li>
+            
+            <li>&#9744; Sometimes — I know scaling is important but haven&#039;t planned for it</li>
+            
+            <li>&#9744; Usually — I can estimate growth and plan capacity</li>
+            
+            <li>&#9744; Always — I design architectures with scaling strategies and capacity models</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Data Integrity &amp; Transactions</h3>
+        <p class="text-sm text-muted mb-md">Command of constraints, ACID properties, and transactional design.</p>
+        
+        <div class="mb-md">
+          <p><strong>Do you use explicit transactions (BEGIN/COMMIT/ROLLBACK) for multi-statement operations?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I run statements individually without transactions</li>
+            
+            <li>&#9744; Sometimes — I use transactions when reminded but not by default</li>
+            
+            <li>&#9744; Usually — I wrap related DML in transactions as standard practice</li>
+            
+            <li>&#9744; Always — I design transactional workflows with appropriate isolation levels</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you explain the difference between READ COMMITTED and REPEATABLE READ isolation levels with a concrete example?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what isolation levels are</li>
+            
+            <li>&#9744; Sometimes — I&#039;ve read about them but can&#039;t give concrete examples</li>
+            
+            <li>&#9744; Usually — I can explain each level with scenarios</li>
+            
+            <li>&#9744; Always — I select isolation levels per transaction based on consistency requirements</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you design cross-service consistency strategies that handle the trade-offs between strong and eventual consistency?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I only work with single-database consistency</li>
+            
+            <li>&#9744; Sometimes — I&#039;ve encountered distributed consistency but don&#039;t design for it</li>
+            
+            <li>&#9744; Usually — I can evaluate consistency strategies for multi-service systems</li>
+            
+            <li>&#9744; Always — I design distributed consistency with documented trade-off analysis</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Tooling &amp; Workflow</h3>
+        <p class="text-sm text-muted mb-md">Use of SQL clients, migrations, version control, and CI/CD.</p>
+        
+        <div class="mb-md">
+          <p><strong>Do all your schema changes go through a version-controlled migration tool?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I run DDL manually in a SQL client</li>
+            
+            <li>&#9744; Sometimes — I use migrations for some changes but not all</li>
+            
+            <li>&#9744; Usually — All schema changes go through migrations with up/down scripts</li>
+            
+            <li>&#9744; Always — Migrations are automated, tested in CI, and reviewed before merge</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Are your database migrations tested automatically in CI before reaching production?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — We don&#039;t have CI for database changes</li>
+            
+            <li>&#9744; Sometimes — Some migrations are tested but coverage is inconsistent</li>
+            
+            <li>&#9744; Usually — Migrations run in CI with automated validation</li>
+            
+            <li>&#9744; Always — Full CI pipeline with schema validation, data tests, and rollback verification</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Have you defined toolchain standards and release governance for database changes across your team?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — Each person uses their own approach</li>
+            
+            <li>&#9744; Sometimes — We have informal conventions but no formal process</li>
+            
+            <li>&#9744; Usually — We have documented standards that most people follow</li>
+            
+            <li>&#9744; Always — Comprehensive governance with approval gates and automated enforcement</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="mb-xl">
+        <h3>Collaboration &amp; Standards</h3>
+        <p class="text-sm text-muted mb-md">Adherence to naming conventions, documentation, and data governance.</p>
+        
+        <div class="mb-md">
+          <p><strong>Do you follow a consistent naming convention for tables, columns, indexes, and constraints?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I name things ad-hoc</li>
+            
+            <li>&#9744; Sometimes — I try to be consistent but don&#039;t have formal rules</li>
+            
+            <li>&#9744; Usually — I follow documented naming conventions</li>
+            
+            <li>&#9744; Always — I follow and enforce consistent conventions across all database objects</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Do schema changes in your team go through peer review before being applied to production?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — Changes go directly to production</li>
+            
+            <li>&#9744; Sometimes — Major changes are reviewed but minor ones skip review</li>
+            
+            <li>&#9744; Usually — All schema changes are reviewed by at least one peer</li>
+            
+            <li>&#9744; Always — Structured review process with clear criteria and approval gates</li>
+            
+          </ul>
+        </div>
+        
+        <div class="mb-md">
+          <p><strong>Can you define and enforce data contracts between services or teams?</strong></p>
+          <ul>
+            
+            <li>&#9744; Never — I don&#039;t know what a data contract is</li>
+            
+            <li>&#9744; Sometimes — I understand the concept but haven&#039;t implemented one</li>
+            
+            <li>&#9744; Usually — I define contracts for shared data interfaces</li>
+            
+            <li>&#9744; Always — I design and govern data contracts with versioning and compatibility guarantees</li>
+            
+          </ul>
+        </div>
+        
+      </div>
+      
+    </section>
+  </noscript>
+</div>
+
+<script type="application/json" id="assessment-data">[{"id":"q-sr-qc-01","text":"How confident are you writing a multi-table JOIN that returns correct results without accidental row duplication?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only query one table at a time"},{"value":2,"label":"Sometimes — I can write simple JOINs but sometimes get unexpected row counts"},{"value":3,"label":"Usually — I choose JOIN types deliberately and verify row counts"},{"value":4,"label":"Always — I can join any number of tables correctly and explain the join semantics"}],"dimensionId":"dim-query-construction","levelId":"level-1","tags":["joins","query-basics"],"studyLinks":[{"label":"Query Writer Level","href":"/ai-coding/sql-competence/levels/query-writer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"JOIN correctness is the gateway skill from Level 1 to Level 2. Accidental row multiplication is the most common mistake in multi-table queries."},{"id":"q-sr-qc-02","text":"How effectively do you use CTEs (WITH clauses) to organize complex queries?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a CTE is"},{"value":2,"label":"Sometimes — I've used them but default to nested subqueries"},{"value":3,"label":"Usually — I restructure complex queries into CTEs for readability"},{"value":4,"label":"Always — I design query pipelines with CTEs and can explain when they help vs hurt performance"}],"dimensionId":"dim-query-construction","levelId":"level-2","tags":["cte","readability"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Dimensions","href":"/ai-coding/sql-competence/dimensions/"}],"explanation":"CTEs are the primary tool for making complex SQL readable and maintainable. Moving from nested subqueries to CTEs is a key Level 2 skill."},{"id":"q-sr-qc-03","text":"Can you rewrite a query to produce a better execution plan without changing its results?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about how queries execute"},{"value":2,"label":"Sometimes — I know some queries are slow but don't know how to fix them"},{"value":3,"label":"Usually — I can identify and rewrite common anti-patterns"},{"value":4,"label":"Always — I routinely optimize queries based on execution plan analysis"}],"dimensionId":"dim-query-construction","levelId":"level-4","tags":["optimization","execution-plans"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Query rewriting for performance requires understanding both SQL semantics and the query optimizer's behavior — a Level 4 skill."},{"id":"q-sr-dm-01","text":"Can you design a normalized schema (3NF) from a set of business requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create tables, I only query existing ones"},{"value":2,"label":"Sometimes — I can create simple tables but don't think about normalization"},{"value":3,"label":"Usually — I apply normalization rules and can identify violations"},{"value":4,"label":"Always — I design schemas from requirements with deliberate normalization and documented trade-offs"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["normalization","schema-design"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema design is the defining skill of Level 3. Moving from querying existing schemas to designing new ones is a fundamental shift."},{"id":"q-sr-dm-02","text":"How well can you explain when denormalization is the right choice and what trade-offs it introduces?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what denormalization means"},{"value":2,"label":"Sometimes — I've heard the term but can't explain the trade-offs"},{"value":3,"label":"Usually — I can explain read vs write trade-offs of denormalization"},{"value":4,"label":"Always — I make deliberate denormalization decisions with documented reasoning"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["denormalization","trade-offs"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Understanding when to break normalization rules requires both knowing the rules and understanding the performance implications."},{"id":"q-sr-dm-03","text":"Can you design cross-service data models with clear ownership boundaries?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database schemas"},{"value":2,"label":"Sometimes — I've thought about it but haven't designed one"},{"value":3,"label":"Usually — I can define ownership boundaries for shared data"},{"value":4,"label":"Always — I design enterprise data models with contracts between services"}],"dimensionId":"dim-data-modeling","levelId":"level-5","tags":["architecture","data-contracts"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Cross-service data modeling is an architectural skill that requires understanding both technical and organizational constraints."},{"id":"q-sr-at-01","text":"How well can you write window functions (ROW_NUMBER, RANK, LAG, LEAD) with appropriate PARTITION BY and ORDER BY?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what window functions are"},{"value":2,"label":"Sometimes — I can use ROW_NUMBER but struggle with more complex patterns"},{"value":3,"label":"Usually — I use various window functions and understand partitioning"},{"value":4,"label":"Always — I write complex analytical queries with multiple window functions fluently"}],"dimensionId":"dim-analytical-techniques","levelId":"level-2","tags":["window-functions","analytics"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Window functions are the key analytical tool in SQL. They enable calculations across related rows without collapsing the result set."},{"id":"q-sr-at-02","text":"Can you write a rolling average, cumulative sum, or cohort analysis query in SQL?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only do basic GROUP BY aggregations"},{"value":2,"label":"Sometimes — I can do rolling averages with help"},{"value":3,"label":"Usually — I write these patterns independently"},{"value":4,"label":"Always — I design complex analytical queries including time-series and cohort patterns"}],"dimensionId":"dim-analytical-techniques","levelId":"level-3","tags":["rolling-average","cohort-analysis"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Advanced analytical patterns demonstrate fluency with SQL's analytical capabilities beyond basic aggregation."},{"id":"q-sr-at-03","text":"Can you optimize analytical queries for performance on large datasets (e.g., using materialized views or pre-aggregation)?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about analytical query performance"},{"value":2,"label":"Sometimes — I know large queries are slow but don't know how to fix them"},{"value":3,"label":"Usually — I use materialized views and pre-aggregation when appropriate"},{"value":4,"label":"Always — I design analytical systems for performance at scale"}],"dimensionId":"dim-analytical-techniques","levelId":"level-4","tags":["materialized-views","performance"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Optimizing analytical workloads requires understanding both the query patterns and the database's storage and caching capabilities."},{"id":"q-sr-po-01","text":"Can you read an EXPLAIN / EXPLAIN ANALYZE output and identify why a query is slow?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what EXPLAIN does"},{"value":2,"label":"Sometimes — I can run EXPLAIN but struggle to interpret the output"},{"value":3,"label":"Usually — I identify sequential scans, missing indexes, and sort operations"},{"value":4,"label":"Always — I read plans fluently and predict optimizer behavior"}],"dimensionId":"dim-performance-optimization","levelId":"level-3","tags":["execution-plans","explain"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Reading execution plans is the foundational performance skill. Without it, optimization is guesswork."},{"id":"q-sr-po-02","text":"Can you design a composite index that covers a specific query's WHERE, JOIN, and ORDER BY requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create indexes"},{"value":2,"label":"Sometimes — I create single-column indexes but not composites"},{"value":3,"label":"Usually — I design composite indexes with deliberate column ordering"},{"value":4,"label":"Always — I design covering indexes and understand their write trade-offs"}],"dimensionId":"dim-performance-optimization","levelId":"level-4","tags":["indexes","composite-indexes"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Composite index design requires understanding how the database uses index column order to satisfy different query operations."},{"id":"q-sr-po-03","text":"Can you forecast database performance requirements and design for horizontal scaling?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about scale"},{"value":2,"label":"Sometimes — I know scaling is important but haven't planned for it"},{"value":3,"label":"Usually — I can estimate growth and plan capacity"},{"value":4,"label":"Always — I design architectures with scaling strategies and capacity models"}],"dimensionId":"dim-performance-optimization","levelId":"level-5","tags":["capacity-planning","scaling"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Capacity planning and scaling design are architectural skills that bridge performance engineering and organizational strategy."},{"id":"q-sr-di-01","text":"Do you use explicit transactions (BEGIN/COMMIT/ROLLBACK) for multi-statement operations?","type":"self-rate","choices":[{"value":1,"label":"Never — I run statements individually without transactions"},{"value":2,"label":"Sometimes — I use transactions when reminded but not by default"},{"value":3,"label":"Usually — I wrap related DML in transactions as standard practice"},{"value":4,"label":"Always — I design transactional workflows with appropriate isolation levels"}],"dimensionId":"dim-data-integrity","levelId":"level-2","tags":["transactions","acid"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Transactions are the primary mechanism for maintaining data consistency. Operating without them risks leaving data in an inconsistent state."},{"id":"q-sr-di-02","text":"Can you explain the difference between READ COMMITTED and REPEATABLE READ isolation levels with a concrete example?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what isolation levels are"},{"value":2,"label":"Sometimes — I've read about them but can't give concrete examples"},{"value":3,"label":"Usually — I can explain each level with scenarios"},{"value":4,"label":"Always — I select isolation levels per transaction based on consistency requirements"}],"dimensionId":"dim-data-integrity","levelId":"level-4","tags":["isolation-levels","concurrency"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Isolation level selection directly impacts both data correctness and system throughput. Understanding the trade-offs is essential for Level 4."},{"id":"q-sr-di-03","text":"Can you design cross-service consistency strategies that handle the trade-offs between strong and eventual consistency?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database consistency"},{"value":2,"label":"Sometimes — I've encountered distributed consistency but don't design for it"},{"value":3,"label":"Usually — I can evaluate consistency strategies for multi-service systems"},{"value":4,"label":"Always — I design distributed consistency with documented trade-off analysis"}],"dimensionId":"dim-data-integrity","levelId":"level-5","tags":["distributed-systems","consistency"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Distributed consistency is one of the hardest problems in data architecture. Designing for it requires deep understanding of CAP theorem trade-offs."},{"id":"q-sr-tw-01","text":"Do all your schema changes go through a version-controlled migration tool?","type":"self-rate","choices":[{"value":1,"label":"Never — I run DDL manually in a SQL client"},{"value":2,"label":"Sometimes — I use migrations for some changes but not all"},{"value":3,"label":"Usually — All schema changes go through migrations with up/down scripts"},{"value":4,"label":"Always — Migrations are automated, tested in CI, and reviewed before merge"}],"dimensionId":"dim-tooling-workflow","levelId":"level-3","tags":["migrations","version-control"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Migration tooling is what makes schema changes auditable, repeatable, and safe. Without it, database changes are a reliability risk."},{"id":"q-sr-tw-02","text":"Are your database migrations tested automatically in CI before reaching production?","type":"self-rate","choices":[{"value":1,"label":"Never — We don't have CI for database changes"},{"value":2,"label":"Sometimes — Some migrations are tested but coverage is inconsistent"},{"value":3,"label":"Usually — Migrations run in CI with automated validation"},{"value":4,"label":"Always — Full CI pipeline with schema validation, data tests, and rollback verification"}],"dimensionId":"dim-tooling-workflow","levelId":"level-4","tags":["ci-cd","automation"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"CI integration for database changes prevents migration failures from reaching production — a critical Level 4 workflow skill."},{"id":"q-sr-tw-03","text":"Have you defined toolchain standards and release governance for database changes across your team?","type":"self-rate","choices":[{"value":1,"label":"Never — Each person uses their own approach"},{"value":2,"label":"Sometimes — We have informal conventions but no formal process"},{"value":3,"label":"Usually — We have documented standards that most people follow"},{"value":4,"label":"Always — Comprehensive governance with approval gates and automated enforcement"}],"dimensionId":"dim-tooling-workflow","levelId":"level-5","tags":["governance","standards"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Toolchain governance ensures consistent, safe database changes at organizational scale."},{"id":"q-sr-cs-01","text":"Do you follow a consistent naming convention for tables, columns, indexes, and constraints?","type":"self-rate","choices":[{"value":1,"label":"Never — I name things ad-hoc"},{"value":2,"label":"Sometimes — I try to be consistent but don't have formal rules"},{"value":3,"label":"Usually — I follow documented naming conventions"},{"value":4,"label":"Always — I follow and enforce consistent conventions across all database objects"}],"dimensionId":"dim-collaboration-standards","levelId":"level-2","tags":["naming-conventions","standards"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Consistent naming conventions reduce cognitive load and make schemas self-documenting. This is the foundation of collaboration."},{"id":"q-sr-cs-02","text":"Do schema changes in your team go through peer review before being applied to production?","type":"self-rate","choices":[{"value":1,"label":"Never — Changes go directly to production"},{"value":2,"label":"Sometimes — Major changes are reviewed but minor ones skip review"},{"value":3,"label":"Usually — All schema changes are reviewed by at least one peer"},{"value":4,"label":"Always — Structured review process with clear criteria and approval gates"}],"dimensionId":"dim-collaboration-standards","levelId":"level-3","tags":["code-review","process"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema changes are expensive to reverse. Peer review catches issues before they reach production and builds shared understanding."},{"id":"q-sr-cs-03","text":"Can you define and enforce data contracts between services or teams?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a data contract is"},{"value":2,"label":"Sometimes — I understand the concept but haven't implemented one"},{"value":3,"label":"Usually — I define contracts for shared data interfaces"},{"value":4,"label":"Always — I design and govern data contracts with versioning and compatibility guarantees"}],"dimensionId":"dim-collaboration-standards","levelId":"level-5","tags":["data-contracts","governance"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Data contracts decouple teams while maintaining data integrity. They are the collaboration mechanism at enterprise scale."}]</script>
+<script type="application/json" id="dimensions-meta">[{"id":"dim-query-construction","name":"Query Construction","shortName":"Querying","summary":"Ability to write correct, readable, and efficient SQL."},{"id":"dim-data-modeling","name":"Data Modeling","shortName":"Modeling","summary":"Skill in designing relational schemas and entity relationships."},{"id":"dim-analytical-techniques","name":"Analytical Techniques","shortName":"Analytics","summary":"Proficiency with aggregation, window functions, and analysis patterns."},{"id":"dim-performance-optimization","name":"Performance & Optimization","shortName":"Performance","summary":"Understanding of index design, execution plans, and query tuning."},{"id":"dim-data-integrity","name":"Data Integrity & Transactions","shortName":"Integrity","summary":"Command of constraints, ACID properties, and transactional design."},{"id":"dim-tooling-workflow","name":"Tooling & Workflow","shortName":"Workflow","summary":"Use of SQL clients, migrations, version control, and CI/CD."},{"id":"dim-collaboration-standards","name":"Collaboration & Standards","shortName":"Standards","summary":"Adherence to naming conventions, documentation, and data governance."}]</script>
+
+      </div>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__sections">
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Site</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/">Home</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="site-footer__section">
+        <h3 class="site-footer__section-title">Claude Code Competence</h3>
+        <ul class="site-footer__links">
+          
+          <li><a href="/ai-coding/claude-code-competence/overview/">Overview</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/">Levels</a></li>
+          
+          <li><a href="/ai-coding/claude-code-competence/sources/">Sources</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <div class="site-footer__legal">
+      &copy; 2026 John Boen. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="/ai-coding/assets/js/main.js" defer></script>
+</body>
+</html>

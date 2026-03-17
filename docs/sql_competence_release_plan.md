@@ -39,7 +39,7 @@ Update navigation to include Assess and Quiz links.
 
 **Acceptance:** Self-Assessment page renders with radar chart. Quiz page works with filtering.
 
-- [ ] Phase 2
+- [x] Phase 2
 
 ---
 

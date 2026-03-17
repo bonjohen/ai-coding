@@ -92,7 +92,9 @@
             { "id": "sql-author", "label": "Author's Perspective", "href": "/ai-coding/sql-competence/author-perspective/", "title": "Author Perspective", "order": 14 }
           ]
         },
-        { "id": "sql-study", "label": "Study Guide", "href": "/ai-coding/sql-competence/study-guide/", "title": "Study Guide", "order": 15 }
+        { "id": "sql-assess", "label": "Assess", "href": "/ai-coding/sql-competence/assess/", "title": "Self-Assessment", "order": 15 },
+        { "id": "sql-quiz", "label": "Quiz", "href": "/ai-coding/sql-competence/quiz/", "title": "Practice Quiz", "order": 16 },
+        { "id": "sql-study", "label": "Study Guide", "href": "/ai-coding/sql-competence/study-guide/", "title": "Study Guide", "order": 17 }
       ]
     }
   ]
