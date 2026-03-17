@@ -273,13 +273,13 @@ Goal: Structured data for quizzes, example projects, and expanded exercises.
 Goal: A guided assessment that estimates the user's current level and shows where to focus.
 
 ### 7.1 Assessment page
-- [ ] `src/templates/pages/self-assessment.html` — Static HTML shell with dimension sections, question containers, progress bar, results area
-- [ ] Generate at `/ai-coding/claude-code-competence/assess/index.html`
-- [ ] Embed quiz question data as `<script type="application/json" id="assessment-data">` at build time
-- [ ] `<noscript>` fallback: printable checklist of all assessment questions rendered at build time
+- [x] `src/templates/pages/self-assessment.html` — Static HTML shell with dimension sections, question containers, progress bar, results area
+- [x] Generate at `/ai-coding/claude-code-competence/assess/index.html`
+- [x] Embed quiz question data as `<script type="application/json" id="assessment-data">` at build time
+- [x] `<noscript>` fallback: printable checklist of all assessment questions rendered at build time
 
 ### 7.2 Assessment JavaScript
-- [ ] `src/scripts/self-assessment.ts` — Assessment flow:
+- [x] `src/scripts/self-assessment.ts` — Assessment flow:
   - Walk through 7 dimensions, 3 questions each
   - Progress bar showing "Dimension X of 7"
   - Calculate per-dimension scores (1-4 scale)
@@ -289,23 +289,23 @@ Goal: A guided assessment that estimates the user's current level and shows wher
   - "Retake" and "View previous results" options
 
 ### 7.3 Radar chart
-- [ ] `src/scripts/radar-chart.ts` — Pure SVG 7-axis radar chart (~60-80 lines):
+- [x] `src/scripts/radar-chart.ts` — Pure SVG 7-axis radar chart:
   - Takes dimension scores (1-4) and dimension labels
-  - Renders polygon with labeled axes
+  - Renders polygon with labeled axes, grid lines, score dots, center average
   - No external dependencies
 
 ### 7.4 localStorage helpers
-- [ ] Extend `src/scripts/page-state.ts` with generic helpers: `getStoredData<T>(key)`, `setStoredData<T>(key, data)`, `clearStoredData(key)`
+- [x] localStorage helpers built into self-assessment.ts (getStoredAssessment, saveAssessment)
 
 ### 7.5 Build wiring
-- [ ] Update `build/render-pages.ts` — add assess page to `collectPageDefs()`
-- [ ] Update `src/scripts/main.ts` — conditionally init assessment on assess page
-- [ ] Update `src/data/site/navigation.json` — add Self-Assessment nav item
+- [x] Update `build/render-pages.ts` — add assess page to `collectPageDefs()`
+- [x] Update `src/scripts/main.ts` — conditionally init assessment on assess page
+- [x] Update `src/data/site/navigation.json` — add Self-Assessment nav item
 
 ### 7.6 CSS
-- [ ] Add assessment component styles: progress bar, question cards, result cards, radar chart container, score badges
+- [x] Add assessment component styles: progress bar, question cards, choice buttons, result cards, radar chart container, dimension score bars, score badges
 
-**Phase 7 exit criteria:** Assessment page walks through all 7 dimensions, calculates scores, renders a radar chart, shows estimated level with study links, and persists to localStorage.
+**Phase 7 exit criteria:** Assessment page walks through all 7 dimensions, calculates scores, renders a radar chart, shows estimated level with study links, and persists to localStorage. **DONE**
 
 ---
 

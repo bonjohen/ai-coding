@@ -4,6 +4,7 @@ import { initMatrix } from './matrix.js';
 import { initCitations } from './citations.js';
 import { initFilters } from './filters.js';
 import { initPageState } from './page-state.js';
+import { initAssessment } from './self-assessment.js';
 
 /**
  * Initialize all browser enhancements.
@@ -16,4 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCitations();
   initFilters();
   initPageState();
+  initAssessment();
 });

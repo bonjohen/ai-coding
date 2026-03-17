@@ -258,6 +258,40 @@ function collectPageDefs(data: AllData): PageDef[] {
         ],
       },
     });
+
+    // Self-Assessment page
+    if (family.quizQuestions) {
+      const assessmentQuestions = family.quizQuestions.questions.filter(q => q.type === 'self-rate');
+      const assessmentDimensions = family.dimensions.dimensions
+        .sort((a, b) => a.order - b.order)
+        .map(d => ({
+          ...d,
+          questions: assessmentQuestions.filter(q => q.dimensionId === d.id),
+        }));
+      const dimensionsMeta = family.dimensions.dimensions
+        .sort((a, b) => a.order - b.order)
+        .map(d => ({ id: d.id, name: d.name, shortName: d.shortName, summary: d.summary }));
+
+      pages.push({
+        outputPath: `${familyBase}/assess/index.html`,
+        layout: 'article',
+        page: 'self-assessment',
+        context: {
+          ...familyCtx,
+          assessmentDimensions,
+          assessmentDataJson: JSON.stringify(assessmentQuestions),
+          dimensionsMetaJson: JSON.stringify(dimensionsMeta),
+          pageTitle: `Self-Assessment — ${family.family.shortTitle}`,
+          pageDescription: 'Evaluate your Claude Code competence across 7 dimensions.',
+          canonicalUrl: `${data.site.site.siteUrl}/${familyBase}/assess/`,
+          breadcrumbs: [
+            { label: 'Home', href: `/${basePath}/` },
+            { label: family.family.shortTitle, href: `/${familyBase}/` },
+            { label: 'Self-Assessment', href: '' },
+          ],
+        },
+      });
+    }
   }
 
   return pages;

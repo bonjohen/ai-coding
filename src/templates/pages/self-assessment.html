@@ -1,0 +1,34 @@
+{{#block content}}
+<section class="hero">
+  <h1 class="hero__title">Self-Assessment</h1>
+  <p class="hero__summary">Evaluate your Claude Code competence across 7 dimensions. Takes about 5 minutes. Results are private and stored locally.</p>
+</section>
+
+<div id="assessment-app">
+  <noscript>
+    <section class="section">
+      <h2>Assessment Checklist (Print Version)</h2>
+      <p class="text-muted mb-lg">JavaScript is required for the interactive assessment. Below is a printable checklist you can use instead.</p>
+      {{#each assessmentDimensions}}
+      <div class="mb-xl">
+        <h3>{{ name }}</h3>
+        <p class="text-sm text-muted mb-md">{{ summary }}</p>
+        {{#each questions}}
+        <div class="mb-md">
+          <p><strong>{{ text }}</strong></p>
+          <ul>
+            {{#each choices}}
+            <li>&#9744; {{ label }}</li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
+    </section>
+  </noscript>
+</div>
+
+<script type="application/json" id="assessment-data">{{{ assessmentDataJson }}}</script>
+<script type="application/json" id="dimensions-meta">{{{ dimensionsMetaJson }}}</script>
+{{/block}}

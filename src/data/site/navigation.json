@@ -17,7 +17,8 @@
         { "id": "ccc-sources", "label": "Sources", "href": "/ai-coding/claude-code-competence/sources/", "title": "Source Inventory", "order": 9 },
         { "id": "ccc-author", "label": "Author Perspective", "href": "/ai-coding/claude-code-competence/author-perspective/", "title": "Author Perspective", "order": 10 },
         { "id": "ccc-glossary", "label": "Glossary", "href": "/ai-coding/claude-code-competence/glossary/", "title": "Glossary", "order": 11 },
-        { "id": "ccc-roadmap", "label": "Roadmap", "href": "/ai-coding/claude-code-competence/roadmap/", "title": "Learning Roadmap", "order": 12 }
+        { "id": "ccc-roadmap", "label": "Roadmap", "href": "/ai-coding/claude-code-competence/roadmap/", "title": "Learning Roadmap", "order": 12 },
+        { "id": "ccc-assess", "label": "Assess", "href": "/ai-coding/claude-code-competence/assess/", "title": "Self-Assessment", "order": 13 }
       ]
     }
   ]
