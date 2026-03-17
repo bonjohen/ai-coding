@@ -159,7 +159,7 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
   transition: all var(--transition-base);
   position: relative;
 }
@@ -196,8 +196,8 @@
    ======================================== */
 .level-card {
   border-left: 3px solid var(--color-border);
-  padding: var(--space-lg) var(--space-xl);
-  margin-bottom: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-sm);
   background-color: var(--color-surface);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   transition: all var(--transition-base);
@@ -292,8 +292,8 @@
 .level-nav {
   display: flex;
   justify-content: space-between;
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--color-border);
   gap: var(--space-md);
 }
@@ -332,11 +332,11 @@
 
 /* Section table of contents */
 .section-toc {
-  padding: var(--space-lg);
+  padding: var(--space-md);
   background: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-lg);
 }
 
 .section-toc__title {
@@ -533,7 +533,7 @@
    Source Group
    ======================================== */
 .source-group {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-xl);
 }
 
 .source-group__title {
@@ -603,11 +603,11 @@
    ======================================== */
 .citation-list {
   font-size: var(--text-sm);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
   background-color: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-md);
 }
 
 .citation-list__title {
@@ -624,10 +624,10 @@
    ======================================== */
 .quote-block {
   border-left: 2px solid var(--color-accent);
-  padding: var(--space-lg) var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
   background-color: var(--color-accent-dim);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  margin: var(--space-xl) 0;
+  margin: var(--space-md) 0;
 }
 
 .quote-block__text {
@@ -680,15 +680,15 @@
 .site-footer {
   background-color: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
-  padding: var(--space-3xl) 0 var(--space-2xl);
-  margin-top: var(--space-4xl);
+  padding: var(--space-xl) 0 var(--space-lg);
+  margin-top: var(--space-2xl);
 }
 
 .site-footer__sections {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-xl);
-  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
 .site-footer__section-title {
@@ -732,8 +732,8 @@
    Dimension Cards
    ======================================== */
 .dimension-card {
-  margin-bottom: var(--space-3xl);
-  padding-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -744,8 +744,8 @@
 .dimension-card__header {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-lg);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .dimension-card__image {
@@ -781,10 +781,10 @@
 
 .dimension-card__why {
   background-color: var(--color-bg-elevated);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .dimension-card__why h3 {
