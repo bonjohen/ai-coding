@@ -456,3 +456,97 @@ These items were identified as missing from the original implementation and viol
 - [ ] Search indexing infrastructure
 - [ ] Side-by-side comparison pages across frameworks
 - [ ] JSON-LD / schema.org structured data for educational content
+
+---
+
+## Phase C1 — Certification Data Foundation & Build Pipeline
+
+Goal: JSON manifest for certification content, TypeScript types, data loading, validation, XML data copied.
+
+### C1.1 TypeScript types
+- [x] Create `src/scripts/types/certification.ts` (CertificationProvider, CertificationExam, CertificationConfig)
+
+### C1.2 JSON manifest
+- [x] Create `src/data/families/claude-code-competence/certifications.json` (3 providers, 25 exams, metadata from XML)
+
+### C1.3 Build pipeline: load-data.ts
+- [x] Add `certifications?: CertificationConfig` to FamilyData interface
+- [x] Load optional certifications.json in loadFamilyData()
+
+### C1.4 Build pipeline: validate-data.ts
+- [x] Validate provider IDs unique, exam IDs unique
+- [ ] Validate dataFile paths exist on disk
+- [x] Validate exam references valid provider ID
+
+### C1.5 Copy certification XML data
+- [x] Copy 25 XML files + schema from certification project into `src/data/families/claude-code-competence/certification-data/`
+- [x] Add copyCertificationData() to copy-assets.ts
+- [x] Verify `npm run build` passes with certification data
+
+---
+
+## Phase C2 — Certification JavaScript Integration
+
+Goal: Port certification JS to TypeScript, integrate into build.
+
+### C2.1 Port JS to TypeScript
+- [ ] Create `src/scripts/cert-app.ts`, `cert-quiz-engine.ts`, `cert-xml-parser.ts`, `cert-progress-tracker.ts`
+
+### C2.2 Path & back-link abstraction
+- [ ] Remove hardcoded paths; read from data attributes set at build time
+- [ ] Provider mapping from embedded JSON manifest instead of hardcoded prefixes
+
+### C2.3 DOM ID namespacing
+- [ ] Prefix all certification DOM IDs with `cert-`
+
+### C2.4 CSS variable scoping
+- [ ] Scope certification CSS under `.cert-quiz` parent
+
+### C2.5 Build integration
+- [ ] Add `initCertQuiz()` to main.ts, conditionally init on cert pages
+
+---
+
+## Phase C3 — Certification Templates & Page Generation
+
+Goal: Build-generated pages for certification landing, provider, and quiz shell.
+
+### C3.1 New templates
+- [ ] `cert-landing.html` — hub with 3 provider cards
+- [ ] `cert-provider.html` — exam cards for one provider
+- [ ] `cert-quiz.html` — quiz shell with embedded manifest
+- [ ] `cert-exam-card.html`, `cert-provider-card.html` partials
+
+### C3.2 Page generation
+- [ ] Add certification pages to collectPageDefs() in render-pages.ts (5 pages)
+- [ ] Update navigation.json with Certifications nav item
+
+---
+
+## Phase C4 — Certification CSS & Dark Theme
+
+Goal: Restyle certification UI for dark editorial theme.
+
+- [ ] Create `src/styles/certification.css`
+- [ ] Dark-adapted question cards, choices, hints, feedback, scenario sections
+- [ ] Provider brand accent colors via data-provider attribute
+
+---
+
+## Phase C5 — Cross-Linking & Study Guide Integration
+
+Goal: Wire certification into existing educational content.
+
+- [ ] Add Certifications card to home page
+- [ ] Add certification section to family landing
+- [ ] Optional: study guide reads cert localStorage progress
+
+---
+
+## Phase C6 — Certification Verification & Cleanup
+
+- [ ] `npm run build` produces 33 pages
+- [ ] `npm run validate` passes with certification data
+- [ ] Runtime quiz works via `npm run dev`
+- [ ] Progressive enhancement verified (noscript fallback)
+- [ ] Update SESSION_HANDOFF.md, README

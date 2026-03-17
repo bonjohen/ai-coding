@@ -12,6 +12,7 @@ import type { ExercisesConfig } from '../src/scripts/types/exercise.js';
 import type { RoadmapConfig } from '../src/scripts/types/roadmap.js';
 import type { QuizQuestionsConfig } from '../src/scripts/types/quiz.js';
 import type { ExampleProjectsConfig } from '../src/scripts/types/example-project.js';
+import type { CertificationConfig } from '../src/scripts/types/certification.js';
 
 export interface SiteData {
   site: SiteConfig;
@@ -33,6 +34,7 @@ export interface FamilyData {
   roadmap: RoadmapConfig;
   quizQuestions?: QuizQuestionsConfig;
   exampleProjects?: ExampleProjectsConfig;
+  certifications?: CertificationConfig;
 }
 
 export interface AllData {
@@ -79,6 +81,9 @@ export function loadFamilyData(familyDir: string): FamilyData {
     } : {}),
     ...(existsSync(join(familyDir, 'example-projects.json')) ? {
       exampleProjects: loadJson<ExampleProjectsConfig>(join(familyDir, 'example-projects.json')),
+    } : {}),
+    ...(existsSync(join(familyDir, 'certifications.json')) ? {
+      certifications: loadJson<CertificationConfig>(join(familyDir, 'certifications.json')),
     } : {}),
   };
 }

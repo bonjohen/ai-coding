@@ -97,6 +97,21 @@ export function copyFamilyExamples(dataDir: string, outputDir: string, familySlu
 }
 
 /**
+ * Copy certification XML data files to output.
+ * Copies src/data/families/{slug}/certification-data/ to outputDir/../{slug}/certification-data/
+ */
+export function copyCertificationData(dataDir: string, outputDir: string, familySlugs: string[]): void {
+  for (const slug of familySlugs) {
+    const certDataDir = join(dataDir, 'families', slug, 'certification-data');
+    if (!existsSync(certDataDir)) continue;
+
+    const destDir = join(outputDir, slug, 'certification-data');
+    mkdirSync(destDir, { recursive: true });
+    cpSync(certDataDir, destDir, { recursive: true });
+  }
+}
+
+/**
  * Run all asset copy operations.
  */
 export function copyAllAssets(srcDir: string, outputDir: string): void {

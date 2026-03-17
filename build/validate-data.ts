@@ -1,5 +1,5 @@
 import { existsSync } from 'fs';
-import { join } from 'path';
+import { join, dirname } from 'path';
 import type { AllData, FamilyData } from './load-data.js';
 
 export interface ValidationError {
@@ -202,6 +202,36 @@ function validateFamily(familyId: string, family: FamilyData, errors: Validation
       }
       if (!Array.isArray(q.choices) || q.choices.length < 2) {
         errors.push({ file: prefix, field: 'choices', message: 'At least 2 choices required' });
+      }
+    }
+  }
+
+  // Validate certifications (optional file)
+  if (family.certifications) {
+    const providerIds = family.certifications.providers.map(p => p.id);
+    checkDuplicates(errors, `${familyId}/certifications.json`, 'providers', providerIds);
+
+    const examIds = family.certifications.exams.map(e => e.id);
+    checkDuplicates(errors, `${familyId}/certifications.json`, 'exams', examIds);
+
+    const providerIdSet = new Set(providerIds);
+    for (const exam of family.certifications.exams) {
+      const prefix = `${familyId}/certifications.json[${exam.id}]`;
+      if (!providerIdSet.has(exam.providerId)) {
+        errors.push({ file: prefix, field: 'providerId', message: `Provider ID "${exam.providerId}" not found` });
+      }
+      if (!exam.title || typeof exam.title !== 'string') {
+        errors.push({ file: prefix, field: 'title', message: 'Exam title is required' });
+      }
+      if (!exam.code || typeof exam.code !== 'string') {
+        errors.push({ file: prefix, field: 'code', message: 'Exam code is required' });
+      }
+      if (!exam.dataFile || typeof exam.dataFile !== 'string') {
+        errors.push({ file: prefix, field: 'dataFile', message: 'dataFile path is required' });
+      }
+      const validDifficulties = ['beginner', 'intermediate', 'advanced'];
+      if (!validDifficulties.includes(exam.difficulty)) {
+        errors.push({ file: prefix, field: 'difficulty', message: `Difficulty must be one of: ${validDifficulties.join(', ')}` });
       }
     }
   }
