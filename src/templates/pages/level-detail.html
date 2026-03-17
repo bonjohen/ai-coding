@@ -1,16 +1,16 @@
 {{#block content}}
 <article>
-  <header class="hero hero--with-image">
-    <div class="hero__text">
-      <span class="badge badge--level-{{ level.levelNumber }}">Level {{ level.levelNumber }}</span>
-      <h1 class="hero__title">{{ level.title }}</h1>
-      <p class="hero__summary">{{ level.summary }}</p>
-    </div>
+  <header class="hero hero--with-image hero--image-left">
     {{#if levelImage}}
     <div class="hero__image">
       <img src="{{ levelImage }}" alt="Level {{ level.levelNumber }}: {{ level.title }}" loading="lazy">
     </div>
     {{/if}}
+    <div class="hero__text">
+      <span class="badge badge--level-{{ level.levelNumber }}">Level {{ level.levelNumber }}</span>
+      <h1 class="hero__title">{{ level.title }}</h1>
+      <p class="hero__summary">{{ level.summary }}</p>
+    </div>
   </header>
 
   <nav class="section-toc" aria-label="On this page">

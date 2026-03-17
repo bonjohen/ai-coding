@@ -78,12 +78,17 @@
   z-index: -1;
 }
 
-/* Hero with side image */
+/* Hero with side image (default: image right) */
 .hero--with-image {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--space-2xl);
   align-items: center;
+}
+
+/* Image on left */
+.hero--image-left {
+  grid-template-columns: auto 1fr;
 }
 
 .hero__image {
