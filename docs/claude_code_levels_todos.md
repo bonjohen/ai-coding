@@ -130,7 +130,7 @@ Remaining partials:
 - [x] Each page gets unique SEO title, meta description, canonical URL, OG tags (from page model or site/family defaults)
 - [x] Breadcrumbs rendered on all family pages
 - [x] Previous/next level links rendered on level pages
-- [ ] Navigation highlights active page
+- [x] Navigation highlights active page
 
 ### 3.3 Output verification
 - [x] `docs/ai-coding/index.html` exists
@@ -159,16 +159,16 @@ Remaining partials:
 Goal: Interactive behaviors and print-friendly output.
 
 ### 4.1 Browser TypeScript
-- [ ] `src/scripts/main.ts` — Entry point, initializes all modules
-- [ ] `src/scripts/navigation.ts` — Mobile nav toggle, active page highlighting
-- [ ] `src/scripts/accordions.ts` — Expand/collapse on matrix and level pages
-- [ ] `src/scripts/matrix.ts` — Row filtering/toggling by dimension
-- [ ] `src/scripts/citations.ts` — Citation expansion toggles
-- [ ] `src/scripts/filters.ts` — General filter support
-- [ ] `src/scripts/page-state.ts` — Optional: localStorage for expanded rows, level selector
+- [x] `src/scripts/main.ts` — Entry point, initializes all modules
+- [x] `src/scripts/navigation.ts` — Mobile nav toggle, active page highlighting
+- [x] `src/scripts/accordions.ts` — Expand/collapse on matrix and level pages
+- [x] `src/scripts/matrix.ts` — Row filtering/toggling by dimension
+- [x] `src/scripts/citations.ts` — Citation expansion toggles
+- [x] `src/scripts/filters.ts` — General filter support
+- [x] `src/scripts/page-state.ts` — Optional: localStorage for expanded rows, level selector
 
 ### 4.2 Build integration
-- [ ] Compile browser TypeScript to `docs/assets/js/` during build
+- [x] Compile browser TypeScript to `docs/assets/js/` during build
 - [x] Link compiled JS from `base.html` layout
 - [x] Verify all content remains readable with JavaScript disabled (progressive enhancement)
 
@@ -180,10 +180,10 @@ Goal: Interactive behaviors and print-friendly output.
 ### 4.4 Accessibility pass
 - [x] Semantic heading order on all page types
 - [x] Visible focus states on all interactive elements
-- [ ] Keyboard navigation through nav, accordions, matrix filters
-- [ ] ARIA attributes only where semantics are insufficient
+- [x] Keyboard navigation through nav, accordions, matrix filters
+- [x] ARIA attributes only where semantics are insufficient
 
-**Phase 4 exit criteria:** Matrix filter toggles work. Accordions expand/collapse. Mobile nav toggles. Print preview renders cleanly without clipped content. All core content accessible without JS.
+**Phase 4 exit criteria:** Matrix filter toggles work. Accordions expand/collapse. Mobile nav toggles. Print preview renders cleanly without clipped content. All core content accessible without JS. **DONE**
 
 ---
 

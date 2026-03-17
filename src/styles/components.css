@@ -433,3 +433,50 @@
 .dimension-card__questions {
   font-size: var(--text-sm);
 }
+
+/* Matrix filter buttons */
+.matrix-filters {
+  margin-bottom: var(--space-lg);
+}
+
+.matrix-filter-btn {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.matrix-filter-btn:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.matrix-filter-btn--active {
+  background-color: var(--color-link);
+  color: #fff;
+  border-color: var(--color-link);
+}
+
+/* Filter input */
+.filter-input {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.filter-input:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-color: var(--color-focus);
+}
