@@ -8,8 +8,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what a context window is" },
         { "value": 2, "label": "Sometimes — I have a rough idea but can't explain it clearly" },
-        { "value": 3, "label": "Usually — I can explain token limits and their practical effects" },
-        { "value": 4, "label": "Always — I can predict and plan around context window constraints" }
+        { "value": 3, "label": "Reliably — I can explain token limits and their practical effects" },
+        { "value": 4, "label": "Confidently — I predict context constraints and adapt my approach based on task size and session state" }
       ],
       "dimensionId": "dim-conceptual-understanding",
       "levelId": "level-1",
@@ -27,8 +27,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't distinguish between them" },
         { "value": 2, "label": "Sometimes — I notice when tools are used but don't fully understand why" },
-        { "value": 3, "label": "Usually — I understand which actions use tools and which are generated text" },
-        { "value": 4, "label": "Always — I can predict when tool use will occur and leverage it deliberately" }
+        { "value": 3, "label": "Reliably — I understand which actions use tools and which are generated text" },
+        { "value": 4, "label": "Fluently — I predict tool use patterns and leverage them deliberately to shape outcomes" }
       ],
       "dimensionId": "dim-conceptual-understanding",
       "levelId": "level-1",
@@ -46,8 +46,8 @@
       "choices": [
         { "value": 1, "label": "Never — I have no idea what happens behind the scenes" },
         { "value": 2, "label": "Sometimes — I know it runs commands but not the details" },
-        { "value": 3, "label": "Usually — I understand the permission model and output flow" },
-        { "value": 4, "label": "Always — I can explain the full lifecycle including permission checks, execution, and output parsing" }
+        { "value": 3, "label": "Reliably — I understand the permission model and output flow" },
+        { "value": 4, "label": "Confidently — I can explain the full lifecycle and use that understanding to debug unexpected behavior" }
       ],
       "dimensionId": "dim-conceptual-understanding",
       "levelId": "level-2",
@@ -65,8 +65,8 @@
       "choices": [
         { "value": 1, "label": "Never — I jump straight to the request" },
         { "value": 2, "label": "Sometimes — when I remember or the task seems complex" },
-        { "value": 3, "label": "Usually — I set context for most non-trivial tasks" },
-        { "value": 4, "label": "Always — I systematically provide context before every change request" }
+        { "value": 3, "label": "Reliably — I set context for most non-trivial tasks" },
+        { "value": 4, "label": "Deliberately — I gauge how much context is needed per task, providing thorough setup for complex changes and minimal context when the codebase speaks for itself" }
       ],
       "dimensionId": "dim-task-framing",
       "levelId": "level-2",
@@ -84,8 +84,8 @@
       "choices": [
         { "value": 1, "label": "Never — I use a single prompt for everything" },
         { "value": 2, "label": "Sometimes — I split into a couple of prompts but struggle with ordering" },
-        { "value": 3, "label": "Usually — I plan 3-5 sequential prompts with clear dependencies" },
-        { "value": 4, "label": "Always — I design prompt sequences with explicit inputs, outputs, and verification points" }
+        { "value": 3, "label": "Reliably — I plan 3-5 sequential prompts with clear dependencies" },
+        { "value": 4, "label": "Fluently — I design prompt sequences scaled to task complexity, knowing when a single well-crafted prompt suffices and when multi-step decomposition is worth the overhead" }
       ],
       "dimensionId": "dim-task-framing",
       "levelId": "level-2",
@@ -103,8 +103,8 @@
       "choices": [
         { "value": 1, "label": "Never — I let Claude Code figure out the constraints" },
         { "value": 2, "label": "Sometimes — I mention obvious constraints" },
-        { "value": 3, "label": "Usually — I list key constraints, edge cases, and error handling expectations" },
-        { "value": 4, "label": "Always — I specify constraints, edge cases, performance bounds, and style conventions" }
+        { "value": 3, "label": "Reliably — I list key constraints, edge cases, and error handling expectations" },
+        { "value": 4, "label": "Deliberately — I specify constraints proportional to risk, investing detail in critical paths while keeping low-stakes requests lean" }
       ],
       "dimensionId": "dim-task-framing",
       "levelId": "level-2",
@@ -121,8 +121,8 @@
       "choices": [
         { "value": 1, "label": "Never — I accept most output without reading it" },
         { "value": 2, "label": "Sometimes — I skim the diff for obvious issues" },
-        { "value": 3, "label": "Usually — I read each diff line-by-line before accepting" },
-        { "value": 4, "label": "Always — I review every line, check logic, and verify edge case handling" }
+        { "value": 3, "label": "Reliably — I read each diff line-by-line before accepting" },
+        { "value": 4, "label": "Maturely — I scale review depth to change risk, scrutinizing critical logic while efficiently approving well-understood mechanical changes" }
       ],
       "dimensionId": "dim-verification-discipline",
       "levelId": "level-1",
@@ -140,8 +140,8 @@
       "choices": [
         { "value": 1, "label": "Never — I assume the code works" },
         { "value": 2, "label": "Sometimes — I run tests at the end of a session" },
-        { "value": 3, "label": "Usually — I run tests after major changes" },
-        { "value": 4, "label": "Always — I run the test suite after every significant change" }
+        { "value": 3, "label": "Reliably — I run tests after major changes" },
+        { "value": 4, "label": "Deliberately — I choose test scope based on change risk, running targeted tests for focused changes and full suites when changes cross boundaries" }
       ],
       "dimensionId": "dim-verification-discipline",
       "levelId": "level-2",
@@ -158,8 +158,8 @@
       "choices": [
         { "value": 1, "label": "Never — if the main case works, I move on" },
         { "value": 2, "label": "Sometimes — I check obvious edge cases" },
-        { "value": 3, "label": "Usually — I test boundary conditions and error paths" },
-        { "value": 4, "label": "Always — I systematically verify edge cases, error handling, and boundary conditions" }
+        { "value": 3, "label": "Reliably — I test boundary conditions and error paths" },
+        { "value": 4, "label": "Maturely — I focus edge case testing where failure is costly, balancing thoroughness with the reality that not every code path warrants exhaustive verification" }
       ],
       "dimensionId": "dim-verification-discipline",
       "levelId": "level-2",
@@ -177,8 +177,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't use CLAUDE.md" },
         { "value": 2, "label": "Sometimes — I have a basic CLAUDE.md but rarely update it" },
-        { "value": 3, "label": "Usually — I maintain CLAUDE.md with build commands, conventions, and architecture notes" },
-        { "value": 4, "label": "Always — I maintain layered CLAUDE.md files (root, directory-level) as living documents" }
+        { "value": 3, "label": "Reliably — I maintain CLAUDE.md with build commands, conventions, and architecture notes" },
+        { "value": 4, "label": "Deliberately — I design CLAUDE.md depth to match project complexity, using layered files where they add value and simple flat configs where they suffice" }
       ],
       "dimensionId": "dim-context-management",
       "levelId": "level-3",
@@ -196,8 +196,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't think about context limits" },
         { "value": 2, "label": "Sometimes — I notice when responses degrade but don't know why" },
-        { "value": 3, "label": "Usually — I recognize context saturation and start fresh sessions when needed" },
-        { "value": 4, "label": "Always — I proactively manage context by scoping sessions, using compact mode, and planning for fresh starts" }
+        { "value": 3, "label": "Reliably — I recognize context saturation and start fresh sessions when needed" },
+        { "value": 4, "label": "Confidently — I read context signals and apply the right strategy — compact, fresh start, or continuation — based on what the session state actually needs" }
       ],
       "dimensionId": "dim-context-management",
       "levelId": "level-2",
@@ -215,8 +215,8 @@
       "choices": [
         { "value": 1, "label": "Never — I always continue in the same session" },
         { "value": 2, "label": "Sometimes — I start fresh when things feel broken" },
-        { "value": 3, "label": "Usually — I start fresh when context has drifted or the task scope changes" },
-        { "value": 4, "label": "Always — I deliberately scope sessions and start fresh based on task boundaries" }
+        { "value": 3, "label": "Reliably — I start fresh when context has drifted or the task scope changes" },
+        { "value": 4, "label": "Deliberately — I make session boundaries a conscious decision, weighing accumulated context value against drift rather than following a rigid rule" }
       ],
       "dimensionId": "dim-context-management",
       "levelId": "level-2",
@@ -233,8 +233,8 @@
       "choices": [
         { "value": 1, "label": "Never — I use Claude Code with default settings" },
         { "value": 2, "label": "Sometimes — I have a basic CLAUDE.md in one or two projects" },
-        { "value": 3, "label": "Usually — my projects have CLAUDE.md, hooks, and tuned permissions" },
-        { "value": 4, "label": "Always — I design complete environments with layered config, hooks, MCP servers, and permission tuning" }
+        { "value": 3, "label": "Reliably — my projects have CLAUDE.md, hooks, and tuned permissions" },
+        { "value": 4, "label": "Maturely — I match environment complexity to project needs, using full tooling for complex projects and lightweight setups where overhead isn't justified" }
       ],
       "dimensionId": "dim-environment-design",
       "levelId": "level-3",
@@ -252,8 +252,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't use hooks" },
         { "value": 2, "label": "Sometimes — I have basic hooks but they aren't integrated with Claude Code" },
-        { "value": 3, "label": "Usually — I have hooks that catch common issues in AI-generated code" },
-        { "value": 4, "label": "Always — my hooks enforce standards, format code, and run tests automatically" }
+        { "value": 3, "label": "Reliably — I have hooks that catch common issues in AI-generated code" },
+        { "value": 4, "label": "Deliberately — I design hooks that catch high-value issues without creating friction, knowing that over-automated guardrails slow teams down as much as having none" }
       ],
       "dimensionId": "dim-environment-design",
       "levelId": "level-3",
@@ -271,8 +271,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what MCP servers are" },
         { "value": 2, "label": "Sometimes — I understand MCP conceptually but haven't set one up" },
-        { "value": 3, "label": "Usually — I have MCP servers configured for key external integrations" },
-        { "value": 4, "label": "Always — I design and maintain MCP server configurations with proper security boundaries" }
+        { "value": 3, "label": "Reliably — I have MCP servers configured for key external integrations" },
+        { "value": 4, "label": "Confidently — I set up MCP servers with appropriate security boundaries, choosing which integrations earn the maintenance cost" }
       ],
       "dimensionId": "dim-environment-design",
       "levelId": "level-3",
@@ -290,8 +290,8 @@
       "choices": [
         { "value": 1, "label": "Never — I only use one instance at a time" },
         { "value": 2, "label": "Sometimes — I've tried running two instances but had conflicts" },
-        { "value": 3, "label": "Usually — I run parallel agents with worktree isolation on independent tasks" },
-        { "value": 4, "label": "Always — I design task graphs, isolate agents, and merge results systematically" }
+        { "value": 3, "label": "Reliably — I run parallel agents with worktree isolation on independent tasks" },
+        { "value": 4, "label": "Fluently — I judge when parallelism helps versus when sequential work is simpler, and design isolation strategies matched to actual conflict risk" }
       ],
       "dimensionId": "dim-workflow-scaling",
       "levelId": "level-4",
@@ -309,8 +309,8 @@
       "choices": [
         { "value": 1, "label": "Never — I only use Claude Code interactively" },
         { "value": 2, "label": "Sometimes — I've experimented with non-interactive mode" },
-        { "value": 3, "label": "Usually — I have Claude Code steps in CI for specific tasks" },
-        { "value": 4, "label": "Always — Claude Code is integrated into CI/CD with error handling, monitoring, and quality gates" }
+        { "value": 3, "label": "Reliably — I have Claude Code steps in CI for specific tasks" },
+        { "value": 4, "label": "Maturely — I integrate Claude Code in CI/CD where it adds value, with error handling and monitoring, while knowing which pipeline steps are better served by traditional tooling" }
       ],
       "dimensionId": "dim-workflow-scaling",
       "levelId": "level-4",
@@ -327,8 +327,8 @@
       "choices": [
         { "value": 1, "label": "Never — I always use Claude Code interactively" },
         { "value": 2, "label": "Sometimes — I've read about non-interactive mode but haven't used it" },
-        { "value": 3, "label": "Usually — I use non-interactive mode for batch tasks and scripted workflows" },
-        { "value": 4, "label": "Always — I design automated workflows around headless mode with monitoring and error recovery" }
+        { "value": 3, "label": "Reliably — I use non-interactive mode for batch tasks and scripted workflows" },
+        { "value": 4, "label": "Deliberately — I choose headless mode where automation fits and interactive mode where human judgment matters, building monitoring into the workflows that need it" }
       ],
       "dimensionId": "dim-workflow-scaling",
       "levelId": "level-4",
@@ -346,8 +346,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't specifically check for security issues" },
         { "value": 2, "label": "Sometimes — I check for obvious issues like hardcoded credentials" },
-        { "value": 3, "label": "Usually — I review for common vulnerability patterns (injection, auth, data exposure)" },
-        { "value": 4, "label": "Always — I systematically review for security issues and use automated scanning tools" }
+        { "value": 3, "label": "Reliably — I review for common vulnerability patterns (injection, auth, data exposure)" },
+        { "value": 4, "label": "Maturely — I combine manual review with automated scanning, focusing depth on attack-surface code and trusting well-tested internal paths" }
       ],
       "dimensionId": "dim-safety-governance",
       "levelId": "level-3",
@@ -365,8 +365,8 @@
       "choices": [
         { "value": 1, "label": "Never — I have no way to distinguish AI-generated code" },
         { "value": 2, "label": "Sometimes — I use commit messages to note AI involvement" },
-        { "value": 3, "label": "Usually — I have a consistent labeling practice for AI-generated commits" },
-        { "value": 4, "label": "Always — there is a complete audit trail linking prompts, outputs, and reviews" }
+        { "value": 3, "label": "Reliably — I have a consistent labeling practice for AI-generated commits" },
+        { "value": 4, "label": "Deliberately — I maintain traceability proportional to compliance needs, with full audit trails where required and lightweight labeling where they suffice" }
       ],
       "dimensionId": "dim-safety-governance",
       "levelId": "level-5",
@@ -383,8 +383,8 @@
       "choices": [
         { "value": 1, "label": "Never — there are no policies" },
         { "value": 2, "label": "Sometimes — I have informal rules but nothing documented" },
-        { "value": 3, "label": "Usually — I have documented permission boundaries and escalation rules" },
-        { "value": 4, "label": "Always — there is an organizational policy framework covering permissions, boundaries, and escalation" }
+        { "value": 3, "label": "Reliably — I have documented permission boundaries and escalation rules" },
+        { "value": 4, "label": "Maturely — I design governance that scales with autonomy level, with strict boundaries for high-risk actions and lighter touch where the blast radius is small" }
       ],
       "dimensionId": "dim-safety-governance",
       "levelId": "level-5",

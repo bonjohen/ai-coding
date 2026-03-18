@@ -8,8 +8,8 @@
       "choices": [
         { "value": 1, "label": "Never — I can only query one table at a time" },
         { "value": 2, "label": "Sometimes — I can write simple JOINs but sometimes get unexpected row counts" },
-        { "value": 3, "label": "Usually — I choose JOIN types deliberately and verify row counts" },
-        { "value": 4, "label": "Always — I can join any number of tables correctly and explain the join semantics" }
+        { "value": 3, "label": "Reliably — I choose JOIN types deliberately and verify row counts" },
+        { "value": 4, "label": "Confidently — I handle complex joins and diagnose unexpected results quickly" }
       ],
       "dimensionId": "dim-query-construction",
       "levelId": "level-1",
@@ -27,8 +27,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what a CTE is" },
         { "value": 2, "label": "Sometimes — I've used them but default to nested subqueries" },
-        { "value": 3, "label": "Usually — I restructure complex queries into CTEs for readability" },
-        { "value": 4, "label": "Always — I design query pipelines with CTEs and can explain when they help vs hurt performance" }
+        { "value": 3, "label": "Reliably — I restructure complex queries into CTEs for readability" },
+        { "value": 4, "label": "Fluently — I know when CTEs help readability and when they hurt performance, and choose accordingly" }
       ],
       "dimensionId": "dim-query-construction",
       "levelId": "level-2",
@@ -46,8 +46,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't think about how queries execute" },
         { "value": 2, "label": "Sometimes — I know some queries are slow but don't know how to fix them" },
-        { "value": 3, "label": "Usually — I can identify and rewrite common anti-patterns" },
-        { "value": 4, "label": "Always — I routinely optimize queries based on execution plan analysis" }
+        { "value": 3, "label": "Reliably — I can identify and rewrite common anti-patterns" },
+        { "value": 4, "label": "Confidently — I optimize based on plans and know when the cost of rewriting isn't worth it" }
       ],
       "dimensionId": "dim-query-construction",
       "levelId": "level-4",
@@ -64,8 +64,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't create tables, I only query existing ones" },
         { "value": 2, "label": "Sometimes — I can create simple tables but don't think about normalization" },
-        { "value": 3, "label": "Usually — I apply normalization rules and can identify violations" },
-        { "value": 4, "label": "Always — I design schemas from requirements with deliberate normalization and documented trade-offs" }
+        { "value": 3, "label": "Reliably — I apply normalization rules and can identify violations" },
+        { "value": 4, "label": "Confidently — I design schemas knowing when 3NF is overkill or insufficient for the use case" }
       ],
       "dimensionId": "dim-data-modeling",
       "levelId": "level-3",
@@ -82,8 +82,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what denormalization means" },
         { "value": 2, "label": "Sometimes — I've heard the term but can't explain the trade-offs" },
-        { "value": 3, "label": "Usually — I can explain read vs write trade-offs of denormalization" },
-        { "value": 4, "label": "Always — I make deliberate denormalization decisions with documented reasoning" }
+        { "value": 3, "label": "Reliably — I can explain read vs write trade-offs of denormalization" },
+        { "value": 4, "label": "Confidently — I weigh denormalization costs in context and know when the complexity isn't justified" }
       ],
       "dimensionId": "dim-data-modeling",
       "levelId": "level-3",
@@ -101,8 +101,8 @@
       "choices": [
         { "value": 1, "label": "Never — I only work with single-database schemas" },
         { "value": 2, "label": "Sometimes — I've thought about it but haven't designed one" },
-        { "value": 3, "label": "Usually — I can define ownership boundaries for shared data" },
-        { "value": 4, "label": "Always — I design enterprise data models with contracts between services" }
+        { "value": 3, "label": "Reliably — I can define ownership boundaries for shared data" },
+        { "value": 4, "label": "Confidently — I design cross-service models, knowing when formal contracts add value vs overhead" }
       ],
       "dimensionId": "dim-data-modeling",
       "levelId": "level-5",
@@ -119,8 +119,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what window functions are" },
         { "value": 2, "label": "Sometimes — I can use ROW_NUMBER but struggle with more complex patterns" },
-        { "value": 3, "label": "Usually — I use various window functions and understand partitioning" },
-        { "value": 4, "label": "Always — I write complex analytical queries with multiple window functions fluently" }
+        { "value": 3, "label": "Reliably — I use various window functions and understand partitioning" },
+        { "value": 4, "label": "Fluently — I choose the right window function and understand when SQL analytics vs application code is appropriate" }
       ],
       "dimensionId": "dim-analytical-techniques",
       "levelId": "level-2",
@@ -137,8 +137,8 @@
       "choices": [
         { "value": 1, "label": "Never — I can only do basic GROUP BY aggregations" },
         { "value": 2, "label": "Sometimes — I can do rolling averages with help" },
-        { "value": 3, "label": "Usually — I write these patterns independently" },
-        { "value": 4, "label": "Always — I design complex analytical queries including time-series and cohort patterns" }
+        { "value": 3, "label": "Reliably — I write these patterns independently" },
+        { "value": 4, "label": "Fluently — I write advanced analytical queries and know when to push work to the database vs the application layer" }
       ],
       "dimensionId": "dim-analytical-techniques",
       "levelId": "level-3",
@@ -155,8 +155,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't think about analytical query performance" },
         { "value": 2, "label": "Sometimes — I know large queries are slow but don't know how to fix them" },
-        { "value": 3, "label": "Usually — I use materialized views and pre-aggregation when appropriate" },
-        { "value": 4, "label": "Always — I design analytical systems for performance at scale" }
+        { "value": 3, "label": "Reliably — I use materialized views and pre-aggregation when appropriate" },
+        { "value": 4, "label": "Confidently — I evaluate materialized views, pre-aggregation, and caching based on actual workload characteristics" }
       ],
       "dimensionId": "dim-analytical-techniques",
       "levelId": "level-4",
@@ -173,8 +173,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what EXPLAIN does" },
         { "value": 2, "label": "Sometimes — I can run EXPLAIN but struggle to interpret the output" },
-        { "value": 3, "label": "Usually — I identify sequential scans, missing indexes, and sort operations" },
-        { "value": 4, "label": "Always — I read plans fluently and predict optimizer behavior" }
+        { "value": 3, "label": "Reliably — I identify sequential scans, missing indexes, and sort operations" },
+        { "value": 4, "label": "Fluently — I interpret plans, predict optimizer choices, and know when a 'bad' plan is actually acceptable" }
       ],
       "dimensionId": "dim-performance-optimization",
       "levelId": "level-3",
@@ -192,8 +192,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't create indexes" },
         { "value": 2, "label": "Sometimes — I create single-column indexes but not composites" },
-        { "value": 3, "label": "Usually — I design composite indexes with deliberate column ordering" },
-        { "value": 4, "label": "Always — I design covering indexes and understand their write trade-offs" }
+        { "value": 3, "label": "Reliably — I design composite indexes with deliberate column ordering" },
+        { "value": 4, "label": "Confidently — I design covering indexes, weighing read benefit against write cost for the specific workload" }
       ],
       "dimensionId": "dim-performance-optimization",
       "levelId": "level-4",
@@ -210,8 +210,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't think about scale" },
         { "value": 2, "label": "Sometimes — I know scaling is important but haven't planned for it" },
-        { "value": 3, "label": "Usually — I can estimate growth and plan capacity" },
-        { "value": 4, "label": "Always — I design architectures with scaling strategies and capacity models" }
+        { "value": 3, "label": "Reliably — I can estimate growth and plan capacity" },
+        { "value": 4, "label": "Confidently — I design scaling strategies, knowing when vertical scaling suffices vs when horizontal is needed" }
       ],
       "dimensionId": "dim-performance-optimization",
       "levelId": "level-5",
@@ -228,8 +228,8 @@
       "choices": [
         { "value": 1, "label": "Never — I run statements individually without transactions" },
         { "value": 2, "label": "Sometimes — I use transactions when reminded but not by default" },
-        { "value": 3, "label": "Usually — I wrap related DML in transactions as standard practice" },
-        { "value": 4, "label": "Always — I design transactional workflows with appropriate isolation levels" }
+        { "value": 3, "label": "Reliably — I wrap related DML in transactions as standard practice" },
+        { "value": 4, "label": "Deliberately — I choose transaction boundaries and isolation levels based on the specific consistency need" }
       ],
       "dimensionId": "dim-data-integrity",
       "levelId": "level-2",
@@ -247,8 +247,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what isolation levels are" },
         { "value": 2, "label": "Sometimes — I've read about them but can't give concrete examples" },
-        { "value": 3, "label": "Usually — I can explain each level with scenarios" },
-        { "value": 4, "label": "Always — I select isolation levels per transaction based on consistency requirements" }
+        { "value": 3, "label": "Reliably — I can explain each level with scenarios" },
+        { "value": 4, "label": "Confidently — I select isolation levels per transaction, weighing consistency needs against throughput" }
       ],
       "dimensionId": "dim-data-integrity",
       "levelId": "level-4",
@@ -265,8 +265,8 @@
       "choices": [
         { "value": 1, "label": "Never — I only work with single-database consistency" },
         { "value": 2, "label": "Sometimes — I've encountered distributed consistency but don't design for it" },
-        { "value": 3, "label": "Usually — I can evaluate consistency strategies for multi-service systems" },
-        { "value": 4, "label": "Always — I design distributed consistency with documented trade-off analysis" }
+        { "value": 3, "label": "Reliably — I can evaluate consistency strategies for multi-service systems" },
+        { "value": 4, "label": "Confidently — I design consistency strategies knowing when strong consistency costs too much for the use case" }
       ],
       "dimensionId": "dim-data-integrity",
       "levelId": "level-5",
@@ -283,8 +283,8 @@
       "choices": [
         { "value": 1, "label": "Never — I run DDL manually in a SQL client" },
         { "value": 2, "label": "Sometimes — I use migrations for some changes but not all" },
-        { "value": 3, "label": "Usually — All schema changes go through migrations with up/down scripts" },
-        { "value": 4, "label": "Always — Migrations are automated, tested in CI, and reviewed before merge" }
+        { "value": 3, "label": "Reliably — All schema changes go through migrations with up/down scripts" },
+        { "value": 4, "label": "Consistently — CI-tested migrations are the norm, with pragmatic exceptions for emergency hotfixes" }
       ],
       "dimensionId": "dim-tooling-workflow",
       "levelId": "level-3",
@@ -301,8 +301,8 @@
       "choices": [
         { "value": 1, "label": "Never — We don't have CI for database changes" },
         { "value": 2, "label": "Sometimes — Some migrations are tested but coverage is inconsistent" },
-        { "value": 3, "label": "Usually — Migrations run in CI with automated validation" },
-        { "value": 4, "label": "Always — Full CI pipeline with schema validation, data tests, and rollback verification" }
+        { "value": 3, "label": "Reliably — Migrations run in CI with automated validation" },
+        { "value": 4, "label": "Consistently — CI validates migrations with practical coverage proportional to change risk" }
       ],
       "dimensionId": "dim-tooling-workflow",
       "levelId": "level-4",
@@ -319,8 +319,8 @@
       "choices": [
         { "value": 1, "label": "Never — Each person uses their own approach" },
         { "value": 2, "label": "Sometimes — We have informal conventions but no formal process" },
-        { "value": 3, "label": "Usually — We have documented standards that most people follow" },
-        { "value": 4, "label": "Always — Comprehensive governance with approval gates and automated enforcement" }
+        { "value": 3, "label": "Reliably — We have documented standards that most people follow" },
+        { "value": 4, "label": "Maturely — Governance balances safety with velocity, adapting process weight to change risk" }
       ],
       "dimensionId": "dim-tooling-workflow",
       "levelId": "level-5",
@@ -337,8 +337,8 @@
       "choices": [
         { "value": 1, "label": "Never — I name things ad-hoc" },
         { "value": 2, "label": "Sometimes — I try to be consistent but don't have formal rules" },
-        { "value": 3, "label": "Usually — I follow documented naming conventions" },
-        { "value": 4, "label": "Always — I follow and enforce consistent conventions across all database objects" }
+        { "value": 3, "label": "Reliably — I follow documented naming conventions in my work" },
+        { "value": 4, "label": "Deliberately — I establish conventions that balance consistency with pragmatism, adapting when inherited schemas or tooling constraints require it" }
       ],
       "dimensionId": "dim-collaboration-standards",
       "levelId": "level-2",
@@ -355,8 +355,8 @@
       "choices": [
         { "value": 1, "label": "Never — Changes go directly to production" },
         { "value": 2, "label": "Sometimes — Major changes are reviewed but minor ones skip review" },
-        { "value": 3, "label": "Usually — All schema changes are reviewed by at least one peer" },
-        { "value": 4, "label": "Always — Structured review process with clear criteria and approval gates" }
+        { "value": 3, "label": "Reliably — All schema changes are reviewed by at least one peer" },
+        { "value": 4, "label": "Maturely — I scale review rigor to change risk, with lightweight checks for low-risk changes and thorough review for structural ones" }
       ],
       "dimensionId": "dim-collaboration-standards",
       "levelId": "level-3",
@@ -373,8 +373,8 @@
       "choices": [
         { "value": 1, "label": "Never — I don't know what a data contract is" },
         { "value": 2, "label": "Sometimes — I understand the concept but haven't implemented one" },
-        { "value": 3, "label": "Usually — I define contracts for shared data interfaces" },
-        { "value": 4, "label": "Always — I design and govern data contracts with versioning and compatibility guarantees" }
+        { "value": 3, "label": "Reliably — I define contracts for shared data interfaces" },
+        { "value": 4, "label": "Maturely — I design governance proportional to coupling risk, with formal contracts where breakage is costly and lighter agreements where teams are tightly aligned" }
       ],
       "dimensionId": "dim-collaboration-standards",
       "levelId": "level-5",

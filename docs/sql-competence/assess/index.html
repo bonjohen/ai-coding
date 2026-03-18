@@ -233,9 +233,9 @@
             
             <li>&#9744; Sometimes — I can write simple JOINs but sometimes get unexpected row counts</li>
             
-            <li>&#9744; Usually — I choose JOIN types deliberately and verify row counts</li>
+            <li>&#9744; Reliably — I choose JOIN types deliberately and verify row counts</li>
             
-            <li>&#9744; Always — I can join any number of tables correctly and explain the join semantics</li>
+            <li>&#9744; Confidently — I handle complex joins and diagnose unexpected results quickly</li>
             
           </ul>
         </div>
@@ -248,9 +248,9 @@
             
             <li>&#9744; Sometimes — I&#039;ve used them but default to nested subqueries</li>
             
-            <li>&#9744; Usually — I restructure complex queries into CTEs for readability</li>
+            <li>&#9744; Reliably — I restructure complex queries into CTEs for readability</li>
             
-            <li>&#9744; Always — I design query pipelines with CTEs and can explain when they help vs hurt performance</li>
+            <li>&#9744; Fluently — I know when CTEs help readability and when they hurt performance, and choose accordingly</li>
             
           </ul>
         </div>
@@ -263,9 +263,9 @@
             
             <li>&#9744; Sometimes — I know some queries are slow but don&#039;t know how to fix them</li>
             
-            <li>&#9744; Usually — I can identify and rewrite common anti-patterns</li>
+            <li>&#9744; Reliably — I can identify and rewrite common anti-patterns</li>
             
-            <li>&#9744; Always — I routinely optimize queries based on execution plan analysis</li>
+            <li>&#9744; Confidently — I optimize based on plans and know when the cost of rewriting isn&#039;t worth it</li>
             
           </ul>
         </div>
@@ -284,9 +284,9 @@
             
             <li>&#9744; Sometimes — I can create simple tables but don&#039;t think about normalization</li>
             
-            <li>&#9744; Usually — I apply normalization rules and can identify violations</li>
+            <li>&#9744; Reliably — I apply normalization rules and can identify violations</li>
             
-            <li>&#9744; Always — I design schemas from requirements with deliberate normalization and documented trade-offs</li>
+            <li>&#9744; Confidently — I design schemas knowing when 3NF is overkill or insufficient for the use case</li>
             
           </ul>
         </div>
@@ -299,9 +299,9 @@
             
             <li>&#9744; Sometimes — I&#039;ve heard the term but can&#039;t explain the trade-offs</li>
             
-            <li>&#9744; Usually — I can explain read vs write trade-offs of denormalization</li>
+            <li>&#9744; Reliably — I can explain read vs write trade-offs of denormalization</li>
             
-            <li>&#9744; Always — I make deliberate denormalization decisions with documented reasoning</li>
+            <li>&#9744; Confidently — I weigh denormalization costs in context and know when the complexity isn&#039;t justified</li>
             
           </ul>
         </div>
@@ -314,9 +314,9 @@
             
             <li>&#9744; Sometimes — I&#039;ve thought about it but haven&#039;t designed one</li>
             
-            <li>&#9744; Usually — I can define ownership boundaries for shared data</li>
+            <li>&#9744; Reliably — I can define ownership boundaries for shared data</li>
             
-            <li>&#9744; Always — I design enterprise data models with contracts between services</li>
+            <li>&#9744; Confidently — I design cross-service models, knowing when formal contracts add value vs overhead</li>
             
           </ul>
         </div>
@@ -335,9 +335,9 @@
             
             <li>&#9744; Sometimes — I can use ROW_NUMBER but struggle with more complex patterns</li>
             
-            <li>&#9744; Usually — I use various window functions and understand partitioning</li>
+            <li>&#9744; Reliably — I use various window functions and understand partitioning</li>
             
-            <li>&#9744; Always — I write complex analytical queries with multiple window functions fluently</li>
+            <li>&#9744; Fluently — I choose the right window function and understand when SQL analytics vs application code is appropriate</li>
             
           </ul>
         </div>
@@ -350,9 +350,9 @@
             
             <li>&#9744; Sometimes — I can do rolling averages with help</li>
             
-            <li>&#9744; Usually — I write these patterns independently</li>
+            <li>&#9744; Reliably — I write these patterns independently</li>
             
-            <li>&#9744; Always — I design complex analytical queries including time-series and cohort patterns</li>
+            <li>&#9744; Fluently — I write advanced analytical queries and know when to push work to the database vs the application layer</li>
             
           </ul>
         </div>
@@ -365,9 +365,9 @@
             
             <li>&#9744; Sometimes — I know large queries are slow but don&#039;t know how to fix them</li>
             
-            <li>&#9744; Usually — I use materialized views and pre-aggregation when appropriate</li>
+            <li>&#9744; Reliably — I use materialized views and pre-aggregation when appropriate</li>
             
-            <li>&#9744; Always — I design analytical systems for performance at scale</li>
+            <li>&#9744; Confidently — I evaluate materialized views, pre-aggregation, and caching based on actual workload characteristics</li>
             
           </ul>
         </div>
@@ -386,9 +386,9 @@
             
             <li>&#9744; Sometimes — I can run EXPLAIN but struggle to interpret the output</li>
             
-            <li>&#9744; Usually — I identify sequential scans, missing indexes, and sort operations</li>
+            <li>&#9744; Reliably — I identify sequential scans, missing indexes, and sort operations</li>
             
-            <li>&#9744; Always — I read plans fluently and predict optimizer behavior</li>
+            <li>&#9744; Fluently — I interpret plans, predict optimizer choices, and know when a &#039;bad&#039; plan is actually acceptable</li>
             
           </ul>
         </div>
@@ -401,9 +401,9 @@
             
             <li>&#9744; Sometimes — I create single-column indexes but not composites</li>
             
-            <li>&#9744; Usually — I design composite indexes with deliberate column ordering</li>
+            <li>&#9744; Reliably — I design composite indexes with deliberate column ordering</li>
             
-            <li>&#9744; Always — I design covering indexes and understand their write trade-offs</li>
+            <li>&#9744; Confidently — I design covering indexes, weighing read benefit against write cost for the specific workload</li>
             
           </ul>
         </div>
@@ -416,9 +416,9 @@
             
             <li>&#9744; Sometimes — I know scaling is important but haven&#039;t planned for it</li>
             
-            <li>&#9744; Usually — I can estimate growth and plan capacity</li>
+            <li>&#9744; Reliably — I can estimate growth and plan capacity</li>
             
-            <li>&#9744; Always — I design architectures with scaling strategies and capacity models</li>
+            <li>&#9744; Confidently — I design scaling strategies, knowing when vertical scaling suffices vs when horizontal is needed</li>
             
           </ul>
         </div>
@@ -437,9 +437,9 @@
             
             <li>&#9744; Sometimes — I use transactions when reminded but not by default</li>
             
-            <li>&#9744; Usually — I wrap related DML in transactions as standard practice</li>
+            <li>&#9744; Reliably — I wrap related DML in transactions as standard practice</li>
             
-            <li>&#9744; Always — I design transactional workflows with appropriate isolation levels</li>
+            <li>&#9744; Deliberately — I choose transaction boundaries and isolation levels based on the specific consistency need</li>
             
           </ul>
         </div>
@@ -452,9 +452,9 @@
             
             <li>&#9744; Sometimes — I&#039;ve read about them but can&#039;t give concrete examples</li>
             
-            <li>&#9744; Usually — I can explain each level with scenarios</li>
+            <li>&#9744; Reliably — I can explain each level with scenarios</li>
             
-            <li>&#9744; Always — I select isolation levels per transaction based on consistency requirements</li>
+            <li>&#9744; Confidently — I select isolation levels per transaction, weighing consistency needs against throughput</li>
             
           </ul>
         </div>
@@ -467,9 +467,9 @@
             
             <li>&#9744; Sometimes — I&#039;ve encountered distributed consistency but don&#039;t design for it</li>
             
-            <li>&#9744; Usually — I can evaluate consistency strategies for multi-service systems</li>
+            <li>&#9744; Reliably — I can evaluate consistency strategies for multi-service systems</li>
             
-            <li>&#9744; Always — I design distributed consistency with documented trade-off analysis</li>
+            <li>&#9744; Confidently — I design consistency strategies knowing when strong consistency costs too much for the use case</li>
             
           </ul>
         </div>
@@ -488,9 +488,9 @@
             
             <li>&#9744; Sometimes — I use migrations for some changes but not all</li>
             
-            <li>&#9744; Usually — All schema changes go through migrations with up/down scripts</li>
+            <li>&#9744; Reliably — All schema changes go through migrations with up/down scripts</li>
             
-            <li>&#9744; Always — Migrations are automated, tested in CI, and reviewed before merge</li>
+            <li>&#9744; Consistently — CI-tested migrations are the norm, with pragmatic exceptions for emergency hotfixes</li>
             
           </ul>
         </div>
@@ -503,9 +503,9 @@
             
             <li>&#9744; Sometimes — Some migrations are tested but coverage is inconsistent</li>
             
-            <li>&#9744; Usually — Migrations run in CI with automated validation</li>
+            <li>&#9744; Reliably — Migrations run in CI with automated validation</li>
             
-            <li>&#9744; Always — Full CI pipeline with schema validation, data tests, and rollback verification</li>
+            <li>&#9744; Consistently — CI validates migrations with practical coverage proportional to change risk</li>
             
           </ul>
         </div>
@@ -518,9 +518,9 @@
             
             <li>&#9744; Sometimes — We have informal conventions but no formal process</li>
             
-            <li>&#9744; Usually — We have documented standards that most people follow</li>
+            <li>&#9744; Reliably — We have documented standards that most people follow</li>
             
-            <li>&#9744; Always — Comprehensive governance with approval gates and automated enforcement</li>
+            <li>&#9744; Maturely — Governance balances safety with velocity, adapting process weight to change risk</li>
             
           </ul>
         </div>
@@ -539,9 +539,9 @@
             
             <li>&#9744; Sometimes — I try to be consistent but don&#039;t have formal rules</li>
             
-            <li>&#9744; Usually — I follow documented naming conventions</li>
+            <li>&#9744; Reliably — I follow documented naming conventions in my work</li>
             
-            <li>&#9744; Always — I follow and enforce consistent conventions across all database objects</li>
+            <li>&#9744; Deliberately — I establish conventions that balance consistency with pragmatism, adapting when inherited schemas or tooling constraints require it</li>
             
           </ul>
         </div>
@@ -554,9 +554,9 @@
             
             <li>&#9744; Sometimes — Major changes are reviewed but minor ones skip review</li>
             
-            <li>&#9744; Usually — All schema changes are reviewed by at least one peer</li>
+            <li>&#9744; Reliably — All schema changes are reviewed by at least one peer</li>
             
-            <li>&#9744; Always — Structured review process with clear criteria and approval gates</li>
+            <li>&#9744; Maturely — I scale review rigor to change risk, with lightweight checks for low-risk changes and thorough review for structural ones</li>
             
           </ul>
         </div>
@@ -569,9 +569,9 @@
             
             <li>&#9744; Sometimes — I understand the concept but haven&#039;t implemented one</li>
             
-            <li>&#9744; Usually — I define contracts for shared data interfaces</li>
+            <li>&#9744; Reliably — I define contracts for shared data interfaces</li>
             
-            <li>&#9744; Always — I design and govern data contracts with versioning and compatibility guarantees</li>
+            <li>&#9744; Maturely — I design governance proportional to coupling risk, with formal contracts where breakage is costly and lighter agreements where teams are tightly aligned</li>
             
           </ul>
         </div>
@@ -582,7 +582,7 @@
   </noscript>
 </div>
 
-<script type="application/json" id="assessment-data">[{"id":"q-sr-qc-01","text":"How confident are you writing a multi-table JOIN that returns correct results without accidental row duplication?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only query one table at a time"},{"value":2,"label":"Sometimes — I can write simple JOINs but sometimes get unexpected row counts"},{"value":3,"label":"Usually — I choose JOIN types deliberately and verify row counts"},{"value":4,"label":"Always — I can join any number of tables correctly and explain the join semantics"}],"dimensionId":"dim-query-construction","levelId":"level-1","tags":["joins","query-basics"],"studyLinks":[{"label":"Query Writer Level","href":"/ai-coding/sql-competence/levels/query-writer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"JOIN correctness is the gateway skill from Level 1 to Level 2. Accidental row multiplication is the most common mistake in multi-table queries."},{"id":"q-sr-qc-02","text":"How effectively do you use CTEs (WITH clauses) to organize complex queries?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a CTE is"},{"value":2,"label":"Sometimes — I've used them but default to nested subqueries"},{"value":3,"label":"Usually — I restructure complex queries into CTEs for readability"},{"value":4,"label":"Always — I design query pipelines with CTEs and can explain when they help vs hurt performance"}],"dimensionId":"dim-query-construction","levelId":"level-2","tags":["cte","readability"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Dimensions","href":"/ai-coding/sql-competence/dimensions/"}],"explanation":"CTEs are the primary tool for making complex SQL readable and maintainable. Moving from nested subqueries to CTEs is a key Level 2 skill."},{"id":"q-sr-qc-03","text":"Can you rewrite a query to produce a better execution plan without changing its results?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about how queries execute"},{"value":2,"label":"Sometimes — I know some queries are slow but don't know how to fix them"},{"value":3,"label":"Usually — I can identify and rewrite common anti-patterns"},{"value":4,"label":"Always — I routinely optimize queries based on execution plan analysis"}],"dimensionId":"dim-query-construction","levelId":"level-4","tags":["optimization","execution-plans"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Query rewriting for performance requires understanding both SQL semantics and the query optimizer's behavior — a Level 4 skill."},{"id":"q-sr-dm-01","text":"Can you design a normalized schema (3NF) from a set of business requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create tables, I only query existing ones"},{"value":2,"label":"Sometimes — I can create simple tables but don't think about normalization"},{"value":3,"label":"Usually — I apply normalization rules and can identify violations"},{"value":4,"label":"Always — I design schemas from requirements with deliberate normalization and documented trade-offs"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["normalization","schema-design"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema design is the defining skill of Level 3. Moving from querying existing schemas to designing new ones is a fundamental shift."},{"id":"q-sr-dm-02","text":"How well can you explain when denormalization is the right choice and what trade-offs it introduces?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what denormalization means"},{"value":2,"label":"Sometimes — I've heard the term but can't explain the trade-offs"},{"value":3,"label":"Usually — I can explain read vs write trade-offs of denormalization"},{"value":4,"label":"Always — I make deliberate denormalization decisions with documented reasoning"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["denormalization","trade-offs"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Understanding when to break normalization rules requires both knowing the rules and understanding the performance implications."},{"id":"q-sr-dm-03","text":"Can you design cross-service data models with clear ownership boundaries?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database schemas"},{"value":2,"label":"Sometimes — I've thought about it but haven't designed one"},{"value":3,"label":"Usually — I can define ownership boundaries for shared data"},{"value":4,"label":"Always — I design enterprise data models with contracts between services"}],"dimensionId":"dim-data-modeling","levelId":"level-5","tags":["architecture","data-contracts"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Cross-service data modeling is an architectural skill that requires understanding both technical and organizational constraints."},{"id":"q-sr-at-01","text":"How well can you write window functions (ROW_NUMBER, RANK, LAG, LEAD) with appropriate PARTITION BY and ORDER BY?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what window functions are"},{"value":2,"label":"Sometimes — I can use ROW_NUMBER but struggle with more complex patterns"},{"value":3,"label":"Usually — I use various window functions and understand partitioning"},{"value":4,"label":"Always — I write complex analytical queries with multiple window functions fluently"}],"dimensionId":"dim-analytical-techniques","levelId":"level-2","tags":["window-functions","analytics"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Window functions are the key analytical tool in SQL. They enable calculations across related rows without collapsing the result set."},{"id":"q-sr-at-02","text":"Can you write a rolling average, cumulative sum, or cohort analysis query in SQL?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only do basic GROUP BY aggregations"},{"value":2,"label":"Sometimes — I can do rolling averages with help"},{"value":3,"label":"Usually — I write these patterns independently"},{"value":4,"label":"Always — I design complex analytical queries including time-series and cohort patterns"}],"dimensionId":"dim-analytical-techniques","levelId":"level-3","tags":["rolling-average","cohort-analysis"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Advanced analytical patterns demonstrate fluency with SQL's analytical capabilities beyond basic aggregation."},{"id":"q-sr-at-03","text":"Can you optimize analytical queries for performance on large datasets (e.g., using materialized views or pre-aggregation)?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about analytical query performance"},{"value":2,"label":"Sometimes — I know large queries are slow but don't know how to fix them"},{"value":3,"label":"Usually — I use materialized views and pre-aggregation when appropriate"},{"value":4,"label":"Always — I design analytical systems for performance at scale"}],"dimensionId":"dim-analytical-techniques","levelId":"level-4","tags":["materialized-views","performance"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Optimizing analytical workloads requires understanding both the query patterns and the database's storage and caching capabilities."},{"id":"q-sr-po-01","text":"Can you read an EXPLAIN / EXPLAIN ANALYZE output and identify why a query is slow?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what EXPLAIN does"},{"value":2,"label":"Sometimes — I can run EXPLAIN but struggle to interpret the output"},{"value":3,"label":"Usually — I identify sequential scans, missing indexes, and sort operations"},{"value":4,"label":"Always — I read plans fluently and predict optimizer behavior"}],"dimensionId":"dim-performance-optimization","levelId":"level-3","tags":["execution-plans","explain"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Reading execution plans is the foundational performance skill. Without it, optimization is guesswork."},{"id":"q-sr-po-02","text":"Can you design a composite index that covers a specific query's WHERE, JOIN, and ORDER BY requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create indexes"},{"value":2,"label":"Sometimes — I create single-column indexes but not composites"},{"value":3,"label":"Usually — I design composite indexes with deliberate column ordering"},{"value":4,"label":"Always — I design covering indexes and understand their write trade-offs"}],"dimensionId":"dim-performance-optimization","levelId":"level-4","tags":["indexes","composite-indexes"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Composite index design requires understanding how the database uses index column order to satisfy different query operations."},{"id":"q-sr-po-03","text":"Can you forecast database performance requirements and design for horizontal scaling?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about scale"},{"value":2,"label":"Sometimes — I know scaling is important but haven't planned for it"},{"value":3,"label":"Usually — I can estimate growth and plan capacity"},{"value":4,"label":"Always — I design architectures with scaling strategies and capacity models"}],"dimensionId":"dim-performance-optimization","levelId":"level-5","tags":["capacity-planning","scaling"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Capacity planning and scaling design are architectural skills that bridge performance engineering and organizational strategy."},{"id":"q-sr-di-01","text":"Do you use explicit transactions (BEGIN/COMMIT/ROLLBACK) for multi-statement operations?","type":"self-rate","choices":[{"value":1,"label":"Never — I run statements individually without transactions"},{"value":2,"label":"Sometimes — I use transactions when reminded but not by default"},{"value":3,"label":"Usually — I wrap related DML in transactions as standard practice"},{"value":4,"label":"Always — I design transactional workflows with appropriate isolation levels"}],"dimensionId":"dim-data-integrity","levelId":"level-2","tags":["transactions","acid"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Transactions are the primary mechanism for maintaining data consistency. Operating without them risks leaving data in an inconsistent state."},{"id":"q-sr-di-02","text":"Can you explain the difference between READ COMMITTED and REPEATABLE READ isolation levels with a concrete example?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what isolation levels are"},{"value":2,"label":"Sometimes — I've read about them but can't give concrete examples"},{"value":3,"label":"Usually — I can explain each level with scenarios"},{"value":4,"label":"Always — I select isolation levels per transaction based on consistency requirements"}],"dimensionId":"dim-data-integrity","levelId":"level-4","tags":["isolation-levels","concurrency"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Isolation level selection directly impacts both data correctness and system throughput. Understanding the trade-offs is essential for Level 4."},{"id":"q-sr-di-03","text":"Can you design cross-service consistency strategies that handle the trade-offs between strong and eventual consistency?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database consistency"},{"value":2,"label":"Sometimes — I've encountered distributed consistency but don't design for it"},{"value":3,"label":"Usually — I can evaluate consistency strategies for multi-service systems"},{"value":4,"label":"Always — I design distributed consistency with documented trade-off analysis"}],"dimensionId":"dim-data-integrity","levelId":"level-5","tags":["distributed-systems","consistency"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Distributed consistency is one of the hardest problems in data architecture. Designing for it requires deep understanding of CAP theorem trade-offs."},{"id":"q-sr-tw-01","text":"Do all your schema changes go through a version-controlled migration tool?","type":"self-rate","choices":[{"value":1,"label":"Never — I run DDL manually in a SQL client"},{"value":2,"label":"Sometimes — I use migrations for some changes but not all"},{"value":3,"label":"Usually — All schema changes go through migrations with up/down scripts"},{"value":4,"label":"Always — Migrations are automated, tested in CI, and reviewed before merge"}],"dimensionId":"dim-tooling-workflow","levelId":"level-3","tags":["migrations","version-control"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Migration tooling is what makes schema changes auditable, repeatable, and safe. Without it, database changes are a reliability risk."},{"id":"q-sr-tw-02","text":"Are your database migrations tested automatically in CI before reaching production?","type":"self-rate","choices":[{"value":1,"label":"Never — We don't have CI for database changes"},{"value":2,"label":"Sometimes — Some migrations are tested but coverage is inconsistent"},{"value":3,"label":"Usually — Migrations run in CI with automated validation"},{"value":4,"label":"Always — Full CI pipeline with schema validation, data tests, and rollback verification"}],"dimensionId":"dim-tooling-workflow","levelId":"level-4","tags":["ci-cd","automation"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"CI integration for database changes prevents migration failures from reaching production — a critical Level 4 workflow skill."},{"id":"q-sr-tw-03","text":"Have you defined toolchain standards and release governance for database changes across your team?","type":"self-rate","choices":[{"value":1,"label":"Never — Each person uses their own approach"},{"value":2,"label":"Sometimes — We have informal conventions but no formal process"},{"value":3,"label":"Usually — We have documented standards that most people follow"},{"value":4,"label":"Always — Comprehensive governance with approval gates and automated enforcement"}],"dimensionId":"dim-tooling-workflow","levelId":"level-5","tags":["governance","standards"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Toolchain governance ensures consistent, safe database changes at organizational scale."},{"id":"q-sr-cs-01","text":"Do you follow a consistent naming convention for tables, columns, indexes, and constraints?","type":"self-rate","choices":[{"value":1,"label":"Never — I name things ad-hoc"},{"value":2,"label":"Sometimes — I try to be consistent but don't have formal rules"},{"value":3,"label":"Usually — I follow documented naming conventions"},{"value":4,"label":"Always — I follow and enforce consistent conventions across all database objects"}],"dimensionId":"dim-collaboration-standards","levelId":"level-2","tags":["naming-conventions","standards"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Consistent naming conventions reduce cognitive load and make schemas self-documenting. This is the foundation of collaboration."},{"id":"q-sr-cs-02","text":"Do schema changes in your team go through peer review before being applied to production?","type":"self-rate","choices":[{"value":1,"label":"Never — Changes go directly to production"},{"value":2,"label":"Sometimes — Major changes are reviewed but minor ones skip review"},{"value":3,"label":"Usually — All schema changes are reviewed by at least one peer"},{"value":4,"label":"Always — Structured review process with clear criteria and approval gates"}],"dimensionId":"dim-collaboration-standards","levelId":"level-3","tags":["code-review","process"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema changes are expensive to reverse. Peer review catches issues before they reach production and builds shared understanding."},{"id":"q-sr-cs-03","text":"Can you define and enforce data contracts between services or teams?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a data contract is"},{"value":2,"label":"Sometimes — I understand the concept but haven't implemented one"},{"value":3,"label":"Usually — I define contracts for shared data interfaces"},{"value":4,"label":"Always — I design and govern data contracts with versioning and compatibility guarantees"}],"dimensionId":"dim-collaboration-standards","levelId":"level-5","tags":["data-contracts","governance"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Data contracts decouple teams while maintaining data integrity. They are the collaboration mechanism at enterprise scale."}]</script>
+<script type="application/json" id="assessment-data">[{"id":"q-sr-qc-01","text":"How confident are you writing a multi-table JOIN that returns correct results without accidental row duplication?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only query one table at a time"},{"value":2,"label":"Sometimes — I can write simple JOINs but sometimes get unexpected row counts"},{"value":3,"label":"Reliably — I choose JOIN types deliberately and verify row counts"},{"value":4,"label":"Confidently — I handle complex joins and diagnose unexpected results quickly"}],"dimensionId":"dim-query-construction","levelId":"level-1","tags":["joins","query-basics"],"studyLinks":[{"label":"Query Writer Level","href":"/ai-coding/sql-competence/levels/query-writer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"JOIN correctness is the gateway skill from Level 1 to Level 2. Accidental row multiplication is the most common mistake in multi-table queries."},{"id":"q-sr-qc-02","text":"How effectively do you use CTEs (WITH clauses) to organize complex queries?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a CTE is"},{"value":2,"label":"Sometimes — I've used them but default to nested subqueries"},{"value":3,"label":"Reliably — I restructure complex queries into CTEs for readability"},{"value":4,"label":"Fluently — I know when CTEs help readability and when they hurt performance, and choose accordingly"}],"dimensionId":"dim-query-construction","levelId":"level-2","tags":["cte","readability"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Dimensions","href":"/ai-coding/sql-competence/dimensions/"}],"explanation":"CTEs are the primary tool for making complex SQL readable and maintainable. Moving from nested subqueries to CTEs is a key Level 2 skill."},{"id":"q-sr-qc-03","text":"Can you rewrite a query to produce a better execution plan without changing its results?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about how queries execute"},{"value":2,"label":"Sometimes — I know some queries are slow but don't know how to fix them"},{"value":3,"label":"Reliably — I can identify and rewrite common anti-patterns"},{"value":4,"label":"Confidently — I optimize based on plans and know when the cost of rewriting isn't worth it"}],"dimensionId":"dim-query-construction","levelId":"level-4","tags":["optimization","execution-plans"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Query rewriting for performance requires understanding both SQL semantics and the query optimizer's behavior — a Level 4 skill."},{"id":"q-sr-dm-01","text":"Can you design a normalized schema (3NF) from a set of business requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create tables, I only query existing ones"},{"value":2,"label":"Sometimes — I can create simple tables but don't think about normalization"},{"value":3,"label":"Reliably — I apply normalization rules and can identify violations"},{"value":4,"label":"Confidently — I design schemas knowing when 3NF is overkill or insufficient for the use case"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["normalization","schema-design"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema design is the defining skill of Level 3. Moving from querying existing schemas to designing new ones is a fundamental shift."},{"id":"q-sr-dm-02","text":"How well can you explain when denormalization is the right choice and what trade-offs it introduces?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what denormalization means"},{"value":2,"label":"Sometimes — I've heard the term but can't explain the trade-offs"},{"value":3,"label":"Reliably — I can explain read vs write trade-offs of denormalization"},{"value":4,"label":"Confidently — I weigh denormalization costs in context and know when the complexity isn't justified"}],"dimensionId":"dim-data-modeling","levelId":"level-3","tags":["denormalization","trade-offs"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Understanding when to break normalization rules requires both knowing the rules and understanding the performance implications."},{"id":"q-sr-dm-03","text":"Can you design cross-service data models with clear ownership boundaries?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database schemas"},{"value":2,"label":"Sometimes — I've thought about it but haven't designed one"},{"value":3,"label":"Reliably — I can define ownership boundaries for shared data"},{"value":4,"label":"Confidently — I design cross-service models, knowing when formal contracts add value vs overhead"}],"dimensionId":"dim-data-modeling","levelId":"level-5","tags":["architecture","data-contracts"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Cross-service data modeling is an architectural skill that requires understanding both technical and organizational constraints."},{"id":"q-sr-at-01","text":"How well can you write window functions (ROW_NUMBER, RANK, LAG, LEAD) with appropriate PARTITION BY and ORDER BY?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what window functions are"},{"value":2,"label":"Sometimes — I can use ROW_NUMBER but struggle with more complex patterns"},{"value":3,"label":"Reliably — I use various window functions and understand partitioning"},{"value":4,"label":"Fluently — I choose the right window function and understand when SQL analytics vs application code is appropriate"}],"dimensionId":"dim-analytical-techniques","levelId":"level-2","tags":["window-functions","analytics"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Window functions are the key analytical tool in SQL. They enable calculations across related rows without collapsing the result set."},{"id":"q-sr-at-02","text":"Can you write a rolling average, cumulative sum, or cohort analysis query in SQL?","type":"self-rate","choices":[{"value":1,"label":"Never — I can only do basic GROUP BY aggregations"},{"value":2,"label":"Sometimes — I can do rolling averages with help"},{"value":3,"label":"Reliably — I write these patterns independently"},{"value":4,"label":"Fluently — I write advanced analytical queries and know when to push work to the database vs the application layer"}],"dimensionId":"dim-analytical-techniques","levelId":"level-3","tags":["rolling-average","cohort-analysis"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Advanced analytical patterns demonstrate fluency with SQL's analytical capabilities beyond basic aggregation."},{"id":"q-sr-at-03","text":"Can you optimize analytical queries for performance on large datasets (e.g., using materialized views or pre-aggregation)?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about analytical query performance"},{"value":2,"label":"Sometimes — I know large queries are slow but don't know how to fix them"},{"value":3,"label":"Reliably — I use materialized views and pre-aggregation when appropriate"},{"value":4,"label":"Confidently — I evaluate materialized views, pre-aggregation, and caching based on actual workload characteristics"}],"dimensionId":"dim-analytical-techniques","levelId":"level-4","tags":["materialized-views","performance"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Optimizing analytical workloads requires understanding both the query patterns and the database's storage and caching capabilities."},{"id":"q-sr-po-01","text":"Can you read an EXPLAIN / EXPLAIN ANALYZE output and identify why a query is slow?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what EXPLAIN does"},{"value":2,"label":"Sometimes — I can run EXPLAIN but struggle to interpret the output"},{"value":3,"label":"Reliably — I identify sequential scans, missing indexes, and sort operations"},{"value":4,"label":"Fluently — I interpret plans, predict optimizer choices, and know when a 'bad' plan is actually acceptable"}],"dimensionId":"dim-performance-optimization","levelId":"level-3","tags":["execution-plans","explain"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Reading execution plans is the foundational performance skill. Without it, optimization is guesswork."},{"id":"q-sr-po-02","text":"Can you design a composite index that covers a specific query's WHERE, JOIN, and ORDER BY requirements?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't create indexes"},{"value":2,"label":"Sometimes — I create single-column indexes but not composites"},{"value":3,"label":"Reliably — I design composite indexes with deliberate column ordering"},{"value":4,"label":"Confidently — I design covering indexes, weighing read benefit against write cost for the specific workload"}],"dimensionId":"dim-performance-optimization","levelId":"level-4","tags":["indexes","composite-indexes"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Composite index design requires understanding how the database uses index column order to satisfy different query operations."},{"id":"q-sr-po-03","text":"Can you forecast database performance requirements and design for horizontal scaling?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't think about scale"},{"value":2,"label":"Sometimes — I know scaling is important but haven't planned for it"},{"value":3,"label":"Reliably — I can estimate growth and plan capacity"},{"value":4,"label":"Confidently — I design scaling strategies, knowing when vertical scaling suffices vs when horizontal is needed"}],"dimensionId":"dim-performance-optimization","levelId":"level-5","tags":["capacity-planning","scaling"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Capacity planning and scaling design are architectural skills that bridge performance engineering and organizational strategy."},{"id":"q-sr-di-01","text":"Do you use explicit transactions (BEGIN/COMMIT/ROLLBACK) for multi-statement operations?","type":"self-rate","choices":[{"value":1,"label":"Never — I run statements individually without transactions"},{"value":2,"label":"Sometimes — I use transactions when reminded but not by default"},{"value":3,"label":"Reliably — I wrap related DML in transactions as standard practice"},{"value":4,"label":"Deliberately — I choose transaction boundaries and isolation levels based on the specific consistency need"}],"dimensionId":"dim-data-integrity","levelId":"level-2","tags":["transactions","acid"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Transactions are the primary mechanism for maintaining data consistency. Operating without them risks leaving data in an inconsistent state."},{"id":"q-sr-di-02","text":"Can you explain the difference between READ COMMITTED and REPEATABLE READ isolation levels with a concrete example?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what isolation levels are"},{"value":2,"label":"Sometimes — I've read about them but can't give concrete examples"},{"value":3,"label":"Reliably — I can explain each level with scenarios"},{"value":4,"label":"Confidently — I select isolation levels per transaction, weighing consistency needs against throughput"}],"dimensionId":"dim-data-integrity","levelId":"level-4","tags":["isolation-levels","concurrency"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"Isolation level selection directly impacts both data correctness and system throughput. Understanding the trade-offs is essential for Level 4."},{"id":"q-sr-di-03","text":"Can you design cross-service consistency strategies that handle the trade-offs between strong and eventual consistency?","type":"self-rate","choices":[{"value":1,"label":"Never — I only work with single-database consistency"},{"value":2,"label":"Sometimes — I've encountered distributed consistency but don't design for it"},{"value":3,"label":"Reliably — I can evaluate consistency strategies for multi-service systems"},{"value":4,"label":"Confidently — I design consistency strategies knowing when strong consistency costs too much for the use case"}],"dimensionId":"dim-data-integrity","levelId":"level-5","tags":["distributed-systems","consistency"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Distributed consistency is one of the hardest problems in data architecture. Designing for it requires deep understanding of CAP theorem trade-offs."},{"id":"q-sr-tw-01","text":"Do all your schema changes go through a version-controlled migration tool?","type":"self-rate","choices":[{"value":1,"label":"Never — I run DDL manually in a SQL client"},{"value":2,"label":"Sometimes — I use migrations for some changes but not all"},{"value":3,"label":"Reliably — All schema changes go through migrations with up/down scripts"},{"value":4,"label":"Consistently — CI-tested migrations are the norm, with pragmatic exceptions for emergency hotfixes"}],"dimensionId":"dim-tooling-workflow","levelId":"level-3","tags":["migrations","version-control"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Migration tooling is what makes schema changes auditable, repeatable, and safe. Without it, database changes are a reliability risk."},{"id":"q-sr-tw-02","text":"Are your database migrations tested automatically in CI before reaching production?","type":"self-rate","choices":[{"value":1,"label":"Never — We don't have CI for database changes"},{"value":2,"label":"Sometimes — Some migrations are tested but coverage is inconsistent"},{"value":3,"label":"Reliably — Migrations run in CI with automated validation"},{"value":4,"label":"Consistently — CI validates migrations with practical coverage proportional to change risk"}],"dimensionId":"dim-tooling-workflow","levelId":"level-4","tags":["ci-cd","automation"],"studyLinks":[{"label":"Performance Engineer Level","href":"/ai-coding/sql-competence/levels/performance-engineer/"}],"explanation":"CI integration for database changes prevents migration failures from reaching production — a critical Level 4 workflow skill."},{"id":"q-sr-tw-03","text":"Have you defined toolchain standards and release governance for database changes across your team?","type":"self-rate","choices":[{"value":1,"label":"Never — Each person uses their own approach"},{"value":2,"label":"Sometimes — We have informal conventions but no formal process"},{"value":3,"label":"Reliably — We have documented standards that most people follow"},{"value":4,"label":"Maturely — Governance balances safety with velocity, adapting process weight to change risk"}],"dimensionId":"dim-tooling-workflow","levelId":"level-5","tags":["governance","standards"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"}],"explanation":"Toolchain governance ensures consistent, safe database changes at organizational scale."},{"id":"q-sr-cs-01","text":"Do you follow a consistent naming convention for tables, columns, indexes, and constraints?","type":"self-rate","choices":[{"value":1,"label":"Never — I name things ad-hoc"},{"value":2,"label":"Sometimes — I try to be consistent but don't have formal rules"},{"value":3,"label":"Reliably — I follow documented naming conventions in my work"},{"value":4,"label":"Deliberately — I establish conventions that balance consistency with pragmatism, adapting when inherited schemas or tooling constraints require it"}],"dimensionId":"dim-collaboration-standards","levelId":"level-2","tags":["naming-conventions","standards"],"studyLinks":[{"label":"Data Analyst Level","href":"/ai-coding/sql-competence/levels/data-analyst/"}],"explanation":"Consistent naming conventions reduce cognitive load and make schemas self-documenting. This is the foundation of collaboration."},{"id":"q-sr-cs-02","text":"Do schema changes in your team go through peer review before being applied to production?","type":"self-rate","choices":[{"value":1,"label":"Never — Changes go directly to production"},{"value":2,"label":"Sometimes — Major changes are reviewed but minor ones skip review"},{"value":3,"label":"Reliably — All schema changes are reviewed by at least one peer"},{"value":4,"label":"Maturely — I scale review rigor to change risk, with lightweight checks for low-risk changes and thorough review for structural ones"}],"dimensionId":"dim-collaboration-standards","levelId":"level-3","tags":["code-review","process"],"studyLinks":[{"label":"Schema Designer Level","href":"/ai-coding/sql-competence/levels/schema-designer/"}],"explanation":"Schema changes are expensive to reverse. Peer review catches issues before they reach production and builds shared understanding."},{"id":"q-sr-cs-03","text":"Can you define and enforce data contracts between services or teams?","type":"self-rate","choices":[{"value":1,"label":"Never — I don't know what a data contract is"},{"value":2,"label":"Sometimes — I understand the concept but haven't implemented one"},{"value":3,"label":"Reliably — I define contracts for shared data interfaces"},{"value":4,"label":"Maturely — I design governance proportional to coupling risk, with formal contracts where breakage is costly and lighter agreements where teams are tightly aligned"}],"dimensionId":"dim-collaboration-standards","levelId":"level-5","tags":["data-contracts","governance"],"studyLinks":[{"label":"Database Architect Level","href":"/ai-coding/sql-competence/levels/database-architect/"},{"label":"Glossary","href":"/ai-coding/sql-competence/glossary/"}],"explanation":"Data contracts decouple teams while maintaining data integrity. They are the collaboration mechanism at enterprise scale."}]</script>
 <script type="application/json" id="dimensions-meta">[{"id":"dim-query-construction","name":"Query Construction","shortName":"Querying","summary":"Ability to write correct, readable, and efficient SQL."},{"id":"dim-data-modeling","name":"Data Modeling","shortName":"Modeling","summary":"Skill in designing relational schemas and entity relationships."},{"id":"dim-analytical-techniques","name":"Analytical Techniques","shortName":"Analytics","summary":"Proficiency with aggregation, window functions, and analysis patterns."},{"id":"dim-performance-optimization","name":"Performance & Optimization","shortName":"Performance","summary":"Understanding of index design, execution plans, and query tuning."},{"id":"dim-data-integrity","name":"Data Integrity & Transactions","shortName":"Integrity","summary":"Command of constraints, ACID properties, and transactional design."},{"id":"dim-tooling-workflow","name":"Tooling & Workflow","shortName":"Workflow","summary":"Use of SQL clients, migrations, version control, and CI/CD."},{"id":"dim-collaboration-standards","name":"Collaboration & Standards","shortName":"Standards","summary":"Adherence to naming conventions, documentation, and data governance."}]</script>
 
       </div>
